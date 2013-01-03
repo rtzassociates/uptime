@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyString
+  service_id: 1
+  status_id: 1
+  closed_at: 2013-01-02 14:59:06
+
+two:
+  description: MyString
+  service_id: 1
+  status_id: 1
+  closed_at: 2013-01-02 14:59:06
