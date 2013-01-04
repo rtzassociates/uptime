@@ -2,7 +2,8 @@ class Service < ActiveRecord::Base
   attr_accessible :name, :status_id
   
   belongs_to :status
-  has_many :events
+  has_many :event_services
+  has_many :events, :through => :event_services
   
   has_many :subscriptions
   has_many :users, through: :subscriptions

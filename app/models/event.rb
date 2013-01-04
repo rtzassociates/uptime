@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   attr_accessible :closed_at, :description, :service_id, :status_id
   
-  belongs_to :service
+  has_many :event_services
+  has_many :services, :through => :event_services
   
   def is_active?
     return true if closed_at == nil

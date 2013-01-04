@@ -3,4 +3,10 @@ class User < ActiveRecord::Base
   
   has_many :subscriptions
   has_many :services, through: :subscriptions
+  
+  has_many :emails
+  
+  def email_addresses
+    emails
+  end
 end
