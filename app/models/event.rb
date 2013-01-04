@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
-  attr_accessible :closed_at, :description, :service_id, :status_id
+  attr_accessible :closed_at, :description, :service_ids, :status_id
   
   has_many :event_services
   has_many :services, :through => :event_services
   
-  def is_active?
+  def current?
     return true if closed_at == nil
   end
   
@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
     where(:status_id => Status.find_by_value("up"))
   end
   
-  def self.active
+  def self.current
     where(:closed_at => nil)
   end
   
@@ -24,12 +24,12 @@ class Event < ActiveRecord::Base
     self.closed_at = Time.zone.now
   end
   
-  def status_string
+  def status
     Status.find(status_id).value
   end
   
   def duration
-    if self.is_active?
+    if self.current?
       Time.zone.now - created_at
     else
       closed_at - created_at

@@ -1,7 +1,6 @@
 class Service < ActiveRecord::Base
-  attr_accessible :name, :status_id
+  attr_accessible :name
   
-  belongs_to :status
   has_many :event_services
   has_many :events, :through => :event_services
   
@@ -9,23 +8,27 @@ class Service < ActiveRecord::Base
   has_many :users, through: :subscriptions
   
   def current_event
-    events.active.first
+    events.current.first
   end
   
   def total_downtime
     events.outages.map { |e| e.duration }.sum
   end
   
-  def time_since_creation
+  def lifespan_in_seconds
     Time.zone.now.to_i - created_at.to_i
   end
   
-  def total_uptime
+  def uptime_in_seconds
     time_since_creation - total_downtime
   end
   
-  def uptime_percentage
-    ( total_uptime.to_f / time_since_creation.to_f ) * 100
+  def uptime
+    ( uptime_in_seconds.to_f / lifespan_in_seconds.to_f ) * 100
+  end
+  
+  def status
+    current_event == nil ? "OK" : current_event.status
   end
   
 end
