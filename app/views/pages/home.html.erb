@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row">
+  <div class="span8 offset2">
+    <div id="current_events">
+      <h1>Reported Problems</h1>
+      <div class="rounded_border">
+        
+        <% if @current_events.empty? %>
+          <h2>Currently, there are no problems reported. Yay!</h2>
+        <% else %>
+          <% @current_events.each do |event| %>
+            <%= event %>
+          <% end %>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6 offset3">
+    <div id="report_a_problem">
+      <%= link_to "Report a problem", new_event_path %>
+    </div>
+  </div>
+</div>

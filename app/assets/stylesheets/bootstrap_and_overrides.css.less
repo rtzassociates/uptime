@@ -1,0 +1,98 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+h1 {
+  color: gray;
+  margin-bottom: 1em;
+}
+
+#new_event {
+  text-align: center; 
+}
+
+#current_events {
+  margin-bottom: 2em;
+}
+
+#current_events h1 {
+  text-align: center;
+}
+
+#current_events h2 {
+  text-align: center;
+  color: gray;
+}
+
+.rounded_border {
+  border: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: gray;
+  padding: 1em;
+}
+
+body {
+  color: black;
+  background-color: white;
+}
+
+a.logo {
+  text-decoration: none;
+  font-family: 'Fredoka One', cursive;
+  font-size: 6em;
+  color: green;
+  text-decoration: none;
+}
+
+.header {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  text-align: center;
+}
+
+#report_a_problem {
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: red;
+  padding: 1em;
+  text-align: center;
+  border-radius: 25px;
+}
+
+#report_a_problem a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled bootstrap_and_overrides.css will not
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
+
+// Font Awesome
+@import "fontawesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;

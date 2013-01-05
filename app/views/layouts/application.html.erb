@@ -3,12 +3,24 @@
 <head>
   <title>Uptime</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+    <div class="row">
+      <div class="header span12">
+        <%= link_to 'uptime', root_path, :class => 'logo' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
