@@ -1,0 +1,30 @@
+<div class="event">
+  <div class="row">
+    <div class="span3">
+      <div class="index_event_status <%= event.status.downcase %>">
+        <%= event.status %>
+      </div>
+      <p>
+        Reported on <%= event.created_at %>
+      </p>
+      <% if event.closed? %>
+        <p>
+          Marked as resolved on <%= event.closed_at %>
+        </p>
+      <% end %>
+    </div>
+    <div class="span9">
+      <div>
+        <p> 
+          <%= services_affected_by event %>
+        </p>
+      </div>
+      <p>
+        <%= event.description %>
+      </p>
+      <p>
+        <%= link_to 'View this event', event %>
+      </p>
+    </div>
+  </div>
+</div>

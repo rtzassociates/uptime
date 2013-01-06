@@ -1,13 +1,46 @@
 class EventsController < ApplicationController
+  include EventsHelper
+  
   def index
+    @events = Event.all
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def new
+    @event = Event.new
+  end
+  
+  def create
+    @event = Event.new(params[:event])
+    
+    if @event.save
+      redirect_to @event, :notice => "Event was successfully created."
+    else
+      render 'new'
+    end
+  end
+  
+  def edit
+    @event = Event.find(params[:id])
   end
 
-  def edit
+  def update
+    @event = Event.find(params[:id])
+    
+    if @event.update_attributes(params[:event])
+      redirect_to @event, :notice => "Event was successfully updated."
+    else
+      render 'new'
+    end
+  end
+  
+  def close
+    @event = Event.find(params[:id])
+    @event.close
+    @event.save
+    redirect_to @event
   end
 end

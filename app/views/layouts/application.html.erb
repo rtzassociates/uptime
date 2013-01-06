@@ -20,6 +20,14 @@
         <%= yield %>
       </div>
     </div>
+    <div class="row">
+      <div class="span6 offset3">
+        <div id="links">
+          <%= link_to "View Past Issues", events_path, :class => 'link' %>
+          <%= link_to "Applications and Services", services_path, :class => 'link' %>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>

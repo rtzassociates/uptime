@@ -20,11 +20,11 @@ class Service < ActiveRecord::Base
   end
   
   def uptime_in_seconds
-    time_since_creation - total_downtime
+    lifespan_in_seconds - total_downtime
   end
   
   def uptime
-    ( uptime_in_seconds.to_f / lifespan_in_seconds.to_f ) * 100
+    ( uptime_in_seconds.to_f / lifespan_in_seconds.to_f ).round(4) * 100
   end
   
   def status

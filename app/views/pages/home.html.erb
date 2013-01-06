@@ -1,22 +1,36 @@
 <div class="row">
   <div class="span8 offset2">
+    <h1>Reported Problems</h1>
     <div id="current_events">
-      <h1>Reported Problems</h1>
-      <div class="rounded_border">
-        
-        <% if @current_events.empty? %>
-          <h2>Currently, there are no problems reported. Yay!</h2>
-        <% else %>
-          <% @current_events.each do |event| %>
-            <%= event %>
-          <% end %>
+      <% if @current_events.empty? %>
+        <h2>Currently, there are no problems reported. Yay!</h2>
+        <h4 style="color:green">
+          ( It's been <%= time_ago_in_words(Event.last.closed_at) %> since the last reported issue )
+        </h4>
+      <% else %>
+        <% @current_events.each do |event| %>
+          <div class="event">
+            <div class="event_status <%= event.status.downcase %>">
+              <%= event.status %>
+            </div>
+            <p class="centered"> 
+              <%= services_affected_by event %>
+            </p>
+            <p class="centered">
+              <%= time_ago_in_words(event.created_at).capitalize %> ago, a user reported:
+            </p>
+            <p>
+              <%= event.description %>
+            </p>
+            <div class="event_links">
+              <p><%= link_to 'View this event', event %></p>
+            </div>
+          </div>
         <% end %>
-        
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="span6 offset3">
     <div id="report_a_problem">

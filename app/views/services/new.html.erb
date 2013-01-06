@@ -1,2 +1,12 @@
-<h1>Services#new</h1>
-<p>Find me in app/views/services/new.html.erb</p>
+<h1>New Service</h1>
+<div id="new_service">
+  <%= form_for @service do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit :class => "btn" %>
+    </p>
+  <% end %>
+</div>

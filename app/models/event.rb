@@ -9,11 +9,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.outages
-    where(:status_id => Status.find_by_value("down"))
-  end
-  
-  def self.recoveries
-    where(:status_id => Status.find_by_value("up"))
+    where(:status_id => Status.find_by_value("Outage"))
   end
   
   def self.current
@@ -22,6 +18,10 @@ class Event < ActiveRecord::Base
   
   def close
     self.closed_at = Time.zone.now
+  end
+  
+  def closed?
+    return true unless closed_at == nil
   end
   
   def status

@@ -3,7 +3,11 @@ Uptime::Application.routes.draw do
   get "pages/home"
   root :to => "pages#home"
   resources :services
-  resources :events
+  resources :events do
+    member do
+      post :close
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

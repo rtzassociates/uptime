@@ -1,0 +1,17 @@
+<%= form_for @event do |f| %>
+  <p>
+    <%= f.label 'What kind of problem is this?' %>
+    <%= f.collection_select :status_id, Status.all, :id, :value %>
+  <p>
+    <%= f.label :description, "Please provide a description of the problem." %>
+    <%= f.text_area :description, :class => "span8", :rows => 5 %>
+  </p>
+  <p>
+    <%= f.label :service_ids, "This issue affects the following services:" %>
+    <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, {multiple: true} %>
+  </p>
+  <br />
+  <p>
+    <%= f.submit :class => 'btn' %>
+  </p>
+<% end %>
