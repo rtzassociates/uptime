@@ -4,6 +4,8 @@ class Resolution < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
   
+  has_many :comments, :as => :commentable
+  
   def resolved_at_text
     resolved_at.try(:strftime, "%Y-%m-%d %H:%M:%S")
   end

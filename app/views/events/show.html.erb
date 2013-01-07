@@ -18,6 +18,12 @@
       <%= link_to 'Edit this event', edit_event_path(@event), :class => "link-small" %>
       <%= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "link-small danger" %>
     </p>
+    <div id="new_comment">
+      <%= render "comments/form" %>
+    </div>
+    <div id="comments">
+      <%= render @event.comments %>
+    <div>
     <% if @event.closed? %>
       <h3>Resolution</h4>
       <p class="subtle">Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user, :class => "link-large" %> on <%= @event.closed_at.strftime("%b%e, %Y at %l:%M %p") %> ( <%= time_ago_in_words(@event.closed_at).capitalize %> ago )</p>

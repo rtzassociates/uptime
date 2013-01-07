@@ -4,10 +4,14 @@ Uptime::Application.routes.draw do
   root :to => "pages#home"
   resources :services
   resources :events do
-    resource :resolution
+    resources :comments
+    resource :resolution do
+      resources :comments
+    end
   end
   resources :users
   resources :sessions
+  resources :comments
   
   match "signout" => "sessions#destroy"
 
