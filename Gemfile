@@ -13,6 +13,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'bootstrap-will_paginate'
 gem 'thin'
 gem 'quiet_assets'
+gem 'chronic'
 
 
 # Gems used only for assets and not required
@@ -21,6 +22,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'chosen-rails'
+  gem 'jquery-ui-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

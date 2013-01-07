@@ -3,3 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#event_service_ids').chosen()
+  Morris.Line
+    element: 'events_chart'
+    data: $('#events_chart').data('events')
+    xkey: 'created_at'
+    ykeys: ['event_count', 'outages', 'errors', 'slowdowns', 'restarts']
+    labels: ['event_count', 'outages', 'errors', 'slowdowns', 'restarts']
+  $('.datepicker').datepicker()

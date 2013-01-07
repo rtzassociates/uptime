@@ -6,14 +6,14 @@
       </div>
       <% if event.closed? %>
         <div id="event_closed-small">
-          Marked as resolved on <%= event.closed_at %> by <%= link_to event.resolution.user.username, event.resolution.user %>
+          Marked as resolved on <%= event.closed_at.strftime("%b%e, %Y at %l:%M %p") %> by <%= link_to event.resolution.user.username, event.resolution.user %>
         </div>
       <% end %>
     </div>
     <div class="span9">
       <div>
         <p>
-          Reported by <%= link_to event.user.username, event.user, :class => "link-large" %> on <%= event.created_at %> ( <%= time_ago_in_words(event.created_at) %> ago ) 
+          Reported by <%= link_to event.user.username, event.user, :class => "link-large" %> on <%= event.start_time.strftime("%b%e, %Y at %l:%M %p") %> ( <%= time_ago_in_words(event.start_time) %> ago ) 
         </p>
         <p> 
           <%= services_affected_by event %>

@@ -11,7 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require chosen-jquery
+//= require raphael
+//= require morris
 //= require_tree .

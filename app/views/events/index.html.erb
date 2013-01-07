@@ -1,3 +1,28 @@
+<h3 class="centered">Issue Tracker</h3>
+
+<div class="graph_links centered">
+  <%= link_to "Weekly", events_path %>
+  <%= link_to "Monthly", events_path(:graph => "monthly") %>
+  <%= link_to "Quarterly", events_path(:graph => "quarterly") %>
+  <%= link_to "Annually", events_path(:graph => "annually") %>
+</div>
+
+<div class="graph rounded_border">
+  <% if params[:graph] == "annually" %>
+    <%= content_tag :div, "", id: "events_chart", data: {events: events_chart_data_annually} %>
+  <% elsif params[:graph] == "quarterly" %>
+    <%= content_tag :div, "", id: "events_chart", data: {events: events_chart_data_quarterly} %>
+  <% elsif params[:graph] == "monthly" %>
+    <%= content_tag :div, "", id: "events_chart", data: {events: events_chart_data_monthly} %>
+  <% else %>
+    <%= content_tag :div, "", id: "events_chart", data: {events: events_chart_data_weekly} %>
+  <% end %>
+</div>
+
+<h3 class="centered">Past Issues</h3>
+
+<br />
+
 <div id="events">
   <%= render @events %>
 </div>

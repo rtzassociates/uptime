@@ -3,6 +3,14 @@
   <p>
     <%= f.label :status_id, 'What kind of problem is this?' %>
     <%= f.collection_select :status_id, Status.all, :id, :value %>
+  </p>
+  <p>
+    <%= f.label :start_time_text, "When did this problem occur?" %> 
+    <%= f.text_field :start_time_text, :value => ( @event.new_record? ? Time.zone.now.strftime("%b%e, %Y at %l:%M %p") : @event.start_time.strftime("%b%e, %Y at %l:%M %p") ) %>
+  </p>
+  <p class="hint centered">
+    ( ex: "Today at 9 AM", "January 1st, 1970", "2 days ago at noon" )
+  </p>
   <p>
     <%= f.label :description, "Please provide a description of the problem." %>
     <%= f.text_area :description, :class => "span8", :rows => 5 %>

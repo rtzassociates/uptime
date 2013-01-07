@@ -20,7 +20,7 @@
               <%= services_affected_by event %>
             </p>
             <p class="centered">
-              <%= time_ago_in_words(event.created_at).capitalize %> ago, <%= link_to event.user.username, event.user, :class => "link-large" %> reported:
+              <%= time_ago_in_words(event.start_time).capitalize %> ago, <%= link_to event.user.username, event.user, :class => "link-large" %> reported:
             </p>
             <p>
               <%= event.description %>
