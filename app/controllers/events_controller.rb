@@ -37,10 +37,10 @@ class EventsController < ApplicationController
     end
   end
   
-  def close
+  def destroy
     @event = Event.find(params[:id])
-    @event.close
-    @event.save
-    redirect_to @event
+    @event.destroy
+    redirect_to events_path, :notice => "Event was successfully destroyed"
   end
+
 end

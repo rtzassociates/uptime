@@ -1,6 +1,7 @@
 <%= form_for @event do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <p>
-    <%= f.label 'What kind of problem is this?' %>
+    <%= f.label :status_id, 'What kind of problem is this?' %>
     <%= f.collection_select :status_id, Status.all, :id, :value %>
   <p>
     <%= f.label :description, "Please provide a description of the problem." %>

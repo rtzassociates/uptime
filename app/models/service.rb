@@ -24,7 +24,7 @@ class Service < ActiveRecord::Base
   end
   
   def uptime
-    ( uptime_in_seconds.to_f / lifespan_in_seconds.to_f ).round(4) * 100
+    (( uptime_in_seconds.to_f / lifespan_in_seconds.to_f ) * 100).round(2)
   end
   
   def status

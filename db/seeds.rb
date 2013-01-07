@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+statuses = Status.create([{:value => 'outage'},
+            {:value => 'slow'},
+            {:value => 'error'},
+            {:value => 'restart'}])

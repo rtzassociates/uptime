@@ -1,0 +1,17 @@
+<h1>Users</h1>
+<div class="user">
+  <table class="table">
+    <thead>
+      <th>Username</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+</div>
+
+<p class="centered">
+  <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
+</p>

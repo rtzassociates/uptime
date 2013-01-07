@@ -15,14 +15,22 @@ h1 {
   margin-bottom: 1em;
 }
 
+h2 {
+  color: gray;
+}
+
+h3 {
+  color: gray;
+}
+
 h4 {
   text-align: center;
   margin-bottom: 1em;
 }
 
 #links {
-  margin-top: 2em;
-  margin-bottom: 3em;
+  margin-top: 1em;
+  margin-bottom: 2em;
   text-align: center;
 }
 
@@ -34,8 +42,25 @@ h4 {
   font-weight: bold;
 }
 
+#new_user {
+  text-align: center; 
+}
+
+#sign_in_or_sign_out {
+  text-align: center; 
+  margin-bottom: 3em;
+}
+
+#new_session {
+  text-align: center; 
+}
+
 #new_event {
   text-align: center; 
+}
+
+#new_event h1 {
+  margin-bottom: 1em; 
 }
 
 .event_status {
@@ -72,8 +97,21 @@ a.link-large {
   font-size: 18px;
 }
 
+#new_resolution {
+  text-align: center;
+}
+
+#edit_resolution {
+  text-align: center;
+}
+
 .event_links {
   text-align: center;
+}
+
+.link-small {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 #edit_event {
@@ -112,9 +150,8 @@ textarea {
   padding: 1em;
 }
 
-#current_events {
+.event {
   margin-bottom: 3em;
-  .rounded_border
 }
 
 #current_events h2 {
@@ -123,8 +160,9 @@ textarea {
   margin-bottom: 1em;
 }
 
-.event {
+#event {
   margin-bottom: 2em;
+  .rounded_border
 }
 
 #event_closed {
@@ -140,6 +178,17 @@ textarea {
   margin-bottom: 1em;
 }
 
+#event_closed-small {
+  padding: 5px;
+  text-align: center;
+  background-color: yellow;
+  color: black;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  margin-bottom: 1em;
+}
+
 .event_services {
   padding: 1em;
 }
@@ -149,7 +198,7 @@ textarea {
   border-width: 1px;
   border-radius: 4px;
   border-color: gray;
-  padding: 1em;
+  padding: 2em;
 }
 
 body {
@@ -179,6 +228,7 @@ a.logo {
   padding: 1em;
   text-align: center;
   border-radius: 25px;
+  margin-bottom: 2em;
 }
 
 #report_a_problem a {

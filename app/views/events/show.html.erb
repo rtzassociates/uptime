@@ -2,27 +2,36 @@
   <div class="rounded_border">
     <% if @event.closed? %>
       <div id="event_closed">
-        This issue was marked as resolved at <%= @event.closed_at %> by User
+        This issue was marked as resolved at <%= @event.closed_at %> by <%= link_to @event.resolution.user.username, @event.resolution.user %>
       </div>
     <% end %>
     <div class="event_status <%= @event.status.downcase %>">
       <%= @event.status %>
     </div>
-    <div class="event_description">
-      <p><%= time_ago_in_words(@event.created_at).capitalize %> ago, a user reported:</p>
-      <p><%= @event.description %></p>
-    </div>
-    </div>
-  <div class="event_services">
+    <p>Reported by <%= link_to @event.user.username, @event.user, :class => 'link-large' %> on <%= @event.created_at %> ( <%= time_ago_in_words(@event.created_at).capitalize %> ago )</p>
     <p> 
       <%= services_affected_by @event %>
     </p>
+    <h3>Problem</h3>
+    <p><%= @event.description %></p>
+    <p class="centered">
+      <%= link_to 'Edit this event', edit_event_path(@event), :class => "link-small" %>
+      <%= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "link-small danger" %>
+    </p>
+    <% if @event.closed? %>
+      <h3>Resolution</h4>
+      <p><%= link_to @event.resolution.user.username, @event.resolution.user, :class => "link-large" %> resolved this event</p>
+      <p><%= @event.resolution.description %></p>
+      <p class="centered">
+        <%= link_to 'Edit Resolution', edit_event_resolution_path(@event), :class => "link-small" %>
+        <%= link_to 'Destroy', event_resolution_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "link-small danger" %>
+      </p>
+    <% end %>
   </div>
-  <div class="event_links">
-    <p><%= link_to 'Edit this event', edit_event_path(@event) %></p>
+  <div>
     <% unless @event.closed? %>
       <br />
-      <p><%= link_to 'Mark As Resolved', close_event_path(@event), :method => :post, :class => "btn" %></p>
+      <p class="centered"><%= link_to 'Mark As Resolved', new_event_resolution_path(@event), :class => "btn" %></p>
     <% end %>
   </div>
 </div>

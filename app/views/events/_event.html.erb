@@ -4,17 +4,17 @@
       <div class="index_event_status <%= event.status.downcase %>">
         <%= event.status %>
       </div>
-      <p>
-        Reported on <%= event.created_at %>
-      </p>
       <% if event.closed? %>
-        <p>
-          Marked as resolved on <%= event.closed_at %>
-        </p>
+        <div id="event_closed-small">
+          Marked as resolved on <%= event.closed_at %> by <%= link_to event.resolution.user.username, event.resolution.user %>
+        </div>
       <% end %>
     </div>
     <div class="span9">
       <div>
+        <p>
+          Reported by <%= link_to event.user.username, event.user, :class => "link-large" %> on <%= event.created_at %> ( <%= time_ago_in_words(event.created_at) %> ago ) 
+        </p>
         <p> 
           <%= services_affected_by event %>
         </p>

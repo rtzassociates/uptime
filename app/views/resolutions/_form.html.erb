@@ -1,0 +1,9 @@
+<%= form_for @resolution, :url => event_resolution_path do |f| %>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "span8", :rows => 5 %>
+  </p>
+  <p>
+    <%= f.submit :class => "btn" %>
+  </p>
+<% end %>

@@ -1,13 +1,15 @@
 Uptime::Application.routes.draw do
-
+  
   get "pages/home"
   root :to => "pages#home"
   resources :services
   resources :events do
-    member do
-      post :close
-    end
+    resource :resolution
   end
+  resources :users
+  resources :sessions
+  
+  match "signout" => "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
