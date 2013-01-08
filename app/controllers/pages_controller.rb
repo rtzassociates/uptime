@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     if permitted_sort_options.include? params[:sort]
        @unresolved_events = Event.unresolved_sorted(params[:sort])
     else
-       @unresolved_events = Event.unresolved_sorted("DESC")
+       @unresolved_events = Event.unresolved_sorted("desc")
     end
   end
 end
