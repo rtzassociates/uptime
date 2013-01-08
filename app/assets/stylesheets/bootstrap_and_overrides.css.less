@@ -7,6 +7,41 @@ label {
   padding-bottom: 1em;
 }
 
+h1 {
+  margin-bottom: 1em;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+
+.actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#session {
+  margin-bottom: 3em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+#nav {
+  padding: 1em;
+}
+
+.nav {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.small {
+  font-size: 14px;
+}
+
 a {
   font-size: 16px;
 }
@@ -16,11 +51,23 @@ form {
 }
 
 .description {
+  color: black;
   text-align: left;
 }
 
 #event {
   margin-top: 2em;
+  margin-bottom: 1em;
+  .rounded_border
+}
+
+.event {
+  margin-bottom: 2em;
+}
+
+#events {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 #event_body {
@@ -39,8 +86,10 @@ form {
 }
 
 .event_status-small {
+  padding: 1em;
   margin-bottom: 10px;
   border: solid;
+  border-color: black;
   border-width: 5px;
   font-size: 24px;
 }
@@ -62,24 +111,34 @@ form {
 
 .Restart {
   color: black;
-  background-color: #963; /* brown */
+  background-color: lightBlue;
 }
 
 .danger {
   color: red;
 }
 
+.green {
+  color: green;
+}
+
 textarea {
   padding: 1em;
 }
 
-.event_resolved-large {
+#event_resolved-large {
+  padding: 1em;
+  margin-bottom: 1em;
   background-color: yellow;
   color: black;
   font-size: 18px;
   border: solid;
   border-width: 3px;
   border-radius: 5px;
+}
+
+#event_resolved-large a {
+  font-size: 20px;
 }
 
 #event_closed-small {
@@ -113,10 +172,13 @@ a.logo {
 
 #header {
   margin-top: 3em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 #report_a_problem {
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border: solid;
   border-width: 2px;
   background-color: red;
@@ -129,6 +191,10 @@ a.logo {
   text-decoration: none;
 }
 
+.link-large {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");

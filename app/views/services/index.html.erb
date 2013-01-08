@@ -1,35 +1,37 @@
-<h1>Applications and Services</h1>
-<div id="services">
-  <% if @services.empty? %>
-    <h3 class="centered">Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
-  <% else %>
-    <table class="table table-striped">
-      <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Uptime</th>
-        <th>Issue Count</th>
-        <th>Last Reported Issue</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @services.each do |service| %>
-        <tr>
-          <td><%= link_to service.name, service %></td>
-          <td><%= service.status %></td>
-          <td><%= service.uptime %>%</td>
-          <td><%= service.events.count %></td>
-          <td><%= service.events.empty? ? "Never" : "#{time_ago_in_words(service.events.last.created_at).capitalize} ago" %></td>
-          <td><%= link_to 'Edit', edit_service_path(service) %></td>
-          <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+<div class="span12">
+  <h1>Applications and Services</h1>
+  <div id="services">
+    <% if @services.empty? %>
+      <h3 class="centered">Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
+    <% else %>
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Uptime</th>
+          <th>Issue Count</th>
+          <th>Last Reported Issue</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @services.each do |service| %>
+          <tr>
+            <td><%= link_to service.name, service %></td>
+            <td><%= service.status %></td>
+            <td><%= service.uptime %>%</td>
+            <td><%= service.events.count %></td>
+            <td><%= service.events.empty? ? "Never" : "#{time_ago_in_words(service.events.last.created_at).capitalize} ago" %></td>
+            <td><%= link_to 'Edit', edit_service_path(service) %></td>
+            <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>
 
-<div id="new_service">
+<div class="actions link-large">
   <%= link_to "Add a service", new_service_path, :class => "btn" %>
 </div>

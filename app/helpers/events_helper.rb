@@ -19,13 +19,13 @@ module EventsHelper
   def problem_for(event)
     raw "Reported by #{ link_to event.problem.user.username, event.problem.user, :class => 'link-large' } 
      on #{ event.problem.reported_at.strftime('%b%e, %Y at %l:%M %p') }
-     #{ time_ago_in_words(event.problem.reported_at).capitalize } ago"
+     (#{ time_ago_in_words(event.problem.reported_at).capitalize } ago)"
   end
   
   def resolution_for(event)
     raw "Resolved by #{ link_to event.resolution.user.username, event.resolution.user, :class => 'link-large' } 
-     on #{ event.resolved_at.strftime('%b%e, %Y at %l:%M %p') }
-     #{ time_ago_in_words(event.resolved_at).capitalize } ago"
+     on #{ event.resolution.resolved_at.strftime('%b%e, %Y at %l:%M %p') }
+     (#{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago)"
   end
   
   def events_chart_data_weekly

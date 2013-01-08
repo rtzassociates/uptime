@@ -11,12 +11,8 @@ class Event < ActiveRecord::Base
   
   has_one :resolution
   
-  def resolved_at
-    resolution.resolved_at || nil
-  end
-  
   def current?
-    return true if resolved_at == nil
+    return true if resolution.nil?
   end
   
   def self.outages
@@ -51,9 +47,9 @@ class Event < ActiveRecord::Base
   
   def duration
     if self.current?
-      Time.zone.now - problem.start_time
+      Time.zone.now - problem.reported_at
     else
-      resolution.resolved_at - problem.start_time
+      resolution.resolved_at - problem.reported_at
     end
   end
   

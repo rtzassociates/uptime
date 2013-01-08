@@ -28,7 +28,7 @@ class Service < ActiveRecord::Base
   end
   
   def status
-    current_event == nil ? "OK" : current_event.status
+    current_event == nil ? "OK" : current_event.status.value
   end
   
 end
