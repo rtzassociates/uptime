@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 statuses = Status.create([{:value => 'outage'},
-            {:value => 'slow'},
-            {:value => 'error'},
-            {:value => 'restart'}])
+                          {:value => 'slow'},
+                          {:value => 'error'},
+                          {:value => 'restart'}])
+            
+users = User.create([{:username => "james", :password => "rasputin"}])
+
+services = Service.create([{:name => "cagetcare"},
+                           {:name => "sfgetcare"},
+                           {:name => "msgetcare"}])
+            

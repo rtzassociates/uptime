@@ -1,34 +1,22 @@
 class Event < ActiveRecord::Base
-  attr_accessible :start_time_text, :description, :service_ids, :status_id, :user_id
+  attr_accessible :service_ids, :problem_attributes, :status_id
   
   has_many :event_services, :dependent => :destroy
   has_many :services, :through => :event_services
+
+  belongs_to :status
   
-  has_many :comments, :as => :commentable
+  has_one :problem
+  accepts_nested_attributes_for :problem
   
-  belongs_to :user
   has_one :resolution
   
-  def start_time_text
-    start_time.try(:strftime, "%Y-%m-%d %H:%M:%S")
-  end
-  
-  def start_time_text=(time)
-    self.start_time = Chronic.parse(time) if time.present?
-  rescue ArgumentError
-    self.start_time = nil
-  end
-  
-  def services_affected_count
-    services.count
-  end
-  
-  def closed_at
+  def resolved_at
     resolution.resolved_at || nil
   end
   
   def current?
-    return true if closed_at == nil
+    return true if resolved_at == nil
   end
   
   def self.outages
@@ -57,19 +45,16 @@ class Event < ActiveRecord::Base
     current_events
   end
   
-  def closed?
+  def resolved?
     return true if resolution
-  end
-  
-  def status
-    Status.find(status_id).value
   end
   
   def duration
     if self.current?
-      Time.zone.now - start_time
+      Time.zone.now - problem.start_time
     else
-      closed_at - start_time
+      resolution.resolved_at - problem.start_time
     end
   end
+  
 end

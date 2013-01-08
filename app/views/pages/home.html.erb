@@ -1,38 +1,41 @@
-<div class="row">
-  <div class="span8 offset2">
-    <h1>Reported Problems</h1>  
-      <% if @current_events.empty? %>
-        <div id="event">
-          <h2 class="centered">Currently, there are no problems reported. Yay!</h2>     
-          <% unless Event.all.empty? %>
-            <h4 style="color:green; margin-top:1em">
-              ( It's been <%= time_ago_in_words(Event.last.closed_at) %> since the last reported issue )
-            </h4>
-          <% end %>
-        </div>
-      <% else %>
-        <% @current_events.each do |event| %>
-          <div id="event">
-            <div class="event_status <%= event.status.downcase %>">
-              <%= event.status %>
-            </div>
-            <p class="centered"> 
-              <%= services_affected_by event %>
-            </p>
-            <p class="centered">
-              <%= time_ago_in_words(event.start_time).capitalize %> ago, <%= link_to event.user.username, event.user, :class => "link-large" %> reported:
-            </p>
-            <p>
-              <%= event.description %>
-            </p>
-            <p class="centered">
-              <%= link_to 'View this event', event %>
-            </p>
-          </div>
-        <% end %>
+<div class="span8 offset2">
+  <h1>Reported Problems</h1>
+    
+  <% if @current_events.empty? %>
+  
+    <div id="event" class="rounded_border">
+      <h2>Currently, there are no problems reported. Yay!</h2>     
+      <% unless Event.all.empty? %>
+        <h4>
+          ( It's been <%= time_ago_in_words(Event.last.closed_at) %> since the last reported issue )
+        </h4>
       <% end %>
     </div>
-  </div>
+    
+  <% else %>
+  
+    <% @current_events.each do |event| %>
+      <div id="event">
+        <div class="event_status <%= event.status.downcase %>">
+          <%= event.status %>
+        </div>
+        <p class="centered"> 
+          <%= services_affected_by event %>
+        </p>
+        <p class="centered">
+          <%= reported_for event %>
+        </p>
+        <p>
+          <%= event.description %>
+        </p>
+        <p class="centered">
+          <%= link_to 'View this event', event %>
+        </p>
+      </div>
+    <% end %>
+    
+  <% end %>
+</div>
 
 <% if logged_in? %>
   <div class="row">

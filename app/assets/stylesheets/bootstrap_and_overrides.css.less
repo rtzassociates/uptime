@@ -1,167 +1,68 @@
 @import "twitter/bootstrap/bootstrap";
-/*@import "twitter/bootstrap/responsive";*/
+@import "twitter/bootstrap/responsive";
 
-.graph {
-  margin-bottom: 3em;
+label {
+  color: black;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
-.hint {
-  color: gray;
-  font-size: 14px;
-}
-
-.subtle {
-  color: gray;
-}
-
-#services {
-  .rounded_border
-}
-
-.graph_links {
-  margin-bottom: 1em;
-}
-
-.graph_links a {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-#services h2 {
-  text-align: center;
-}
-
-h1 {
-  text-align: center;
-  color: gray;
-  margin-bottom: 1em;
-}
-
-h2 {
-  color: gray;
-}
-
-h3 {
-  color: gray;
-}
-
-h4 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-#links {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  text-align: center;
-}
-
-.link {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: gray;
+a {
   font-size: 16px;
-  font-weight: bold;
 }
 
-#new_user {
-  text-align: center; 
+form {
+  margin: 1em;
 }
 
-#sign_in_or_sign_out {
-  text-align: center; 
-  margin-bottom: 3em;
+.description {
+  text-align: left;
 }
 
-#new_session {
-  text-align: center; 
+#event {
+  margin-top: 2em;
 }
 
-#new_event {
-  text-align: center; 
+#event_body {
+  text-align: left;
 }
 
-#new_event h1 {
-  margin-bottom: 1em; 
-}
-
-.event_status {
+.event_status-large {
+  padding: 1em;
   margin: auto;
-  margin-bottom: 1em;
   width: 200px;
-  padding: 1em;
   border: solid;
-  border-color: black;
   border-width: 5px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.index_event_status {
-  margin-bottom: 10px;
-  padding: 1em;
-  border: solid;
   border-color: black;
-  border-width: 5px;
-  text-align: center;
   font-size: 24px;
-}
-
-.centered {
-  text-align: center;
-}
-
-p {
   margin-bottom: 1em;
 }
 
-a.link-large {
-  font-size: 18px;
+.event_status-small {
+  margin-bottom: 10px;
+  border: solid;
+  border-width: 5px;
+  font-size: 24px;
 }
 
-#new_resolution {
-  text-align: center;
-}
-
-#edit_resolution {
-  text-align: center;
-}
-
-.event_links {
-  text-align: center;
-}
-
-.link-small {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#edit_event {
-  text-align: center;
-}
-
-.outage {
+.Outage {
   color: white;
   background-color: red;
 }
 
-label {
-  padding: 1em;
-}
-
-.error {
+.Error {
   color: white;
   background-color: orange;
 }
 
-.slow {
+.Slow {
   color: black;
   background-color: yellow;
 }
 
-#new_service {
-  margin-top: 1em;
-  text-align: center; 
+.Restart {
+  color: black;
+  background-color: #963; /* brown */
 }
 
 .danger {
@@ -172,47 +73,21 @@ textarea {
   padding: 1em;
 }
 
-.event {
-  margin-bottom: 3em;
-}
-
-#current_events h2 {
-  text-align: center;
-  color: gray;
-  margin-bottom: 1em;
-}
-
-#event {
-  margin-bottom: 2em;
-  .rounded_border
-}
-
-#event_closed {
-  padding: 1em;
-  text-align: center;
+.event_resolved-large {
   background-color: yellow;
   color: black;
   font-size: 18px;
   border: solid;
   border-width: 3px;
   border-radius: 5px;
-  border-color: black;
-  margin-bottom: 1em;
 }
 
 #event_closed-small {
   padding: 5px;
-  text-align: center;
   background-color: yellow;
   color: black;
   border: solid;
   border-width: 1px;
-  border-color: black;
-  margin-bottom: 1em;
-}
-
-.event_services {
-  padding: 1em;
 }
 
 .rounded_border {
@@ -224,7 +99,8 @@ textarea {
 }
 
 body {
-  color: black;
+  text-align: center;
+  color: gray;
   background-color: white;
 }
 
@@ -233,24 +109,18 @@ a.logo {
   font-family: 'Fredoka One', cursive;
   font-size: 6em;
   color: green;
-  text-decoration: none;
 }
 
-.header {
-  padding-top: 3em;
-  padding-bottom: 3em;
-  text-align: center;
+#header {
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
 
 #report_a_problem {
   border: solid;
   border-width: 2px;
-  border-color: black;
   background-color: red;
-  padding: 1em;
-  text-align: center;
   border-radius: 25px;
-  margin-bottom: 2em;
 }
 
 #report_a_problem a {

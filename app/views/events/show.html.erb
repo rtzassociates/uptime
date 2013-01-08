@@ -1,43 +1,59 @@
-<div class="event">
-  <div class="rounded_border">
-    <% if @event.closed? %>
-      <div id="event_closed">
-        This issue was marked as resolved on <%= @event.closed_at.strftime("%b%e, %Y at %l:%M %p") %> by <%= link_to @event.resolution.user.username, @event.resolution.user %>
+<div class="span12">
+  <div id="event">
+    <% if @event.resolved? %>
+      <div id="event_resolved-large">
+        <%= resolution_for @event %>
       </div>
     <% end %>
-    <div class="event_status <%= @event.status.downcase %>">
-      <%= @event.status %>
+      
+    <div class="event_status-large <%= @event.status.value %>">
+      <%= @event.status.value %>
     </div>
-    <p class="subtle">Reported by <%= link_to @event.user.username, @event.user, :class => 'link-large' %> on <%= @event.start_time.strftime("%b%e, %Y at %l:%M %p") %> ( <%= time_ago_in_words(@event.start_time).capitalize %> ago )</p>
-    <p> 
-      <%= services_affected_by @event %>
-    </p>
-    <h3>Problem</h3>
-    <p><%= @event.description %></p>
-    <p class="centered">
-      <%= link_to 'Edit this event', edit_event_path(@event), :class => "link-small" %>
-      <%= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "link-small danger" %>
-    </p>
-    <div id="new_comment">
-      <%= render "comments/form" %>
+    
+    <div id="event_body">
+      <p>
+        <%= problem_for @event %>
+      </p>
+      <p> 
+        <%= services_affected_by @event %>
+      </p>
+      
+      <div id="problem">
+        <h3>Problem</h3>
+        <div class="description">
+          <%= @event.problem.description %>
+        </div>
+        <p>
+          <%= link_to 'Edit this problem', edit_event_problem_path(@event) %>
+          <%= link_to 'Destroy', event_problem_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %>
+        </p>
+      </div>    
+        
+      <% if @event.resolved? %>
+        <div id="resolution">
+          <h3>Resolution</h4>
+          <p>
+            <%= resolution_for @event %>
+          </p>
+          <div class="description">
+            <%= @event.resolution.description %>
+          </div>
+          <p>
+            <%= link_to 'Edit Resolution', edit_event_resolution_path(@event) %>
+            <%= link_to 'Destroy', event_resolution_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %>
+          </p>
+        </div>
+      <% end %>
     </div>
-    <div id="comments">
-      <%= render @event.comments %>
-    <div>
-    <% if @event.closed? %>
-      <h3>Resolution</h4>
-      <p class="subtle">Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user, :class => "link-large" %> on <%= @event.closed_at.strftime("%b%e, %Y at %l:%M %p") %> ( <%= time_ago_in_words(@event.closed_at).capitalize %> ago )</p>
-      <p><%= @event.resolution.description %></p>
-      <p class="centered">
-        <%= link_to 'Edit Resolution', edit_event_resolution_path(@event), :class => "link-small" %>
-        <%= link_to 'Destroy', event_resolution_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "link-small danger" %>
+  
+  </div>
+
+  <div class="actions">
+    <% unless @event.resolved? %>
+      <p>
+        <%= link_to 'Mark As Resolved', new_event_resolution_path(@event), :class => "btn" %>
       </p>
     <% end %>
   </div>
-  <div>
-    <% unless @event.closed? %>
-      <br />
-      <p class="centered"><%= link_to 'Mark As Resolved', new_event_resolution_path(@event), :class => "btn" %></p>
-    <% end %>
-  </div>
+  
 </div>

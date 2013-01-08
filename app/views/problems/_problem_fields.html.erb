@@ -1,0 +1,13 @@
+<p>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.label :reported_at_text, "When did this problem occur?" %> 
+  <%= f.text_field :reported_at_text, :value => ( @event.new_record? ? Time.zone.now.strftime("%b%e, %Y at %l:%M %p") : @event.problem.start_time.strftime("%b%e, %Y at %l:%M %p") ) %>
+</p>
+<p>
+  ( ex: "Today at 9 AM", "January 1st, 1970", "2 days ago at noon" )
+</p>
+<br />
+<p>
+  <%= f.label :description, "Please provide a description of the problem." %>
+  <%= f.text_area :description, :class => "span8", :rows => 5 %>
+</p>
