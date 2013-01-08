@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include EventsHelper
   
   def index
-    @events = Event.all
+    @events = Event.reported_at
   end
 
   def show

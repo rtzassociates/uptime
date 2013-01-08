@@ -5,22 +5,22 @@
         <%= event.status.value %>
       </div>
       <% if event.resolved? %>
-        <div id="event_closed-small">
+        <div id="resolved_by-small">
           <%= resolution_for event %>
         </div>
       <% end %>
     </div>
     <div class="span9">
-      <div class="description">
-        <p>
-          <%= problem_for event %>
-        </p>
+      <div class="description">     
         <p> 
           <%= services_affected_by event %>
         </p>
-        <p>
-          <%= event.problem.description %>
+        <p class="reported_by-small">
+          <%= problem_for event %>
         </p>
+        <div class="description">
+          <%= markdown event.problem.description %>
+        </div>
         <p>
           <%= link_to 'View this event', event, :class => 'small' %>
         </p>

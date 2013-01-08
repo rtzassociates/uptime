@@ -7,8 +7,8 @@ class Service < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
   
-  def current_event
-    events.current.first
+  def unresolved_events
+    events.unresolved
   end
   
   def total_downtime
@@ -28,7 +28,7 @@ class Service < ActiveRecord::Base
   end
   
   def status
-    current_event == nil ? "OK" : current_event.status.value
+    unresolved_events.empty? ? "OK" : unresolved_events.last.status.value
   end
   
 end

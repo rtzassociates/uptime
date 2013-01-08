@@ -77,12 +77,16 @@ form {
 .event_status-large {
   padding: 1em;
   margin: auto;
-  width: 200px;
   border: solid;
   border-width: 5px;
   border-color: black;
   font-size: 24px;
   margin-bottom: 1em;
+  width:150px;
+}
+
+.subtle {
+  color: gray;
 }
 
 .event_status-small {
@@ -126,7 +130,7 @@ textarea {
   padding: 1em;
 }
 
-#event_resolved-large {
+#resolved_by-large {
   padding: 1em;
   margin-bottom: 1em;
   background-color: yellow;
@@ -137,16 +141,27 @@ textarea {
   border-radius: 5px;
 }
 
-#event_resolved-large a {
+#resolved_by-large a {
   font-size: 20px;
 }
 
-#event_closed-small {
+#resolved_by-small {
   padding: 5px;
   background-color: yellow;
   color: black;
   border: solid;
   border-width: 1px;
+  margin-bottom: 1em;
+}
+
+pre {
+  margin-top: 2em;
+  margin-bottom: 2em; 
+}
+
+#reported_by-small {
+  padding: 5px;
+  margin-bottom: 1em;
 }
 
 .rounded_border {
@@ -180,6 +195,7 @@ a.logo {
   margin-top: 1em;
   margin-bottom: 1em;
   border: solid;
+  border-color: black;
   border-width: 2px;
   background-color: red;
   border-radius: 25px;

@@ -1,7 +1,7 @@
 <div class="span8 offset2">
-  <h1>Reported Problems</h1>
+  <!-- <h1>Reported Problems</h1> -->
     
-  <% if @current_events.empty? %>
+  <% if @unresolved_events.empty? %>
   
     <div id="event">
       <h2>Currently, there are no problems reported. Yay!</h2>     
@@ -14,20 +14,20 @@
     
   <% else %>
   
-    <% @current_events.each do |event| %>
+    <% @unresolved_events.each do |event| %>
       <div id="event">
         <div class="event_status-large <%= event.status.value %>">
           <%= event.status.value %>
         </div>
-        <p> 
-          <%= services_affected_by event %>
-        </p>
-        <p>
-          <%= problem_for event %>
-        </p>
-        <p class="description">
-          <%= event.problem.description %>
-        </p>
+        <div class="description">
+          <p class="subtle"> 
+            <%= services_affected_by event %>
+          </p>
+          <p class="subtle">
+            <%= problem_for event %>
+          </p>
+          <%= markdown event.problem.description %>
+        </div>
         <div class="actions">
           <%= link_to 'View this event', event, :class => "nav small" %>
         </div>

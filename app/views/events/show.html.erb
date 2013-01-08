@@ -1,11 +1,11 @@
 <div class="span12">
   <div id="event">
     <% if @event.resolved? %>
-      <div id="event_resolved-large">
+      <div id="resolved_by-large">
         <%= resolution_for @event %>
       </div>
     <% end %>
-      
+
     <div class="event_status-large <%= @event.status.value %>">
       <%= @event.status.value %>
     </div>
@@ -21,10 +21,10 @@
           <%= problem_for @event %>
         </p>
         <div class="description">
-          <%= @event.problem.description %>
+          <%= markdown @event.problem.description %>
         </div>
         <div class="actions">
-          <%= link_to 'Edit this event', edit_event_path(@event), :class => 'nav small' %>
+          <%= link_to 'Edit Problem', edit_event_path(@event), :class => 'nav small' %>
           <%= link_to 'Destroy', event_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
         </div>
       </div>    

@@ -14,6 +14,7 @@ gem 'bootstrap-will_paginate'
 gem 'thin'
 gem 'quiet_assets'
 gem 'chronic'
+gem 'redcarpet', '1.17.2'
 
 
 # Gems used only for assets and not required

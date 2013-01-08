@@ -109,6 +109,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (1.17.2)
     ref (1.0.2)
     sass (3.2.4)
     sass-rails (3.2.5)
@@ -152,6 +153,7 @@ DEPENDENCIES
   less-rails
   quiet_assets
   rails (= 3.2.9)
+  redcarpet (= 1.17.2)
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
