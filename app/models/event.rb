@@ -62,4 +62,8 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def self.reported_on(date)
+    joins(:problem).where("date(datetime(problems.reported_at, 'localtime')) = ?", date)
+  end
+  
 end

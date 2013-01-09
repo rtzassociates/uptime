@@ -15,6 +15,7 @@ gem 'thin'
 gem 'quiet_assets'
 gem 'chronic'
 gem 'redcarpet', '1.17.2'
+gem "highcharts-rails", "~> 2.3.0"
 
 
 # Gems used only for assets and not required
