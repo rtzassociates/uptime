@@ -1,12 +1,6 @@
 Uptime::Application.routes.draw do
   
-  get "graphs/weekly"
-
-  get "graphs/monthly"
-
-  get "graphs/quarterly"
-
-  get "graphs/annually"
+  get "events/chart"
 
   get "pages/home"
   root :to => "pages#home"

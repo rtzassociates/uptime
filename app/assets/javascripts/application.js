@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.ui.datepicker
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require chosen-jquery
 //= require raphael
 //= require morris
 //= require highcharts
-//= require highcharts/highcharts-more # to get the new features in 2.3.0
 //= require_tree .
