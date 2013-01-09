@@ -12,15 +12,15 @@
     </div>
     <div class="span9">
       <div class="description">     
-        <p> 
+        <p class="subtle"> 
           <%= services_affected_by event %>
         </p>
-        <p class="reported_by-small">
+        <p class="subtle">
           <%= problem_for event %>
         </p>
-        <div class="description">
+        <p>
           <%= markdown event.problem.description %>
-        </div>
+        </p>
         <p>
           <%= link_to 'View this event', event, :class => 'small' %>
         </p>

@@ -7,4 +7,3 @@ jQuery ->
     data: $('#events_chart').data('events')
     xkey: 'created_at'
     ykeys: ['event_count', 'outages', 'errors', 'slowdowns', 'restarts']
-    labels: ['event_count', 'outages', 'errors', 'slowdowns', 'restarts']
