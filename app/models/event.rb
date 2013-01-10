@@ -18,6 +18,12 @@ class Event < ActiveRecord::Base
       end
     end
   end
+  
+  def self.status_hash
+    Status.select(:value).each_with_object({}) do |s, h|
+      h[s.value] = Event.send("#{s.value.downcase}")
+    end
+  end
 
   def self.reported_at
     find(:all,

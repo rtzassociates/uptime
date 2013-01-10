@@ -10,11 +10,14 @@
           tickInterval: 1
         },
         series:[
-              <% { "Events" => Event,
-                   "Outages" => Event.outage, 
-                   "Slowdowns" => Event.slow, 
-                   "Errors" => Event.error,
-                   "Restarts" => Event.restart }.each do |name, event| %>
+            {
+                name: "All Events",
+                pointInterval: <%= 1.day * 1000 %>,
+                pointStart: <%= @start_date.to_time.to_i * 1000 %>,
+                pointEnd: <%= @end_date.to_time.to_i * 1000 %>,
+                data: <%= (@start_date..@end_date).map { |date| Event.reported_on(date).count}.inspect %>
+            },
+              <% Event.status_hash.each do |name, event| %>
             {
               name: "<%= name %>",
               pointInterval: <%= 1.day * 1000 %>,
