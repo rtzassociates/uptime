@@ -1,0 +1,17 @@
+<%= form_for @status do |f| %>
+  <p>
+    <%= f.label :value, "Status Name" %>
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :foreground_color, "Text Color" %>
+    <%= f.select :foreground_color, [ "Black", "White" ] %>
+  </p>
+  <p>
+    <%= f.label :background_color %>
+    <%= f.select :background_color, Status.colors %>
+  </p>
+  <p>
+    <%= f.submit :class => "btn" %>
+  </p>
+<% end %>

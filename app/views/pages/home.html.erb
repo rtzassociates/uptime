@@ -16,7 +16,7 @@
   
     <% @unresolved_events.each do |event| %>
       <div id="event">
-        <div class="event_status-large <%= event.status.value %>">
+        <div class="event_status-large" style="background-color:<%= event.status.background_color %>;color:<%= event.status.foreground_color %>">
           <%= event.status.value %>
         </div>
         <div class="description">

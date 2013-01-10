@@ -1,0 +1,9 @@
+<div class="span12">
+  <h1>Status Manager</h2>
+  <div id="statuses">
+    <%= render @statuses %>
+  </div>
+  <p>
+    <%= link_to "Create a new status", new_status_path, :class => "btn" %>
+  </p>
+</div>

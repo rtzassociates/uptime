@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107234724) do
+ActiveRecord::Schema.define(:version => 20130109213019) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(:version => 20130107234724) do
 
   create_table "statuses", :force => true do |t|
     t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "foreground_color"
+    t.string   "background_color"
   end
 
   create_table "subscriptions", :force => true do |t|

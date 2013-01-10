@@ -11,22 +11,14 @@ class Event < ActiveRecord::Base
   
   has_one :resolution
   
-  def self.outages
-    where(:status_id => Status.find_by_value("outage"))
+  class << self
+    Status.all.each do |status|
+      define_method(status.value.downcase) do
+        send("where", :status_id => Status.find_by_value(status.value.downcase))
+      end
+    end
   end
-  
-  def self.slowdowns
-    where(:status_id => Status.find_by_value("slow"))
-  end
-  
-  def self.errors
-    where(:status_id => Status.find_by_value("error"))
-  end
-  
-  def self.restarts
-    where(:status_id => Status.find_by_value("restart"))
-  end
-  
+
   def self.reported_at
     find(:all,
          :joins => "LEFT JOIN `problems` ON problems.event_id = events.id",

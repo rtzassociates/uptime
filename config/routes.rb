@@ -1,11 +1,14 @@
 Uptime::Application.routes.draw do
   
-  get "events/chart"
+  get "manage" => "manage#index"
+
+  get "charts/events"
 
   get "pages/home"
   root :to => "pages#home"
   
   resources :services
+  resources :statuses
   
   resources :events do
     resource :problem

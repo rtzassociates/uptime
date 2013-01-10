@@ -1,0 +1,47 @@
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+        chart: { renderTo: 'events_chart' },
+        title: { text: '' },
+        xAxis: { type: 'datetime' },
+        yAxis: {
+          title: { text: 'Event Count' },
+          min: 0,
+          tickInterval: 1
+        },
+        series:[
+              <% { "Events" => Event,
+                   "Outages" => Event.outage, 
+                   "Slowdowns" => Event.slow, 
+                   "Errors" => Event.error,
+                   "Restarts" => Event.restart }.each do |name, event| %>
+            {
+              name: "<%= name %>",
+              pointInterval: <%= 1.day * 1000 %>,
+              pointStart: <%= @start_date.to_time.to_i * 1000 %>,
+              pointEnd: <%= @end_date.to_time.to_i * 1000 %>,
+              data: <%= (@start_date..@end_date).map { |date| event.reported_on(date).count}.inspect %>
+            },
+            <% end %>]
+          });
+        });
+</script>
+
+
+<div class="span12">
+  <h1>Events Chart</h1>
+  <%= form_tag charts_events_path, :class => 'form-inline', :method => 'get' do %>
+    <label>From:</label>
+    <%= text_field_tag :start_date, params[:start_date], :placeholder => "Start Date" %>
+    <label>To:</label>
+    <%= text_field_tag :end_date, params[:end_date], :placeholder => "End Date" %>
+    <%= submit_tag "Generate Chart", :name => nil, :class => 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div id="events_chart" class="span12"></div>
+  </div>
+</div>

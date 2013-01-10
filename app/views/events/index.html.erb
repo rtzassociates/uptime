@@ -2,7 +2,7 @@
   <div class="h1">
     Past Problems
     <div class="dropdown sublink">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort options</a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort Options</a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
         <li><%= link_to "Newest first", params.merge(:order => "desc") %></li>
         <li><%= link_to "Oldest first", params.merge(:order => "asc") %></li>
@@ -10,7 +10,7 @@
         <li><%= link_to "Severity", params.merge(:order => "severity") %></li>
       </ul>
     </div>
-    <span class="sublink"><%= link_to "Event Tracker", events_chart_path %></span>
+    <span class="sublink"><%= link_to "Events Chart", charts_events_path %></span>
   </div>
   <div id="events">
     <%= render @events %>
