@@ -13,7 +13,7 @@ class Problem < ActiveRecord::Base
   def reported_at_text=(time)
     self.reported_at = Chronic.parse(time) if time.present?
   rescue ArgumentError
-    self.reported_at = nil
+    self.reported_at = Time.zone.now.strftime("%b %e, %Y at %l:%M %p")
   end
   
 end

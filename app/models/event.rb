@@ -26,10 +26,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.reported_at
-    find(:all,
-         :joins => "LEFT JOIN `problems` ON problems.event_id = events.id",
-         :select => "events.*, problems.reported_at",
-         :order => "problems.reported_at DESC")
+    joins(:problem).order("problems.reported_at DESC")
   end
   
   def self.resolved

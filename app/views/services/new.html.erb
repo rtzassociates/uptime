@@ -1,12 +1,4 @@
 <h1>New Service</h1>
 <div id="new_service">
-  <%= form_for @service do |f| %>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.submit :class => "btn" %>
-    </p>
-  <% end %>
+  <%= render 'form' %>
 </div>

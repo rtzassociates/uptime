@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :user_ids
   
   has_many :event_services
   has_many :events, :through => :event_services
@@ -12,7 +12,7 @@ class Service < ActiveRecord::Base
   end
   
   def total_downtime
-    events.outages.map { |e| e.duration }.sum
+    events.outage.map { |e| e.duration }.sum
   end
   
   def lifespan_in_seconds

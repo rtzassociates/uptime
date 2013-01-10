@@ -34,9 +34,9 @@
 <div class="span12">
   <h1>Events Chart</h1>
   <%= form_tag charts_events_path, :class => 'form-inline', :method => 'get' do %>
-    <label>From:</label>
+    <label class="datepicker">From:</label>
     <%= text_field_tag :start_date, params[:start_date], :placeholder => "Start Date" %>
-    <label>To:</label>
+    <label class="datepicker">To:</label>
     <%= text_field_tag :end_date, params[:end_date], :placeholder => "End Date" %>
     <%= submit_tag "Generate Chart", :name => nil, :class => 'btn btn-primary' %>
   <% end %>

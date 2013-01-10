@@ -13,6 +13,6 @@ class Resolution < ActiveRecord::Base
   def resolved_at_text=(time)
     self.resolved_at = Chronic.parse(time) if time.present?
   rescue ArgumentError
-    self.resolved_at = nil
+    self.resolved_at = Time.zone.now.strftime("%b %e, %Y at %l:%M %p")
   end
 end

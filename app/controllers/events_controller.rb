@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include EventsHelper
   
   def index
-    @events = Event.reported_at
+    @events = Event.reported_at.page(params[:page]).per_page(25)
   end
 
   def show

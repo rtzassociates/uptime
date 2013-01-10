@@ -1,0 +1,13 @@
+<%= form_for @service do |f| %>
+  <p>
+    <%= f.label :name, "Service Name" %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :user_ids, "The following users are subscribed to this service:" %>
+    <%= f.collection_select :user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
+  </p>
+  <p>
+    <%= f.submit :class => "btn" %>
+  </p>
+<% end %>

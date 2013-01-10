@@ -1,17 +1,26 @@
-<%= form_for @status do |f| %>
-  <p>
-    <%= f.label :value, "Status Name" %>
-    <%= f.text_field :value %>
-  </p>
-  <p>
-    <%= f.label :foreground_color, "Text Color" %>
-    <%= f.select :foreground_color, [ "Black", "White" ] %>
-  </p>
-  <p style="margin-bottom:3em;">
-    <%= f.label :background_color %>
-    <%= f.select :background_color, Status.colors %>
-  </p>
-  <p>
-    <%= f.submit :class => "btn" %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="span4 offset4">
+    <%= form_for @status do |f| %>
+      <div class="event_status-small" style="background-color:<%= @status.background_color %>;color:<%= @status.foreground_color %>">
+        <%= @status.value %>
+      </div>
+      <% unless @status.value == "Outage" %>
+        <p>
+          <%= f.label :value, "Status Name" %>
+          <%= f.text_field :value %>
+        </p>
+      <% end %>
+      <p>
+        <%= f.label :foreground_color, "Text Color" %>
+        <%= f.select :foreground_color, [ "Black", "White" ] %>
+      </p>
+      <p style="margin-bottom:3em;">
+        <%= f.label :background_color %>
+        <%= f.select :background_color, Status.colors %>
+      </p>
+      <p>
+        <%= f.submit :class => "btn" %>
+      </p>
+    <% end %>
+  </div>
+</div>

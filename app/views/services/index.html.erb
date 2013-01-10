@@ -1,6 +1,51 @@
 <div class="span12">
   <h1>Applications and Services</h1>
-  <%= render 'services_table', :locals => { :services => @services } %>
+  <div id="services">
+    <% if @services.empty? %>
+      <h3 class="centered">Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
+    <% else %>
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Uptime</th>
+          <th>Issue Count</th>
+          <th>Last Reported Issue</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @services.each do |service| %>
+          <tr>
+            <td><%= link_to service.name, service %></td>
+            <td>
+              <button type="button" class="btn disabled" 
+                      style="background-color:
+                        <%= service.status == "OK" ? 'green' : service.events.unresolved.first.status.background_color %>;
+                             color:
+                        <%= service.status == "OK" ? 'white' : service.events.unresolved.first.status.foreground_color %>;">
+                <%= service.status %>
+              </button>
+            </td>
+            <td><%= service.uptime %>%</td>
+            <td><%= service.events.count %></td>
+            <td><%= service.events.empty? ? "Never" : "#{time_ago_in_words(service.events.last.created_at).capitalize} ago" %></td>
+            <td>
+              <% if current_user.is_subscribed_to? service %>
+                <%= render "subscriptions/unsubscribe", :service_id => service.id %>
+              <% else %>
+                <%= render "subscriptions/subscribe", :service_id => service.id %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Edit', edit_service_path(service), :class => 'btn' %></td>
+            <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>
 
 <div class="actions link-large">

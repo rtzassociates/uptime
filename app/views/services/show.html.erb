@@ -1,2 +1,78 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+        chart: { renderTo: 'events_chart' },
+        title: { text: 'Events Chart' },
+        xAxis: { type: 'datetime' },
+        yAxis: {
+          title: { text: 'Event Count' },
+          min: 0,
+          tickInterval: 1
+        },
+        series:[
+            <% @events.status_hash.each do |name, event| %>
+            {
+              name: "<%= name %>",
+              pointInterval: <%= 1.day * 1000 %>,
+              pointStart: <%= @start_date.to_time.to_i * 1000 %>,
+              pointEnd: <%= @end_date.to_time.to_i * 1000 %>,
+              data: <%= (@start_date..@end_date).map { |date| event.reported_on(date).count}.inspect %>
+            },
+            <% end %>]
+          });
+        });
+</script>
+
+<div class="span12">
+  <h1><%= @service.name %></h1>
+  <% if current_user.is_subscribed_to? @service %>
+    <label id="alert_me">Dont alert me when this service gets updated</label>
+    <%= render "subscriptions/unsubscribe", :service_id => @service.id %>
+  <% else %>
+    <label id="alert_me">Alert me when this service gets updated</label>
+    <%= render "subscriptions/subscribe", :service_id => @service.id %>
+  <% end %>
+  <hr>
+  
+  <% unless params[:page] %>
+  
+    <div class="span12">
+      <%= form_tag @service, :class => 'form-inline', :method => 'get' do %>
+        <label class="datepicker">From:</label>
+        <%= text_field_tag :start_date, params[:start_date], :placeholder => "Start Date" %>
+        <label class="datepicker">To:</label>
+        <%= text_field_tag :end_date, params[:end_date], :placeholder => "End Date" %>
+        <%= submit_tag "Generate Chart", :name => nil, :class => 'btn btn-primary' %>
+      <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="span12">
+        <div id="events_chart" class="span12"></div>
+      </div>
+    </div>
+    
+  <% end %>
+  
+  <div class="span12">
+    <div class="h2">
+      Past Problems
+      <div class="dropdown sublink">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort Options</a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li><%= link_to "Newest first", params.merge(:order => "desc") %></li>
+          <li><%= link_to "Oldest first", params.merge(:order => "asc") %></li>
+          <li><%= link_to "Duration", params.merge(:order => "duration") %></li>
+          <li><%= link_to "Severity", params.merge(:order => "severity") %></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="events">
+      <%= render @events %>
+    </div>
+    
+    <%= will_paginate @events %>
+  </div>
+</div>

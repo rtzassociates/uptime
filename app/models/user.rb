@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   has_many :emails
   has_many :events
   
+  def is_subscribed_to?(service)
+    return true if subscriptions.find_by_service_id(service.id)
+  end
+  
   def username
     read_attribute(:username).capitalize
   end

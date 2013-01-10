@@ -1,7 +1,7 @@
 <%= form_for @resolution, :url => event_resolution_path do |f| %>
   <p>
     <%= f.label :resolved_at_text, "When did this get resolved?" %> 
-    <%= f.text_field :resolved_at_text, :value => ( @resolution.new_record? ? Time.zone.now.strftime("%b%e, %Y at %l:%M %p") : @resolution.resolved_at.strftime("%b%e, %Y at %l:%M %p") ) %>
+    <%= f.text_field :resolved_at_text, :value => ( @resolution.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : @resolution.resolved_at.strftime("%b %e, %Y at %l:%M %p") ) %>
   </p>
   <p class="hint centered">
     ( ex: "Today at 9 AM", "January 1st, 1970", "2 days ago at noon" )
