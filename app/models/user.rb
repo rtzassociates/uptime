@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :role
-
+  attr_accessible :username, :password, :role, :emails_attributes, :service_ids
+  
   before_save :prepare_password
   
   validates_presence_of :username
@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
   has_many :services, through: :subscriptions
   
   has_many :emails
-  has_many :events
+  accepts_nested_attributes_for :emails, allow_destroy: true
+  
+  has_many :problems
+  has_many :resolutions
   
   def is_subscribed_to?(service)
     return true if subscriptions.find_by_service_id(service.id)

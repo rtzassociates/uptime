@@ -1,10 +1,6 @@
-<div class="row">
-  <div class="span4 offset4">
-    <div class="status">
-      <div class="event_status-small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>">
-        <%= status.value %>
-      </div>
-      <%= link_to "Edit", edit_status_path(status) %></p>
-    </div>
-  </div>
+<div class="event_status-small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>">
+  <%= status.value %>
 </div>
+<p>
+  <%= link_to "Edit", edit_status_path(status) %>
+</p>

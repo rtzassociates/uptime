@@ -44,6 +44,7 @@ label.datepicker {
 
 h1 {
   margin-bottom: 1em;
+  color: black;
 }
 
 h2 {
@@ -120,6 +121,12 @@ form {
   width:150px;
 }
 
+div{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
 .subtle {
   color: gray;
 }
@@ -131,26 +138,6 @@ form {
   border-color: black;
   border-width: 5px;
   font-size: 24px;
-}
-
-.Outage {
-  color: white;
-  background-color: red;
-}
-
-.Error {
-  color: white;
-  background-color: orange;
-}
-
-.Slow {
-  color: black;
-  background-color: yellow;
-}
-
-.Restart {
-  color: black;
-  background-color: lightBlue;
 }
 
 .danger {
@@ -193,13 +180,15 @@ input {
   margin-bottom: 1em;
 }
 
-ul {
-  text-align: left; 
-}
-
 pre {
   margin-top: 2em;
   margin-bottom: 2em; 
+}
+
+.datepicker_label {
+  display: inline;
+  width: 50px;
+  background-color: red;
 }
 
 #events_chart {
@@ -254,13 +243,17 @@ a.logo {
   margin-bottom: 1em;
 }
 
-li {
-  margin-bottom: 1em; 
-}
-
 form.inline {
   padding: 0px;
   margin: 0px;
+}
+
+table {
+  color: black;
+}
+
+#user {
+  text-align: left;
 }
 
 // Set the correct sprite paths

@@ -30,21 +30,23 @@
         });
 </script>
 
-
-<div class="span12">
-  <h1>Events Chart</h1>
-  <%= form_tag charts_events_path, :class => 'form-inline', :method => 'get' do %>
-    <label class="datepicker">From:</label>
-    <%= text_field_tag :start_date, params[:start_date], :placeholder => "Start Date" %>
-    <label class="datepicker">To:</label>
-    <%= text_field_tag :end_date, params[:end_date], :placeholder => "End Date" %>
-    <%= submit_tag "Generate Chart", :name => nil, :class => 'btn btn-primary' %>
-  <% end %>
+<h3>Events Chart</h3>
+<div class="row">
+  <div class="span12">
+    <div id="events_chart" class="span12 well"></div>
   </div>
 </div>
 
-<div class="row">
-  <div class="span12">
-    <div id="events_chart" class="span12"></div>
-  </div>
+<div class="span12 well">
+  <%= form_tag charts_events_path, :class => 'form-horizontal', :method => 'get' do %>
+    <p>
+      <%= text_field_tag :start_date, params[:start_date], :placeholder => "Start Date" %>
+    </p>
+    <p>
+      <%= text_field_tag :end_date, params[:end_date], :placeholder => "End Date" %>
+    </p>
+    <p>
+      <%= submit_tag "Generate Chart", :name => nil, :class => 'btn btn-primary' %>
+    </p
+  <% end %>
 </div>

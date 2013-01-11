@@ -1,2 +1,35 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div id="user">
+  <div class="row">
+    <div class="span12">
+      <h2><%= @user.username %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4">
+      <h3>Contact Information</h3>
+      <label>Email Addresses</label>
+        <% @user.emails.each do |email| %>
+          <p><%= email.address %></p>
+        <% end %>
+      </ul>
+    </div>
+    <div class="span4">
+    <h3>Subscriptions</h3>
+      <% @user.subscriptions.each do |s| %>
+        <p><%= s.service.name %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div class="h2">     
+        Problems Reported
+      </div>
+      <div id="events">
+        <%= render @reported %>
+      </div>
+    </div>
+    <%= will_paginate @reported %>
+  </div>
+</div>
+  

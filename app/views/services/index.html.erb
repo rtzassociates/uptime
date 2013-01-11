@@ -1,9 +1,11 @@
 <div class="span12">
-  <h1>Applications and Services</h1>
+  <h2>Applications and Services</h2>
+  <hr>
   <div id="services">
     <% if @services.empty? %>
       <h3 class="centered">Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
     <% else %>
+      <br />
       <table class="table table-striped">
         <thead>
           <th>Name</th>

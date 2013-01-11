@@ -29,6 +29,14 @@ class Event < ActiveRecord::Base
     joins(:problem).order("problems.reported_at DESC")
   end
   
+  def self.reported_by(user)
+    joins(:problem).where("problems.user_id = ?", user.id)
+  end
+  
+  def self.resolved_by(user)
+    joins(:resolution).where("resolutions.user_id = ?", user.id)
+  end
+  
   def self.resolved
     joins(:resolution)
   end

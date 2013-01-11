@@ -15,7 +15,10 @@ Uptime::Application.routes.draw do
     resource :resolution
   end
   
-  resources :users
+  resources :users do
+    resources :emails
+  end
+  
   resources :sessions
   resources :comments
   resources :subscriptions
