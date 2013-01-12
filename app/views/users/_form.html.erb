@@ -1,25 +1,56 @@
-<div id="new_user" class="span6 offset3 well">
+<div id="new_user" class="span8 offset2 well">
   <%= form_for @user, :html => { :class => "form-horizontal", :style => "text-align:left" } do |f| %>
-    <p>
-      <%= f.label :username %>
-      <%= f.text_field :username, :class => 'input-large' %>
-    </p>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password, :class => 'input-large' %>
-    </p>
+  
+    <div class="control-group">
+      <%= f.label :username, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :username, :placeholder => "Username" %>
+      </div>
+    </div>
     
-    <%= f.label :emails, "Email Addresses" %>
-    <fieldset>
+    <div class="control-group">
+      <%= f.label :password, :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password, :placeholder => "Password" %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :first, "First Name", :class => "control-label" %>
+      <div class="controls">
+      <%= f.text_field :first, :placeholder => "First Name" %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :last, "Last Name", :class => "control-label" %>
+      <div class="controls">
+      <%= f.text_field :last, :placeholder => "Last Name" %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :phone, "Phone Number", :class => "control-label" %>
+      <div class="controls">
+      <%= f.text_field :phone, :placeholder => "Phone Number" %>
+      </div>
+    </div>
+    
+    <fieldset style="text-align:center">
+      <%= f.label :emails, "Email Addresses" %>
       <%= f.fields_for :emails do |builder| %>
         <%= render 'email_fields', :f => builder %>
       <% end %>
       <%= link_to_add_fields "Add an email address", f, :emails %>
     </fieldset>
-    <p>
+    
+    <br />
+    
+    <div class="control-group" style="text-align:center">
       <%= f.label :service_ids, "Subscriptions" %>
-      <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, {multiple: true} %>
-    </p>
+      <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, { multiple: true, :style => "width:80%;" } %>
+    </div>
+
     <div class="actions">
       <%= f.submit (@user.new_record? ? "Sign up" : "Update"), :class => 'btn' %>
     </div>

@@ -1,10 +1,7 @@
 <div class="row">
   <div class="span4 offset4">
     <%= form_for @status do |f| %>
-      <div class="event_status-small" style="background-color:<%= @status.background_color %>;color:<%= @status.foreground_color %>">
-        <%= @status.value %>
-      </div>
-      <% unless @status.value == "Outage" %>
+      <% if @status.new_record? || @status.value != "Outage" %>
         <p>
           <%= f.label :value, "Status Name" %>
           <%= f.text_field :value %>

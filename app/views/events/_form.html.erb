@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, :html => { :class => "well"} do |f| %>
   <p>
     <%= f.label :status_id, 'What kind of problem is this?' %>
     <%= f.collection_select :status_id, Status.all, :id, :value %>
@@ -10,7 +10,7 @@
   
   <p>
     <%= f.label :service_ids, "This issue affects the following services:" %>
-    <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, {multiple: true} %>
+    <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, {multiple: true, style: "width:60%"} %>
   </p>
   
   <div class="actions link-large">
