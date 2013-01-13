@@ -1,12 +1,12 @@
 class Status < ActiveRecord::Base
-  attr_accessible :value, :foreground_color, :background_color
+  attr_accessible :value, :foreground_color, :background_color, :include_in_calc
   
   after_save :reload_events
     
   has_many :events
   
-  def value
-    read_attribute(:value).capitalize
+  def value=(string)
+    write_attribute(:value, string).downcase
   end
   
   def self.colors
@@ -14,7 +14,9 @@ class Status < ActiveRecord::Base
   end
   
   def reload_events
-    load 'event.rb'
+    load 'event.rb' # events.rb need to be reloaded to generate
+                    # new class methods, or you'll get a method
+                    # missing error
   end
   
 end

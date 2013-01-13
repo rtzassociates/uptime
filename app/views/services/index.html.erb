@@ -27,7 +27,7 @@
                         <%= service.status == "OK" ? 'green' : service.events.unresolved.first.status.background_color %>;
                              color:
                         <%= service.status == "OK" ? 'white' : service.events.unresolved.first.status.foreground_color %>;">
-                <%= service.status %>
+                <%= service.status.capitalize %>
               </button>
             </td>
             <td><%= service.uptime %>%</td>

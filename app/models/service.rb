@@ -6,13 +6,14 @@ class Service < ActiveRecord::Base
   
   has_many :subscriptions
   has_many :users, through: :subscriptions
-  
-  def unresolved_events
-    events.unresolved
-  end
-  
+
   def total_downtime
-    events.outage.map { |e| e.duration }.sum
+    totals = Status.all.each_with_object([]) do |status, array|
+      if status.include_in_calc
+        array << events.send("#{status.value.downcase}").map { |e| e.duration }.sum
+      end
+    end
+    totals.sum
   end
   
   def lifespan_in_seconds
@@ -28,7 +29,7 @@ class Service < ActiveRecord::Base
   end
   
   def status
-    unresolved_events.empty? ? "OK" : unresolved_events.last.status.value
+    events.unresolved.empty? ? "OK" : events.unresolved.last.status.value
   end
   
 end
