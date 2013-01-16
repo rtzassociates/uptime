@@ -6,11 +6,12 @@
       </div>
     <% end %>
 
-    <div class="event_status-large" style="background-color:<%= @event.status.background_color %>;color:<%= @event.status.foreground_color %>">
-      <%= @event.status.value %>
+    <div id="status">
+      <%= status_for(@event, "large") %>
     </div>
     
     <div id="event_body">
+      
       <p> 
         <%= services_affected_by @event %>
       </p>
@@ -20,14 +21,31 @@
         <p>
           <%= problem_for @event %>
         </p>
-        <div class="description">
+        <p>
           <%= markdown @event.problem.description %>
-        </div>
+        </p>
         <div class="actions">
-          <%= link_to 'Edit Problem', edit_event_path(@event), :class => 'nav small' %>
-          <%= link_to 'Destroy', event_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
+          <%= edit_problem_for(@event) %>
+          <%= destroy_action_for(@event) %>
         </div>
-      </div>    
+      </div>
+      
+      <div id="problem_comment_form">      
+        <%= form_for Comment.new do |f| %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
+          <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
+          <div class="input-append">
+            <%= f.text_field :content, :placeholder => "Comment on this problem", :class => 'span6' %>
+            <%= f.submit "Submit", :class => 'btn' %>
+          </div>
+        <% end %>       
+      </div>
+      <% unless @event.problem.comments.empty? %>
+        <div id="problem_comments">
+          <%= render @event.problem.comments %>
+        </div>
+      <% end %>   
         
       <% if @event.resolved? %>
         <div id="resolution">
@@ -35,20 +53,38 @@
           <p>
             <%= resolution_for @event %>
           </p>
-          <p class="description">
-            <%= @event.resolution.description %>
+          <p>
+            <%= markdown @event.resolution.description %>
           </p>
           <div class="actions">
-            <%= link_to 'Edit Resolution', edit_event_resolution_path(@event), :class => 'nav small' %>
-            <%= link_to 'Destroy', event_resolution_path(@event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
+            <%= edit_resolution_for(@event) %>
+            <%= destroy_resolution_for(@event) %>
           </div>
         </div>
+        
+        <div id="resolution_comment_form">      
+          <%= form_for Comment.new do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
+            <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
+            <div class="input-append">
+              <%= f.text_field :content, :placeholder => "Comment on this resolution", :class => 'span6' %>
+              <%= f.submit "Submit", :class => 'btn' %>
+            </div>
+          <% end %>       
+        </div>
+        <% unless @event.resolution.comments.empty? %>
+          <div id="resolution_comments">
+            <%= render @event.resolution.comments %>
+          </div>
+        <% end %>
       <% end %>
+      
     </div>
   </div>
 
   <% unless @event.resolved? %>
-    <div class="actions link-large">
+    <div class="actions">
       <%= link_to 'Mark As Resolved', new_event_resolution_path(@event), :class => "btn" %>
     </div>
   <% end %>

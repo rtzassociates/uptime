@@ -18,14 +18,36 @@ module EventsHelper
   
   def problem_for(event)
     raw "Reported by #{ link_to event.problem.user.username, event.problem.user, :class => 'link-large' } 
-     on #{ event.problem.reported_at.strftime('%b%e, %Y at %l:%M %p') }
-     (#{ time_ago_in_words(event.problem.reported_at).capitalize } ago)"
+     on #{ event.problem.reported_at.strftime('%b %e, %Y at %l:%M %p') }
+     ( #{ time_ago_in_words(event.problem.reported_at).capitalize } ago )"
   end
   
   def resolution_for(event)
     raw "Resolved by #{ link_to event.resolution.user.username, event.resolution.user, :class => 'link-large' } 
-     on #{ event.resolution.resolved_at.strftime('%b%e, %Y at %l:%M %p') }
-     (#{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago)"
+     on #{ event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') }
+     ( #{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago )"
+  end
+  
+  def status_for(event, size)
+    div_for event, :class => "event_status-#{size}", :style => "background-color: #{event.status.background_color}; color: #{event.status.foreground_color}" do
+      event.status.value
+    end
+  end
+  
+  def edit_problem_for(event)
+    link_to 'Edit Problem', edit_event_path(event), :class => 'nav small'
+  end
+  
+  def destroy_action_for(event)
+    link_to 'Destroy', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
+  end
+  
+  def edit_resolution_for(event)
+    link_to 'Edit Resolution', edit_event_resolution_path(event), :class => 'nav small'
+  end
+  
+  def destroy_resolution_for(event)
+    link_to 'Destroy', event_resolution_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
   end
 
 end

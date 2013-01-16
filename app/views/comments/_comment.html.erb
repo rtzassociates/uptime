@@ -1,3 +1,11 @@
 <div class="comment">
+  <p>
+    <%= link_to comment.user.username, comment.user, :style => 'link-large' %>
+      <span class="small" style="color:gray">( <%= time_ago_in_words(comment.created_at).capitalize %> ago )</span>
+    </p>
   <%= simple_format comment.content %>
+  <div class="pull-right">
+    <%= link_to 'Edit Comment', edit_comment_path(comment), :class => "nav small" %>
+    <%= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
+  </div>
 </div>

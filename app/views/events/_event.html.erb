@@ -1,8 +1,8 @@
 <div class="event">
   <div class="row">
     <div class="span3">
-      <div class="event_status-small" style="background-color:<%= event.status.background_color %>;color:<%= event.status.foreground_color %>">
-        <%= event.status.value %>
+      <div id="status">
+        <%= status_for(event, "small") %>
       </div>
       <% if event.resolved? %>
         <div id="resolved_by-small">
@@ -12,10 +12,10 @@
     </div>
     <div class="span9">
       <div class="description">     
-        <p class="subtle"> 
+        <p> 
           <%= services_affected_by event %>
         </p>
-        <p class="subtle">
+        <p>
           <%= problem_for event %>
         </p>
         <p>
