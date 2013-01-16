@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   class << self
     Status.all.each do |status|
       define_method(status.value.downcase) do
-        send("where", :status_id => Status.find_by_value(status.value.downcase))
+        send("where", :status_id => Status.find_by_value(status.value))
       end
     end
   end

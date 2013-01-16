@@ -6,10 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-statuses = Status.create([{:value => 'outage'},
-                          {:value => 'slow'},
-                          {:value => 'error'},
-                          {:value => 'restart'}])
+statuses = Status.create([{:value => 'outage', :foreground_color => "white", :background_color => "red"}])
             
 users = User.create([{:username => "james", :password => "rasputin"}])
 

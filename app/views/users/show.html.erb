@@ -1,9 +1,9 @@
+
+<div class="span12">
+  <h2><%= @user.full_name %></h2>
+</div>
+
 <div id="user">
-  <div class="row">
-    <div class="span12">
-      <h2><%= @user.username %></h2>
-    </div>
-  </div>
   <div class="row">
     <div class="span4">
       <h3>Contact Information</h3>
@@ -11,25 +11,34 @@
         <% @user.emails.each do |email| %>
           <p><%= email.address %></p>
         <% end %>
-      </ul>
+      <br />
+      <p>
+        <span style="color:black;padding-right:1em;">Phone Number</span>
+        <%= @user.phone %>
+      </p>
     </div>
     <div class="span4">
     <h3>Subscriptions</h3>
-      <% @user.subscriptions.each do |s| %>
-        <p><%= s.service.name %></p>
-      <% end %>
+      <%= raw @user.services.collect { |s| link_to(s.name, service_path(s), :class => "link-large") }.to_sentence %>
     </div>
-  </div>
-  <div class="row">
-    <div class="span12">
-      <div class="h2">     
-        Problems Reported
-      </div>
-      <div id="events">
-        <%= render @reported %>
-      </div>
+    <div class="span4">
+      <br/>
+      <p>
+      <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
+      <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
+      </p>
     </div>
-    <%= will_paginate @reported %>
+    <div class="row">
+      <div class="span12">
+        <div class="h2">     
+          Problems Reported
+        </div>
+        <div id="events">
+          <%= render @reported %>
+        </div>
+      </div>
+      <%= will_paginate @reported %>
+    </div>
   </div>
 </div>
   

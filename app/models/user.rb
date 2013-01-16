@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :role, :emails_attributes, :service_ids
+  attr_accessible :username, :password, :role, :emails_attributes, :service_ids, :first, :last, :phone
   
   before_save :prepare_password
   
@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
   
   def encrypt_password(pass)
     Digest::SHA1.base64digest(pass)
+  end
+  
+  def full_name
+    unless first.blank? && last.blank?
+      "#{first} #{last}".titleize
+    else
+      username
+    end
   end
   
   private
