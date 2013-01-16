@@ -30,7 +30,7 @@ module EventsHelper
   
   def status_for(event, size)
     div_for event, :class => "event_status-#{size}", :style => "background-color: #{event.status.background_color}; color: #{event.status.foreground_color}" do
-      event.status.value
+      event.status.value.capitalize
     end
   end
   

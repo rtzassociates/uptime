@@ -36,7 +36,7 @@
           <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
           <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
           <div class="input-append">
-            <%= f.text_field :content, :placeholder => "Comment on this problem", :class => 'span6' %>
+            <%= f.text_field :content, :placeholder => "Comment on this problem", :class => 'span9' %>
             <%= f.submit "Submit", :class => 'btn' %>
           </div>
         <% end %>       
@@ -68,7 +68,7 @@
             <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
             <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
             <div class="input-append">
-              <%= f.text_field :content, :placeholder => "Comment on this resolution", :class => 'span6' %>
+              <%= f.text_field :content, :placeholder => "Comment on this resolution", :class => 'span9' %>
               <%= f.submit "Submit", :class => 'btn' %>
             </div>
           <% end %>       
