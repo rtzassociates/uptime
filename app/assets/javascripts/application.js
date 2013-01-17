@@ -19,4 +19,6 @@
 //= require raphael
 //= require morris
 //= require highcharts
+//= require jquery.purr
+//= require best_in_place
 //= require_tree .

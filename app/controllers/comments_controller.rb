@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+ 
   def index
     @comments = Comment.all
   end
@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
     if @comment.save
-      flash[:notice] = "Successfully created comment."
+      flash[:notice] = "Thanks for your comment"
       redirect_to @commentable.event
     else
       render :action => 'new'
@@ -21,11 +21,18 @@ class CommentsController < ApplicationController
   
   def update
     @comment = Comment.find(params[:id]) 
-    if @comment.update_attributes(params[:comment])
-      redirect_to @comment.commentable.event
-    else
-      render 'edit'
-    end
+    @comment.update_attributes(params[:comment])
+    respond_to do |format|
+      format.html { redirect_to @comment.commentable.event }
+      format.json { render :json => @comment }
+    end      
+  end
+  
+  def destroy
+    @comment = Comment.find(params[:id]) 
+    @comment.destroy
+    flash[:notice] = "Comment was destroyed"
+    redirect_to @comment.commentable.event  
   end
 
   private

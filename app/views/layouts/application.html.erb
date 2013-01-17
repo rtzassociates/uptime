@@ -16,7 +16,20 @@
           <%= link_to 'uptime', root_path, :class => 'logo' %>
         </div>
       </div>
+      <div class="span8 offset2">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name %>">
+            <%= msg %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
       <%= yield %>
+    </div>
+    
+    <div class="row">
       <div class="span12">
         <div id="nav">
           <%= link_to "View Past Events", events_path, :class => 'nav' %>

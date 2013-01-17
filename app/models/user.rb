@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :role, :emails_attributes, :service_ids, :first, :last, :phone
+  attr_accessible :username, :password, :password_confirmation, :emails_attributes, :service_ids, :first, :last, :phone, :admin
+  attr_accessor :password
   
   before_save :prepare_password
   
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :allow_blank => true
   validates_format_of :username, :with => /^[-\w\._@]+$/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
   validates_presence_of :password, :on => :create
+  validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
   
   has_many :subscriptions
@@ -28,11 +30,11 @@ class User < ActiveRecord::Base
   
   def self.authenticate(login, pass)
     user = find_by_username(login)
-    return user if user && user.password == user.encrypt_password(pass)
+    return user if user && user.password_hash == user.encrypt_password(pass)
   end
   
   def encrypt_password(pass)
-    Digest::SHA1.base64digest(pass)
+    BCrypt::Engine.hash_secret(pass, token)
   end
   
   def full_name
@@ -43,11 +45,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  def admin?
+    return true if admin
+  end
+  
   private
   
   def prepare_password
     unless password.blank?
-      self.password = encrypt_password(password)
+      self.token = BCrypt::Engine.generate_salt
+      self.password_hash = encrypt_password(password)
     end
   end
   

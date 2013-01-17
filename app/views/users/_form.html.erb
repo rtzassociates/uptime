@@ -16,6 +16,13 @@
     </div>
     
     <div class="control-group">
+      <%= f.label :password_confirmation, "Confirm Password", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+      </div>
+    </div>
+    
+    <div class="control-group">
       <%= f.label :first, "First Name", :class => "control-label" %>
       <div class="controls">
       <%= f.text_field :first, :placeholder => "First Name" %>
@@ -50,6 +57,16 @@
       <%= f.label :service_ids, "Subscriptions" %>
       <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, { multiple: true, :style => "width:80%;" } %>
     </div>
+    
+    <p style="text-align:center">
+      <%= f.label :admin, "Is This User an Admin?" %>
+      <label class="radio inline">
+        <%= f.radio_button :admin, :true %> Yes
+      </label>
+      <label class="radio inline">
+        <%= f.radio_button :admin, :false %> No
+      </label>
+    <p>
 
     <div class="actions">
       <%= f.submit (@user.new_record? ? "Sign up" : "Update"), :class => 'btn' %>

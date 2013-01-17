@@ -22,7 +22,8 @@
           <%= markdown event.problem.description %>
         </p>
         <p>
-          <%= link_to 'View this event', event, :class => 'small' %>
+          <span class="subtle"><%= pluralize event.problem.comments.count, "comment" %></span>
+          <%= link_to 'View this event', event, :class => 'small nav' %>
         </p>
       </div>
     </div>

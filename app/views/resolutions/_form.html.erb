@@ -12,7 +12,8 @@
       <%= f.text_area :description, :class => "span8", :rows => 5 %>
     </p>
     <p>
-      <%= f.submit ( @resolution.new_record? ? "Mark as resolved" : "Update resolution" ), :class => "btn" %>
+      <%= f.submit ( @resolution.new_record? ? "Mark as resolved" : "Update resolution" ), :class => "btn btn-primary" %>
+      <%= link_to "Cancel", :back, :class => 'btn' %>
     </p>
   <% end %>
 </div>

@@ -1,4 +1,5 @@
 class ResolutionsController < ApplicationController
+  
   def new
     @event = Event.find(params[:event_id])
     @resolution = Resolution.new
@@ -38,5 +39,5 @@ class ResolutionsController < ApplicationController
     @resolution.destroy
     redirect_to @event, notice: "Resolution successfully destroyed"
   end
-    
+
 end
