@@ -32,6 +32,9 @@
 
 <div class="span12">
   <h2><%= @service.name %></h2>
+  <p>
+    <%= users_subscribed_to(@service) %>
+  <p>
   <% if current_user.is_subscribed_to? @service %>
     <label id="alert_me">Please don't alert me about this service</label>
     <%= render "subscriptions/unsubscribe", :service_id => @service.id %>

@@ -3,7 +3,7 @@ class Status < ActiveRecord::Base
   
   after_save :reload_events
     
-  has_many :events
+  has_many :events, :dependent => :destroy
   
   def value=(string)
     write_attribute(:value, string).downcase

@@ -11,14 +11,14 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
   
-  has_many :subscriptions
+  has_many :subscriptions, :dependent => :destroy
   has_many :services, through: :subscriptions
   
-  has_many :emails
+  has_many :emails, :dependent => :destroy
   accepts_nested_attributes_for :emails, allow_destroy: true
   
-  has_many :problems
-  has_many :resolutions
+  has_many :problems, :dependent => :destroy
+  has_many :resolutions, :dependent => :destroy
   
   def is_subscribed_to?(service)
     return true if subscriptions.find_by_service_id(service.id)

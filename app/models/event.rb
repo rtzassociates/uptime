@@ -6,10 +6,10 @@ class Event < ActiveRecord::Base
 
   belongs_to :status
   
-  has_one :problem
+  has_one :problem, :dependent => :destroy
   accepts_nested_attributes_for :problem
   
-  has_one :resolution
+  has_one :resolution, :dependent => :destroy
   
   class << self
     Status.all.each do |status|

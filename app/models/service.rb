@@ -1,11 +1,11 @@
 class Service < ActiveRecord::Base
   attr_accessible :name, :user_ids
   
-  has_many :event_services
-  has_many :events, :through => :event_services
+  has_many :event_services, :dependent => :destroy
+  has_many :events, :through => :event_services, :dependent => :destroy
   
-  has_many :subscriptions
-  has_many :users, through: :subscriptions
+  has_many :subscriptions, :dependent => :destroy
+  has_many :users, through: :subscriptions, :dependent => :destroy
 
   def total_downtime
     totals = Status.all.each_with_object([]) do |status, array|
