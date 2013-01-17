@@ -24,8 +24,12 @@
     <div class="span4">
       <br/>
       <p>
-      <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
-      <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
+      <% if allow? "users", "edit", @user %>
+        <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
+      <% end %>
+      <% if allow? "users", "destroy", @user %>
+        <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
+      <% end %>
       </p>
     </div>
     <div class="row">

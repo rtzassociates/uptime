@@ -2,15 +2,19 @@
 <hr>
 <br>
 <div class="user">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <th>Username</th>
       <th>Member Since</th>
       <th>Problems Reported</th>
       <th>Problems Resolved</th>
       <th>Subscriptions</th>
-      <th></th>
-      <th></th>
+      <% if allow? "users", "edit" %>
+        <th></th>
+      <% end %>
+      <% if allow? "users", "destroy" %>
+        <th></th>
+      <% end %>
     </thead>
     <tbody>
       <%= render @users %>
@@ -18,6 +22,8 @@
   </table>
 </div>
 
-<p class="centered">
-  <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
-</p>
+<% if allow? "users", "new" %>
+  <p class="centered">
+    <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
+  </p>
+<% end %>

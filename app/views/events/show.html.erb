@@ -25,8 +25,12 @@
           <%= markdown @event.problem.description %>
         </p>
         <div class="actions">
-          <%= edit_problem_for(@event) %>
-          <%= destroy_action_for(@event) %>
+          <% if allow? "events", "edit", @event %>
+            <%= edit_problem_for(@event) %>
+          <% end %>
+          <% if allow? "events", "destroy", @event %>
+            <%= destroy_action_for(@event) %>
+          <% end %>
         </div>
       </div>
       
@@ -57,8 +61,12 @@
             <%= markdown @event.resolution.description %>
           </p>
           <div class="actions">
-            <%= edit_resolution_for(@event) %>
-            <%= destroy_resolution_for(@event) %>
+            <% if allow? "resolutions", "edit", @event.resolution %>
+              <%= edit_resolution_for(@event) %>
+            <% end %>
+            <% if allow? "resolutions", "destroy", @event.resolution %>
+              <%= destroy_resolution_for(@event) %>
+            <% end %>
           </div>
         </div>
         

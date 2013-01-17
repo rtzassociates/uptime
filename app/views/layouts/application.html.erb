@@ -16,7 +16,11 @@
           <%= link_to 'uptime', root_path, :class => 'logo' %>
         </div>
       </div>
+      <% if params[:controller] == "pages" %>
       <div class="span8 offset2">
+      <% else %>
+      <div class="span12">
+      <% end %>
         <% flash.each do |name, msg| %>
           <div class="alert alert-<%= name %>">
             <%= msg %>
@@ -32,9 +36,9 @@
     <div class="row">
       <div class="span12">
         <div id="nav">
-          <%= link_to "View Past Events", events_path, :class => 'nav' %>
+          <%= link_to "Past Events", events_path, :class => 'nav' %>
           <%= link_to "Applications and Services", services_path, :class => 'nav' %>
-          <%= link_to "User Management", users_path, :class => 'nav' %>
+          <%= link_to "Users", users_path, :class => 'nav' %>
           <%= link_to "Status Types", statuses_path, :class => 'nav' %>
         </div>
         <div id="session">

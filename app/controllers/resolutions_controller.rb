@@ -40,4 +40,8 @@ class ResolutionsController < ApplicationController
     redirect_to @event, notice: "Resolution successfully destroyed"
   end
 
+  def current_resource
+    @current_resource ||= Event.find(params[:event_id]).resolution if params[:event_id]
+  end
+
 end

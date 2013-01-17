@@ -43,5 +43,11 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_path, :notice => "Event was successfully destroyed"
   end
+  
+  private
+  
+  def current_resource
+    @current_resource ||= Event.find(params[:id]) if params[:id]
+  end
 
 end

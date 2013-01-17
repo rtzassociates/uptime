@@ -7,8 +7,12 @@
       <%= comment.content %>
     </p>
   <div class="pull-right">
-    <%= link_to 'Edit Comment', edit_comment_path(comment), :class => "nav small" %>
-    <%= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
+    <% if allow? "comments", "edit", comment %>
+      <%= link_to 'Edit Comment', edit_comment_path(comment), :class => "nav small" %>
+    <% end %>
+    <% if allow? "resolutions", "destroy", comment %>
+      <%= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger" %>
+    <% end %>
   </div>
 </div>
 

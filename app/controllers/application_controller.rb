@@ -3,7 +3,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :authenticate
-  before_filter :authorize, only: [ :edit, :destroy ]
+  before_filter :authorize
+  
+  delegate :allow?, to: :current_permission
+  helper_method :allow?
   
   private
   
@@ -13,9 +16,17 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    def current_resource
+      nil
+    end
+
     def authorize
-      if current_user && !current_user.admin?
-        redirect_to root_url, alert: "Not authorized"
+      if !current_permission.allow?(params[:controller], params[:action], current_resource)
+        redirect_to root_url, alert: "Not authorized."
       end
+    end
+    
+    def current_permission
+      @current_permission ||= Permission.new(current_user)
     end
 end

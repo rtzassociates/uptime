@@ -1,5 +1,5 @@
 <div class="row well">
-  <div class="span2">
+  <div class="span3">
     <div class="event_status-small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>">
       <%= status.value.capitalize %>
     </div>
@@ -12,8 +12,8 @@
       Problems Reported With This Status:
     </label>
     <p style="font-size:3em; font-weight:bold;"><%= status.events.count %></p>
-  </div>
-  <div class="span1" style="padding-top:50px; padding-left:25px;">
-    <%= link_to "Edit", edit_status_path(status), :class => "btn" %>
+    <% if allow? "statuses", "edit" %>
+      <%= link_to "Edit", edit_status_path(status), :class => "btn" %>
+    <% end %>
   </div>
 </div>

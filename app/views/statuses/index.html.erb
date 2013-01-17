@@ -3,8 +3,10 @@
     <%= render @statuses %>
 </div>
 
-<div class="span12">
-  <p>
-    <%= link_to "Create a new status", new_status_path, :class => "btn" %>
-  </p>
-</div>
+<% if allow? "statuses", "new" %>
+  <div class="span12">
+    <p>
+      <%= link_to "Create a new status", new_status_path, :class => "btn" %>
+    </p>
+  </div>
+<% end %>
