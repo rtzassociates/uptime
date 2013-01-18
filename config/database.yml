@@ -20,9 +20,7 @@ test:
 
 production:
   host: localhost
-  adapter: postgresql
+  adapter: mysql
   encoding: unicode
   database: uptime
-  pool: 5
-  username: uptime
-  password: "$%^rtyFGH"
+  username: root
