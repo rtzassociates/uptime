@@ -11,6 +11,10 @@ class Event < ActiveRecord::Base
   
   has_one :resolution, :dependent => :destroy
   
+  validates_presence_of :status_id
+  
+  
+  
   class << self
     Status.all.each do |status|
       define_method(status.value.downcase) do

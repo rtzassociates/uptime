@@ -3,6 +3,9 @@ class Email < ActiveRecord::Base
   validates_format_of :address, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   belongs_to :user
   
+  validates_presence_of :address
+  validates_uniqueness_of :address
+  
   def self.addresses
     all.map { |e| e.address }
   end

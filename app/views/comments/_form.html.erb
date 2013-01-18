@@ -1,4 +1,5 @@
 <%= form_for @comment do |f| %>
+            
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <p>
     <%= f.text_area :content, :placeholder => "Comment on this event", :class => "span8", :rows => 10 %>

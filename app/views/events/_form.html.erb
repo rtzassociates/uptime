@@ -1,4 +1,7 @@
 <%= form_for @event, :html => { :class => "well"} do |f| %>
+
+  <%= error_messages_for @event.problem %>
+  
   <p>
     <%= f.label :status_id, 'What kind of problem is this?' %>
     <%= f.collection_select :status_id, Status.all, :id, :value_for_select %>

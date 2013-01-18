@@ -1,4 +1,5 @@
 <%= form_for @service do |f| %>
+  <%= error_messages_for @service %>
   <p>
     <%= f.label :name, "Service Name" %>
     <%= f.text_field :name %>

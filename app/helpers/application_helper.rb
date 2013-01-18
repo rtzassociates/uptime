@@ -13,4 +13,14 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
   
+  def error_messages_for(*objects)
+    options = objects.extract_options!
+    messages = objects.compact.map { |o| o.errors.full_messages }.flatten
+    unless messages.empty?
+      content_tag :error do
+        list_items = messages.map { |msg| msg }.to_sentence
+      end
+    end
+  end
+    
 end

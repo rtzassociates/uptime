@@ -87,12 +87,15 @@ GEM
     less-rails (2.2.6)
       actionpack (>= 3.1)
       less (~> 2.2.0)
+    libv8 (3.11.8.13)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    mysql (2.8.1)
+    pg (0.14.1)
     polyglot (0.3.3)
     quiet_assets (1.0.1)
       railties (~> 3.1)
@@ -166,6 +169,9 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   less-rails
+  libv8 (~> 3.11.8.3)
+  mysql (~> 2.8.1)
+  pg
   quiet_assets
   rails (= 3.2.9)
   redcarpet (= 1.17.2)

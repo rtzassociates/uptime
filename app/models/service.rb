@@ -6,6 +6,8 @@ class Service < ActiveRecord::Base
   
   has_many :subscriptions, :dependent => :destroy
   has_many :users, through: :subscriptions, :dependent => :destroy
+  
+  validates_presence_of :name
 
   def total_downtime
     totals = Status.all.each_with_object([]) do |status, array|

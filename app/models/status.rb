@@ -1,6 +1,8 @@
 class Status < ActiveRecord::Base
   attr_accessible :value, :foreground_color, :background_color, :include_in_calc
   
+  validates_presence_of :value, :foreground_color, :background_color, :include_in_calc
+  
   after_save :reload_events
     
   has_many :events, :dependent => :destroy
