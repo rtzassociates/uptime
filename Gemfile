@@ -7,6 +7,7 @@ gem 'rails', '3.2.9'
 
 gem 'sqlite3'
 gem 'libv8', '~> 3.11.8.3', :platform => :ruby
+gem 'therubyracer'
 gem 'less-rails'
 gem 'will_paginate'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
