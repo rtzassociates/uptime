@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     
     if @event.save
+      EventMailer.event_notification(@event).deliver
       redirect_to @event, :notice => "Event was successfully created."
     else
       render 'new'
