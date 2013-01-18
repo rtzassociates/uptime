@@ -77,15 +77,6 @@
   <div class="span12">
     <div class="h2">
       Past Events
-      <div class="dropdown sublink">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort Options</a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <li><%= link_to "Newest first", params.merge(:order => "desc") %></li>
-          <li><%= link_to "Oldest first", params.merge(:order => "asc") %></li>
-          <li><%= link_to "Duration", params.merge(:order => "duration") %></li>
-          <li><%= link_to "Severity", params.merge(:order => "severity") %></li>
-        </ul>
-      </div>
     </div>
     
     <div id="events">

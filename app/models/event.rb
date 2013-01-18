@@ -57,6 +57,30 @@ class Event < ActiveRecord::Base
     return true if resolution.nil?
   end
   
+  def recipients
+    recipients = services.each_with_object(arr = []) do |service|
+      service.users.each do |user|
+        user.emails.each do |email|
+          arr << email.address
+        end
+      end
+    end
+    
+    # admins should always be emailed
+    admins = User.all.each_with_object(arr = []) do |user|
+      if user.admin?
+        user.emails.each do |email|
+          arr << email.address
+        end
+      end
+    end
+    
+    recipients += admins
+    
+    # deduplicate recipients
+    recipients.uniq
+  end
+  
   def duration
     if self.unresolved?
       Time.zone.now - problem.reported_at

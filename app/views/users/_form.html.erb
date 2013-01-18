@@ -58,15 +58,17 @@
       <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, { multiple: true, :style => "width:80%;" } %>
     </div>
     
-    <p style="text-align:center">
-      <%= f.label :admin, "Is This User an Admin?" %>
-      <label class="radio inline">
-        <%= f.radio_button :admin, :true %> Yes
-      </label>
-      <label class="radio inline">
-        <%= f.radio_button :admin, :false %> No
-      </label>
-    <p>
+    <% if current_user.admin? %>
+      <p style="text-align:center">
+        <%= f.label :admin, "Is This User an Admin?" %>
+        <label class="radio inline">
+          <%= f.radio_button :admin, :true %> Yes
+        </label>
+        <label class="radio inline">
+          <%= f.radio_button :admin, :false %> No
+        </label>
+      <p>
+    <% end %>
 
     <div class="actions">
       <%= f.submit (@user.new_record? ? "Sign up" : "Update"), :class => 'btn' %>

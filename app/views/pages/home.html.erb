@@ -4,7 +4,7 @@
   <% if @unresolved_events.empty? %>
   
     <div id="event">
-      <h2>Currently, there are no problems reported. Yay!</h2>     
+      <h2>Currently, there are no problems reported</h2>     
       <% unless Event.all.empty? %>
         <h4 class="green">
           ( It's been <%= time_ago_in_words(Event.last.resolution.resolved_at) %> since the last reported problem )
@@ -33,7 +33,6 @@
         </div>
       </div>
     <% end %>
-    
   <% end %>
 </div>
 

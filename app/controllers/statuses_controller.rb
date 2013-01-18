@@ -3,6 +3,11 @@ class StatusesController < ApplicationController
     @statuses = Status.all
   end
   
+  def show
+    @status = Status.find(params[:id])
+    @events = @status.events.page(params[:page]).per_page(25)
+  end
+  
   def new
     @status = Status.new
   end

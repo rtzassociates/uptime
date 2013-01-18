@@ -15,4 +15,4 @@ jQuery ->
     
   $('#user_service_ids').chosen()
   
-  $('#users').dataTable({"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>", "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 5, 6 ] } ]})
+  $('#users').dataTable({"sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>", "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 1, 5, 6 ] } ]})

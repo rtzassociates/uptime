@@ -1,7 +1,7 @@
 <%= form_for @event, :html => { :class => "well"} do |f| %>
   <p>
     <%= f.label :status_id, 'What kind of problem is this?' %>
-    <%= f.collection_select :status_id, Status.all, :id, :value %>
+    <%= f.collection_select :status_id, Status.all, :id, :value_for_select %>
   </p>
   
   <%= f.fields_for :problem do |builder| %>

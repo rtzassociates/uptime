@@ -19,4 +19,8 @@ class Status < ActiveRecord::Base
                     # missing error
   end
   
+  def value_for_select
+    value.capitalize
+  end
+  
 end
