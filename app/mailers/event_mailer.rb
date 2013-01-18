@@ -2,6 +2,7 @@ class EventMailer < ActionMailer::Base
   default :from => "mailer@uptime.getcare.com"
 
   def event_notification(event)
-    mail(:to => event.recipients, :subject => "A New Event Has Been Created")
+    services = event.services.map { |s| s.name }.join(", ")
+    mail(:to => event.recipients, :subject => "#{event.status.upcase} -- #{services}")
   end
 end
