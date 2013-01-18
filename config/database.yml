@@ -21,6 +21,5 @@ test:
 production:
   host: localhost
   adapter: mysql
-  encoding: unicode
   database: uptime
   username: root
