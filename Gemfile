@@ -7,7 +7,7 @@ gem 'rails', '3.2.9'
 
 gem 'sqlite3'
 gem 'libv8', '~> 3.11.8.3', :platform => :ruby
-gem 'therubyracer'
+gem 'therubyracer', :platform => :ruby
 gem 'pg'
 gem 'mysql', '~> 2.8.1'
 gem 'less-rails'
