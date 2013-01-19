@@ -1,7 +1,7 @@
 -- <%= @event.status.value.capitalize %> --
 
 <% unless @event.services.empty? %>
-  <%= @event.services.map { |s| s.name }.to_sentence  %> <%= pluralize_service_list(@event) %> affected by this event
+<%= @event.services.map { |s| s.name }.to_sentence  %> <%= pluralize_service_list(@event) %> affected by this event
 <% end %>
 
 Reported by <%= @event.problem.user.username %>:
