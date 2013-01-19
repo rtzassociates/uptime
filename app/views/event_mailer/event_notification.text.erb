@@ -1,4 +1,10 @@
-<%= @event.description %>
+<%= @event.problem.user.username %>:
+
+-- <%= @event.status.value.capitalize %> --
+
+<%= services_affected_by(@event) %>
+
+<%= @event.problem.description %>
 
 Click here to view this event:
 
