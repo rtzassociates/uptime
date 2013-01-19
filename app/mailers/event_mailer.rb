@@ -3,6 +3,6 @@ class EventMailer < ActionMailer::Base
 
   def event_notification(event)
     services = event.services.map { |s| s.name }.join(", ")
-    mail(:to => event.recipients, :subject => "#{event.status.name.upcase} -- #{services}")
+    mail(:to => event.recipients, :subject => "#{event.status.value.upcase} -- #{services}")
   end
 end
