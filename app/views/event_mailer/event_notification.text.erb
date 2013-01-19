@@ -1,10 +1,13 @@
 -- <%= @event.status.value.capitalize %> --
+
 <% unless @event.services.empty? %>
   <%= services_affected_by(@event) %>
 <% end %>
-<%= @event.problem.user.username %>:
+
+Reported by <%= @event.problem.user.username %>:
+
 <%= @event.problem.description %>
 
 Click here to view this event:
 
-<%= raw link_to event_url(@event), @event %>
+<%= event_url(@event) %>
