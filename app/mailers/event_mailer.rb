@@ -1,4 +1,5 @@
 class EventMailer < ActionMailer::Base
+  add_template_helper(EventsHelper)
   default :from => "mailer@uptime.getcare.com"
 
   def event_notification(event)
