@@ -92,7 +92,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.reported_on(date)
-    joins(:problem).where("date(datetime(problems.reported_at, 'localtime')) = ?", date)
+    joins(:problem).where("date(CONVERT_TZ(problems.reported_at, 'PST')) = ?", date)
   end
   
 end
