@@ -5,3 +5,7 @@
 <%= services_affected_by(@event) %>
 
 <%= @event.problem.description %>
+
+Click here to view this event:
+
+<%= link_to event_url(@event), @event %>
