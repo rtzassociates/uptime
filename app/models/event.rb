@@ -92,7 +92,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.reported_on(date)
-    joins(:problem).where("date(problems.reported_at) = ?", date)
+    joins(:problem).where("date(CONVERT_TZ(problems.reported_at, system_time_zone)) = ?", date)
   end
   
 end

@@ -20,7 +20,7 @@ class Problem < ActiveRecord::Base
   end
   
   def reported_at_cannot_be_after_resolved_at
-    unless event.nil?
+    unless event.nil? || event.resolution.nil?
       errors.add(:reported_at, "time cannot be later than resolved at time") if
       reported_at > event.resolution.resolved_at
     end

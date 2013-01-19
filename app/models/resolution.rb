@@ -20,7 +20,7 @@ class Resolution < ActiveRecord::Base
   end
   
   def resolved_at_cannot_be_before_reported_at
-     errors.add(:resolved_at, "time cannot be earlier than reported at time") if
-     resolved_at < event.problem.reported_at
+    errors.add(:resolved_at, "time cannot be earlier than reported at time") if
+    resolved_at < event.problem.reported_at
   end
 end
