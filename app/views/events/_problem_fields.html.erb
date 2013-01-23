@@ -1,5 +1,7 @@
 <p>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% if @event.new_record? # so the reporter doesn't get updated %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
   <%= f.label :reported_at_text, "When did this problem occur?" %> 
   <%= f.text_field :reported_at_text, :value => ( @event.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : ( @event.problem.reported_at.strftime("%b %e, %Y at %l:%M %p") unless @event.problem.reported_at.nil? ) ) %>
 </p>
