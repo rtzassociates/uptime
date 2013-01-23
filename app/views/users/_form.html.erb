@@ -45,6 +45,14 @@
       </div>
     </div>
     
+    
+    <div class="control-group">
+      <%= f.label :time_zone, :class => "control-label" %>
+      <div class="controls">
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+      </div>
+    </div>
+    
     <fieldset style="text-align:center">
       <%= f.label :emails, "Email Addresses" %>
       <%= f.fields_for :emails do |builder| %>
@@ -54,6 +62,7 @@
     </fieldset>
     
     <br />
+
     
     <div class="control-group" style="text-align:center">
       <%= f.label :service_ids, "Subscriptions" %>
@@ -64,10 +73,18 @@
       <p style="text-align:center">
         <%= f.label :admin, "Is This User an Admin?" %>
         <label class="radio inline">
-          <%= f.radio_button :admin, :true %> Yes
+          <% if @user.admin? %>
+            <%= f.radio_button :admin, :true, :checked => true %> Yes
+          <% else %>
+            <%= f.radio_button :admin, :true %> Yes
+          <% end %>
         </label>
         <label class="radio inline">
-          <%= f.radio_button :admin, :false, :checked => true %> No
+          <% if @user.new_record? || ! @user.admin %>
+            <%= f.radio_button :admin, :false, :checked => true %> No
+          <% else %>
+            <%= f.radio_button :admin, :false %> No
+          <% end %>
         </label>
       <p>
     <% end %>

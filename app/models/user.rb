@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :password_confirmation, :emails_attributes, :service_ids, :first, :last, :phone, :admin
+  attr_accessible :username, :password, :password_confirmation, :emails_attributes, :service_ids, :first, :last, :phone, :admin, :time_zone
   attr_accessor :password
   
   before_save :prepare_password
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
   
   has_many :subscriptions, :dependent => :destroy
   has_many :services, through: :subscriptions

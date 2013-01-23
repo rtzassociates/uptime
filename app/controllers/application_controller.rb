@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   delegate :allow?, to: :current_permission
   helper_method :allow?
   
+  around_filter :user_time_zone, if: :current_user
+  
   private
   
     def authenticate
@@ -28,5 +30,9 @@ class ApplicationController < ActionController::Base
     
     def current_permission
       @current_permission ||= Permission.new(current_user)
+    end
+    
+    def user_time_zone(&block)
+      Time.use_zone(current_user.time_zone, &block)
     end
 end

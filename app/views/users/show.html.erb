@@ -4,45 +4,42 @@
 </div>
 
 <div id="user">
-  <div class="row">
-    <div class="span4">
-      <h3>Contact Information</h3>
-      <label>Email Addresses</label>
-        <% @user.emails.each do |email| %>
-          <p><%= email.address %></p>
-        <% end %>
-      <br />
-      <p>
-        <span style="color:black;padding-right:1em;">Phone Number</span>
-        <%= @user.phone %>
-      </p>
-    </div>
-    <div class="span4">
-    <h3>Subscriptions</h3>
-      <%= raw @user.services.collect { |s| link_to(s.name, service_path(s), :class => "link-large") }.to_sentence %>
-    </div>
-    <div class="span4">
-      <br/>
-      <p>
-      <% if allow? "users", "edit", @user %>
-        <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
+  <div class="span4">
+    <h3>Contact Information</h3>
+    <label>Email Addresses</label>
+      <% @user.emails.each do |email| %>
+        <p><%= email.address %></p>
       <% end %>
-      <% if allow? "users", "destroy", @user %>
-        <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
-      <% end %>
-      </p>
+    <br />
+    <p>
+      <span style="color:black;padding-right:1em;">Phone Number</span>
+      <%= @user.phone %>
+    </p>
+  </div>
+  <div class="span4">
+  <h3>Subscriptions</h3>
+    <%= raw @user.services.collect { |s| link_to(s.name, service_path(s), :class => "link-large") }.to_sentence %>
+  </div>
+  <div class="span4">
+    <br/>
+    <p>
+    <% if allow? "users", "edit", @user %>
+      <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
+    <% end %>
+    <% if allow? "users", "destroy", @user %>
+      <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
+    <% end %>
+    </p>
+  </div>
+
+  <div class="span12">
+    <div class="h2">     
+      Problems Reported
     </div>
-    <div class="row">
-      <div class="span12">
-        <div class="h2">     
-          Problems Reported
-        </div>
-        <div id="events">
-          <%= render @reported %>
-        </div>
-      </div>
-      <%= will_paginate @reported %>
+    <div id="events">
+      <%= render @reported %>
     </div>
   </div>
+  <%= will_paginate @reported %>
 </div>
   
