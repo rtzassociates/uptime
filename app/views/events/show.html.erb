@@ -16,6 +16,10 @@
         <%= services_affected_by @event %>
       </p>
       
+      <p class="subtle">
+        Duration: <%= distance_of_time_in_words(@event.duration) %>
+      <p>
+      
       <div id="problem">
         <h3>Problem</h3>
         <p>

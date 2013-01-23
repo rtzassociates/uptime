@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ControllerAuthentication
   protect_from_forgery
 
-  before_filter :authenticate
+  before_filter :login_required
   before_filter :authorize
   
   delegate :allow?, to: :current_permission
@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
   around_filter :user_time_zone, if: :current_user
   
   private
-  
-    def authenticate
-      unless current_user
-        redirect_to new_session_url, :notice => "Please log in"
-      end
-    end
     
     def current_resource
       nil
