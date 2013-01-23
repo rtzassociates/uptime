@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
   attr_accessible :value, :foreground_color, :background_color, :include_in_calc
   
-  validates_presence_of :value, :foreground_color, :background_color, :include_in_calc
+  validates_presence_of :value, :foreground_color, :background_color
   
   after_save :reload_events
     
