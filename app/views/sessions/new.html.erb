@@ -1,21 +1,23 @@
-<h3>Log in</h3>
-
-<div id="new_session" class="well span8 offset2">
-  <%= form_tag sessions_path do %>
-    <div class="control-group">
-      <%= label_tag :login, "Username", :class => "control-label" %>
-      <div class="controls">
-        <%= text_field_tag :login, params[:login] %>
+<div class="span12">
+  <h2>Log in</h2>
+  
+  <div id="new_session" class="well span8 offset2">
+    <%= form_tag sessions_path do %>
+      <div class="control-group">
+        <%= label_tag :login, "Username", :class => "control-label" %>
+        <div class="controls">
+          <%= text_field_tag :login, params[:login] %>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= label_tag :password, "Password", :class => "control-label" %>
-      <div class="controls">
-        <%= password_field_tag :password %>
+      <div class="control-group">
+        <%= label_tag :password, "Password", :class => "control-label" %>
+        <div class="controls">
+          <%= password_field_tag :password %>
+        </div>
       </div>
-    </div>
-    <div class="actions">
-      <%= submit_tag "Log in", :class => 'btn' %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= submit_tag "Log in", :class => 'btn' %>
+      </div>
+    <% end %>
+  </div>
 </div>
