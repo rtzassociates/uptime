@@ -1,0 +1,13 @@
+-- RESOLVED --
+
+<% unless @event.services.empty? %>
+<%= @event.services.map { |s| s.name }.to_sentence  %> <%= pluralize_service_list(@event) %> affected by this event
+<% end %>
+
+Resolved by <%= @event.resolution.user.username %>:
+
+<%= @event.resolution.description %>
+
+Click here to view this event:
+
+<%= event_url(@event) %>

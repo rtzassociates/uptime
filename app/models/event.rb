@@ -92,7 +92,8 @@ class Event < ActiveRecord::Base
   end
   
   def self.reported_on(date)
-    joins(:problem).where("date(problems.reported_at) = ?", date)
+    date = date.to_time.utc # to fix the UTC offset
+    joins(:problem).where("date(problems.reported_at) = ?", date.to_date)
   end
   
 end
