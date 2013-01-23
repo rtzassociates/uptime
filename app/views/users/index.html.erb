@@ -1,28 +1,30 @@
-<h2>Users</h2>
-
-<div class="user">
-  <table id="users" class="table table-striped">
-    <thead>
-      <th>Username</th>
-      <th>Member Since</th>
-      <th>Problems Reported</th>
-      <th>Problems Resolved</th>
-      <th>Subscriptions</th>
-      <% if allow? "users", "edit" %>
-        <th></th>
-      <% end %>
-      <% if allow? "users", "destroy" %>
-        <th></th>
-      <% end %>
-    </thead>
-    <tbody>
-      <%= render @users %>
-    </tbody>
-  </table>
+<div class="span12">
+  <h2>Users</h2>
+  
+  <div class="user">
+    <table id="users" class="table table-striped">
+      <thead>
+        <th>Username</th>
+        <th>Member Since</th>
+        <th>Problems Reported</th>
+        <th>Problems Resolved</th>
+        <th>Subscriptions</th>
+        <% if allow? "users", "edit" %>
+          <th></th>
+        <% end %>
+        <% if allow? "users", "destroy" %>
+          <th></th>
+        <% end %>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+  </div>
+  
+  <% if allow? "users", "new" %>
+    <p class="centered">
+      <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
+    </p>
+  <% end %>
 </div>
-
-<% if allow? "users", "new" %>
-  <p class="centered">
-    <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
-  </p>
-<% end %>
