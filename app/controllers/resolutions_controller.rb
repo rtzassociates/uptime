@@ -10,7 +10,7 @@ class ResolutionsController < ApplicationController
     @resolution.event_id = params[:event_id]
     @resolution.user_id = current_user
     if @resolution.save
-      EventResolution.resolution_notification(@resolution.event).deliver
+      ResolutionMailer.resolution_notification(@resolution.event).deliver
       redirect_to @resolution.event
     else
       render 'new'
