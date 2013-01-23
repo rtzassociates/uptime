@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123163001) do
+ActiveRecord::Schema.define(:version => 20130123175716) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(:version => 20130123163001) do
   end
 
   create_table "problems", :force => true do |t|
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "description", :limit => 255
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "reported_at"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20130123163001) do
   create_table "resolutions", :force => true do |t|
     t.string   "event_id"
     t.string   "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "description"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.text     "description", :limit => 255
     t.datetime "resolved_at"
   end
 
