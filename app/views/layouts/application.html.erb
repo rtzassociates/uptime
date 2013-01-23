@@ -11,13 +11,15 @@
 <body>
   <div class="container">   
     <div class="row">
+      
       <div class="span12">
         <div id="header">
           <%= link_to 'uptime', root_path, :class => 'logo' %>
         </div>
       </div>
+ 
+      <% if logged_in? %>
         <div class="span12">
-          <% if logged_in? %>
           <div id="nav">
             <%= link_to "Past Events", events_path, :class => 'nav' %>
             <%= link_to "Applications and Services", services_path, :class => 'nav' %>
@@ -36,13 +38,14 @@
           </div>
         </div>
       <% end %>
-      <div class="span12">
-        <% flash.each do |name, msg| %>
-          <div class="alert alert-<%= name %>">
-            <%= msg %>
-          </div>
-        <% end %>
-      </div>
+    </div>
+       
+    <div class="row">   
+      <% flash.each do |name, msg| %>
+        <div class="span12 alert alert-<%= name %>">
+          <%= msg %>
+        </div>
+      <% end %>
     </div>
     
     <div class="row">

@@ -1,7 +1,9 @@
 <div class="span12">
   <div class="h1">
     Past Events
-    <span class="sublink"><%= link_to "Events Chart", charts_events_path %></span>
+    <div id="sublinks">
+      <span class="sublink"><%= link_to "Events Chart", charts_events_path %></span>
+    </div>
   </div>
   <div id="events">
     <%= render @events %>
