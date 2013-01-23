@@ -5,8 +5,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :content, :user_id
-  
-  def last_in?(collection)
-    collection.last == self
-  end
+
 end
