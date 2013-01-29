@@ -42,6 +42,6 @@ class UsersController < ApplicationController
   end
   
   def current_resource
-    @current_resource ||= User.find(params[:user_id]).resolution if params[:user_id]
+    @current_resource ||= User.find(params[:id]) if params[:id]
   end
 end
