@@ -40,4 +40,8 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path, :notice => "User was successfully destroyed"
   end
+  
+  def current_resource
+    @current_resource ||= User.find(params[:user_id]).resolution if params[:user_id]
+  end
 end
