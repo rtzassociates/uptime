@@ -12,6 +12,7 @@
           <th>Status</th>
           <th>Uptime</th>
           <th>Issue Count</th>
+          <th>Subscribers</th>
           <th>Last Reported Issue</th>
           <th></th>
           <% if allow? "services", "edit" %>
@@ -36,6 +37,7 @@
             </td>
             <td><%= service.uptime %>%</td>
             <td><%= service.events.count %></td>
+            <td><%= service.users.count %></td>
             <td><%= service.events.empty? ? "Never" : "#{time_ago_in_words(service.events.last.created_at).capitalize} ago" %></td>
             <td>
               <% if current_user.is_subscribed_to? service %>
