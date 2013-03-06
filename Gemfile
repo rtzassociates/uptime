@@ -21,6 +21,7 @@ gem 'redcarpet', '1.17.2'
 gem "highcharts-rails", "~> 2.3.0"
 gem "best_in_place"
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'faker'
 
 
 # Gems used only for assets and not required

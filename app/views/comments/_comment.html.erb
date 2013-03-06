@@ -3,7 +3,7 @@
     <%= link_to comment.user.username, comment.user, :style => 'link-large' %>
     <span class="small" style="color:gray">( <%= time_ago_in_words(comment.created_at).capitalize %> ago )</span>
     </p>
-    <p style="color:gray">
+    <p>
       <%= comment.content %>
     </p>
   <div class="pull-right">

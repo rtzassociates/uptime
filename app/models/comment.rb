@@ -6,4 +6,19 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :content, :user_id
 
+  def klass
+    commentable_type.classify.constantize
+  end
+  
+  def event
+    klass.find(commentable_id).event
+  end
+
+  def services
+    event.services.map { |s| s.name }.join(", ")
+  end
+  
+  def recipients
+    event.recipients
+  end
 end

@@ -1,13 +1,5 @@
--- <%= @event.status.value.capitalize %> --
-
-<% unless @event.services.empty? %>
-<%= @event.services.map { |s| s.name }.to_sentence  %> <%= pluralize_service_list(@event) %> affected by this event
-<% end %>
-
-Reported by <%= @event.problem.user.username %>:
+<%= @event.problem.user.username.capitalize %> reported:
 
 <%= @event.problem.description %>
 
-Click here to view this event:
-
-<%= event_url(@event) %>
+Click here to view this event: <%= event_url(@event) %>

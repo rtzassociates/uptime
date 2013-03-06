@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
     if @comment.save
+      CommentMailer.comment_notification(@comment).deliver
       flash[:notice] = "Thanks for your comment"
       redirect_to @commentable.event
     else
