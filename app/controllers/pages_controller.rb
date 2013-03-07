@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     else
        @unresolved_events = Event.unresolved_sorted("desc")
     end
+    @event_feed = current_user.event_feed
   end
 end

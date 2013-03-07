@@ -1,8 +1,8 @@
-<div id="status">
-  <h3>Showing <%= pluralize @events.count, 'Event' %> With The Status: <%= @status.value.capitalize %></h3>
-  <div id="events">
-    <%= render @events %>
+<div class="span12">
+  <div id="status">
+    <div id="events">
+      <%= render @events %>
+    </div>   
+    <%= will_paginate @events %>
   </div>
-  
-  <%= will_paginate @events %>
 </div>

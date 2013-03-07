@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
     return true if admin
   end
   
+  def event_feed
+    Event.feed_for(self)
+  end
+  
+  def self.admins
+    User.where(:admin => true)
+  end
+  
   private
   
   def prepare_password

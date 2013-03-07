@@ -96,4 +96,28 @@ class Event < ActiveRecord::Base
     joins(:problem).where("date(problems.reported_at) = ?", date.to_date)
   end
   
+  def subscribers
+    subscribers = services.each_with_object(arr = []) do |service|
+      service.users.each do |user|
+        arr << user
+      end
+    end
+    
+    # admins should always be emailed
+    admins = User.admins.to_a
+    
+    subscribers += admins
+    
+    # deduplicate subsctibers
+    subscribers.uniq
+  end
+  
+  def self.feed_for(user)
+    Event.all.each_with_object(arr = []) do |event|
+      if event.subscribers.include?(user)
+        arr << event
+      end
+    end
+  end
+  
 end

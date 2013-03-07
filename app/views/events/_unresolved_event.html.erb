@@ -1,0 +1,29 @@
+<div class="event">
+  <div id="status">
+    <%= status_for(event, "small") %>
+  </div>
+  <% if event.resolved? %>
+    <div id="resolved_by-small">
+      <%= resolution_for event %>
+    </div>
+  <% end %>
+  <div class="content">
+    <div class="description">     
+      <p> 
+        <%= services_affected_by event %>
+      </p>
+      <p class="subtle">
+        Duration: <%= distance_of_time_in_words(event.duration) %>
+      <p>
+        <%= problem_for event %>
+      </p>
+      <p>
+        <%= markdown event.problem.description %>
+      </p>
+      <p>
+        <span class="subtle"><%= pluralize event.problem.comments.count, "comment" %></span>
+        <%= link_to 'View this event', event, :class => 'small nav' %>
+      </p>
+    </div>
+  </div>
+</div>
