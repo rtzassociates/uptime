@@ -9,4 +9,8 @@ class Email < ActiveRecord::Base
   def self.addresses
     all.map { |e| e.address }
   end
+  
+  def self.admin_addresses
+    Email.joins(:user).where("users.admin" => true).pluck(:address)
+  end
 end

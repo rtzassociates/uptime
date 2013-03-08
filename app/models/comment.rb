@@ -19,6 +19,6 @@ class Comment < ActiveRecord::Base
   end
   
   def recipients
-    event.recipients
+    event.email_recipients
   end
 end

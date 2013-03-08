@@ -46,7 +46,7 @@
           <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
           <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
           <div class="input-append">
-            <%= f.text_field :content, :placeholder => "Comment on this problem", :class => 'span9' %>
+            <%= f.text_area :content, :placeholder => "Comment on this problem", :class => 'span9' %>
             <%= f.submit "Submit", :class => 'btn' %>
           </div>
         <% end %>       

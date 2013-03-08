@@ -59,28 +59,8 @@ class Event < ActiveRecord::Base
     return true if resolution.nil?
   end
   
-  def recipients
-    recipients = services.each_with_object(arr = []) do |service|
-      service.users.each do |user|
-        user.emails.each do |email|
-          arr << email.address
-        end
-      end
-    end
-    
-    # admins should always be emailed
-    admins = User.all.each_with_object(arr = []) do |user|
-      if user.admin?
-        user.emails.each do |email|
-          arr << email.address
-        end
-      end
-    end
-    
-    recipients += admins
-    
-    # deduplicate recipients
-    recipients.uniq
+  def email_recipients
+    (services.scoped.joins(:users => :emails).pluck(:address) + Email.admin_addresses).uniq  
   end
   
   def duration
@@ -97,19 +77,7 @@ class Event < ActiveRecord::Base
   end
   
   def subscribers
-    subscribers = services.each_with_object(arr = []) do |service|
-      service.users.each do |user|
-        arr << user
-      end
-    end
-    
-    # admins should always be emailed
-    admins = User.admins.to_a
-    
-    subscribers += admins
-    
-    # deduplicate subsctibers
-    subscribers.uniq
+    User.joins(:services).where("service_id IN (?)", service_ids).uniq
   end
   
   def self.feed_for(user)
