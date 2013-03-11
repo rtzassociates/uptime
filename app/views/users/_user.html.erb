@@ -5,9 +5,9 @@
   <td><%= user.resolutions.count %></td>
   <td><%= user.subscriptions.count %></td>
   <% if allow? "users", "edit" %>
-    <td><%= link_to "Edit", edit_user_path(user), :class => "btn" %></td>
+    <td><%= link_to "Edit", edit_user_path(user), :class => "small" %></td>
   <% end %>
   <% if allow? "users", "destroy" %>
-    <td><%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
+    <td><%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "small danger" %></td>
   <% end %>
 </tr>

@@ -1,0 +1,34 @@
+<div id="resolution">
+  <h3>Resolution</h4>
+  <p>
+    <%= resolution_for @event %>
+  </p>
+  <p>
+    <%= markdown @event.resolution.description %>
+  </p>
+  <div class="actions">
+    <% if allow? "resolutions", "edit", @event.resolution %>
+      <%= edit_resolution_for(@event) %>
+    <% end %>
+    <% if allow? "resolutions", "destroy", @event.resolution %>
+      <%= destroy_resolution_for(@event) %>
+    <% end %>
+  </div>
+  
+  <div id="comment_form">      
+    <%= form_for Comment.new do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
+      <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
+      <%= f.text_area :content, :placeholder => "Comment on this resolution", :rows => 3, :class => "span10" %>
+      <%= f.submit "Submit Comment", :class => 'btn', :style => "align:left" %>
+    <% end %>       
+  </div>
+  <% unless @event.resolution.comments.empty? %>
+    <div id="resolution_comments">
+      <%= render @event.resolution.comments %>
+    </div>
+  <% end %>
+  
+</div>
+

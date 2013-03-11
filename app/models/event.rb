@@ -44,11 +44,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.unresolved
-    where("event_id NOT IN (SELECT event_id FROM resolutions)")
-  end
-
-  def self.unresolved_sorted(sort)
-    joins(:problem).where("event_id NOT IN (SELECT event_id FROM resolutions)").order("problems.reported_at #{sort}")
+    joins(:problem).where("event_id NOT IN (SELECT event_id FROM resolutions)").order("problems.reported_at DESC")
   end
   
   def resolved?
@@ -72,20 +68,15 @@ class Event < ActiveRecord::Base
   end
   
   def self.reported_on(date)
-    date = date.to_time.utc # to fix the UTC offset
     joins(:problem).where("date(problems.reported_at) = ?", date.to_date)
   end
   
   def subscribers
     User.joins(:services).where("service_id IN (?)", service_ids).uniq
   end
-  
-  def self.feed_for(user)
-    Event.all.each_with_object(arr = []) do |event|
-      if event.subscribers.include?(user)
-        arr << event
-      end
-    end
+
+  def self.last_resolved_event
+    Event.joins(:resolution).where("resolutions.resolved_at IS NOT NULL").last
   end
   
 end

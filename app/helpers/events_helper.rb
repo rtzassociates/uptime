@@ -19,13 +19,13 @@ module EventsHelper
   def problem_for(event)
     raw "Reported by #{ link_to event.problem.user.username, event.problem.user, :class => 'link-large' } 
      on #{ event.problem.reported_at.strftime('%b %e, %Y at %l:%M %p') }
-     ( #{ time_ago_in_words(event.problem.reported_at).capitalize } ago )"
+     (#{ time_ago_in_words(event.problem.reported_at).capitalize } ago)"
   end
   
   def resolution_for(event)
     raw "Resolved by #{ link_to event.resolution.user.username, event.resolution.user, :class => 'link-large' } 
      on #{ event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') }
-     ( #{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago )"
+     (#{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago)"
   end
   
   def status_for(event, size)
@@ -35,11 +35,11 @@ module EventsHelper
   end
   
   def edit_problem_for(event)
-    link_to 'Edit Problem', edit_event_path(event), :class => 'nav small'
+    link_to 'Edit Event', edit_event_path(event), :class => "nav small"
   end
   
   def destroy_action_for(event)
-    link_to 'Destroy', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
+    link_to 'Delete Event', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
   end
   
   def edit_resolution_for(event)
@@ -47,7 +47,7 @@ module EventsHelper
   end
   
   def destroy_resolution_for(event)
-    link_to 'Destroy', event_resolution_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
+    link_to 'Delete Resolution', event_resolution_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
   end
 
 end

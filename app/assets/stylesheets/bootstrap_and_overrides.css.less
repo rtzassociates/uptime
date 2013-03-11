@@ -1,6 +1,10 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+.event_header {
+  text-align: center;
+}
+
 label {
   color: black;
   padding-top: 1em;
@@ -45,7 +49,11 @@ label.datepicker {
   font-weight: normal;
   padding-left: 5px;
   padding-right: 5px;
-} 
+}
+
+.centered { 
+  text-align: center;
+}
 
 h1 {
   margin-bottom: 1em;
@@ -57,9 +65,8 @@ h2 {
 }
 
 .actions {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #session {
@@ -67,6 +74,7 @@ h2 {
 }
 
 p {
+  line-height: 25px;
   color: black;
   margin-bottom: 1em;
 }
@@ -94,7 +102,7 @@ p {
 }
 
 a {
-  font-size: 16px;
+  font-size: large;
 }
 
 form {
@@ -107,6 +115,7 @@ form {
 }
 
 #event {
+  text-align: left;
   margin-top: 2em;
   margin-bottom: 2em;
   .rounded_border
@@ -134,10 +143,6 @@ form {
   border-width: 1px;
   height: 500px;
   background-color: gray;
-}
-
-#event_body {
-  text-align: left;
 }
 
 .event_status-large {
@@ -266,31 +271,11 @@ textarea {
   margin-bottom: 1em;
 }
 
-#problem_comment_form {
-  border: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  padding: 1em;
-  background-color: #F9F9F9
-}
-
-#problem_comments {
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  border-left: solid;
-  border-right: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  background-color: #F9F9F9;
-  margin-bottom: 1em;
-}
-
 #problem {
   margin-bottom: 2em;
 }
 
-#resolution_comment_form {
+#comment_form {
   border: solid;
   border-color: #E5E5E5;
   border-width: 1px;
@@ -298,17 +283,6 @@ textarea {
   background-color: #F9F9F9
 }
 
-#resolution_comments {
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  border-left: solid;
-  border-right: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  background-color: #F9F9F9;
-  margin-bottom: 2em;
-}
 
 #resolution {
   margin-top: 2em;
@@ -327,8 +301,14 @@ pre {
 }
 
 .comment {
-  padding: 1em;
+  padding: 2em;
   margin-bottom: 1em;
+  border-left: solid;
+  border-right: solid;
+  border-bottom: solid;
+  border-color: #E5E5E5;
+  border-width: 1px;
+  background-color: #F9F9F9;
 }
 
 #events_chart {
@@ -344,6 +324,8 @@ pre {
 }
 
 body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: medium;
   text-align: center;
   color: gray;
   background-color: white;

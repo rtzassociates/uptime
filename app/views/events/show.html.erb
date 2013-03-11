@@ -1,100 +1,27 @@
 <div class="span12">
   <div id="event">
-    <% if @event.resolved? %>
-      <div id="resolved_by-large">
-        <%= resolution_for @event %>
-      </div>
-    <% end %>
-
-    <div class="row">
-      <div id="status" class="span5 offset3">
-        <%= status_for(@event, "large") %>
+    
+    <div class="event_header">
+      <% if @event.resolved? %>
+        <div id="resolved_by-large">
+          <%= resolution_for @event %>
+        </div>
+      <% end %>   
+      <div class="row">
+        <div id="status" class="span5 offset3">
+          <%= status_for(@event, "large") %>
+        </div>
       </div>
     </div>
     
-    <div id="event_body">
-      
-      <p> 
-        <%= services_affected_by @event %>
-      </p>
-      
-      <p class="subtle">
-        Duration: <%= distance_of_time_in_words(@event.duration) %>
-      <p>
-      
-      <div id="problem">
-        <h3>Problem</h3>
-        <p>
-          <%= problem_for @event %>
-        </p>
-        <p>
-          <%= markdown @event.problem.description %>
-        </p>
-        <div class="actions">
-          <% if allow? "events", "edit", @event %>
-            <%= edit_problem_for(@event) %>
-          <% end %>
-          <% if allow? "events", "destroy", @event %>
-            <%= destroy_action_for(@event) %>
-          <% end %>
-        </div>
-      </div>
-      
-      <div id="problem_comment_form">      
-        <%= form_for Comment.new do |f| %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
-          <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
-          <div class="input-append">
-            <%= f.text_area :content, :placeholder => "Comment on this problem", :class => 'span9' %>
-            <%= f.submit "Submit", :class => 'btn' %>
-          </div>
-        <% end %>       
-      </div>
-      <% unless @event.problem.comments.empty? %>
-        <div id="problem_comments">
-          <%= render @event.problem.comments %>
-        </div>
-      <% end %>   
-        
-      <% if @event.resolved? %>
-        <div id="resolution">
-          <h3>Resolution</h4>
-          <p>
-            <%= resolution_for @event %>
-          </p>
-          <p>
-            <%= markdown @event.resolution.description %>
-          </p>
-          <div class="actions">
-            <% if allow? "resolutions", "edit", @event.resolution %>
-              <%= edit_resolution_for(@event) %>
-            <% end %>
-            <% if allow? "resolutions", "destroy", @event.resolution %>
-              <%= destroy_resolution_for(@event) %>
-            <% end %>
-          </div>
-        </div>
-        
-        <div id="resolution_comment_form">      
-          <%= form_for Comment.new do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
-            <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
-            <div class="input-append">
-              <%= f.text_field :content, :placeholder => "Comment on this resolution", :class => 'span9' %>
-              <%= f.submit "Submit", :class => 'btn' %>
-            </div>
-          <% end %>       
-        </div>
-        <% unless @event.resolution.comments.empty? %>
-          <div id="resolution_comments">
-            <%= render @event.resolution.comments %>
-          </div>
-        <% end %>
-      <% end %>
-      
-    </div>
+    <p><%= services_affected_by @event %></p>   
+    <p class="muted">
+      Duration: <%= distance_of_time_in_words(@event.duration) %>
+    <p>
+    
+    <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
+    <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %> 
+
   </div>
 
   <% unless @event.resolved? %>

@@ -9,7 +9,6 @@
       <table id="services" class="table table-striped rounded_border">
         <thead>
           <th>Name</th>
-          <th>Status</th>
           <th>Uptime</th>
           <th>Issue Count</th>
           <th>Subscribers</th>
@@ -26,15 +25,6 @@
           <% @services.each do |service| %>
           <tr>
             <td><%= link_to service.name, service %></td>
-            <td>
-              <button type="button" class="btn disabled" 
-                      style="background-color:
-                        <%= service.status == "OK" ? 'green' : service.events.unresolved.first.status.background_color %>;
-                             color:
-                        <%= service.status == "OK" ? 'white' : service.events.unresolved.first.status.foreground_color %>;">
-                <%= service.status.capitalize %>
-              </button>
-            </td>
             <td><%= service.uptime %>%</td>
             <td><%= service.events.count %></td>
             <td><%= service.users.count %></td>
@@ -47,10 +37,10 @@
               <% end %>
             </td>
             <% if allow? "services", "edit" %>
-              <td><%= link_to 'Edit', edit_service_path(service), :class => 'btn' %></td>
+              <td><%= link_to 'Edit', edit_service_path(service), :class => "small" %></td>
             <% end %>
             <% if allow? "services", "destroy" %>
-              <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
+              <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></td>
             <% end %>
           </tr>
           <% end %>
