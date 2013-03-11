@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Thanks for your comment"
       redirect_to @commentable.event
     else
-      render :action => 'new'
+      flash[:error] = "Comment #{@comment.errors.full_messages.first.downcase}"
+      redirect_to @comment.event
     end
   end
   
