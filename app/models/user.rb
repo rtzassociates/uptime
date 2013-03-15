@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :password_confirmation, :emails_attributes, :service_ids, :first, :last, :phone, :admin, :time_zone
+  attr_accessible :username, :password, :password_confirmation, 
+                  :emails_attributes, :service_ids,
+                  :first, :last, :phone, :admin, :time_zone,
+                  :token
+                  
   attr_accessor :password
   
   before_save :prepare_password
@@ -20,7 +24,8 @@ class User < ActiveRecord::Base
   
   has_many :problems, :dependent => :destroy
   has_many :resolutions, :dependent => :destroy
-  
+  has_one :password_reset
+
   def is_subscribed_to?(service)
     return true if subscriptions.find_by_service_id(service.id)
   end

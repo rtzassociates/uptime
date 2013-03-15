@@ -2,6 +2,7 @@ class Permission
   
   def initialize(user)
     allow :sessions, [:new, :create, :destroy]
+    allow :password_resets, [:new, :create, :edit, :update]
     if user
       allow :pages, [:home]
       allow :events, [:index, :show, :new, :create]

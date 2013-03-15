@@ -24,6 +24,8 @@ Uptime::Application.routes.draw do
   resources :subscriptions
   
   match "signout" => "sessions#destroy"
+  
+  resources :password_resets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -13,4 +13,9 @@ class Email < ActiveRecord::Base
   def self.admin_addresses
     Email.joins(:user).where("users.admin" => true).pluck(:address)
   end
+  
+  def self.find_user_by_address(address)
+    Email.find_by_address(address).user
+  end
+  
 end
