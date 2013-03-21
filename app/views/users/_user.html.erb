@@ -4,10 +4,7 @@
        <span class="muted small">(since <%= short_date(user.created_at) %>)</span>
     </p>
     <p>
-      Email addresses: 
-      <% user.emails.each do |email| %>
-        <%= email.address %>
-      <% end %>
+      Email addresses: <%= user.emails.map { |email| email.address }.join(", ") %>
     </p>
   </div>
   <div class="pull-right">
