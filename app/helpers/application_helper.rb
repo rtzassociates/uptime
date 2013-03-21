@@ -22,5 +22,9 @@ module ApplicationHelper
       end
     end
   end
+  
+  def short_date(date)
+    date.strftime("%b %e, %Y")
+  end
     
 end

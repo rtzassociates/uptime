@@ -1,13 +1,22 @@
-<tr>
-  <td><%= link_to user.username, user %></td>
-  <td><%= time_ago_in_words(user.created_at).capitalize %> ago</td>
-  <td><%= user.problems.count %></td>
-  <td><%= user.resolutions.count %></td>
-  <td><%= user.subscriptions.count %></td>
-  <% if allow? "users", "edit" %>
-    <td><%= link_to "Edit", edit_user_path(user), :class => "small" %></td>
-  <% end %>
-  <% if allow? "users", "destroy" %>
-    <td><%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "small danger" %></td>
-  <% end %>
-</tr>
+<div class="user">
+  <div class="pull-left">
+    <p id="username"><%= link_to user.username, user %>
+       <span class="muted small">(since <%= short_date(user.created_at) %>)</span>
+    </p>
+    <p>
+      Email addresses: 
+      <% user.emails.each do |email| %>
+        <%= email.address %>
+      <% end %>
+    </p>
+  </div>
+  <div class="pull-right">
+    <% if allow? "users", "edit" %>
+      <%= link_to "Edit", edit_user_path(user), :class => "small" %>
+    <% end %>
+    <% if allow? "users", "destroy" %>
+      <%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "small danger" %>
+    <% end %>
+  </div>
+  <div style="clear:both"></div>
+</div>

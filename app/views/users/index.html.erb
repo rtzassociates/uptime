@@ -1,25 +1,7 @@
 <div class="span12">
-  <h2>Users Index</h2>
   
-  <div class="user">
-    <table id="users" class="table table-striped rounded_border">
-      <thead>
-        <th>Username</th>
-        <th>Member Since</th>
-        <th>Problems Reported</th>
-        <th>Problems Resolved</th>
-        <th>Subscriptions</th>
-        <% if allow? "users", "edit" %>
-          <th></th>
-        <% end %>
-        <% if allow? "users", "destroy" %>
-          <th></th>
-        <% end %>
-      </thead>
-      <tbody>
-        <%= render @users %>
-      </tbody>
-    </table>
+  <div id="users">
+    <%= render @users %>
   </div>
   
   <% if allow? "users", "new" %>
