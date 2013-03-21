@@ -1,6 +1,6 @@
 class CommentMailer < ActionMailer::Base
   add_template_helper(EventsHelper)
-  default :from => "notify@uptime.getcare.com"
+  default :from => "uptime@uptime.getcare.com"
 
   def comment_notification(comment)
     @comment = comment

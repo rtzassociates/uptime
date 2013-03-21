@@ -1,6 +1,6 @@
 class ResolutionMailer < ActionMailer::Base
   add_template_helper(EventsHelper)
-  default :from => "notify@uptime.getcare.com"
+  default :from => "uptime@uptime.getcare.com"
 
   def resolution_notification(event)
     @event = event

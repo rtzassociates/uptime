@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "password_resets@uptime.getcare.com"
+  default from: "uptime@uptime.getcare.com"
 
   def password_reset(user)
     @user = user

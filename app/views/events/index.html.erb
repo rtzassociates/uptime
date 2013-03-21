@@ -1,14 +1,7 @@
 <div class="span12">
-  <div class="h1">
-    Past Events
-    <div id="sublinks">
-      <span class="sublink"><%= link_to "Events Chart", charts_events_path %></span>
-    </div>
-  </div>
+  <h3>Past Events</h3>
   <div id="events">
     <%= render @events %>
-  </div>
-  
-  <%= will_paginate @events %>
-  
+  </div> 
+  <%= will_paginate @events %> 
 </div>
