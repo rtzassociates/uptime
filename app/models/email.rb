@@ -15,7 +15,8 @@ class Email < ActiveRecord::Base
   end
   
   def self.find_user_by_address(address)
-    Email.find_by_address(address).user
+    email = Email.find_by_address(address)
+    email.user if email
   end
   
 end

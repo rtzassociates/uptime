@@ -5,7 +5,8 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    user = Email.find_user_by_address(params[:email])
+    email = params[:email] + "@rtzassociates.com"
+    user = Email.find_user_by_address(email)
     if user
       password_reset = PasswordReset.create!(:user_id => user.id)
       UserMailer.password_reset(user).deliver

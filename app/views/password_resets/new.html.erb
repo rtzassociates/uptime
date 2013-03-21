@@ -5,9 +5,10 @@
       Please provide your email address below. If we have your email address on file,
       we'll sent you some password reset instructions.
     </p>
-    <div class="field">
+    <div class="input-append">
       <%= label_tag :email, "Email Address" %>
-      <%= text_field_tag :email, params[:email] %>
+      <%= text_field_tag :email, params[:email], :id => "appendedInput", :class => "span1", :style => "text-align: right"  %>
+      <span class="add-on">@rtzassociates.com</span>
     </div>
     <div class="actions"><%= submit_tag "Reset Password", :class => "btn" %></div>
   <% end %>
