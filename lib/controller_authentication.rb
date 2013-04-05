@@ -1,4 +1,5 @@
 module ControllerAuthentication
+  
   def self.included(controller)
     controller.send :helper_method, :current_user, :logged_in?, :redirect_to_target_or_default
   end
@@ -28,4 +29,5 @@ module ControllerAuthentication
   def store_target_location
     session[:return_to] = request.url
   end
+  
 end

@@ -60,5 +60,6 @@ module Uptime
     config.assets.version = '1.0'
     
     config.time_zone = 'Pacific Time (US & Canada)'
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

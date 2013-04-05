@@ -8,7 +8,7 @@
   </p>
   
   <%= f.fields_for :problem do |builder| %>
-    <%= render 'problem_fields', :f => builder, :locals => { :event => @event } %>
+    <%= render :partial => 'problems/problem_fields', :locals => { :f => builder, :event => @event } %>
   <% end %>
   
   <p>

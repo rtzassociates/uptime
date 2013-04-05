@@ -10,13 +10,14 @@ class Problem < ActiveRecord::Base
   validate :reported_at_cannot_be_after_resolved_at
   
   def reported_at_text
-    reported_at.try(:strftime, "%Y-%m-%d %H:%M:%S")
+    reported_at
   end
   
-  def reported_at_text=(time)
-    self.reported_at = Chronic.parse(time) if time.present?
-  rescue ArgumentError
-    self.reported_at = Time.zone.now.strftime("%b %e, %Y at %l:%M %p")
+  def reported_at_text=(time_str)
+    self.reported_at = Chronic.parse(time_str).utc
+    if self.reported_at.nil?
+      @reported_at_invalid = true
+    end
   end
   
   def reported_at_cannot_be_after_resolved_at
@@ -24,6 +25,10 @@ class Problem < ActiveRecord::Base
       errors.add(:reported_at, "time cannot be later than resolved at time") if
       reported_at > event.resolution.resolved_at
     end
+  end
+  
+  def validate
+    errors.add(:reported_at, "is invalid") if @reported_at_invalid
   end
   
 end

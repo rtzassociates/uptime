@@ -10,13 +10,18 @@ class Resolution < ActiveRecord::Base
   validate :resolved_at_cannot_be_before_reported_at
   
   def resolved_at_text
-    resolved_at.try(:strftime, "%Y-%m-%d %H:%M:%S")
+    resolved_at
   end
   
-  def resolved_at_text=(time)
-    self.resolved_at = Chronic.parse(time) if time.present?
-  rescue ArgumentError
-    self.resolved_at = Time.zone.now.strftime("%b %e, %Y at %l:%M %p")
+  def resolved_at_text=(time_str)
+    self.resolved_at = Chronic.parse(time_str).utc
+    if self.resolved_at.nil?
+      @resolved_at_invalid = true
+    end
+  end
+  
+  def validate
+    errors.add(:resolved_at, "is invalid") if @resolved_at_invalid
   end
   
   def resolved_at_cannot_be_before_reported_at
