@@ -18,7 +18,7 @@ class ServicesController < ApplicationController
   end
 
   def index
-    @services = Service.all
+    @services = Service.page(params[:page]).per_page(25)
   end
 
   def new

@@ -4,16 +4,17 @@
       <h3>Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
   </div>
   <% else %>
-    <ul>
-      <li>Showing <%= pluralize @services.count, "service" %></li>
-    </ul>
-  </div>
-  <% if allow? "services", "create" %>
-    <div class="actions pull-right" style="padding-top:1em">
-      <%= link_to "Create a new service", new_service_path, :class => "btn btn-large btn-success" %>
+      <ul>
+        <li>Showing <%= pluralize @services.count, "service" %></li>
+      </ul>
     </div>
+    <% if allow? "services", "create" %>
+      <div class="actions pull-right" style="padding-top:1em">
+        <%= link_to "Create a new service", new_service_path, :class => "btn btn-large btn-success" %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
+    <br />
+    <%= render @services %>
+    <%= will_paginate @services %> 
   <% end %>
-  <div class="clearfix"></div>
-  <br />
-  <%= render @services %>
-<% end %>
