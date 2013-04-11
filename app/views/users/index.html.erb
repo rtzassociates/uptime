@@ -1,14 +1,19 @@
-<div class="span12">
-  
-  <h1>Users</h1>
-  
-  <div id="users">
-    <%= render @users %>
+<div class="row">
+  <div class="span12">
+    <div class="heading pull-left">
+    <h1>Users List</h1>
+    <ul>
+      <li>Showing <%= pluralize @users.count, "user" %></li>
+    </ul>
+    </div>
+    <% if allow? "users", "new" %>
+      <div class="actions pull-right" style="margin-top:1em">
+        <%= link_to 'Add a new user', new_user_path, :class => 'btn btn-large btn-success' %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
   </div>
-  
-  <% if allow? "users", "new" %>
-    <p class="centered">
-      <%= link_to 'Add a user', new_user_path, :class => 'btn' %>
-    </p>
-  <% end %>
 </div>
+<br />
+
+<%= render @users %>

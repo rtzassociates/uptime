@@ -1,50 +1,44 @@
-
-<div class="span12">
-  <h2><%= @user.full_name %></h2>
-</div>
-
 <div id="user">
-  <div class="span4">
-    <h3>Contact Information</h3>
-    <label>Email Addresses</label>
-      <% @user.emails.each do |email| %>
-        <p><%= email.address %></p>
-      <% end %>
-    <br />
-    <p>
-      <span style="color:black;padding-right:1em;">Phone Number:</span>
-      <%= @user.phone %>
-    </p>
-    <p>
-      <span style="color:black;padding-right:1em;">Time Zone:</span>
-      <%= @user.time_zone %>
-    </p>
-    
-  </div>
-  <div class="span4">
-  <h3>Subscriptions</h3>
-    <%= raw @user.services.collect { |s| link_to(s.name, service_path(s), :class => "link-large") }.to_sentence %>
-  </div>
-  <div class="span4">
-    <br/>
-    <p>
-    <% if allow? "users", "edit", @user %>
-      <%= link_to "Edit", edit_user_path(@user), :class => "btn" %>
-    <% end %>
-    <% if allow? "users", "destroy", @user %>
-      <%= link_to "Destroy", @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
-    <% end %>
-    </p>
-  </div>
-
-  <div class="span12">
-    <div class="h2">     
-      Problems Reported
+  <h1><%= @user.full_name %></h1>
+  <hr>
+  <div class="row">
+    <div class="span6">
+      <h3>Contact Information</h3>
+      <p>
+        <strong>Email Addresses:</strong>
+        <%= @user.emails.map { |email| email.address }.join(", ") %>
+      </p>
+      <p>
+        <strong>Phone Number:</strong> 
+        <%= @user.phone %>
+      </p>
+      <p>
+        <strong>Time Zone:</strong>
+        <%= @user.time_zone %>
+      </p>
     </div>
-    <div id="events">
-      <%= render @reported %>
+    <div class="span5">
+      <h3>Subscriptions</h3>
+      <p>
+        <%= raw @user.services.collect { |s| link_to(s.name, service_path(s)) }.to_sentence %>
+      </p>
     </div>
   </div>
-  <%= will_paginate @reported %>
+  <% if current_user.admin? %>
+    <div class="actions pull-right">
+      <ul>
+        <% if allow? "services", "edit" %>
+          <li><%= link_to 'Edit Account', edit_user_path(@user), :class => "small" %></li>
+        <% end %>
+        <% if allow? "services", "destroy" %>
+          <li><%= link_to 'Delete User', @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
 </div>
-  
+
+<h3>Problems Reported</h2>
+<%= render @reported %>
+<%= will_paginate @reported %>

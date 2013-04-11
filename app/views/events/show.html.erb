@@ -1,33 +1,17 @@
-<div class="span12">
-  <div id="event">
-    
-    <div class="event_header">
-      <% if @event.resolved? %>
-        <div id="resolved_by-large">
-          <%= resolution_for @event %>
-        </div>
-      <% end %>   
-      <div class="row">
-        <div id="status" class="span5 offset3">
-          <%= status_for(@event, "large") %>
-        </div>
-      </div>
-    </div>
-    
-    <p><%= services_affected_by @event %></p>   
-    <p class="muted">
-      Duration: <%= distance_of_time_in_words(@event.duration) %>
-    <p>
-    
-    <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
-    <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %> 
-
+<%= div_for @event, :class => "row" do %>
+  <div class="span4">
+    <%= status_for(@event.status, "small") %>
+    <%  if @event.resolved? %>
+      <%= resolution_for(@event.resolution, "small")%>
+    <% else %>
+      <%= render :partial => "events/resolve_link", :locals => { :event => @event }%>
+    <% end %>
   </div>
-
-  <% unless @event.resolved? %>
-    <div class="actions">
-      <%= link_to 'Mark As Resolved', new_event_resolution_path(@event), :class => "btn" %>
-    </div>
-  <% end %>
-  
-</div>
+  <div class="span8">
+    <%= div_for @event.problem do %>
+      <h3><%= services_affected_by @event %></h3>
+      <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
+      <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %>
+    <% end %>
+  </div>
+<% end %>

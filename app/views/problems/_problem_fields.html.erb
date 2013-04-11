@@ -1,10 +1,9 @@
+<%= f.hidden_field :user_id, :value => current_user.id %>
 <p>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.label :reported_at_text, "When did this problem occur?" %> 
+  <%= f.label :reported_at_text, "When did this event occur?" %> 
   <%= f.text_field :reported_at_text, :value => ( @event.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : @event.problem.reported_at.strftime("%b %e, %Y at %l:%M %p") ) %>
 </p>
-<br />
 <p>
   <%= f.label :description, "Please provide a description of the problem." %>
-  <%= f.text_area :description, :class => "span8", :rows => 5 %>
+  <%= f.text_area :description, :rows => 8 %>
 </p>

@@ -1,3 +1,31 @@
 // Place all the styles related to the problems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.problem {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: #D2D2D2;
+}
+
+#problem {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: #D2D2D2;
+}
+
+#problem h1 {
+  margin-bottom: 0.5em;
+}
+
+#event_problem_attributes_description {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1em;
+}

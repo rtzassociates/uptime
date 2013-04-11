@@ -1,33 +1,36 @@
-<div id="problem">
-  <h3>Problem</h3>
-  <p>
-    <%= problem_for @event %>
-  </p>
+<h3>Problem</h3>
+<div class="description">
+  <p class="muted"><%= problem_for @event %></p>
   <p>
     <%= markdown @event.problem.description %>
   </p>
-  <div class="actions">
+</div>
+<div class="actions">
+  <ul>
     <% if allow? "events", "edit", @event %>
-      <%= edit_problem_for(@event) %>
+      <li><%= edit_problem_for(@event) %></li>
     <% end %>
     <% if allow? "events", "destroy", @event %>
-      <%= destroy_action_for(@event) %>
+      <li><%= destroy_action_for(@event) %></li>
     <% end %>
-  </div>
+  </ul>
+</div>
+
+<div id="comments">
+  <% unless @event.problem.comments.empty? %>
+    <div class="comment-top"></div>
+    <%= render @event.problem.comments %>
+  <% end %>
   
-  <div id="comment_form">      
+  <div id="comment" class="form">
     <%= form_for Comment.new do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
       <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
-      <%= f.text_area :content, :placeholder => "Comment on this problem", :rows => 3, :class => "span10" %>
-      <%= f.submit "Submit Comment", :class => 'btn', :style => "align:left" %>
-    <% end %>       
+      <%= f.text_area :content, :placeholder => "Comment on this problem", :rows => 3 %>
+      <div class="actions pull-right">
+        <%= f.submit "Submit Comment", :class => 'btn'%>
+      </div>
+    <% end %>
   </div>
-  <% unless @event.problem.comments.empty? %>
-    <div id="problem_comments">
-      <%= render @event.problem.comments %>
-    </div>
-  <% end %>
-  
 </div>

@@ -3,8 +3,8 @@ class Permission
   def initialize(user)
     allow :sessions, [:new, :create, :destroy]
     allow :password_resets, [:new, :create, :edit, :update]
+    allow :pages, [:home]
     if user
-      allow :pages, [:home]
       allow :events, [:index, :show, :new, :create]
       allow :events, [:edit, :update] do |event|
         event.problem.user.id == user.id

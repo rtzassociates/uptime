@@ -1,13 +1,16 @@
-<h1>Status Types</h1>
-
-<div class="span6 offset3">
-    <%= render @statuses %>
-</div>
-
-<% if allow? "statuses", "new" %>
+<div class="row">
   <div class="span12">
-    <p>
-      <%= link_to "Create a new status", new_status_path, :class => "btn" %>
-    </p>
+    <div class="heading pull-left">
+      <h1>Status Types</h1>
+    </div>
+    <div class="actions pull-right" style="margin-top:1em">
+      <% if allow? "statuses", "new" %>
+        <%= link_to "Create a new status", new_status_path, :class => "btn btn-large btn-success" %>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
   </div>
-<% end %>
+</div>
+<br />
+
+<%= render @statuses %>

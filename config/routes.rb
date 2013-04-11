@@ -24,6 +24,7 @@ Uptime::Application.routes.draw do
   resources :subscriptions
   
   match "signout" => "sessions#destroy"
+  match "login" => "sessions#new"
   
   resources :password_resets
 

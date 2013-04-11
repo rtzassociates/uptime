@@ -1,9 +1,9 @@
-<%= form_for @event, :html => { :class => "well"} do |f| %>
+<%= form_for @event do |f| %>
 
   <%= error_messages_for @event.problem %>
   
   <p>
-    <%= f.label :status_id, 'What kind of problem is this?' %>
+    <%= f.label :status_id, 'What kind of event is this?' %>
     <%= f.collection_select :status_id, Status.all, :id, :value_for_select %>
   </p>
   
@@ -12,12 +12,15 @@
   <% end %>
   
   <p>
-    <%= f.label :service_ids, "This issue affects the following services:" %>
+    <%= f.label :service_ids, "This event affects the following applications" %>
     <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, {multiple: true, style: "width:60%"} %>
   </p>
   
-  <div class="actions link-large">
-    <%= f.submit :class => 'btn btn-primary' %>
+  <br />
+  
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-success' %>
     <%= link_to "Cancel", :back, :class => 'btn' %>
   </div>
+  
 <% end %>

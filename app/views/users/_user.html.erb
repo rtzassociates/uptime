@@ -1,19 +1,23 @@
 <div class="user">
-  <div class="pull-left">
-    <p id="username"><%= link_to user.username, user %>
-       <span class="muted small">(since <%= short_date(user.created_at) %>)</span>
-    </p>
-    <p>
-      Email addresses: <%= user.emails.map { |email| email.address }.join(", ") %>
-    </p>
-  </div>
-  <div class="pull-right">
-    <% if allow? "users", "edit" %>
-      <%= link_to "Edit", edit_user_path(user), :class => "small" %>
-    <% end %>
-    <% if allow? "users", "destroy" %>
-      <%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "small danger" %>
-    <% end %>
-  </div>
-  <div style="clear:both"></div>
+  <h3><%= link_to user.username, user %> &#183; <span style="font-size:medium"> joined <%= short_date(user.created_at) %></span></h3>
+  <p>
+    <strong>Email addresses:</strong>
+    <%= user.emails.map { |email| email.address }.join(", ") %>
+  </p>
+  <p>
+    <strong>Phone number:</strong> 
+    <%= user.phone %>
+  </p>
+  <% if current_user.admin? %>
+    <span class="actions">
+      <ul>
+        <% if allow? "users", "edit" %>
+          <li><%= link_to "Edit", edit_user_path(user) %></li>
+        <% end %>
+        <% if allow? "users", "destroy" %>
+          <li><%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+        <% end %>
+      </ul>
+    </span>
+  <% end %> 
 </div>

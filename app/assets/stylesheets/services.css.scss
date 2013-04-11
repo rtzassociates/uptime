@@ -1,3 +1,43 @@
 // Place all the styles related to the services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#service_form {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+}
+
+.service {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+  margin-bottom: 1em;
+}
+
+#service {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+  margin-bottom: 1em;
+}
+
+.details {
+  margin-top: 1em;
+}
+
+.headline {
+  position: relative;
+}
+
+.subscribe {
+  position:absolute; 
+  right:0px; 
+  top: 0px;
+}

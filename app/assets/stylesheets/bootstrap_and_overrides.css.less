@@ -1,376 +1,124 @@
 @import "twitter/bootstrap/bootstrap";
-@import "twitter/bootstrap/responsive";
-
-.event_header {
-  text-align: center;
-}
-
-.user {
-  text-align: left;
-  border: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  padding: 1em;
-  background-color: #F9F9F9;
-  margin-bottom: 1em;
-}
-
-.username {
-  font-size: large;
-}
-
-label {
-  color: black;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-label.datepicker {
-  color: gray;
-  margin-right: 3px;
-}
-
-#sublinks {
-  display: inline;
-  margin-left: 1em;
-}
-
-.dropdown {
-  display: inline;
-}
- 
-.sublink {
-  font-weight: normal;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.centered { 
-  text-align: center;
-}
 
 h1 {
-  margin-bottom: 1em;
+  font-size: xx-large;
+  color: gray;
 }
 
-.actions {
-  margin-top: 2em;
-  margin-bottom: 2em;
+h3 {
+  padding-top: 0px;
+  margin-top: 0px;
+  font-size: x-large;
+  color: gray;
 }
 
-#session {
-  margin-bottom: 3em;
-}
-
-p {
-  line-height: 25px;
-  color: black;
-  margin-bottom: 1em;
-}
-
-.status {
-  padding: 1em; 
-}
-
-#nav {
-  padding: 10px;
-  border-color: #E5E5E5;
+.bordered {
   border: solid;
+  border-color: #CFCFCF;
   border-width: 1px;
-  background-color: #F9F9F9;
-  margin-bottom: 2em;
 }
 
-.nav {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.small {
-  font-size: 14px;
-}
-
-a {
+.alert {
+  padding: 1em;
   font-size: large;
-}
-
-form {
-  margin: 1em;
-}
-
-.description {
-  color: black;
-  text-align: left;
-}
-
-#event {
-  text-align: left;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  .rounded_border
-}
-
-.content {
   border: solid;
-  border-color: #E5E5E5;
+  border-color: #CFCFCF;
   border-width: 1px;
-  background-color: #F9F9F9;
-  padding: 1em;
-}
-
-.event {
-  margin-bottom: 2em;
-}
-
-#events {
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-
-#placeholder {
-  border: solid;
-  border-width: 1px;
-  height: 500px;
-  background-color: gray;
-}
-
-.event_status-large {
-  text-align: center;
-  padding: 1em;
-  border: solid;
-  border-width: 5px;
-  border-color: black;
-  font-size: 24px;
-  margin-top: 1em;
 }
 
 .alert-alert {
-  padding: 1em;
   background-color: yellow;
   color: black;
-  font-size: 18px;
-  border: solid;
-  border-width: 2px;
-  margin-top: 1em;
-}
-
-td.sorting_1 {
-  background-color: #F2F2F2 !important;
-}
-
-#services_info {
-  padding: 1em !important;
-}
-
-table#users td {
-  padding: 1em !important;
-}
-
-table#services td {
-  padding: 1em !important;
-}
-
-table#users th {
-  color: gray;
-  padding: 1em !important;
-}
-
-table#services th {
-  color: gray;
-  padding: 1em !important;
 }
 
 .alert-notice {
-  padding: 1em;
-  background-color: white;
   color: green;
-  font-size: 18px;
-  border: solid;
-  border-width: 2px;
-  border-color: green;
-  margin-top: 1em;
+  background-color: white;
 }
 
 .alert-error {
-  padding: 1em;
-  background-color: white;
   color: red;
-  font-size: 18px;
-  border: solid;
-  border-width: 2px;
   border-color: red;
-  margin-top: 1em;
 }
 
-div{
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
+.alert-dismiss {
+  float: right;
+  color: silver;
 }
 
-.subtle {
-  color: gray;
-}
-
-.event_status-small {
-  text-align: center;
-  padding: 1em;
-  margin-bottom: 10px;
-  border: solid;
-  border-color: black;
-  border-width: 5px;
-  font-size: 24px;
+.alert-dismiss:hover {
+  cursor: hand; 
+  cursor: pointer;
 }
 
 .danger {
   color: red;
 }
 
-.green {
-  color: green;
-}
-
-textarea {
-  padding: 1em;
-}
-
-#resolved_by-large {
-  text-align: center;
-  padding: 1em;
-  margin-bottom: 1em;
-  background-color: yellow;
-  color: black;
-  font-size: 18px;
-  border: solid;
-  border-width: 3px;
-  border-radius: 5px;
-}
-
-#resolved_by-large a {
-  font-size: 20px;
-}
-
-#resolved_by-small {
-  text-align: center;
-  padding: 5px;
-  background-color: yellow;
-  color: black;
-  border: solid;
-  border-width: 1px;
-  margin-bottom: 1em;
-}
-
-#problem {
-  margin-bottom: 2em;
-}
-
-#comment_form {
-  border: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  padding: 1em;
-  background-color: #F9F9F9
-}
-
-
-#resolution {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-pre {
-  margin-top: 2em;
-  margin-bottom: 2em; 
-}
-
-.datepicker_label {
-  display: inline;
-  width: 50px;
-  background-color: red;
-}
-
-.comment {
-  padding: 2em;
-  border-left: solid;
-  border-right: solid;
-  border-bottom: solid;
-  border-color: #E5E5E5;
-  border-width: 1px;
-  background-color: #F9F9F9;
-}
-
-#events_chart {
-  margin-top: 2em;
-}
-
-.rounded_border {
-  border: solid;
-  border-width: 1px;
-  border-radius: 4px;
-  border-color: gray;
-  padding: 2em;
-}
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: medium;
-  text-align: center;
-  color: gray;
-  background-color: white;
+  background-color: #E9E9E9;
+}
+
+header {
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 a.logo {
   text-decoration: none;
   font-family: 'Fredoka One', cursive;
-  font-size: 6em;
+  font-size: 5em;
   color: green;
 }
 
-#header {
-  margin-top: 4em;
-  margin-bottom: 4em;
+.dropdown {
+  display: inline;
+}
+
+ul.nav {
+  display: inline;
+}
+
+.heading h1 {
+  float: left;
+}
+
+.heading ul {
+  float: left;
+}
+
+.heading ul li {
+  list-style: none;
+  margin-top: 2em;
+}
+
+.actions ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.actions ul li{
+  display: inline;
+  list-style: none;
+  margin-right: 1em;
+
+}
+
+form label {
+  margin-bottom: 1em;
+  color: gray;
 }
 
 error {
   display: block;
   color: red;
-  margin: 1em;
-  text-align: center;
-}
-
-#report_a_problem {
   padding: 1em;
-  margin-top: 2em;
-  margin-bottom: 2em;
   border: solid;
-  border-color: black;
-  border-width: 2px;
-  background-color: red;
-  border-radius: 25px;
-}
-
-#report_a_problem a {
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-}
-
-.link-large {
-  margin-top: 2em;
+  border-width: 1px;
+  border-color: red;
   margin-bottom: 1em;
-}
-
-form.inline {
-  padding: 0px;
-  margin: 0px;
-}
-
-table {
-  color: black;
-}
-
-#user {
-  text-align: left;
+  border-radius: 4px;
 }
 
 // Set the correct sprite paths

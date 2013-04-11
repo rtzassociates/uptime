@@ -1,6 +1,6 @@
-<div id="subscription_service_<%= service_id %>">
+<div id="subscription_service_<%= service_id %>" class="subscription">
   <%= form_for current_user.subscriptions.find_by_service_id(service_id),
       :html => { :method => :delete,  :class => 'inline' }, :remote => true do |f| %>
-    <%= f.submit "Unsubscribe", :class => "btn btn-danger" %>
+    <%= f.submit "Unsubscribe", :class => "btn btn-large btn-danger" %>
   <% end %>
 </div>

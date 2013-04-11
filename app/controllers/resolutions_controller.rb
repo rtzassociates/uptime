@@ -6,6 +6,7 @@ class ResolutionsController < ApplicationController
   end
   
   def create
+    @event = Event.find(params[:event_id])
     @resolution = Resolution.new(params[:resolution])
     @resolution.event_id = params[:event_id]
     @resolution.user_id = current_user

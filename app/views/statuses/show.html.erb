@@ -1,8 +1,9 @@
-<div class="span12">
-  <div id="status">
-    <div id="events">
-      <%= render @events %>
-    </div>   
-    <%= will_paginate @events %>
-  </div>
+<div id="status">
+  <div class="status large" style="background-color:<%= @status.background_color %>;color:<%= @status.foreground_color %>"><%= @status.value.capitalize %></div>
+  <h3 style="text-align:center">
+    Showing <%= pluralize @events.count, "event" %> with the status of <%= @status.value %>
+  </h3>
 </div>
+
+<%= render @events %>   
+<%= will_paginate @events %>

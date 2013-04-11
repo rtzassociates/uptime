@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     
     if @event.save
       EventMailer.event_notification(@event).deliver
-      redirect_to @event, :notice => "Event was successfully created."
+      redirect_to @event, :notice => "Event was successfully created"
     else
       render 'new'
     end
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     if @event.update_attributes(params[:event])
-      redirect_to @event, :notice => "Event was successfully updated."
+      redirect_to @event, :notice => "Event was successfully updated"
     else
       render 'new'
     end

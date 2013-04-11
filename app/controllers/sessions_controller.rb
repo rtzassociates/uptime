@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       else
         cookies[:token] = user.token
       end
-      redirect_to_target_or_default root_url, :notice => "Logged in successfully."
+      redirect_to_target_or_default root_url, :notice => "Logged in successfully"
     else
       flash.now[:error] = "Invalid login or password."
       render :action => 'new'
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:token)
-    redirect_to root_url, :notice => "You have been logged out."
+    redirect_to login_url, :notice => "You have been logged out"
   end
 end

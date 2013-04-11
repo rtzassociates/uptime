@@ -1,3 +1,37 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#report_link {
+  padding-top: 1em;
+}
+
+#report_a_problem {
+  padding: 1em;
+}
+
+#report_a_problem a {
+  font-size: large;
+}
+
+#current_event {
+  padding: 1em;
+}
+
+#current_event h1 {
+  margin-bottom: 0.5em;
+  font-size: 36px;
+}
+
+#unresolved_events {
+  margin-bottom: 2em;
+}
+
+.unresolved_event {
+  margin-bottom: 1em;
+}
+
+#status.span4 {
+  padding: 0px;
+  margin: 0px;
+}

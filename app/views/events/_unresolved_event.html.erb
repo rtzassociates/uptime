@@ -1,29 +1,27 @@
-<div class="event">
-  <div id="status">
-    <%= status_for(event, "small") %>
+<div class="unresolved_event row">
+  <div class="span4">
+    <%= status_for(unresolved_event.status, "small") %>
+    <%= render :partial => "events/resolve_link", :locals => { :event => unresolved_event } %>
   </div>
-  <% if event.resolved? %>
-    <div id="resolved_by-small">
-      <%= resolution_for event %>
-    </div>
-  <% end %>
-  <div class="content">
-    <div class="description">     
-      <p> 
-        <%= services_affected_by event %>
-      </p>
-      <p class="subtle">
-        Duration: <%= distance_of_time_in_words(event.duration) %>
+  <div class="span8">
+    <div class="problem">
+      <h3> 
+        <%= services_affected_by unresolved_event %>
+      </h3>
       <p>
-        <%= problem_for event %>
+        Duration: <%= distance_of_time_in_words(unresolved_event.duration) %>
+      <p class="muted">
+        <%= problem_for unresolved_event %>
       </p>
       <p>
-        <%= markdown event.problem.description %>
+        <%= markdown unresolved_event.problem.description %>
       </p>
-      <p>
-        <span class="subtle"><%= pluralize event.problem.comments.count, "comment" %></span>
-        <%= link_to 'View this event', event, :class => 'small nav' %>
-      </p>
+      <div class="actions">
+        <ul>
+          <li><%= pluralize unresolved_event.problem.comments.count, "comment" %></li>
+          <li><%= link_to 'View this event', unresolved_event %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

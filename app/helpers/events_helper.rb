@@ -17,37 +17,39 @@ module EventsHelper
   end
   
   def problem_for(event)
-    raw "Reported by #{ link_to event.problem.user.username, event.problem.user, :class => 'link-large' } 
+    raw "Reported by #{ link_to event.problem.user.username, event.problem.user } 
      on #{ event.problem.reported_at.strftime('%b %e, %Y at %l:%M %p') }
      (#{ time_ago_in_words(event.problem.reported_at).capitalize } ago)"
   end
   
-  def resolution_for(event)
-    raw "Resolved by #{ link_to event.resolution.user.username, event.resolution.user, :class => 'link-large' } 
-     on #{ event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') }
-     (#{ time_ago_in_words(event.resolution.resolved_at).capitalize } ago)"
+  def resolution_for(resolution, size)
+    div_for resolution, :class => "#{size}" do
+      raw "Resolved by #{ link_to resolution.user.username, resolution.user } 
+           on #{ resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') }
+           (#{ time_ago_in_words(resolution.resolved_at).capitalize } ago)"
+    end
   end
   
-  def status_for(event, size)
-    div_for event, :class => "event_status-#{size}", :style => "background-color: #{event.status.background_color}; color: #{event.status.foreground_color}" do
-      event.status.value.capitalize
+  def status_for(status, size)
+    div_for status, :class => "#{size}", :style => "background-color: #{status.background_color}; color: #{status.foreground_color}" do
+      status.value.capitalize
     end
   end
   
   def edit_problem_for(event)
-    link_to 'Edit Event', edit_event_path(event), :class => "nav small"
+    link_to 'Edit Problem', edit_event_path(event)
   end
   
   def destroy_action_for(event)
-    link_to 'Delete Event', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
+    link_to 'Delete Problem', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger"
   end
   
   def edit_resolution_for(event)
-    link_to 'Edit Resolution', edit_event_resolution_path(event), :class => 'nav small'
+    link_to 'Edit Resolution', edit_event_resolution_path(event)
   end
   
   def destroy_resolution_for(event)
-    link_to 'Delete Resolution', event_resolution_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "nav small danger"
+    link_to 'Delete Resolution', event_resolution_path(event), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger"
   end
 
 end

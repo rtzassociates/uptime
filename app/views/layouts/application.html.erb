@@ -9,49 +9,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">   
-    <div class="row">
-      
-      <div class="span12">
-        <div id="header">
-          <%= link_to 'uptime', root_path, :class => 'logo' %>
+    <div class="container">   
+      <div class="row">   
+        <div class="span12">
+          <header>
+            <%= link_to 'uptime', root_path, :class => 'logo' %>
+          </header>
         </div>
       </div>
- 
-      <% if logged_in? %>
+      
+      <div class="row">
         <div class="span12">
-          <div id="nav">
-            <%= link_to "Past Events", events_path, :class => 'nav' %>
-            <%= link_to "Applications and Services", services_path, :class => 'nav' %>
-            <%= link_to "Users", users_path, :class => 'nav' %>
-            <%= link_to "Status Types", statuses_path, :class => 'nav' %>
-            <div class="dropdown nav">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account</a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="text-align:left">
-                <li style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px;">Signed in as <%= current_user.username %></li>
-                <li><%= link_to "View Profile", current_user %></li>
-                <li><%= link_to "Update Account", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Sign out", signout_path %></li>
-              </ul>
+          <% if logged_in? %>
+            <%= render :template => "layouts/navbar" %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span12">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name %>">
+              <%= msg %>
+              <div class="alert-dismiss">
+                <i class="icon-remove"></i>
+              </div>
+              <div class="clearfix"></div>
             </div> 
-          </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-       
-    <div class="row">   
-      <% flash.each do |name, msg| %>
-        <div class="span12 alert alert-<%= name %>">
-          <%= msg %>
+      </div>
+      
+      <div class="row">
+        <div class="span12">
+          <%= yield %>
         </div>
-      <% end %>
+      </div>
+      
     </div>
-    
-    <div class="row">
-      <%= yield %>
-    </div>
-    
-  </div>
 </body>
 </html>

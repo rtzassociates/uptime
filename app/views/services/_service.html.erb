@@ -1,0 +1,28 @@
+<%= div_for service do %>
+  <div class="service_description pull-left">
+    <h3><%= link_to service.name, service %></h3>
+    <div class="actions">
+      <ul>
+        <% if allow? "services", "edit" %>
+          <li><%= link_to 'Edit', edit_service_path(service), :class => "small" %></li>
+        <% end %>
+        <% if allow? "services", "destroy" %>
+          <li><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="details muted">
+      <%= service.uptime %>% uptime &#183;
+      <%= pluralize service.events.count, "event" %> reported &#183; 
+      <%= pluralize service.users.count, "user" %> subscribed
+    </div>
+  </div>
+  <div class="actions pull-right" style="margin-top:2em">
+    <% if current_user.is_subscribed_to? service %>
+      <%= render "subscriptions/unsubscribe", :service_id => service.id %>
+    <% else %>
+      <%= render "subscriptions/subscribe", :service_id => service.id %>
+    <% end %>
+  </div>
+  <div class="clearfix"></div>
+<% end %>

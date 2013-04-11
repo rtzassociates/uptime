@@ -1,8 +1,1 @@
-<div class="span8 offset2">
-  <%= render partial: "events/unresolved_events", :locals => { unresolved_events: @unresolved_events } %>
-  <% if logged_in? %>
-    <div id="report_a_problem">
-      <%= link_to "Report a problem", new_event_path %>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "events/unresolved_events", :locals => { unresolved_events: @unresolved_events } %>

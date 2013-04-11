@@ -1,26 +1,41 @@
-<div class="span12">
-  <h2><%= @service.name %></h2>
-  <p>
-    <%= users_subscribed_to(@service) %>
-  <p>
-  <% if current_user.is_subscribed_to? @service %>
-    <label id="alert_me">Please don't alert me about this service</label>
-    <%= render "subscriptions/unsubscribe", :service_id => @service.id %>
-  <% else %>
-    <label id="alert_me">Alert me about this service</label>
-    <%= render "subscriptions/subscribe", :service_id => @service.id %>
-  <% end %>
-  <hr>
-  
-  <div class="span12">
-    <div class="h2">
-      Past Events
-    </div>
-    
-    <div id="events">
-      <%= render @events %>
-    </div>
-    
-    <%= will_paginate @events %>
+<div id="service">
+  <div class="headline">
+    <h1><%= @service.name %></h1>
+    <span class="subscribe">
+      <% if current_user.is_subscribed_to? @service %>
+        <%= render "subscriptions/unsubscribe", :service_id => @service.id %>
+      <% else %>
+        <%= render "subscriptions/subscribe", :service_id => @service.id %>
+      <% end %>
+    </span>
   </div>
+  <hr>
+  <p><%= users_subscribed_to(@service) %></p>
+  <% if current_user.admin? %>
+    <div class="actions">
+      <ul>
+        <% if allow? "services", "edit" %>
+          <li><%= link_to 'Edit', edit_service_path(@service), :class => "small" %></li>
+        <% end %>
+        <% if allow? "services", "destroy" %>
+          <li><%= link_to 'Destroy', @service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br />
+  <% end %>
 </div>
+
+<h3>
+  Events For This Service
+</h3>
+
+<div id="events">
+  <% if @events.any? %>
+    <%= render @events %>
+  <% else %>
+    <h5>Nothing to show</h5>
+  <% end %>
+</div>
+
+<%= will_paginate @events %>

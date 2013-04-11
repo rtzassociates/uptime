@@ -1,57 +1,19 @@
-<div class="span12">
+<div class="heading">
   <h1>Applications and Services</h1>
-
-  <div>
-    <% if @services.empty? %>
-      <h3 class="centered">Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
-    <% else %>
-      <br />
-      <table id="services" class="table table-striped rounded_border">
-        <thead>
-          <th>Name</th>
-          <th>Uptime</th>
-          <th>Issue Count</th>
-          <th>Subscribers</th>
-          <th>Last Reported Issue</th>
-          <th></th>
-          <% if allow? "services", "edit" %>
-            <th></th>
-          <% end %>
-          <% if allow? "services", "destroy" %>
-            <th></th>
-          <% end %>
-        </thead>
-        <tbody>
-          <% @services.each do |service| %>
-          <tr>
-            <td><%= link_to service.name, service %></td>
-            <td><%= service.uptime %>%</td>
-            <td><%= service.events.count %></td>
-            <td><%= service.users.count %></td>
-            <td><%= service.events.empty? ? "Never" : "#{time_ago_in_words(service.events.last.created_at).capitalize} ago" %></td>
-            <td>
-              <% if current_user.is_subscribed_to? service %>
-                <%= render "subscriptions/unsubscribe", :service_id => service.id %>
-              <% else %>
-                <%= render "subscriptions/subscribe", :service_id => service.id %>
-              <% end %>
-            </td>
-            <% if allow? "services", "edit" %>
-              <td><%= link_to 'Edit', edit_service_path(service), :class => "small" %></td>
-            <% end %>
-            <% if allow? "services", "destroy" %>
-              <td><%= link_to 'Destroy', service, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></td>
-            <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+  <% if @services.empty? %>
+      <h3>Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
   </div>
-</div>
-
-<% if allow? "services", "new" %>
-  <div class="actions link-large">
-    <%= link_to "Add a service", new_service_path, :class => "btn" %>
+  <% else %>
+    <ul>
+      <li>Showing <%= pluralize @services.count, "service" %></li>
+    </ul>
   </div>
+  <% if allow? "services", "create" %>
+    <div class="actions pull-right" style="padding-top:1em">
+      <%= link_to "Create a new service", new_service_path, :class => "btn btn-large btn-success" %>
+    </div>
+  <% end %>
+  <div class="clearfix"></div>
+  <br />
+  <%= render @services %>
 <% end %>
