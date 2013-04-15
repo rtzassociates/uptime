@@ -3,10 +3,12 @@ class TasksController < ApplicationController
   require 'will_paginate/array'
   
   def index
-    if params[:filter] == "my_tasks"
+    if params[:user_id] == "my_tasks"
       @tasks = Task.assigned_to(current_user).paginate(:per_page => 25)
     elsif params[:filter] == "unassigned"
       @tasks = Task.unassigned.paginate(:per_page => 25)
+    elsif params[:filter] == "uncompleted"
+      @tasks = Task.uncompleted.paginate(:per_page => 25)
     else
       @tasks = Task.page(params[:page]).per_page(25)
     end
@@ -50,5 +52,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to tasks_path, :notice => 'Task was successfully destroyed'
-  end 
+  end
+  
 end

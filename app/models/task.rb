@@ -23,7 +23,15 @@ class Task < ActiveRecord::Base
   end
   
   def completed?
-    completion
+    return true if completion
+  end
+  
+  def self.uncompleted
+    uncompleted_tasks = Task.all.each_with_object(uncompleted_tasks = []) do |task|
+      unless task.completed?
+        uncompleted_tasks << task
+      end
+    end
   end
   
   def self.unassigned

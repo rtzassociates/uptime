@@ -3,7 +3,8 @@
 <ul>
   <li><%= link_to "All Tasks", tasks_path %></li>
   <li><%= link_to "My Tasks", tasks_path(:filter => :my_tasks)%></li>
-  <li><%= link_to "Unassigned Tasks", tasks_path(:filter => :unassigned) %></li>
+  <li><%= link_to "Uncompleted", tasks_path(:filter => :uncompleted)%></li>
+  <li><%= link_to "Unassigned", tasks_path(:filter => :unassigned) %></li>
 </ul>
 <% if @tasks.empty? %>
     <div class="clearfix"></div>
