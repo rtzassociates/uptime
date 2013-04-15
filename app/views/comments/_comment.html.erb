@@ -3,7 +3,7 @@
     <%= link_to comment.user.username, comment.user %>
     (<%= time_ago_in_words(comment.created_at).capitalize %> ago)
   </p>
-  <p><%= comment.content %></p>
+  <p><%= markdown comment.content %></p>
   <div class="actions pull-right">
     <ul>
     <% if allow? "comments", "edit", comment %>

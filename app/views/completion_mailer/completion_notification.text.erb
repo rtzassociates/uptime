@@ -1,0 +1,7 @@
+<%= @task.completion.user.username %> completed a task.
+
+<%= @task.name %>
+
+<%= raw @task.completion.description %>
+
+Click here to view this task: <%= task_url(@task) %>

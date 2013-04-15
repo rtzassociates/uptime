@@ -1,0 +1,11 @@
+<%= form_for @completion do |f| %>
+  <p>Completed on <%= Time.zone.now.strftime('%b %e, %Y at %l:%M %p') %></p>
+  <%= f.hidden_field :task_id, :value => params[:task_id] %>
+  <p>
+    <%= f.text_area :description, :rows => 5, :placeholder => "Please enter a description" %>
+  </p>
+  <p>
+    <%= f.submit "Submit", :class => 'btn btn-success' %>
+    <%= link_to "Cancel", :back, :class => 'btn' %>
+  </p>
+<% end %>

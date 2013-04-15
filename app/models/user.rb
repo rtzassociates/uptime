@@ -25,9 +25,20 @@ class User < ActiveRecord::Base
   has_many :problems, :dependent => :destroy
   has_many :resolutions, :dependent => :destroy
   has_one :password_reset
+  
+  has_many :created_tasks, :foreign_key => 'user_id', :class_name => "Task"
+  
+  has_many :user_tasks
+  has_many :assigned_tasks, through: :user_tasks, :source => :task
+  
+  has_many :task_notes
 
   def is_subscribed_to?(service)
     return true if subscriptions.find_by_service_id(service.id)
+  end
+  
+  def has_accepted?(task)
+    return true if task.is_assigned_to?(self)
   end
   
   def username

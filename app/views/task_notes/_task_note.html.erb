@@ -1,0 +1,18 @@
+<div class="task_note">
+  <p>
+    <%= link_to task_note.user.username, task_note.user %>
+    (<%= time_ago_in_words(task_note.created_at).capitalize %> ago)
+  </p>
+  <p><%= markdown task_note.content %></p>
+  <div class="actions pull-right">
+    <ul>
+    <% if allow? "task_notes", "edit", task_note %>
+      <li><%= link_to 'Edit Note', edit_task_note_path(task_note) %></li>
+    <% end %>
+    <% if allow? "task_notes", "destroy", task_note %>
+      <li><%= link_to 'Destroy', task_note, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>

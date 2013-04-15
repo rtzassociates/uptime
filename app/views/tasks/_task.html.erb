@@ -1,0 +1,35 @@
+<% if task.is_assigned_to?(current_user) %>
+  <div class="assigned_task">
+<% else %>
+  <div class="task">
+<% end %>
+  <div class="task_description pull-left">
+    <h3>
+      <%= link_to task.name.capitalize, task %>
+      <% if task.unassigned? %>
+        <span class="badge">Unassigned Task</span>
+      <% end %>
+      <% if task.completed? %>
+        <span class="badge">Completed</span>
+      <% end %>
+    </h3>
+    <p class="muted">
+      Created by <%= link_to task.user.username, task.user %> on <%= task.created_at.strftime('%b %e, %Y at %l:%M %p') %>
+       (<%= time_ago_in_words(task.created_at).capitalize %> ago)
+    </p>
+    <p class="muted"><%= users_assigned_to task %></p>
+    <p><%= markdown task.description %></p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="actions pull-right">
+    <ul>
+      <% if allow? "task", "edit" %>
+        <li><%= link_to 'Edit', edit_task_path(task), :class => "small" %></li>
+      <% end %>
+      <% if allow? "task", "destroy" %>
+        <li><%= link_to 'Destroy', task, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>

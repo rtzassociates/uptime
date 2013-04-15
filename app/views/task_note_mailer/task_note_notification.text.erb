@@ -1,0 +1,7 @@
+<%= @task.user.username %> added a note to a task.
+
+<%= @task.name %>
+
+<%= raw @task_note.content %>
+
+Click here to view this task: <%= task_url(@task) %>

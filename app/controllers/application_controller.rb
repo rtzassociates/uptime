@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   
   def authorize
     if !current_permission.allow?(params[:controller], params[:action], current_resource)
-      redirect_to root_url, alert: "Not authorized."
+      redirect_to root_url, alert: "Not authorized"
     end
   end
   

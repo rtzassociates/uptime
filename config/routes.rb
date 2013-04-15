@@ -1,8 +1,12 @@
 Uptime::Application.routes.draw do
-  
-  get "manage" => "manage#index"
 
-  get "charts/events"
+  get "task_notes/index"
+
+  get "task_notes/new"
+
+  get "task_notes/edit"
+
+  get "task_notes/show"
 
   get "pages/home"
   root :to => "pages#home"
@@ -27,6 +31,15 @@ Uptime::Application.routes.draw do
   match "login" => "sessions#new"
   
   resources :password_resets
+  
+  resources :tasks do
+    resource :completion
+  end
+  
+  resources :completions
+  
+  resources :task_notes
+  resources :user_tasks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

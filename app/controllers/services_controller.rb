@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(params[:service])
     if @service.save
-      redirect_to @service, :notice => 'Service created successfully.'
+      redirect_to @service, :notice => 'Service successfully created'
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     if @service.update_attributes(params[:service])
-      redirect_to @service, :notice => 'Service updated successfully.'
+      redirect_to @service, :notice => 'Service successfully updated'
     else
       render 'edit'
     end
@@ -50,6 +50,6 @@ class ServicesController < ApplicationController
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    redirect_to services_path, :notice => 'Service destroyed successfully.'
+    redirect_to services_path, :notice => 'Service successfully destroyed'
   end
 end
