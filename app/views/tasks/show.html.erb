@@ -2,10 +2,10 @@
   <div class="headline pull-left">
     <h1><%= @task.name %>
       <% if @task.unassigned? %>
-        <span class="badge">Unassigned Task</span>
+        <span class="badge badge-info">Unassigned Task</span>
       <% end %>
       <% if @task.completed? %>
-        <span class="badge">Completed</span>
+        <span class="badge badge-success">Completed</span>
       <% end %>  
     </h1>
   </div>
