@@ -42,7 +42,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     
     if @task.update_attributes(params[:task])
-      redirect_to @task, :notice => "Task was successfully created"
+      redirect_to @task, :notice => "Task was successfully updated"
     else
       render 'new'
     end
