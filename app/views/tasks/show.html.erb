@@ -23,7 +23,7 @@
   <p class="muted">
     Created by <%= link_to @task.user.username, @task.user %> on <%= @task.created_at.strftime('%b %e, %Y at %l:%M %p') %>
      (<%= time_ago_in_words(@task.created_at).capitalize %> ago) &#183;
-      <%= users_assigned_to task %>
+      <%= users_assigned_to @task %>
   </p>
   <p><%= markdown @task.description %></p>
   <div class="actions">
