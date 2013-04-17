@@ -1,6 +1,12 @@
 <div id="service">
   <div class="headline">
     <h1><%= @service.name %></h1>
+    <% if @service.urls.any? %>
+      <p class="muted"><%= "URL".pluralize(@service.urls.count) %>: <%= urls_for @service %></p>
+    <% end %>
+    <% if @service.description.present? %>
+      <p><%= markdown @service.description %></p>
+    <% end %>
     <span class="subscribe">
       <% if current_user.is_subscribed_to? @service %>
         <%= render "subscriptions/unsubscribe", :service_id => @service.id %>

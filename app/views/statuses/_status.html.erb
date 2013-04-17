@@ -1,27 +1,31 @@
-<div id="status">
 <div class="row">
-  <div class="span4">
-    <div class="status small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>"><%= status.value.capitalize %>
+  <div class="span8">
+    <div id="status">
+      <div class="row">
+        <div class="span4">
+          <div class="status small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>"><%= status.value.capitalize %>
+          </div>
+          <h4 style="text-align:center">
+            <%= link_to "View Problems With This Status", status, :class => "small" %>
+          </h4>
+        </div>
+        <div class="span2" style="text-align:center">
+          <p>
+            <strong>Problems Reported With This Status:</strong>
+          </p>
+          <p style="font-size: 48px; font-weight:bold; color:gray; margin-top: 40px;"><%= status.events.count %></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="actions pull-right">
+          <ul>
+            <% if allow? "statuses", "edit" %>
+              <li><%= link_to "Edit", edit_status_path(status) %></li>
+            <% end %>
+            <% if allow? "statuses", "destroy" %>
+              <li><%= link_to "Destroy", status, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+            <% end %>
+        </div>
+      </div>
     </div>
-    <h4 style="text-align:center">
-      <%= link_to "View Problems With This Status", status, :class => "small" %>
-    </h4>
-  </div>
-  <div class="span4" style="text-align:center">
-    <p>
-      <strong>Problems Reported With This Status:</strong>
-    </p>
-    <p style="font-size: 48px; font-weight:bold; color:gray; margin-top: 40px;"><%= status.events.count %></p>
-  </div>
-  <div class="clearfix"></div>
-  <div class="actions pull-right">
-    <ul>
-      <% if allow? "statuses", "edit" %>
-        <li><%= link_to "Edit Status", edit_status_path(status) %></li>
-      <% end %>
-      <% if allow? "statuses", "destroy" %>
-        <li><%= link_to "Destroy Status", status, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
-      <% end %>
-  </div>
   </div>
 </div>

@@ -1,11 +1,14 @@
 class Service < ActiveRecord::Base
-  attr_accessible :name, :user_ids
+  attr_accessible :name, :user_ids, :description, :urls_attributes
   
   has_many :event_services, :dependent => :destroy
   has_many :events, :through => :event_services, :dependent => :destroy
   
   has_many :subscriptions, :dependent => :destroy
   has_many :users, through: :subscriptions, :dependent => :destroy
+  
+  has_many :urls, :dependent => :destroy
+  accepts_nested_attributes_for :urls, allow_destroy: true
   
   validates_presence_of :name
 

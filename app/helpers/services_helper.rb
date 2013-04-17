@@ -5,6 +5,13 @@ module ServicesHelper
       raw "#{subscription_list} #{pluralize_subscription_list(service)} subscribed to this service"
     end
   end
+  
+  def urls_for(service)
+    unless service.urls.empty?
+      url_list = service.urls.collect { |url| link_to(url.name, url.name, :class => "link-large") }.to_sentence
+      raw "#{url_list}"
+    end
+  end
 end
 
 def pluralize_subscription_list(service)

@@ -5,6 +5,17 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :description, "Service Description" %>
+    <%= f.text_area :description, :placeholder => "Please provide a description of this service.", :rows => 5 %>
+  </p>
+  <fieldset>
+    <%= f.label :urls, "URLs" %>
+    <%= f.fields_for :urls do |builder| %>
+      <%= render 'url_fields', :f => builder %>
+    <% end %>
+    <%= link_to_add_fields "Add a URL", f, :urls %>
+  </fieldset>
+  <p>
     <%= f.label :user_ids, "The following users are subscribed to this service:" %>
     <%= f.collection_select :user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
   </p>

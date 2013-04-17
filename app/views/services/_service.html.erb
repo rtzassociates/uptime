@@ -1,6 +1,10 @@
 <%= div_for service do %>
   <div class="service_description pull-left">
     <h3><%= link_to service.name, service %></h3>
+    <% if service.urls.any? %>
+      <p class="muted"><%= "URL".pluralize(service.urls.count) %>: <%= urls_for service %></p>
+    <% end %>
+    <p><%= users_subscribed_to(service) %></p>
     <div class="actions">
       <ul>
         <% if allow? "services", "edit" %>
@@ -13,8 +17,7 @@
     </div>
     <div class="details muted">
       <%= service.uptime %>% uptime &#183;
-      <%= pluralize service.events.count, "event" %> reported &#183; 
-      <%= pluralize service.users.count, "user" %> subscribed
+      <%= pluralize service.events.count, "event" %> reported
     </div>
   </div>
   <div class="actions pull-right" style="margin-top:2em">

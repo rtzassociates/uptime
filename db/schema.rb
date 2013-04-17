@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415185835) do
+ActiveRecord::Schema.define(:version => 20130417195011) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -78,8 +78,9 @@ ActiveRecord::Schema.define(:version => 20130415185835) do
 
   create_table "services", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "statuses", :force => true do |t|
@@ -112,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20130415185835) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "urls", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "service_id"
   end
 
   create_table "user_tasks", :force => true do |t|

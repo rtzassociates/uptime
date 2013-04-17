@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   require 'will_paginate/array'
   
   def index
-    if params[:user_id] == "my_tasks"
+    if params[:filter] == "my_tasks"
       @tasks = Task.assigned_to(current_user).paginate(:per_page => 25)
     elsif params[:filter] == "unassigned"
       @tasks = Task.unassigned.paginate(:per_page => 25)
