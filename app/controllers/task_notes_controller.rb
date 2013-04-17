@@ -13,6 +13,7 @@ class TaskNotesController < ApplicationController
   
   def create
     @task_note = TaskNote.new(params[:task_note])
+    @task_note.user_id = current_user.id
     if @task_note.save
       TaskNoteMailer.task_note_notification(@task_note).deliver
       redirect_to @task_note.task, :notice => "Note successfully created"

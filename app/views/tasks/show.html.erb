@@ -47,7 +47,6 @@
     <% end %>
     <div id="task_note" class="form">
       <%= form_for TaskNote.new do |f| %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :task_id, :value => @task.id %>
         <%= f.text_area :content, :placeholder => "Make a note about this task", :rows => 3 %>
         <div class="actions pull-right">
