@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(params[:event])
-    
+    @event.problem.user_id = current_user.id
     if @event.save
       EventMailer.event_notification(@event).deliver
       redirect_to @event, :notice => "Event was successfully created"

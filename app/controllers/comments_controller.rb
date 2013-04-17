@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
+    @comment.user_id = current_user.id
     if @comment.save
       CommentMailer.comment_notification(@comment).deliver
       flash[:notice] = "Thanks for your comment"
