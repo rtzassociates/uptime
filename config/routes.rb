@@ -1,13 +1,5 @@
 Uptime::Application.routes.draw do
 
-  get "task_notes/index"
-
-  get "task_notes/new"
-
-  get "task_notes/edit"
-
-  get "task_notes/show"
-
   get "pages/home"
   root :to => "pages#home"
   
@@ -21,6 +13,8 @@ Uptime::Application.routes.draw do
   
   resources :users do
     resources :emails
+    resources :tasks
+    resources :user_tasks
   end
   
   resources :sessions

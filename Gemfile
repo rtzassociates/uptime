@@ -18,10 +18,6 @@ gem 'thin'
 gem 'quiet_assets'
 gem 'chronic'
 gem 'redcarpet', '1.17.2'
-gem "highcharts-rails", "~> 2.3.0"
-gem "best_in_place"
-gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-gem 'faker'
 
 
 # Gems used only for assets and not required
@@ -54,3 +50,10 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do 
+  gem "rspec-rails", "~> 2.0"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end

@@ -1,5 +1,5 @@
 <div id="user_task_<%= task_id %>" class="user_task">
-  <%= form_for UserTask.new, :html => { :class => 'inline' }, :remote => true do |f| %>
+  <%= form_for [current_user, UserTask.new], :html => { :class => 'inline' }, :remote => true do |f| %>
     <%= f.hidden_field :task_id, :value => task_id %>
     <%= f.hidden_field :user_id, :value  => current_user.id %>
     <%= f.submit "Accept Task", :class => "btn btn-large btn-success" %>

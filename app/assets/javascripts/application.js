@@ -16,11 +16,4 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require chosen-jquery
-//= require raphael
-//= require morris
-//= require highcharts
-//= require jquery.purr
-//= require best_in_place
-//= require dataTables/jquery.dataTables
-//= require dataTables.bootstrap
 //= require_tree .

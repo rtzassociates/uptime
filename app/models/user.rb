@@ -41,10 +41,6 @@ class User < ActiveRecord::Base
     return true if task.is_assigned_to?(self)
   end
   
-  def username
-    read_attribute(:username).capitalize
-  end
-  
   def self.authenticate(login, pass)
     user = find_by_username(login)
     return user if user && user.password_hash == user.encrypt_password(pass)

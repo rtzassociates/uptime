@@ -3,8 +3,8 @@
     <h1>Please Login</h1>
     <%= form_tag sessions_path, :class => "login" do %>
       <div id="inputs" class="large">
-        <%= label_tag :login, "Username" %>
-        <%= text_field_tag :login, params[:login] %>
+        <%= label_tag :username, "Username" %>
+        <%= text_field_tag :username, params[:username] %>
         <%= label_tag :password, "Password" %>
         <%= password_field_tag :password %>
         <%= label_tag :remember_me, "Remember me" %>

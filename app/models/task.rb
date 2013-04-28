@@ -12,7 +12,10 @@ class Task < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :user_id
   
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'tasks.created_at DESC'
+  
+  scope :uncompleted, :include => :completion, :conditions => "completions.id IS NULL"
+  scope :unassigned, :include => :assigned_users, :conditions => "users.id IS NULL"
   
   def unassigned?
     assigned_users.empty?
@@ -24,22 +27,6 @@ class Task < ActiveRecord::Base
   
   def completed?
     return true if completion
-  end
-  
-  def self.uncompleted
-    uncompleted_tasks = Task.all.each_with_object(uncompleted_tasks = []) do |task|
-      unless task.completed?
-        uncompleted_tasks << task
-      end
-    end
-  end
-  
-  def self.unassigned
-    unassigned_tasks = Task.all.each_with_object(unassigned_tasks = []) do |task|
-      if task.unassigned?
-        unassigned_tasks << task
-      end
-    end
   end
   
   def self.assigned_to(user)
