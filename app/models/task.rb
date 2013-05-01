@@ -1,8 +1,8 @@
 class Task < ActiveRecord::Base
   attr_accessible :description, :name, :user_id, :assigned_user_ids 
   belongs_to :user
-  has_many :user_tasks
-  has_many :assigned_users, through: :user_tasks, :source => :user
+  has_many :assignments
+  has_many :assigned_users, through: :assignments, :source => :user
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :task_notes
   
@@ -39,6 +39,14 @@ class Task < ActiveRecord::Base
   
   def email_recipients
     Email.admin_addresses
+  end
+  
+  def unassigned_users
+    if assigned_users.empty?
+      User.all
+    else
+      User.where("id NOT IN (?)", assigned_users.map { |u| u.id })
+    end
   end
 
 end

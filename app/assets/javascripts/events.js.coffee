@@ -3,7 +3,3 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#event_service_ids').chosen()
-  $('#start_date').datepicker
-    dateFormat: 'yy-mm-dd'
-  $('#end_date').datepicker
-    dateFormat: 'yy-mm-dd'

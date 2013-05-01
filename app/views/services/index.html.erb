@@ -1,6 +1,7 @@
 <div class="heading">
   <h1>Applications and Services</h1>
   <% if @services.empty? %>
+      <div class="clearfix"></div>
       <h3>Currently, there are no services to display. <%= link_to 'Create one.', new_service_path %></h3>
   </div>
   <% else %>

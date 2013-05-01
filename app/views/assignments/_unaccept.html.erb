@@ -1,0 +1,5 @@
+<div id="assignment_<%= task_id %>" class="assignment">
+  <%= form_for Task.find(task_id).assignments.find_by_user_id(current_user.id), :html => { :method => :delete,  :class => 'inline' }, :remote => true do |f| %>
+    <%= f.submit "Unaccept Task", :class => "btn btn-large btn-danger" %>
+  <% end %>
+</div>

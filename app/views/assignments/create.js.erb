@@ -1,0 +1,2 @@
+$("#assignment_<%= @assignment.task_id %>").html("<%= j render 'assignments/unaccept', :task_id => @assignment.task_id %>");
+$('#assigned_to').html("<%= j render :partial => 'assignments/assignment', :locals => { :task => @assignment.task } %>");

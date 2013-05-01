@@ -12,9 +12,9 @@
     
   <div class="pull-right" style="margin-top:1em">
     <% if current_user.has_accepted? @task %>
-      <%= render "user_tasks/unaccept", :task_id => @task.id %>
+      <%= render "assignments/unaccept", :task_id => @task.id %>
     <% else %>
-      <%= render "user_tasks/accept", :task_id => @task.id %>
+      <%= render "assignments/accept", :task_id => @task.id %>
     <% end %>
   </div>
   
@@ -22,8 +22,10 @@
   
   <p class="muted">
     Created by <%= link_to @task.user.username, @task.user %> on <%= @task.created_at.strftime('%b %e, %Y at %l:%M %p') %>
-     (<%= time_ago_in_words(@task.created_at).capitalize %> ago) &#183;
-      <%= users_assigned_to @task %>
+     (<%= time_ago_in_words(@task.created_at).capitalize %> ago)
+  </p>
+  <p id="assigned_to" class="muted">
+    <%= render :partial => "assignments/assignment", :locals => { :task => @task } %>
   </p>
   <p><%= markdown @task.description %></p>
   <div class="actions">

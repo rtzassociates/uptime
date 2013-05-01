@@ -28,12 +28,17 @@ Uptime::Application.routes.draw do
   
   resources :tasks do
     resource :completion
+    resources :assignments
+    collection do
+      get :uncompleted
+      get :unassigned
+    end
   end
   
   resources :completions
   
   resources :task_notes
-  resources :user_tasks
+  resources :assignments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

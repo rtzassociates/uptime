@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   include TasksHelper
-  require 'will_paginate/array'
   
   def index
     @tasks = Task.page(params[:page]).per_page(25)
@@ -44,6 +43,16 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to tasks_path, :notice => 'Task was successfully destroyed'
+  end
+  
+  def uncompleted
+    @tasks = Task.uncompleted.page(params[:page]).per_page(25)
+    render 'index'
+  end
+  
+  def unassigned
+    @tasks = Task.unassigned.page(params[:page]).per_page(25)
+    render 'index'
   end
   
 end

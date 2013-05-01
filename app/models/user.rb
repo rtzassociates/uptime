@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
   
   has_many :created_tasks, :foreign_key => 'user_id', :class_name => "Task"
   
-  has_many :user_tasks
-  has_many :assigned_tasks, through: :user_tasks, :source => :task
+  has_many :assignments
+  has_many :assigned_tasks, through: :assignments, :source => :task
   
   has_many :task_notes
 
