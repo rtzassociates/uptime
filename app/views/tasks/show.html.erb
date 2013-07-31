@@ -12,9 +12,9 @@
     
   <div class="pull-right" style="margin-top:1em">
     <% if current_user.has_accepted? @task %>
-      <%= render "assignments/unaccept", :task_id => @task.id %>
+      <%= render "unaccept", :task_id => @task.id, :assignment => @assignment %>
     <% else %>
-      <%= render "assignments/accept", :task_id => @task.id %>
+      <%= render "accept", :task_id => @task.id %>
     <% end %>
   </div>
   

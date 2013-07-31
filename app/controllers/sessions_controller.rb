@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  include SessionsHelper
   skip_before_filter :login_required, :only => [ :new, :create ]
   skip_before_filter :authorize, :only => [ :destroy ]
   
@@ -9,11 +9,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:username], params[:password])
     if user
-      if params[:remember_me]
-        cookies.permanent[:token] = user.token
-      else
-        cookies[:token] = user.token
-      end
+      login user  
       redirect_to_target_or_default root_url, :notice => "Logged in successfully"
     else
       flash.now[:error] = "Invalid login or password"

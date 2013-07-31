@@ -51,7 +51,8 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 # To use debugger
 # gem 'debugger'
 
-group :development, :test do 
+group :development, :test do
+  gem 'launchy'
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails"
   gem "capybara"

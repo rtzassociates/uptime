@@ -23,9 +23,7 @@ class PasswordResetsController < ApplicationController
     password_reset = PasswordReset.find_by_password_reset_token(params[:id])
     @user = password_reset.user
     
-    if @user.password_reset.expires_at < Time.zone.now
-      redirect_to new_password_reset_path, :alert => "Password reset has expired."
-    elsif @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user])
       @user.password_reset.destroy
       redirect_to new_session_url, :notice => "Password has been reset. Please log in with your new password."
     else
