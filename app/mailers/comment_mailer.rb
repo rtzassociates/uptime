@@ -4,6 +4,6 @@ class CommentMailer < ActionMailer::Base
 
   def comment_notification(comment)
     @comment = comment
-    mail(:to => comment.recipients, :subject => "#{comment.user.username} left a comment -- #{comment.services}")
+    mail(:to => comment.recipients, :subject => "#{comment.user.username} left a comment -- #{comment.sites}")
   end
 end

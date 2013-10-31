@@ -1,17 +1,21 @@
-<%= div_for @event, :class => "row" do %>
-  <div class="span4">
-    <%= status_for(@event.status, "small") %>
-    <%  if @event.resolved? %>
-      <%= resolution_for(@event.resolution, "small")%>
-    <% else %>
-      <%= render :partial => "events/resolve_link", :locals => { :event => @event }%>
-    <% end %>
+<%= div_for @event do %>
+  <div class="row">
+    <div class="span6">
+      <%= status_for(@event.status, "small") %>
+      <%  if @event.resolved? %>
+        <%= resolution_for(@event.resolution, "small")%>
+      <% else %>
+        <%= render :partial => "events/resolve_link", :locals => { :event => @event }%>
+      <% end %>
+    </div>
   </div>
-  <div class="span8">
-    <%= div_for @event.problem do %>
-      <h3><%= services_affected_by @event %></h3>
-      <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
-      <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %>
-    <% end %>
+  <div class="row">
+    <div class="span12">
+      <%= div_for @event.problem do %>
+        <h3><%= sites_affected_by @event %></h3>
+        <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
+        <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %>
+      <% end %>
+    </div>
   </div>
 <% end %>

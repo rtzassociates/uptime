@@ -1,10 +1,8 @@
-<h3>Problem</h3>
 <div class="description">
-  <p class="muted"><%= problem_for @event %></p>
-  <p>
-    <%= markdown @event.problem.description %>
-  </p>
+  <p><%= problem_for @event %></p>
+  <p><%= markdown @event.problem.description %></p>
 </div>
+
 <div class="actions">
   <ul>
     <% if allow? "events", "edit", @event %>
@@ -16,21 +14,28 @@
   </ul>
 </div>
 
-<div id="comments">
-  <% unless @event.problem.comments.empty? %>
-    <div class="comment-top"></div>
-    <%= render @event.problem.comments %>
-  <% end %>
-  
-  <div id="comment" class="form">
-    <%= form_for Comment.new do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
-      <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
-      <%= f.text_area :content, :placeholder => "Comment on this problem", :rows => 3 %>
-      <div class="actions pull-right">
-        <%= f.submit "Submit Comment", :class => 'btn'%>
+<br />
+
+<div class="row">
+  <div class="span6">
+    <div id="comments">
+      <% unless @event.problem.comments.empty? %>
+        <div class="comment-top"></div>
+        <%= render @event.problem.comments %>
+      <% end %>
+      
+      <div id="comment" class="form">
+        <%= form_for Comment.new do |f| %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
+          <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
+          <%= f.text_area :content, :placeholder => "Comment on this problem", :rows => 2 %>
+          <div class="actions">
+            <%= f.submit "Submit Comment", :class => 'btn'%>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      
+    </div>
   </div>
 </div>

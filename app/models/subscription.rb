@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
-  attr_accessible :service_id, :user_id
+  attr_accessible :site_id, :user_id
   
-  belongs_to :service
+  belongs_to :site
   belongs_to :user
 end

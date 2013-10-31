@@ -1,11 +1,16 @@
 <%= form_for @completion do |f| %>
-  <p>Completed on <%= Time.zone.now.strftime('%b %e, %Y at %l:%M %p') %></p>
+
+  <div class="field">
+    Completed on <%= Time.zone.now.strftime('%b %e, %Y at %l:%M %p') %>
+  </div>
   <%= f.hidden_field :task_id, :value => params[:task_id] %>
-  <p>
+  
+  <div class="field">
     <%= f.text_area :description, :rows => 5, :placeholder => "Please enter a description" %>
-  </p>
-  <p>
-    <%= f.submit "Submit", :class => 'btn btn-success' %>
-    <%= link_to "Cancel", :back, :class => 'btn' %>
-  </p>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Submit", :class => 'btn' %>
+  </div>
+  
 <% end %>

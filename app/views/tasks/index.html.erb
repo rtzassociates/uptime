@@ -1,23 +1,24 @@
-<div class="heading">
 <h1>Tasks</h1>
-<ul>
-  <li><%= link_to "All Tasks", tasks_path %></li>
-  <li><%= link_to "Uncompleted", uncompleted_tasks_path %></li>
-  <li><%= link_to "Unassigned", unassigned_tasks_path %></li>
-</ul>
-<% if @tasks.empty? %>
-    <div class="clearfix"></div>
-    <h3>Currently, there are no tasks to display. <%= link_to 'Create one.', new_task_path %></h3>
-</div>
-<% else %>
-  <% if allow? "services", "create" %>
-    <div class="actions pull-right" style="padding-top:0.5em">
-      <%= link_to "Create a new task", new_task_path, :class => "btn btn-large btn-success" %>
-    </div>
-</div>
-<div class="clearfix"></div>
-  <% end %>
-  <br />
-  <%= render @tasks %>
-  <%= will_paginate @tasks %> 
+
+<% if allow? "tasks", "create" %>
+  <h4><%= link_to "Create a new task", new_task_path %></h4>
 <% end %>
+
+<br />
+
+<div class="actions">
+  <ul>
+    <li><%= link_to "All Tasks", tasks_path %></li>
+    <li><%= link_to "Uncompleted", uncompleted_tasks_path %></li>
+    <li><%= link_to "Unassigned", unassigned_tasks_path %></li>
+  </ul>
+</div>
+
+<% if @tasks.empty? %>
+  <p>Currently, there are no tasks to display.</p>
+<% end %>
+
+<br />
+  
+<%= render @tasks %>
+<%= will_paginate @tasks %> 

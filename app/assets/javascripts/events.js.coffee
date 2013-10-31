@@ -1,2 +1,2 @@
 jQuery ->
-  $('#event_service_ids').chosen()
+  $('#event_site_ids').chosen()

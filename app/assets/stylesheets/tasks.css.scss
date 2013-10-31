@@ -1,38 +1,25 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#task_form {
-  padding: 1em;
-  background-color: white;
-  border: solid;
-  border-color: #CFCFCF;
-  border-width: 1px;
-}
 
 .task {
-  padding: 1em;
-  background-color: white;
-  border: solid;
-  border-color: #CFCFCF;
-  border-width: 1px;
   margin-bottom: 1em;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #CFCFCF;
+  padding-bottom: 1em;
 }
 
 .assigned_task {
   padding: 1em;
   background-color: #FFFDE1;
   border: solid;
-  border-color: #CFCFCF;
+  
   border-width: 1px;
   margin-bottom: 1em;
 }
 
 #task {
-  padding: 1em;
-  background-color: white;
-  border: solid;
-  border-color: #CFCFCF;
-  border-width: 1px;
   margin-bottom: 1em;
 }
 

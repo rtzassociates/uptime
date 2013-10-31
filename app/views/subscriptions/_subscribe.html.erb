@@ -1,7 +1,7 @@
-<div id="subscription_service_<%= service_id %>" class="subscription">
+<div id="subscription_site_<%= site_id %>" class="subscription">
   <%= form_for Subscription.new, :html => { :class => 'inline' }, :remote => true do |f| %>
-    <%= f.hidden_field :service_id, :value => service_id %>
+    <%= f.hidden_field :site_id, :value => site_id %>
     <%= f.hidden_field :user_id, :value  => current_user.id %>
-    <%= f.submit "Subscribe", :class => "btn btn-large btn-success" %>
+    <%= f.submit "Subscribe", :class => "btn" %>
   <% end %>
 </div>

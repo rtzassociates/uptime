@@ -61,15 +61,14 @@
   </fieldset>
   
   <br />
-
   
   <div class="control-group">
-    <%= f.label :service_ids, "Subscriptions" %>
-    <%= f.collection_select :service_ids, Service.order(:name), :id, :name, {}, { multiple: true, :style => "width:100%;" } %>
+    <%= f.label :site_ids, "Subscriptions" %>
+    <%= f.collection_select :site_ids, Site.order(:name), :id, :name, {}, { multiple: true, :style => "width:100%;" } %>
   </div>
   
   <% if current_user.admin? %>
-    <p>
+    <div class="field">
       <%= f.label :admin, "Is this user an admin?" %>
       <label class="radio inline">
         <% if @user.admin? %>
@@ -85,13 +84,13 @@
           <%= f.radio_button :admin, :false %> No
         <% end %>
       </label>
-    <p>
+    </div>
   <% end %>
 
   <br />
   
   <div class="actions">
-    <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), :class => 'btn btn-large btn-success' %>
+    <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), :class => 'btn' %>
   </div>
   
 <% end %>

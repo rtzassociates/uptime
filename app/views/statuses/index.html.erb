@@ -1,16 +1,8 @@
-<div class="row">
-  <div class="span12">
-    <div class="heading pull-left">
-      <h1>Status Types</h1>
-    </div>
-    <div class="actions pull-right" style="margin-top:1em">
-      <% if allow? "statuses", "new" %>
-        <%= link_to "Create a new status", new_status_path, :class => "btn btn-large btn-success" %>
-      <% end %>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-</div>
+<h1>Status Types</h1>
+<% if allow? "statuses", "new" %>
+  <h4><%= link_to "Create a new status type", new_status_path %></h4>
+<% end %>
+
 <br />
 
 <%= render @statuses %>

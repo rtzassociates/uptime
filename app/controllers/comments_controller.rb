@@ -26,7 +26,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id]) 
     @comment.update_attributes(params[:comment])
     respond_to do |format|
-      format.html { redirect_to @comment.commentable.event }
+      format.html do 
+        redirect_to @comment.commentable.event
+        flash[:notice] = "Comment successfully updated"
+      end
       format.json { render :json => @comment }
     end      
   end
@@ -34,7 +37,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id]) 
     @comment.destroy
-    flash[:notice] = "Comment was destroyed"
+    flash[:notice] = "Comment successfully deleted"
     redirect_to @comment.commentable.event  
   end
 

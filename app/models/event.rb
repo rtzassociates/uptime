@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
-  attr_accessible :service_ids, :problem_attributes, :status_id
+  attr_accessible :site_ids, :problem_attributes, :status_id
   
-  has_many :event_services, :dependent => :destroy
-  has_many :services, :through => :event_services
+  has_many :event_sites, :dependent => :destroy
+  has_many :sites, :through => :event_sites
 
   belongs_to :status
   
@@ -56,7 +56,7 @@ class Event < ActiveRecord::Base
   end
   
   def email_recipients
-    (services.scoped.joins(:users => :emails).pluck(:address) + Email.admin_addresses).uniq  
+    (sites.scoped.joins(:users => :emails).pluck(:address) + Email.admin_addresses).uniq  
   end
   
   def duration
@@ -72,7 +72,7 @@ class Event < ActiveRecord::Base
   end
   
   def subscribers
-    User.joins(:services).where("service_id IN (?)", service_ids).uniq
+    User.joins(:sites).where("site_id IN (?)", site_ids).uniq
   end
 
   def self.last_resolved_event

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430204815) do
+ActiveRecord::Schema.define(:version => 20131031214255) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20130430204815) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "event_services", :force => true do |t|
+  create_table "event_sites", :force => true do |t|
     t.integer  "event_id"
-    t.string   "service_id"
+    t.string   "site_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20130430204815) do
     t.datetime "resolved_at"
   end
 
-  create_table "services", :force => true do |t|
+  create_table "sites", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20130430204815) do
 
   create_table "subscriptions", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "service_id"
+    t.integer  "site_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20130430204815) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "service_id"
+    t.integer  "site_id"
   end
 
   create_table "users", :force => true do |t|

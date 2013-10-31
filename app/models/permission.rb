@@ -9,7 +9,7 @@ class Permission
       allow :events, [:edit, :update] do |event|
         event.problem.user.id == user.id
       end
-      allow :services, [:index, :show]
+      allow :sites, [:index, :show]
       allow :comments, [:index, :show, :new, :create]
       allow :comments, [:edit, :update, :destroy] do |comment|
         comment.user.id == user.id

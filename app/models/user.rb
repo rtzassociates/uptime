@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :password, :password_confirmation, 
-                  :emails_attributes, :service_ids,
+                  :emails_attributes, :site_ids,
                   :first, :last, :phone, :admin, :time_zone,
                   :token
                   
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
   
   has_many :subscriptions, :dependent => :destroy
-  has_many :services, through: :subscriptions
+  has_many :sites, through: :subscriptions
   
   has_many :emails, :dependent => :destroy
   accepts_nested_attributes_for :emails, allow_destroy: true
@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
   
   has_many :task_notes
 
-  def is_subscribed_to?(service)
-    return true if subscriptions.find_by_service_id(service.id)
+  def is_subscribed_to?(site)
+    return true if subscriptions.find_by_site_id(site.id)
   end
   
   def has_accepted?(task)

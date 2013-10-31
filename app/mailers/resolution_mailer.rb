@@ -4,7 +4,7 @@ class ResolutionMailer < ActionMailer::Base
 
   def resolution_notification(event)
     @event = event
-    services = event.services.map { |s| s.name }.join(", ")
-    mail(:to => event.email_recipients, :subject => "RESOLVED -- #{services}")
+    sites = event.sites.map { |s| s.name }.join(", ")
+    mail(:to => event.email_recipients, :subject => "RESOLVED -- #{sites}")
   end
 end

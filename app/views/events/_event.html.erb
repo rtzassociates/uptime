@@ -1,16 +1,20 @@
-<%= div_for event, :class => "row" do %>
-  <div class="span4">
-    <%= status_for(event.status, "small") %>
-    <%= resolution_for(event.resolution, "small") if event.resolved? %>
+<%= div_for event do %>
+  <div class="row">
+    <div class="span6">
+      <%= status_for(event.status, "small") %>
+      <%= resolution_for(event.resolution, "small") if event.resolved? %>
+    </div>
   </div>
-  <div class="span8">
-    <%= div_for event.problem do %>
-      <h3><%= services_affected_by event %></h3>
-      <p>Duration: <%= distance_of_time_in_words(event.duration) %></p>
-      <p class="muted"><%= problem_for event %></p>
-      <p><%= markdown event.problem.description %></p>
-      <p><%= pluralize event.problem.comments.count, "comment" %></p>
-      <p><%= link_to 'View this event', event %></p>
-    <% end %>
+  <div class="row">
+    <div class="span12">
+      <%= div_for event.problem do %>
+        <h3><%= sites_affected_by event %></h3>
+        <p>Duration: <%= distance_of_time_in_words(event.duration) %></p>
+        <p><%= problem_for event %></p>
+        <p><%= markdown event.problem.description %></p>
+        <p><%= pluralize event.problem.comments.count, "comment" %></p>
+        <p><%= link_to 'View this event', event %></p>
+      <% end %>
+    </div>
   </div>
 <% end %>

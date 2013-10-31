@@ -1,0 +1,17 @@
+<%= render @site %>
+
+<h4>
+  Events For This Site
+</h4>
+
+<br />
+
+<div id="events">
+  <% if @events.any? %>
+    <%= render @events %>
+  <% else %>
+    <p>Nothing to show</p>
+  <% end %>
+</div>
+
+<%= will_paginate @events %>

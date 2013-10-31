@@ -14,19 +14,11 @@
     </div>
   </div>
 <% else %>
-  <div id="unresolved_events">
-    <div class="heading">
-      <h1>Unresolved Problems</h1>
-      <ul>
-        <li>Showing <%= pluralize @unresolved_events.count, "unresolved problem" %></li>
-      </ul>
-    </div> 
-    <div id="report_link" class="actions pull-right">
-      <%= link_to "Report another problem", new_event_path, :class => "btn btn-large btn-danger" %>
-    </div>
-    <div class="clearfix"></div>
+  <h1>Unresolved Problems</h1>
+  <h4><%= link_to "Report another problem", new_event_path %></h4>
+  <br />
+  
+  <div id="events">
+    <%= render @unresolved_events %>
   </div>
-
-  <%= render :partial => "events/unresolved_event", :collection => @unresolved_events %>
-
 <% end %>

@@ -1,0 +1,32 @@
+<%= form_for @site do |f| %>
+
+  <%= error_messages_for @site %>
+  
+  <div class="field">
+    <%= f.label :name, "Site Name" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description, "Site Description" %>
+    <%= f.text_area :description, :placeholder => "Please provide a description of this site.", :rows => 5 %>
+  </div>
+  
+  <fieldset>
+    <%= f.label :urls, "URLs" %>
+    <%= f.fields_for :urls do |builder| %>
+      <%= render 'url_fields', :f => builder %>
+    <% end %>
+    <%= link_to_add_fields "Add a URL", f, :urls %>
+  </fieldset>
+  
+  <div class="field">
+    <%= f.label :user_ids, "The following users are subscribed to this site:" %>
+    <%= f.collection_select :user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+  
+<% end %>

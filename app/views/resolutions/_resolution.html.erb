@@ -1,7 +1,8 @@
-<h3>Resolution</h4>
-<p class="muted"> 
-  Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user %> on <%= @event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') %> (<%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago)
-</p>
+<h4>Resolution</h4>
+  
+<p>Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user %> on <%= @event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') %></p>
+<p class="muted"><%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago</p>
+
 <p><%= markdown @event.resolution.description %></p>
 
 <div class="actions">
@@ -15,25 +16,30 @@
   </ul>
 </div>
 
-<div id="comments">
-  
-  <% unless @event.resolution.comments.empty? %>
-    <div id="resolution_comments">
-      <div class="comment-top"></div>
-      <%= render @event.resolution.comments %>
-    </div>
-  <% end %>
-  <div id="comment" class="form">
-    <%= form_for Comment.new do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
-      <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
-      <%= f.text_area :content, :placeholder => "Comment on this resolution", :rows => 3 %>
-      <div class="actions pull-right">
-      <%= f.submit "Submit Comment", :class => 'btn'%>
+<br />
+
+<div class="row">
+  <div class="span6">
+    <div id="comments">
+      <% unless @event.resolution.comments.empty? %>
+        <div class="comment-top"></div>
+        <%= render @event.resolution.comments %>
+      <% end %>
+      
+      <div id="comment" class="form">
+        <%= form_for Comment.new do |f| %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
+          <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
+          <%= f.text_area :content, :placeholder => "Comment on this resolution", :rows => 2 %>
+          <div class="actions">
+            <%= f.submit "Submit Comment", :class => 'btn'%>
+          </div>
+        <% end %>
       </div>
-    <% end %> 
-  </div>      
+      
+    </div>
+  </div>
 </div>
 
 

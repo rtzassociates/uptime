@@ -1,0 +1,12 @@
+<h1>Site List</h1>
+
+<% if @sites.empty? %>
+<h3>Currently, there are no sites to display</h3>
+<% end %>
+
+<% if allow? "sites", "create" %>
+  <h4><%= link_to "Create a new site", new_site_path %></h4>
+<% end %>
+
+<%= render @sites %>
+<%= will_paginate @sites %> 

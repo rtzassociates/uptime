@@ -14,8 +14,8 @@ class Comment < ActiveRecord::Base
     klass.find(commentable_id).event
   end
 
-  def services
-    event.services.map { |s| s.name }.join(", ")
+  def sites
+    event.sites.map { |s| s.name }.join(", ")
   end
   
   def recipients

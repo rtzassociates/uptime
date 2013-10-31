@@ -3,7 +3,7 @@ Uptime::Application.routes.draw do
   get "pages/home"
   root :to => "pages#home"
   
-  resources :services
+  resources :sites
   resources :statuses
   
   resources :events do

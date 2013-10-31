@@ -1,9 +1,6 @@
 <% if task.assigned_users.any? %>
-  <%= users_assigned_to task %>.
-  <% unless task.unassigned_users.empty? %>
-    <%= link_to "Assign an additional user to this task.", new_task_assignment_path(task), :remote => true, :id => "new_assignment_link" %>
-  <% end %>
+  <p><%= users_assigned_to task %></p>
 <% else %>
-  Nobody is currently assigned to this task.
-  <%= link_to "Assign someone to it.", new_task_assignment_path(task), :remote => true, :id => "new_assignment_link" %>
+  <p>Nobody is currently assigned to this task</p>
+  <p><%= link_to "Assign someone to it.", new_task_assignment_path(task), :remote => true, :id => "new_assignment_link" %></p>
 <% end %>

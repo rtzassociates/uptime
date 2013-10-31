@@ -1,16 +1,13 @@
 <div class="row">
   <div class="span12">
-    <div class="heading">
-      <h1>Events List</h1>
-      <ul>
-        <li>Showing <%= pluralize @events.count, "event" %></li>
-      </ul>
-    </div>
-    <div class="actions pull-right" style="padding-top:1em">
-      <%= link_to "Create an event", new_event_path, :class => "btn btn-large btn-success" %>
+    <h1>Event List</h1>
+  </div>
+  <div class="span12">
+    <div class="actions">
+      <h4><%= link_to "Create an event", new_event_path %></h4>
     </div>
   </div>
 </div>
-<br />
+
 <%= render @events %>
 <%= will_paginate @events %> 

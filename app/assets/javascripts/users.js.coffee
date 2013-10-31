@@ -10,5 +10,5 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
     
-  $('#user_service_ids').chosen()
+  $('#user_site_ids').chosen()
   $('#user_time_zone').chosen()

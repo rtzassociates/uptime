@@ -1,15 +1,12 @@
-<div class="span6 offset3 well">
 <h3>Reset My Password</h3>
   <%= form_tag password_resets_path, :method => :post do %>
-    <p>
-      Please provide your email address below. If we have your email address on file,
-      we'll sent you some password reset instructions.
-    </p>
-    <div class="input-append">
+    <p>Please provide your email address below</p>
+    <div class="field">
       <%= label_tag :email, "Email Address" %>
-      <%= text_field_tag :email, params[:email], :id => "appendedInput", :class => "span1", :style => "text-align: right"  %>
-      <span class="add-on">@rtzassociates.com</span>
+      <%= text_field_tag :email, params[:email] %>
     </div>
-    <div class="actions"><%= submit_tag "Reset Password", :class => "btn" %></div>
+    <div class="actions">
+      <%= submit_tag "Reset Password", :class => "btn" %>
+    </div>
   <% end %>
 </div>

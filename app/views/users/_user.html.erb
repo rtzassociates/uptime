@@ -1,23 +1,11 @@
-<div class="user">
-  <h3><%= link_to user.username, user %> &#183; <span style="font-size:medium"> joined <%= short_date(user.created_at) %></span></h3>
-  <p>
-    <strong>Email addresses:</strong>
-    <%= user.emails.map { |email| email.address }.join(", ") %>
-  </p>
-  <p>
-    <strong>Phone number:</strong> 
-    <%= user.phone %>
-  </p>
-  <% if current_user.admin? %>
-    <span class="actions">
-      <ul>
-        <% if allow? "users", "edit" %>
-          <li><%= link_to "Edit", edit_user_path(user) %></li>
-        <% end %>
-        <% if allow? "users", "destroy" %>
-          <li><%= link_to "Destroy", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
-        <% end %>
-      </ul>
-    </span>
-  <% end %> 
-</div>
+<tr>
+  <td><%= link_to user.username, user %></td>
+  <td><%= user.emails.map { |email| email.address }.join(", ") %></td>
+  <td><%= user.phone %></td>
+  <% if allow? "users", "edit" %>
+    <td><%= link_to "Edit", edit_user_path(user) %></td>
+  <% end %>
+  <% if allow? "users", "destroy" %>
+    <td><%= link_to "Delete", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></td>
+  <% end %>
+</tr>

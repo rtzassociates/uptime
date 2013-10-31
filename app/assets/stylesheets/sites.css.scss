@@ -1,0 +1,52 @@
+// Place all the styles related to the sites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#site_form {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+}
+
+.site {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: white;
+  border-bottom: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+  margin-bottom: 1em;
+}
+
+#site {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-color: #CFCFCF;
+  border-width: 1px;
+  margin-bottom: 1em;
+}
+
+#site_description{
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1em;
+}
+
+.details {
+  margin-top: 1em;
+}
+
+.headline {
+  position: relative;
+}
+
+.subscribe {
+  position:absolute; 
+  right:0px; 
+  top: 0px;
+}

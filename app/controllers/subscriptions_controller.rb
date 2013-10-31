@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(params[:subscription])
     @subscription.save
     respond_to do |format|
-      format.html { redirect_to services_path }
+      format.html { redirect_to sites_path }
       format.js
     end
   end
@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
     @subscription.destroy
     respond_to do |format|
-      format.html { redirect_to services_path }
+      format.html { redirect_to sites_path }
       format.js
     end
   end

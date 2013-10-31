@@ -1,20 +1,20 @@
-<div class="row">
-  <div class="span12">
-    <div class="heading pull-left">
-    <h1>Users List</h1>
-    <ul>
-      <li>Showing <%= pluralize @users.count, "user" %></li>
-    </ul>
-    </div>
-    <% if allow? "users", "new" %>
-      <div class="actions pull-right" style="margin-top:1em">
-        <%= link_to 'Add a new user', new_user_path, :class => 'btn btn-large btn-success' %>
-      </div>
-    <% end %>
-    <div class="clearfix"></div>
-  </div>
-</div>
+<h1>User List</h1>
+<% if allow? "users", "new" %>
+  <h4><%= link_to 'Create a user', new_user_path %></h4>
+<% end %>
 <br />
 
-<%= render @users %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</div>
+
 <%= will_paginate @users %>

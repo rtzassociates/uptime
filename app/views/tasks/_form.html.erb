@@ -1,20 +1,25 @@
 <%= form_for @task do |f| %>
   <%= error_messages_for @task %>
-  <p>
+  
+  <div class="field">
     <%= f.label :name, "Task Name" %>
     <%= f.text_field :name %>
-  </p>
-  <p>
+  </div>
+  
+  <div class="field">
     <%= f.label :description, "Task Description" %>
     <%= f.text_area :description, :rows => 5 %>
-  </p>
-  <p>
+  </div>
+  
+  <div class="field">
     <%= f.label :assigned_user_ids, "Assign one or more people to this task" %>
     <%= f.collection_select :assigned_user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
-  </p>
-  <br />
-  <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
-    <%= link_to "Cancel", :back, :class => "btn" %>
   </div>
+  
+  <br />
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+  
 <% end %>
