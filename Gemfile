@@ -10,9 +10,9 @@ gem 'libv8', '~> 3.11.8.3', :platform => :ruby
 gem 'therubyracer', '~> 0.11.3', :platform => :ruby
 gem 'pg'
 gem 'mysql', '~> 2.8.1'
-gem 'less-rails', :git => 'https://github.com/metaskills/less-rails.git'
+gem 'less-rails' '~> 1.3.0'
 gem 'will_paginate'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-will_paginate'
 gem 'thin'
 gem 'quiet_assets'
