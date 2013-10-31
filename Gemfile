@@ -10,7 +10,7 @@ gem 'libv8', '~> 3.11.8.3', :platform => :ruby
 gem 'therubyracer', '~> 0.11.3', :platform => :ruby
 gem 'pg'
 gem 'mysql', '~> 2.8.1'
-gem 'less-rails'
+gem 'less-rails', :git => 'https://github.com/metaskills/less-rails.git'
 gem 'will_paginate'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'bootstrap-will_paginate'
