@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     if search
       where('username LIKE ?', "%#{search}%")
     else
-      order("id DESC")
+      order("name ASC")
     end
   end
 
