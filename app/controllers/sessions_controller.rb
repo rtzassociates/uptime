@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:username], params[:password])
-    if user
+    if user && !user.deleted?
       login user  
       redirect_to_target_or_default root_url, :notice => "Logged in successfully"
     else
