@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.search(params[:search]).page(params[:page]).per_page(25)
+    @users = User.active.search(params[:search]).page(params[:page]).per_page(25)
   end
   
   def new
@@ -37,7 +37,8 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    @user.deleted_at = Time.zone.now
+    @user.save
     redirect_to users_path, :notice => "User was successfully destroyed"
   end
   

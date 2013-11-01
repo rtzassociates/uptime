@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   
   has_many :task_notes
   
+  scope :active, where(:deleted_at => nil)
+  
   def self.search(search)
     if search
       where('username LIKE ?', "%#{search}%")
@@ -56,6 +58,10 @@ class User < ActiveRecord::Base
   
   def encrypt_password(pass)
     BCrypt::Engine.hash_secret(pass, token)
+  end
+  
+  def deleted?
+    deleted_at
   end
   
   def full_name

@@ -60,9 +60,9 @@ class Event < ActiveRecord::Base
   end
   
   def email_recipients
-    (sites.scoped.joins(:users => :emails).pluck(:address) + 
+    (sites.scoped.joins(:users => :emails).where("users.deleted_at" => nil).pluck(:address) + 
      Email.admin_addresses + 
-     self.reported_by.emails.pluck(:address) ).uniq
+     ( self.reported_by.emails.pluck(:address) unless self.reported_by.deleted? ).to_a ).uniq
   end
   
   def duration
@@ -78,7 +78,7 @@ class Event < ActiveRecord::Base
   end
   
   def subscribers
-    User.joins(:sites).where("site_id IN (?)", site_ids).uniq
+    User.active.joins(:sites).where("site_id IN (?)", site_ids).uniq
   end
 
   def self.last_resolved_event

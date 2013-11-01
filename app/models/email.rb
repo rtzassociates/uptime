@@ -7,11 +7,11 @@ class Email < ActiveRecord::Base
   validates_uniqueness_of :address
   
   def self.addresses
-    all.map { |e| e.address }
+    all.map { |e| e.address unless e.user.deleted? }.compact
   end
   
   def self.admin_addresses
-    Email.joins(:user).where("users.admin" => true).pluck(:address)
+    Email.joins(:user).where("users.admin" => true, "users.deleted_at" => nil).pluck(:address)
   end
   
   def self.find_user_by_address(address)

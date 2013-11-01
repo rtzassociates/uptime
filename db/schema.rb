@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031214255) do
+ActiveRecord::Schema.define(:version => 20131101004156) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20131031214255) do
     t.string   "token"
     t.string   "password_hash"
     t.string   "time_zone"
+    t.datetime "deleted_at"
   end
 
 end
