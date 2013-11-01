@@ -1,0 +1,22 @@
+<h1>Server List</h1>
+<br />
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
+
+<% @servers.each do |server| %>
+  <tr>
+    <td><%= link_to server.name, server %></td>
+    <td><%= server.type.titlecase %></td>
+    <td><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

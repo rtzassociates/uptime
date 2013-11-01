@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @database_server.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @database_server.description %>
+</p>
+
+<p>
+  <b>Deployed at:</b>
+  <%= @database_server.deployed_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_database_server_path(@database_server) %> |
+<%= link_to 'Back', database_servers_path %>

@@ -21,6 +21,16 @@
   </fieldset>
   
   <div class="field">
+    <%= f.label :server_ids, "Application Servers" %>
+    <%= f.collection_select :server_ids, ApplicationServer.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :database_ids, "Databases" %>
+    <%= f.collection_select :database_ids, Database.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+  
+  <div class="field">
     <%= f.label :user_ids, "The following users are subscribed to this site:" %>
     <%= f.collection_select :user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
   </div>

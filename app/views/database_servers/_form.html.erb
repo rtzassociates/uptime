@@ -1,0 +1,27 @@
+<%= form_for(@database_server) do |f| %>
+  <%= error_messages_for @database_server %>
+    
+  <div class="field">
+    <%= f.label :deployed_at_text, "Deployed at" %>
+    <%= f.text_field :deployed_at_text, :value => ( @database_server.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : @database_server.deployed_at.strftime("%b %e, %Y at %l:%M %p") ) %> 
+  </div>
+  
+  <div class="field">
+    <%= f.label :name, "Database server Name" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :placeholder => "Please provide a description of this database server.", :rows => 5, :class => "span12" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :database_ids, "Databases" %>
+    <%= f.collection_select :database_ids, Database.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+<% end %>

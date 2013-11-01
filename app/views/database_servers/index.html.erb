@@ -1,0 +1,20 @@
+<h1>Database Server List</h1>
+<h4><%= link_to 'New database server', new_database_server_path %></h4>
+<br />
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @database_servers.each do |database_server| %>
+  <tr>
+    <td><%= link_to database_server.name, database_server %></td>
+    <td><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
+    <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+

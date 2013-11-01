@@ -1,0 +1,20 @@
+<h1>Application Server List</h1>
+<h4><%= link_to 'New application server', new_application_server_path %></h4>
+<br />
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @application_servers.each do |application_server| %>
+  <tr>
+    <td><%= link_to application_server.name, application_server %></td>
+    <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+    <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+

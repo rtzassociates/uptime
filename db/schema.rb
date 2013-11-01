@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131101004156) do
+ActiveRecord::Schema.define(:version => 20131101191851) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20131101004156) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "databases", :force => true do |t|
+    t.string   "name"
+    t.integer  "database_server_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "emails", :force => true do |t|
@@ -81,6 +88,29 @@ ActiveRecord::Schema.define(:version => 20131101004156) do
     t.datetime "updated_at",                 :null => false
     t.text     "description", :limit => 255
     t.datetime "resolved_at"
+  end
+
+  create_table "servers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "deployed_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "type"
+  end
+
+  create_table "site_databases", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "database_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "site_servers", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "server_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sites", :force => true do |t|

@@ -1,8 +1,14 @@
 class Site < ActiveRecord::Base
-  attr_accessible :name, :user_ids, :description, :urls_attributes
+  attr_accessible :name, :user_ids, :server_ids, :database_ids, :description, :urls_attributes
   
   has_many :event_sites, :dependent => :destroy
   has_many :events, :through => :event_sites, :dependent => :destroy
+  
+  has_many :site_servers, :dependent => :destroy
+  has_many :servers, :through => :site_servers, :conditions => { :type => 'ApplicationServer' }
+  
+  has_many :site_databases, :dependent => :destroy
+  has_many :databases, :through => :site_databases
   
   has_many :subscriptions, :dependent => :destroy
   has_many :users, through: :subscriptions, :dependent => :destroy

@@ -1,4 +1,10 @@
 Uptime::Application.routes.draw do
+  
+  resources :servers
+  resources :application_servers
+  resources :database_servers
+
+  resources :databases
 
   get "pages/home"
   root :to => "pages#home"

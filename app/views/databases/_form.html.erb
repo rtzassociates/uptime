@@ -1,0 +1,24 @@
+<%= form_for(@database) do |f| %>
+  
+  <%= error_messages_for @database %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :database_server_id, "Server" %>
+    <%= f.collection_select :database_server_id, DatabaseServer.order(:name), :id, :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :site_ids, "Sites" %>
+    <%= f.collection_select :site_ids, Site.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+  
+<% end %>

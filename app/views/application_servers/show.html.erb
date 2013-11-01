@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%= @application_server.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @application_server.description %>
+</p>
+
+<p>
+  <b>Deployed at:</b>
+  <%= @application_server.deployed_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_application_server_path(@application_server) %> |
+<%= link_to 'Back', application_servers_path %>
