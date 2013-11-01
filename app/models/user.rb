@@ -32,6 +32,14 @@ class User < ActiveRecord::Base
   has_many :assigned_tasks, through: :assignments, :source => :task
   
   has_many :task_notes
+  
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      order("id DESC")
+    end
+  end
 
   def is_subscribed_to?(site)
     return true if subscriptions.find_by_site_id(site.id)

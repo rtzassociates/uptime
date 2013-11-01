@@ -18,7 +18,7 @@ class SitesController < ApplicationController
   end
 
   def index
-    @sites = Site.page(params[:page]).per_page(25)
+    @sites = Site.search(params[:search]).page(params[:page]).per_page(25)
   end
 
   def new

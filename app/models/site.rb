@@ -12,6 +12,14 @@ class Site < ActiveRecord::Base
   
   validates_presence_of :name
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      order("id DESC")
+    end
+  end
+
   def total_downtime
     totals = Status.all.each_with_object([]) do |status, array|
       if status.include_in_calc

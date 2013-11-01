@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).per_page(25)
+    @users = User.search(params[:search]).page(params[:page]).per_page(25)
   end
   
   def new

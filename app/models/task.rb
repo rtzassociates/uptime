@@ -17,6 +17,14 @@ class Task < ActiveRecord::Base
   scope :uncompleted, :include => :completion, :conditions => "completions.id IS NULL"
   scope :unassigned, :include => :assigned_users, :conditions => "users.id IS NULL"
   
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      order("id DESC")
+    end
+  end
+  
   def unassigned?
     assigned_users.empty?
   end

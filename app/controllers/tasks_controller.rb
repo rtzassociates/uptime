@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include TasksHelper
   
   def index
-    @tasks = Task.page(params[:page]).per_page(25)
+    @tasks = Task.search(params[:search]).page(params[:page]).per_page(25)
   end
   
   def show

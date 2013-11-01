@@ -21,6 +21,10 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def reported_by
+    problem.user
+  end
+  
   def self.status_hash
     Status.select(:value).each_with_object({}) do |s, h|
       h[s.value] = Event.send("#{s.value.downcase}")
@@ -56,7 +60,9 @@ class Event < ActiveRecord::Base
   end
   
   def email_recipients
-    (sites.scoped.joins(:users => :emails).pluck(:address) + Email.admin_addresses).uniq  
+    (sites.scoped.joins(:users => :emails).pluck(:address) + 
+     Email.admin_addresses + 
+     self.reported_by.emails.pluck(:address) ).uniq
   end
   
   def duration
