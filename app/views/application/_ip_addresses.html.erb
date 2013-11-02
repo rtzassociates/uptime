@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="span6">
+    <table class="table table-bordered table-hover">
+      <% server.ip_addresses.each do |address| %>
+        <tr>
+          <td><strong><%= address.interface.name %></strong></td>
+          <td><%= address.value %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -2,18 +2,22 @@
 <h4><%= link_to 'New application server', new_application_server_path %></h4>
 <br />
 
-<table class="table table-striped">
+<table class="table table-bordered table-hover">
   <tr>
     <th>Name</th>
+    <th>Sites</th>
+    <th>Site URLs</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @application_servers.each do |application_server| %>
-  <tr>
+  <tr>   
     <td><%= link_to application_server.name, application_server %></td>
+    <td><%= sites_for application_server %></td>
+    <td><%= site_urls_for application_server %></td>
     <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-    <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
   </tr>
 <% end %>
 </table>

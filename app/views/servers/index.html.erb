@@ -1,10 +1,13 @@
 <h1>Server List</h1>
 <br />
 
-<table class="table table-striped">
+<table class="table table-bordered table-hover">
   <tr>
     <th>Name</th>
     <th>Type</th>
+    <% Interface.order(:name).each do |interface| %>
+      <th><%= interface.name %></th>
+    <% end %>
     <th></th>
   </tr>
 
@@ -12,6 +15,9 @@
   <tr>
     <td><%= link_to server.name, server %></td>
     <td><%= server.type.titlecase %></td>
+    <% Interface.order(:name).each do |interface| %>
+      <td><%= server.send("#{interface.name}") || "" %></td>
+    <% end %>
     <td><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
   </tr>
 <% end %>

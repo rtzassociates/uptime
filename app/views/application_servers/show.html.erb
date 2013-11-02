@@ -1,18 +1,30 @@
-<p>
-  <b>Name:</b>
-  <%= @application_server.name %>
-</p>
+<h1><%= @application_server.name %></h1>
+<br />
+<div class="actions">
+  <ul>
+    <% if allow? "application_servers", "edit" %>
+      <li><%= link_to 'Edit', edit_application_server_path(@application_server) %></li>
+    <% end %>
+    <% if allow? "application_servers", "destroy" %>
+      <li><%= link_to 'Delete', @application_server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+    <% end %>
+  </ul>
+</div>
+<br />
 
-<p>
-  <b>Description:</b>
-  <%= @application_server.description %>
-</p>
+<p><strong>Deployed</strong></p>
+<p><%= short_date @application_server.deployed_at %></p>
+<br />
 
-<p>
-  <b>Deployed at:</b>
-  <%= @application_server.deployed_at %>
-</p>
+<p><strong>Sites</strong></p>
+<p><%= sites_for @application_server %></p>
+<br />
 
+<p><strong>Urls</strong></p>
+<p><%= site_urls_for @application_server %></p>
+<br />
 
-<%= link_to 'Edit', edit_application_server_path(@application_server) %> |
-<%= link_to 'Back', application_servers_path %>
+<p><strong>IP Addresses</strong></p>
+<%= render 'ip_addresses', { :server => @application_server } %>
+
+<p><%= @application_server.description %></p>

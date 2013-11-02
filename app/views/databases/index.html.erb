@@ -1,9 +1,10 @@
 <h1>Database List</h1>
 <h4><%= link_to 'Create a new database', new_database_path %></h4>
 <br />
-<table class="table table-striped">
+<table class="table table-bordered table-hover">
   <tr>
     <th>Database Name</th>
+    <th>Sites</th>
     <th>Server Name</th>
     <th></th>
     <th></th>
@@ -12,7 +13,8 @@
 <% @databases.each do |database| %>
   <tr>
     <td><%= link_to database.name, database %></td>
-    <td><%= database.database_server.name %></td>
+    <td><%= sites_for database %></td>
+    <td><%= link_to database.database_server.name, database.database_server %></td>
     <td><%= link_to 'Edit', edit_database_path(database) %></td>
     <td><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
   </tr>

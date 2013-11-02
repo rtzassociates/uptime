@@ -1,20 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @database_server.name %></h1>
+<br />
 
-<p>
-  <b>Name:</b>
-  <%= @database_server.name %>
-</p>
+<div class="actions">
+  <ul>
+    <% if allow? "database_servers", "edit" %>
+      <li><%= link_to 'Edit', edit_database_server_path(@database_server) %></li>
+    <% end %>
+    <% if allow? "database_servers", "destroy" %>
+      <li><%= link_to 'Delete', @database_server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+    <% end %>
+  </ul>
+</div>
+<br />
 
-<p>
-  <b>Description:</b>
-  <%= @database_server.description %>
-</p>
+<p><strong>Deployed</strong></p>
+<p><%= short_date @database_server.deployed_at %></p>
+<br />
 
-<p>
-  <b>Deployed at:</b>
-  <%= @database_server.deployed_at %>
-</p>
+<p><strong>Databases</strong></p>
+<p><%= databases_for @database_server %></p>
+<br />
 
+<p><strong>IP Addresses</strong></p>
+<%= render 'ip_addresses', { :server => @database_server } %>
+<br />
 
-<%= link_to 'Edit', edit_database_server_path(@database_server) %> |
-<%= link_to 'Back', database_servers_path %>
+<p><%= @database_server.description %></p>

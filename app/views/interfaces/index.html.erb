@@ -1,0 +1,22 @@
+<h1>Interface List</h1>
+<h4><%= link_to 'Create a new interface', new_interface_path %></h4>
+<br />
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Interface Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @interfaces.each do |interface| %>
+  <tr>
+    <td><%= link_to interface.name, interface %></td>
+    <td><%= link_to 'Edit', edit_interface_path(interface) %></td>
+    <td><%= link_to 'Destroy', interface, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

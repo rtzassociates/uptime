@@ -1,17 +1,42 @@
 <div class="navbar">
   <div class="navbar-inner">
     <ul class="nav">
+      
       <li><%= link_to "Events", events_path %></li>
+      
       <li><%= link_to "Sites", sites_path %></li>
-      <li><%= link_to "All Servers", servers_path %></li>  
-      <li><%= link_to "Application Servers", application_servers_path %></li>    
-      <li><%= link_to "Database Servers", database_servers_path %></li>
+      
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Servers
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "All Servers", servers_path %></li>  
+          <li><%= link_to "Application Servers", application_servers_path %></li>    
+          <li><%= link_to "Database Servers", database_servers_path %></li>
+        </ul>
+      </li>
+      
       <li><%= link_to "Databases", databases_path %></li>
+      
       <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Status Types", statuses_path %></li>
+      
       <% if allow? "tasks", "index" %>
         <li><%= link_to "Tasks", tasks_path %></li>
       <% end %>
+      
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Extras
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Network Interfaces", interfaces_path %></li>
+          <li><%= link_to "Status Types", statuses_path %></li>
+        </ul>
+      </li>
+      
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           My Account
@@ -24,6 +49,7 @@
           <li><%= link_to "Sign out", signout_path %></li>
         </ul>
       </li>
+      
     </ul>
   </div>
 </div>
