@@ -2,7 +2,8 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    @servers = Server.deployed.order(:name)
+    @networks = Network.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,7 +1,7 @@
 <fieldset>
   <div class="control-group">
     <%= f.text_field :value, :placeholder => "IP Address" %>
-    <%= f.collection_select :interface_id, Interface.order(:name), :id, :name %>
+    <%= f.collection_select :network_id, Network.order(:name), :id, :name %>
     <%= f.hidden_field :_destroy %>
     <%= link_to "remove", '#', class: "remove_fields" %>
   </div>

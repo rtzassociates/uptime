@@ -13,7 +13,7 @@
 <br />
 
 <p><strong>Deployed</strong></p>
-<p><%= short_date @application_server.deployed_at %></p>
+<p><%= short_date @application_server.deployed_at || "Not Deployed" %></p>
 <br />
 
 <p><strong>Sites</strong></p>

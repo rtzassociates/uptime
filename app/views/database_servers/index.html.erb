@@ -15,7 +15,7 @@
     <td><%= link_to database_server.name, database_server %></td>
     <td><%= databases_for database_server %></td>
     <td><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
-    <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
   </tr>
 <% end %>
 </table>

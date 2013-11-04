@@ -14,7 +14,7 @@
 <br />
 
 <p><strong>Deployed</strong></p>
-<p><%= short_date @database_server.deployed_at %></p>
+<p><%= short_date @database_server.deployed_at || "Not Deployed" %></p>
 <br />
 
 <p><strong>Databases</strong></p>

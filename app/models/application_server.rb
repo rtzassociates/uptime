@@ -7,4 +7,13 @@ class ApplicationServer < Server
   def site_urls
     sites.joins(:urls).pluck("urls.name").uniq
   end
+  
+  def site_databases
+    Database.where(:name => self.sites.joins(:databases).pluck("databases.name").uniq)
+  end
+  
+  def site_database_servers
+    DatabaseServer.where(:name => self.site_databases.joins(:database_server).pluck("servers.name").uniq)
+  end
+  
 end

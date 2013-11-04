@@ -1,0 +1,12 @@
+<%= form_for(@network) do |f| %>
+  <%= error_messages_for @network %>
+  
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+<% end %>

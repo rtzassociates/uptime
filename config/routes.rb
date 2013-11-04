@@ -1,8 +1,6 @@
 Uptime::Application.routes.draw do
   
-  resources :interfaces
-
-
+  resources :networks
   resources :servers
   resources :application_servers
   resources :database_servers

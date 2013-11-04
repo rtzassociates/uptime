@@ -1,12 +1,17 @@
 class Server < ActiveRecord::Base
   attr_accessible :deployed_at_text, :description, :name, :ip_addresses_attributes
+  
   has_many :ip_addresses
   accepts_nested_attributes_for :ip_addresses, allow_destroy: true
   
-  Interface.all.each do |interface|
-    define_method(interface.name.downcase) do
-      lambda { self.ip_addresses.joins(:interface).where("interfaces.name" => interface.name).first.try(:value) }.call
-    end
+  # Network.all.each do |network|
+  #   define_method(network.name.downcase) do
+  #     self.ip_addresses.joins(:network).where("networks.name" => network.name).first.try(:value)
+  #   end
+  # end
+  
+  def self.deployed
+    where("deployed_at IS NOT NULL")
   end
   
   def deployed_at_text
@@ -18,6 +23,10 @@ class Server < ActiveRecord::Base
     if self.deployed_at.nil?
       @deployed_at_invalid = true
     end
+  end
+  
+  def method_missing(method_sym, *arguments, &block)
+    self.ip_addresses.joins(:network).where("networks.name" => method_sym.to_s).first.try(:value)
   end
   
 end
