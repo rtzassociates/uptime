@@ -39,4 +39,17 @@
 
 <br />
 
-
+<script>
+  $('#servers').dataTable({
+    "bPaginate": false,
+    "aoColumns": [
+                    null,
+                    null,
+                    <% @networks.each do |network| %>
+                      { "sType": "ip-address" },
+                    <% end %>
+                    null,
+                    null
+                ]
+  });
+</script>
