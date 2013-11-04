@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 2d750531a1e950c879d56c6a16d644f9974dd603
+  specs:
+    jquery-datatables-rails (1.11.2)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -213,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   guard-rspec
+  jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails
   launchy

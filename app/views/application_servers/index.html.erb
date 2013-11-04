@@ -4,34 +4,37 @@
 <% end %>
 <br />
 
-<table class="table table-bordered table-hover">
-  <tr>
-    <th>Name</th>
-    <th>Sites</th>
-    <th>URLs</th>
-    <th>Databases</th>
-    <th>Database Servers</th>
-    <% if allow? "application_servers", "edit" %>
-      <th></th>
+<table id="servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sites</th>
+      <th>URLs</th>
+      <th>Databases</th>
+      <th>Database Servers</th>
+      <% if allow? "application_servers", "edit" %>
+        <th></th>
+      <% end %>
+      <% if allow? "application_servers", "destroy" %>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @application_servers.each do |application_server| %>
+      <tr>   
+        <td><%= link_to application_server.name, application_server %></td>
+        <td><%= sites_for application_server %></td>
+        <td><%= site_urls_for application_server %></td>
+        <td><%= site_databases_for application_server %></td>
+        <td><%= site_database_servers_for application_server %></td>
+        <% if allow? "application_servers", "edit" %>
+          <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+        <% end %>
+        <% if allow? "application_servers", "destroy" %>
+          <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        <% end %>
+      </tr>
     <% end %>
-    <% if allow? "application_servers", "destroy" %>
-      <th></th>
-    <% end %>
-  </tr>
-
-<% @application_servers.each do |application_server| %>
-  <tr>   
-    <td><%= link_to application_server.name, application_server %></td>
-    <td><%= sites_for application_server %></td>
-    <td><%= site_urls_for application_server %></td>
-    <td><%= site_databases_for application_server %></td>
-    <td><%= site_database_servers_for application_server %></td>
-    <% if allow? "application_servers", "edit" %>
-      <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-    <% end %>
-    <% if allow? "application_servers", "destroy" %>
-      <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-    <% end %>
-  </tr>
-<% end %>
+  </tbody>
 </table>

@@ -4,29 +4,32 @@
 <% end %>
 <br />
 
-<table class="table table-bordered table-hover">
-  <tr>
-    <th>Name</th>
-    <th>Databases</th>
-    <% if allow? "database_servers", "edit" %>
-      <th></th>
+<table id="servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Databases</th>
+      <% if allow? "database_servers", "edit" %>
+        <th></th>
+      <% end %>
+      <% if allow? "database_servers", "destroy" %>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @database_servers.each do |database_server| %>
+      <tr>
+        <td><%= link_to database_server.name, database_server %></td>
+        <td><%= databases_for database_server %></td>
+        <% if allow? "database_servers", "edit" %>
+          <td><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
+        <% end %>
+        <% if allow? "database_servers", "destroy" %>
+          <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        <% end %>
+      </tr>
     <% end %>
-    <% if allow? "database_servers", "destroy" %>
-      <th></th>
-    <% end %>
-  </tr>
-
-<% @database_servers.each do |database_server| %>
-  <tr>
-    <td><%= link_to database_server.name, database_server %></td>
-    <td><%= databases_for database_server %></td>
-    <% if allow? "database_servers", "edit" %>
-      <td><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
-    <% end %>
-    <% if allow? "database_servers", "destroy" %>
-      <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-    <% end %>
-  </tr>
-<% end %>
+  </tbody>
 </table>
 
