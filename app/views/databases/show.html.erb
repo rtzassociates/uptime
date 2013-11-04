@@ -1,13 +1,5 @@
-<p>
-  <b>Name:</b>
-  <%= @database.name %>
-</p>
+<h1><%= @database.name %></h1>
+<br />
 
-<p>
-  <b>Server:</b>
-  <%= @database.database_server.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_database_path(@database) %> |
-<%= link_to 'Back', databases_path %>
+<p><strong>Server:</strong></p>
+<p><%= @database.database_server.name %></p>

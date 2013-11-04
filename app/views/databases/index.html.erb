@@ -1,13 +1,19 @@
 <h1>Database List</h1>
-<h4><%= link_to 'Create a new database', new_database_path %></h4>
+<% if allow? "databases", "create" %>
+  <h4><%= link_to 'Create a new database', new_database_path %></h4>
+<% end %>
 <br />
 <table class="table table-bordered table-hover">
   <tr>
     <th>Database Name</th>
     <th>Sites</th>
     <th>Server Name</th>
-    <th></th>
-    <th></th>
+    <% if allow? "databases", "edit" %>
+      <th></th>
+    <% end %>
+    <% if allow? "databases", "destroy" %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @databases.each do |database| %>
@@ -15,8 +21,12 @@
     <td><%= link_to database.name, database %></td>
     <td><%= sites_for database %></td>
     <td><%= link_to database.database_server.name, database.database_server %></td>
-    <td><%= link_to 'Edit', edit_database_path(database) %></td>
-    <td><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% if allow? "databases", "edit" %>
+      <td><%= link_to 'Edit', edit_database_path(database) %></td>
+    <% end %>
+    <% if allow? "databases", "destroy" %>
+      <td><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -24,7 +24,10 @@ class Permission
       end
       allow :statuses, [:index, :show]
       allow :subscriptions, [:index, :show, :new, :create, :destroy]
-      allow :charts, [:events]
+      allow :servers, [:index, :show]
+      allow :database_servers, [:index, :show]
+      allow :application_servers, [:index, :show]
+      allow :databases, [:index, :show]
       allow_all if user.admin?
     end
   end

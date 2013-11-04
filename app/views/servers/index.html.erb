@@ -8,8 +8,12 @@
     <% @networks.each do |network| %>
       <th><%= network.name %></th>
     <% end %>
-    <th></th>
-    <th></th>
+    <% if allow? "servers", "edit" %>
+      <th></th>
+    <% end %>
+    <% if allow? "servers", "destroy" %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @servers.each do |server| %>
@@ -19,8 +23,12 @@
     <% @networks.each do |network| %>
       <td><%= server.send("#{network.name}") || "" %></td>
     <% end %>
-    <td><%= link_to 'Edit', send("edit_#{server.type.titlecase.downcase.split(' ').join('_')}_path", server) %></td>
-    <td><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% if allow? "servers", "edit" %>
+      <td><%= link_to 'Edit', send("edit_#{server.type.titlecase.downcase.split(' ').join('_')}_path", server) %></td>
+    <% end %>
+    <% if allow? "servers", "destroy" %>
+      <td><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

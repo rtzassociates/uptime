@@ -1,5 +1,7 @@
 <h1>Application Server List</h1>
-<h4><%= link_to 'New application server', new_application_server_path %></h4>
+<% if allow? "application_servers", "create" %>
+  <h4><%= link_to 'New application server', new_application_server_path %></h4>
+<% end %>
 <br />
 
 <table class="table table-bordered table-hover">
@@ -9,8 +11,12 @@
     <th>URLs</th>
     <th>Databases</th>
     <th>Database Servers</th>
-    <th></th>
-    <th></th>
+    <% if allow? "application_servers", "edit" %>
+      <th></th>
+    <% end %>
+    <% if allow? "application_servers", "destroy" %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @application_servers.each do |application_server| %>
@@ -20,9 +26,12 @@
     <td><%= site_urls_for application_server %></td>
     <td><%= site_databases_for application_server %></td>
     <td><%= site_database_servers_for application_server %></td>
-    <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-    <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% if allow? "application_servers", "edit" %>
+      <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+    <% end %>
+    <% if allow? "application_servers", "destroy" %>
+      <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
