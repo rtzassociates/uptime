@@ -44,7 +44,7 @@ class ApplicationServersController < ApplicationController
 
     respond_to do |format|
       if @application_server.save
-        format.html { redirect_to @application_server, notice: 'Application server was successfully created.' }
+        format.html { redirect_to application_servers_path, notice: 'Application server was successfully created.' }
         format.json { render json: @application_server, status: :created, location: @application_server }
       else
         format.html { render action: "new" }

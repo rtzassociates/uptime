@@ -7,7 +7,7 @@
       </tr>
       <% server.ip_addresses.each do |address| %>
         <tr>
-          <td><strong><%= address.network.name %></strong></td>
+          <td><%= address.network.name %></td>
           <td><%= address.value %></td>
         </tr>
       <% end %>

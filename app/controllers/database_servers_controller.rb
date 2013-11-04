@@ -44,7 +44,7 @@ class DatabaseServersController < ApplicationController
 
     respond_to do |format|
       if @database_server.save
-        format.html { redirect_to @database_server, notice: 'Database server was successfully created.' }
+        format.html { redirect_to database_servers_path, notice: 'Database server was successfully created.' }
         format.json { render json: @database_server, status: :created, location: @database_server }
       else
         format.html { render action: "new" }
