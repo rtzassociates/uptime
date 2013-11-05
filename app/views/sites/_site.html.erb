@@ -1,35 +1,37 @@
-<%= div_for site do %>
-  <h3><%= link_to site.name, site %></h3>
-  
-  <% if site.urls.any? %>
-    <p><%= urls_for site %></p>
-  <% end %>
-  
-  <p><%= users_subscribed_to(site) %></p>
-  
-  <div class="actions">
-    <ul>
-      <% if allow? "sites", "edit" %>
-        <li><%= link_to 'Edit', edit_site_path(site), :class => "small" %></li>
-      <% end %>
-      <% if allow? "sites", "destroy" %>
-        <li><%= link_to 'Delete', site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
-      <% end %>
-    </ul>
-  </div>
-  
-  <div class="details">
-    <ul>
-      <li><%= site.uptime %>% uptime</li>
-      <li><%= pluralize site.events.count, "event" %> reported</li>
-    </ul>
-  </div>
-  
-  <div class="actions" style="margin-top:2em">
-    <% if current_user.is_subscribed_to? site %>
-      <%= render "subscriptions/unsubscribe", :site_id => site.id %>
-    <% else %>
-      <%= render "subscriptions/subscribe", :site_id => site.id %>
+<% cache site do %>
+  <%= div_for site do %>
+    <h3><%= link_to site.name, site %></h3>
+    
+    <% if site.urls.any? %>
+      <p><%= urls_for site %></p>
     <% end %>
-  </div>
+    
+    <p><%= users_subscribed_to(site) %></p>
+    
+    <div class="actions">
+      <ul>
+        <% if allow? "sites", "edit" %>
+          <li><%= link_to 'Edit', edit_site_path(site), :class => "small" %></li>
+        <% end %>
+        <% if allow? "sites", "destroy" %>
+          <li><%= link_to 'Delete', site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="details">
+      <ul>
+        <li><%= site.uptime %>% uptime</li>
+        <li><%= pluralize site.events.count, "event" %> reported</li>
+      </ul>
+    </div>
+    
+    <div class="actions" style="margin-top:2em">
+      <% if current_user.is_subscribed_to? site %>
+        <%= render "subscriptions/unsubscribe", :site_id => site.id %>
+      <% else %>
+        <%= render "subscriptions/subscribe", :site_id => site.id %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

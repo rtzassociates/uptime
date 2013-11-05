@@ -40,7 +40,9 @@ class SitesController < ApplicationController
   
   def update
     @site = Site.find(params[:id])
+    
     if @site.update_attributes(params[:site])
+      expire_fragment @site
       redirect_to @site, :notice => 'Site successfully updated'
     else
       render 'edit'
