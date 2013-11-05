@@ -2,7 +2,7 @@ class DatabasesController < ApplicationController
   # GET /databases
   # GET /databases.json
   def index
-    @databases = Database.all
+    @databases = Database.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
