@@ -22,19 +22,21 @@
   </thead>
   <tbody>
     <% @application_servers.each do |application_server| %>
-      <tr>   
-        <td><%= link_to application_server.name, application_server %></td>
-        <td><%= sites_for application_server %></td>
-        <td><%= site_urls_for application_server %></td>
-        <td><%= site_databases_for application_server %></td>
-        <td><%= site_database_servers_for application_server %></td>
-        <% if allow? "application_servers", "edit" %>
-          <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-        <% end %>
-        <% if allow? "application_servers", "destroy" %>
-          <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-        <% end %>
-      </tr>
+      <% cache application_server do %>
+        <tr>   
+          <td><%= link_to application_server.name, application_server %></td>
+          <td><%= sites_for application_server %></td>
+          <td><%= site_urls_for application_server %></td>
+          <td><%= site_databases_for application_server %></td>
+          <td><%= site_database_servers_for application_server %></td>
+          <% if allow? "application_servers", "edit" %>
+            <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+          <% end %>
+          <% if allow? "application_servers", "destroy" %>
+            <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

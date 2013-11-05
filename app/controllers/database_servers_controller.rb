@@ -1,4 +1,6 @@
 class DatabaseServersController < ApplicationController
+  cache_sweeper :server_sweeper
+  
   # GET /database_servers
   # GET /database_servers.json
   def index
@@ -60,6 +62,7 @@ class DatabaseServersController < ApplicationController
 
     respond_to do |format|
       if @database_server.update_attributes(params[:database_server])
+        expire_fragment @database_server
         format.html { redirect_to @database_server, notice: 'Database server was successfully updated.' }
         format.json { head :no_content }
       else

@@ -6,4 +6,7 @@ class Database < ActiveRecord::Base
   has_many :site_databases, :dependent => :destroy
   has_many :sites, :through => :site_databases
   
+  validates :name, :presence => true, :uniqueness => true
+  validates :database_server_id, :presence => true
+  
 end

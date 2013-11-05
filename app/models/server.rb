@@ -1,8 +1,10 @@
 class Server < ActiveRecord::Base
   attr_accessible :deployed_at_text, :description, :name, :ip_addresses_attributes
   
-  has_many :ip_addresses
+  has_many :ip_addresses, :dependent => :destroy
   accepts_nested_attributes_for :ip_addresses, allow_destroy: true
+  
+  validates :name, :presence => true, :uniqueness => true
   
   # Network.all.each do |network|
   #   define_method(network.name.downcase) do

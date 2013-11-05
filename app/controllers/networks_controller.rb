@@ -1,4 +1,6 @@
 class NetworksController < ApplicationController
+  cache_sweeper :server_sweeper
+  
   # GET /networks
   # GET /networks.json
   def index

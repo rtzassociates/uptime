@@ -1,4 +1,6 @@
 class ApplicationServersController < ApplicationController
+  cache_sweeper :server_sweeper
+  
   # GET /application_servers
   # GET /application_servers.json
   def index
@@ -60,6 +62,7 @@ class ApplicationServersController < ApplicationController
 
     respond_to do |format|
       if @application_server.update_attributes(params[:application_server])
+        expire_fragment @application_server
         format.html { redirect_to @application_server, notice: 'Application server was successfully updated.' }
         format.json { head :no_content }
       else
