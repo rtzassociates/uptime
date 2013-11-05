@@ -60,6 +60,7 @@ class DatabasesController < ApplicationController
 
     respond_to do |format|
       if @database.update_attributes(params[:database])
+        expire_fragment @database
         format.html { redirect_to @database, notice: 'Database was successfully updated.' }
         format.json { head :no_content }
       else
