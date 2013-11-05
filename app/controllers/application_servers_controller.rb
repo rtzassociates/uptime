@@ -2,7 +2,7 @@ class ApplicationServersController < ApplicationController
   # GET /application_servers
   # GET /application_servers.json
   def index
-    @application_servers = ApplicationServer.all
+    @application_servers = ApplicationServer.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
