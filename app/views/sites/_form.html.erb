@@ -21,8 +21,8 @@
   </fieldset>
   
   <div class="field">
-    <%= f.label :server_ids, "Application Servers" %>
-    <%= f.collection_select :server_ids, ApplicationServer.order(:name), :id, :name, {}, {multiple: true} %>
+    <%= f.label :application_server_ids, "Application Servers" %>
+    <%= f.collection_select :application_server_ids, ApplicationServer.order(:name), :id, :name, {}, {multiple: true} %>
   </div>
   
   <div class="field">

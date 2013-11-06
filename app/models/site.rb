@@ -1,11 +1,11 @@
 class Site < ActiveRecord::Base
-  attr_accessible :name, :user_ids, :server_ids, :database_ids, :description, :urls_attributes
+  attr_accessible :name, :user_ids, :application_server_ids, :database_ids, :description, :urls_attributes
   
   has_many :event_sites, :dependent => :destroy
   has_many :events, :through => :event_sites, :dependent => :destroy
   
-  has_many :site_servers, :dependent => :destroy
-  has_many :servers, :through => :site_servers, :conditions => { :type => 'ApplicationServer' }
+  has_many :site_application_servers, :dependent => :destroy
+  has_many :application_servers, :through => :site_application_servers
   
   has_many :site_databases, :dependent => :destroy
   has_many :databases, :through => :site_databases
@@ -17,6 +17,8 @@ class Site < ActiveRecord::Base
   accepts_nested_attributes_for :urls, allow_destroy: true
   
   validates_presence_of :name
+  
+  before_save :touch_application_servers
 
   def self.search(search)
     if search
@@ -49,6 +51,14 @@ class Site < ActiveRecord::Base
   
   def status
     events.unresolved.empty? ? "OK" : events.unresolved.last.status.value
+  end
+  
+  private
+  
+  def touch_application_servers
+    application_servers.each do |application_server|
+      application_server.touch
+    end
   end
   
 end

@@ -44,10 +44,6 @@ class SitesController < ApplicationController
     if @site.update_attributes(params[:site])
       expire_fragment @site
       
-      @site.servers.each do |server|
-        expire_fragment @server
-      end
-      
       redirect_to @site, :notice => 'Site successfully updated'
     else
       render 'edit'
