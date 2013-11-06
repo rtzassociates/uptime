@@ -16,7 +16,7 @@ class Site < ActiveRecord::Base
   has_many :urls, :dependent => :destroy
   accepts_nested_attributes_for :urls, allow_destroy: true
   
-  validates_presence_of :name
+  validates :name, :presence => true, :uniqueness => true
   
   before_save :touch_application_servers
 
@@ -24,7 +24,7 @@ class Site < ActiveRecord::Base
     if search
       where('name LIKE ?', "%#{search}%")
     else
-      order("id DESC")
+      order("name ASC")
     end
   end
 
