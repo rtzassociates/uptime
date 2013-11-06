@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
   def user_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
   end
+  
+  def expire_servers_cache
+    expire_page servers_path
+    FileUtils.rm_rf "#{page_cache_directory}/servers/page"
+  end
+  
 end

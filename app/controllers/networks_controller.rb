@@ -1,5 +1,4 @@
 class NetworksController < ApplicationController
-  cache_sweeper :server_sweeper
   
   # GET /networks
   # GET /networks.json
@@ -46,6 +45,7 @@ class NetworksController < ApplicationController
 
     respond_to do |format|
       if @network.save
+        expire_servers_cache
         format.html { redirect_to networks_path, notice: 'Network was successfully created.' }
         format.json { render json: @network, status: :created, location: @network }
       else
@@ -62,6 +62,7 @@ class NetworksController < ApplicationController
 
     respond_to do |format|
       if @network.update_attributes(params[:network])
+        expire_servers_cache
         format.html { redirect_to @network, notice: 'Network was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,7 +77,7 @@ class NetworksController < ApplicationController
   def destroy
     @network = Network.find(params[:id])
     @network.destroy
-
+    expire_servers_cache
     respond_to do |format|
       format.html { redirect_to networks_url }
       format.json { head :no_content }

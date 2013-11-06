@@ -45,7 +45,7 @@ class ApplicationServersController < ApplicationController
 
     respond_to do |format|
       if @application_server.save
-        expire_cache
+        expire_servers_cache
         format.html { redirect_to application_servers_path, notice: 'Application server was successfully created.' }
         format.json { render json: @application_server, status: :created, location: @application_server }
       else
@@ -62,7 +62,7 @@ class ApplicationServersController < ApplicationController
 
     respond_to do |format|
       if @application_server.update_attributes(params[:application_server])
-        expire_cache
+        expire_servers_cache
         expire_fragment @application_server
         format.html { redirect_to @application_server, notice: 'Application server was successfully updated.' }
         format.json { head :no_content }
@@ -78,18 +78,11 @@ class ApplicationServersController < ApplicationController
   def destroy
     @application_server = ApplicationServer.find(params[:id])
     @application_server.destroy
-    expire_cache
+    expire_servers_cache
     respond_to do |format|
       format.html { redirect_to application_servers_url }
       format.json { head :no_content }
     end
-  end
-  
-  private
-  
-  def expire_cache
-    expire_page servers_path
-    FileUtils.rm_rf "#{page_cache_directory}/servers/page"
   end
   
 end
