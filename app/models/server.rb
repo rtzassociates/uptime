@@ -6,8 +6,6 @@ class Server < ActiveRecord::Base
   
   validates :name, :presence => true, :uniqueness => true
   
-  before_save :expire_cache
-  
   # Network.all.each do |network|
   #   define_method(network.name.downcase) do
   #     self.ip_addresses.joins(:network).where("networks.name" => network.name).first.try(:value)
@@ -31,12 +29,6 @@ class Server < ActiveRecord::Base
   
   def method_missing(method_sym, *arguments, &block)
     self.ip_addresses.joins(:network).where("networks.name" => method_sym.to_s).first.try(:value)
-  end
-  
-  private
-  
-  def expire_cache
-    FileUtils.rm_rf "#{page_cache_directory}/servers/page"
   end
   
 end
