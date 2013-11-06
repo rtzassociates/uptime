@@ -4,7 +4,7 @@ class DatabaseServersController < ApplicationController
   # GET /database_servers
   # GET /database_servers.json
   def index
-    @database_servers = DatabaseServer.all
+    @database_servers = DatabaseServer.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
