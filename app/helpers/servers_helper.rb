@@ -8,7 +8,7 @@ module ServersHelper
   
   def site_urls_for(server)
     unless server.site_urls.empty?
-      url_list = server.site_urls.sort.collect { |url| link_to(url, :class => "link-large") }.to_sentence
+      url_list = server.site_urls.sort.collect { |url| link_to(url, url, :class => "link-large") }.to_sentence
       raw "#{url_list}"
     end
   end
