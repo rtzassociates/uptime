@@ -1,35 +1,25 @@
-<div id="user">
-  <h1><%= @user.full_name %></h1>
-  <br />
-  <p>
-    <strong>Email Addresses:</strong>
-    <%= @user.emails.map { |email| email.address }.join(", ") %>
-  </p>
-  <p>
-    <strong>Phone Number:</strong> <%= @user.phone %>
-  </p>
-  <p>
-    <strong>Time Zone:</strong> <%= @user.time_zone %>
-  </p>
-  <p>
-    <strong>Subscriptions:</strong>
-    <%= raw @user.sites.collect { |s| link_to(s.name, site_path(s)) }.to_sentence %></p>
-  
-  <div class="actions">
-    <ul>
-      <% if allow? "sites", "edit" %>
-        <li><%= link_to 'Edit', edit_user_path(@user), :class => "small" %></li>
-      <% end %>
-      <% if allow? "sites", "destroy" %>
-        <li><%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
-      <% end %>
-    </ul>
-  </div>
+<h1><%= @user.full_name %></h1>
+<h4 class="muted"><%= @user.admin? ? "Admin" : "User" %></h4>
+<div class="admin actions">
+  <ul>
+    <li><%= link_to 'Edit', edit_user_path(@user), :class => "small" %></li>
+    <li><%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+  </ul>
+</div>
+<hr>
+<h4 class="muted">User Details</h4>
+
+<div class="field">
+  <p><strong>Email Addresses:</strong></p>
+  <p><%= @user.emails.map { |email| email.address }.join(", ") %></p>
 </div>
 
-<hr>
+<div class="field">
+  <p><strong>Time Zone:</strong></p> 
+  <p><%= @user.time_zone %></p>
+</div>
 
-<h4>Problems Reported</h4>
-
-<%= render @reported %>
-<%= will_paginate @reported %>
+<div class="field">
+  <p><strong>Subscriptions:</strong></p>
+  <p><%= raw @user.sites.collect { |s| link_to(s.name, site_path(s)) }.to_sentence %></p>
+</div>

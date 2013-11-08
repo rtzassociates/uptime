@@ -1,7 +1,8 @@
 <%= div_for @event do %>
   <div class="row">
-    <div class="span6">
-      <%= status_for(@event.status, "small") %>
+    <div class="span12">
+      <h2 style="color:<%= @event.status.text_color %>"><%= @event.status.value %></h2>
+      <hr>
       <%  if @event.resolved? %>
         <%= resolution_for(@event.resolution, "small")%>
       <% else %>

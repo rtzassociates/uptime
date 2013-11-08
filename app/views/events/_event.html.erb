@@ -1,7 +1,7 @@
 <%= div_for event do %>
   <div class="row">
     <div class="span6">
-      <%= status_for(event.status, "small") %>
+      <h2 style="color:<%= event.status.text_color %>"><%= event.status.value %></h2>
       <%= resolution_for(event.resolution, "small") if event.resolved? %>
     </div>
   </div>
@@ -9,11 +9,11 @@
     <div class="span12">
       <%= div_for event.problem do %>
         <h3><%= sites_affected_by event %></h3>
-        <p>Duration: <%= distance_of_time_in_words(event.duration) %></p>
-        <p><%= problem_for event %></p>
+        <p class="muted">Duration: <%= distance_of_time_in_words(event.duration) %></p>
+        <p class="muted"><%= problem_for event %></p>
         <p><%= markdown event.problem.description %></p>
-        <p><%= pluralize event.problem.comments.count, "comment" %></p>
-        <p><%= link_to 'View this event', event %></p>
+        <p class="muted"><%= pluralize event.problem.comments.count, "comment" %></p>
+        <h4><%= link_to 'View this event', event %></h4>
       <% end %>
     </div>
   </div>

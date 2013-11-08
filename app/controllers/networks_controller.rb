@@ -63,7 +63,7 @@ class NetworksController < ApplicationController
     respond_to do |format|
       if @network.update_attributes(params[:network])
         expire_servers_cache
-        format.html { redirect_to @network, notice: 'Network was successfully updated.' }
+        format.html { redirect_to networks_path, notice: 'Network was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

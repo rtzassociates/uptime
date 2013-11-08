@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
-  attr_accessible :value, :foreground_color, :background_color, :include_in_calc
+  attr_accessible :value, :text_color, :include_in_calc
   
-  validates_presence_of :value, :foreground_color, :background_color
+  validates_presence_of :value, :text_color
   
   after_save :reload_events
   # events.rb needs to be reloaded to generate

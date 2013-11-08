@@ -1,14 +1,14 @@
-<%= form_for(@database) do |f| %>
-  
-  <%= error_messages_for @database %>
+<%= error_messages_for @database %>
+
+<%= form_for @database, :html => { :class => "well" } do |f| %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name, "Database Name" %>
     <%= f.text_field :name %>
   </div>
   
   <div class="field">
-    <%= f.label :database_server_id, "Server" %>
+    <%= f.label :database_server_id, "Database Server" %>
     <%= f.collection_select :database_server_id, DatabaseServer.order(:name), :id, :name %>
   </div>
   

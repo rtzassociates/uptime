@@ -1,6 +1,5 @@
 <h1>Network List</h1>
-<h4><%= link_to 'Create a new network', new_network_path %></h4>
-<br />
+<h4 class="admin"><%= link_to 'Create a new network', new_network_path %></h4>
 
 <table class="table table-bordered table-hover">
   <tr>
@@ -9,14 +8,11 @@
     <th></th>
   </tr>
 
-<% @networks.each do |network| %>
-  <tr>
-    <td><%= link_to network.name, network %></td>
-    <td><%= link_to 'Edit', edit_network_path(network) %></td>
-    <td><%= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-  </tr>
-<% end %>
+  <% @networks.each do |network| %>
+    <tr>
+      <td><%= network.name %></td>
+      <td><%= link_to 'Edit', edit_network_path(network) %></td>
+      <td><%= link_to 'Delete', network, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    </tr>
+  <% end %>
 </table>
-
-<br />
-

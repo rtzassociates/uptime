@@ -1,5 +1,6 @@
-<%= form_for @status do |f| %>
-  <%= error_messages_for @status %>
+<%= error_messages_for @status %>
+
+<%= form_for @status, :html => { :class => "well" } do |f| %>
   
   <div class="field">
     <%= f.label :value, "Status Name" %>
@@ -7,13 +8,8 @@
   </div>
   
   <div class="field">
-    <%= f.label :foreground_color, "Text Color" %>
-    <%= f.select :foreground_color, [ "Black", "White" ] %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :background_color %>
-    <%= f.select :background_color, Status.colors %>
+    <%= f.label :text_color, "Text Color" %>
+    <%= f.select :text_color, Status.colors %>
   </div>
   
   <div class="field">

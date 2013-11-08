@@ -1,56 +1,28 @@
-<%= form_for @user, :html => { :class => "form-horizontal" } do |f| %>
+<%= error_messages_for @user %>
+
+<%= form_for @user, :html => { :class => "well" } do |f| %>
   
-  <%= error_messages_for @user %>
-  
-  <div class="control-group">
-    <%= f.label :username, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :username, :placeholder => "Username", :autocomplete => "off" %>
-    </div>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, :placeholder => "Username", :autocomplete => "off" %>
   </div>
   
-  <div class="control-group">
-    <%= f.label :password, :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
-    </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
   </div>
   
-  <div class="control-group">
-    <%= f.label :password_confirmation, "Confirm Password", :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
-    </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
   </div>
   
-  <div class="control-group">
-    <%= f.label :first, "First Name", :class => "control-label" %>
-    <div class="controls">
-    <%= f.text_field :first, :placeholder => "First Name" %>
-    </div>
+  <div class="field">
+    <%= f.label :time_zone %>
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, :default => "Pacific Time (US & Canada)" %>
   </div>
   
-  <div class="control-group">
-    <%= f.label :last, "Last Name", :class => "control-label" %>
-    <div class="controls">
-    <%= f.text_field :last, :placeholder => "Last Name" %>
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <%= f.label :phone, "Phone Number", :class => "control-label" %>
-    <div class="controls">
-    <%= f.text_field :phone, :placeholder => "Phone Number" %>
-    </div>
-  </div>
-  
-  
-  <div class="control-group">
-    <%= f.label :time_zone, :class => "control-label" %>
-    <div class="controls">
-    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
-    </div>
-  </div>
+  <br />
   
   <fieldset>
     <%= f.label :emails, "Email Addresses" %>
@@ -62,9 +34,9 @@
   
   <br />
   
-  <div class="control-group">
+  <div class="field">
     <%= f.label :site_ids, "Subscriptions" %>
-    <%= f.collection_select :site_ids, Site.order(:name), :id, :name, {}, { multiple: true, :style => "width:100%;" } %>
+    <%= f.collection_select :site_ids, Site.order(:name), :id, :name, {}, { multiple: true } %>
   </div>
   
   <% if current_user.admin? %>
@@ -86,8 +58,6 @@
       </label>
     </div>
   <% end %>
-
-  <br />
   
   <div class="actions">
     <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), :class => 'btn' %>

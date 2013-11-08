@@ -1,5 +1,6 @@
-<%= form_for(@application_server) do |f| %>
-  <%= error_messages_for @application_server %>
+<%= error_messages_for @application_server %>
+
+<%= form_for @application_server, :html => { :class => "well" } do |f| %>
     
   <div class="field">
     <%= f.label :deployed_at_text, "Deployed at" %>
@@ -13,7 +14,7 @@
   
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description, :placeholder => "Please provide a description of this application server.", :rows => 5, :class => "span12" %>
+    <%= f.text_area :description, :rows => 5 %>
   </div>
   
   <fieldset>
@@ -23,6 +24,8 @@
     <% end %>
     <%= link_to_add_fields "Add a IP Address", f, :ip_addresses %>
   </fieldset>
+  
+  <br />
   
   <div class="field">
     <%= f.label :site_ids, "Sites" %>

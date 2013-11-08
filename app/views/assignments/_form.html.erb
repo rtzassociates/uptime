@@ -1,6 +1,0 @@
-<%= form_for @assignment, :html => { :class => 'form-inline' } do |f| %>
-  <h5>Assign User</h5>
-  <%= f.select :user_id, @task.unassigned_users.collect { |u| [u.username, u.id] } %>
-  <%= f.hidden_field :task_id, :value => @task.id %>
-  <%= f.submit 'Assign User', :class => "btn" %>
-<% end %>

@@ -1,5 +1,0 @@
-<div id="assignment_<%= task_id %>" class="assignment">
-  <%= form_for @assignment, :html => { :method => :delete,  :class => 'inline' }, :remote => true do |f| %>
-    <%= f.submit "Remove Task", :class => "btn btn-danger" %>
-  <% end %>
-</div>

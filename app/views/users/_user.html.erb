@@ -1,11 +1,6 @@
 <tr>
   <td><%= link_to user.username, user %></td>
   <td><%= user.emails.map { |email| email.address }.join(", ") %></td>
-  <td><%= user.phone %></td>
-  <% if allow? "users", "edit" %>
-    <td><%= link_to "Edit", edit_user_path(user) %></td>
-  <% end %>
-  <% if allow? "users", "destroy" %>
-    <td><%= link_to "Delete", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></td>
-  <% end %>
+  <td class="admin"><%= link_to "Edit", edit_user_path(user) %></td>
+  <td class="admin"><%= link_to "Delete", user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></td>
 </tr>

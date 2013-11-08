@@ -1,6 +1,6 @@
-<%= form_for @site do |f| %>
+<%= error_messages_for @site %>
 
-  <%= error_messages_for @site %>
+<%= form_for @site, :html => { :class => "well" } do |f| %>
   
   <div class="field">
     <%= f.label :name, "Site Name" %>
@@ -9,7 +9,7 @@
   
   <div class="field">
     <%= f.label :description, "Site Description" %>
-    <%= f.text_area :description, :placeholder => "Please provide a description of this site.", :rows => 5 %>
+    <%= f.text_area :description, :rows => 5 %>
   </div>
   
   <fieldset>
@@ -19,6 +19,8 @@
     <% end %>
     <%= link_to_add_fields "Add a URL", f, :urls %>
   </fieldset>
+  
+  <br />
   
   <div class="field">
     <%= f.label :application_server_ids, "Application Servers" %>
@@ -31,7 +33,7 @@
   </div>
   
   <div class="field">
-    <%= f.label :user_ids, "The following users are subscribed to this site:" %>
+    <%= f.label :user_ids, "Subscribers" %>
     <%= f.collection_select :user_ids, User.order(:username), :id, :username, {}, {multiple: true} %>
   </div>
   

@@ -1,7 +1,0 @@
-<div id="assignment_<%= task_id %>" class="assignment">
-  <%= form_for Assignment.new, :html => { :class => 'inline' }, :remote => true do |f| %>
-    <%= f.hidden_field :task_id, :value => task_id %>
-    <%= f.hidden_field :user_id, :value  => current_user.id %>
-    <%= f.submit "Add Task", :class => "btn" %>
-  <% end %>
-</div>

@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131105232620) do
-
-  create_table "assignments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131108015449) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -27,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20131105232620) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "user_id"
-  end
-
-  create_table "completions", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "databases", :force => true do |t|
@@ -136,11 +121,10 @@ ActiveRecord::Schema.define(:version => 20131105232620) do
 
   create_table "statuses", :force => true do |t|
     t.string   "value"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.string   "foreground_color"
-    t.string   "background_color"
-    t.boolean  "include_in_calc",  :default => false, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "text_color"
+    t.boolean  "include_in_calc", :default => false, :null => false
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -148,22 +132,6 @@ ActiveRecord::Schema.define(:version => 20131105232620) do
     t.integer  "site_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "task_notes", :force => true do |t|
-    t.integer  "user_id"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "task_id"
-  end
-
-  create_table "tasks", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "urls", :force => true do |t|

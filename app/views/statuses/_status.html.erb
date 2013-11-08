@@ -1,24 +1,6 @@
-<div class="row">
-  <div class="span12">
-    <div class="row">
-      <div class="span4">
-        <div class="status small" style="background-color:<%= status.background_color %>;color:<%= status.foreground_color %>"><%= status.value.capitalize %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span4">
-        <div class="actions">
-          <ul>
-            <% if allow? "statuses", "edit" %>
-              <li><%= link_to "Edit", edit_status_path(status) %></li>
-            <% end %>
-            <% if allow? "statuses", "destroy" %>
-              <li><%= link_to "Delete", status, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
-            <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2 style="color:<%= status.text_color %>"><%= status.value.capitalize %></h2>
+<div class="admin actions">
+  <ul>
+    <li><%= link_to "Edit", edit_status_path(status) %></li>
+    <li><%= link_to "Delete", status, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
 </div>
-<br />

@@ -2,7 +2,4 @@
 <% if allow? "statuses", "new" %>
   <h4><%= link_to "Create a new status type", new_status_path %></h4>
 <% end %>
-
-<br />
-
 <%= render @statuses %>
