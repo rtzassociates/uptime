@@ -1,14 +1,7 @@
 <h1>Site List</h1>
 <h4 class="admin"><%= link_to "Create a new site", new_site_path %></h4>
 
-<%= form_tag sites_path, :method => 'get', :class => "form-search" do %>
-  <div class="input-append">
-    <%= text_field_tag :search, params[:search], :class => "input-medium search-query" %>
-    <%= button_tag "Search", :name => nil, :class => "btn" %>
-  </div>
-<% end %>
-
-<table class="table table-bordered table-hover">
+<table id="sites" class="table table-bordered table-hover">
   <tr>
     <th>Site Name</th>
     <th>Site Urls</th>
@@ -18,5 +11,3 @@
   </tr>
   <%= render @sites %>
 </table>
-
-<%= will_paginate @sites %> 
