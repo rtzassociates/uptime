@@ -5,7 +5,7 @@ class SitesController < ApplicationController
   end
 
   def index
-    @sites = Site.order(:name)
+    @sites = Site.search(params[:search]).page(params[:page]).per_page(50)
   end
 
   def new
