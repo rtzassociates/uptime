@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   delegate :allow?, to: :current_permission
   helper_method :allow?
   
-  # around_filter :user_time_zone, if: :current_user
+  around_filter :user_time_zone, if: :current_user
   
   private
     

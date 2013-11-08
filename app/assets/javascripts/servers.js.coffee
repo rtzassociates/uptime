@@ -1,3 +1,4 @@
 jQuery ->
   $('#server_site_ids').chosen()
-  $.getScript('/users/current')
+  if $('#current_user').data("logged_in")
+    $.getScript('/users/current')
