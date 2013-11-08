@@ -31,8 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def expire_servers_cache
-    expire_page servers_path
-    FileUtils.rm_rf "#{page_cache_directory}/servers/page"
+    expire_fragment(controller: 'servers', action: 'index', action_suffix: 'all_servers')
   end
   
 end

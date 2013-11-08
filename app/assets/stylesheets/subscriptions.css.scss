@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.subscription {
-  display: block; 
-  vertical-align: middle
+form.subscription input.button_to {
+  background: none !important;
+  border: none; 
+  padding:0 !important;
+  margin:0 !important;
+  color: #0088cc;
+}
+
+div .subscription form {
+  padding: 0px;
+  margin: 0px;
 }

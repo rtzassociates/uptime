@@ -19,6 +19,9 @@ Uptime::Application.routes.draw do
   end
   
   resources :users do
+    collection do
+      get :current
+    end
     resources :emails
     resources :tasks
     resources :user_tasks

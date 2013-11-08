@@ -1,33 +1,23 @@
 <h1>Database List</h1>
-<% if allow? "databases", "create" %>
-  <h4><%= link_to 'Create a new database', new_database_path %></h4>
-<% end %>
-<br />
+<h4 class="admin"><%= link_to 'Create a new database', new_database_path %></h4>
+
 <table class="table table-bordered table-hover">
   <tr>
     <th>Database Name</th>
-    <th>Sites</th>
     <th>Server Name</th>
-    <% if allow? "databases", "edit" %>
-      <th></th>
-    <% end %>
-    <% if allow? "databases", "destroy" %>
-      <th></th>
-    <% end %>
+    <th>Sites</th>
+    <th class="admin"></th>
+    <th class="admin"></th>
   </tr>
 
 <% @databases.each do |database| %>
   <% cache database do %>
     <tr>
       <td><%= link_to database.name, database %></td>
-      <td><%= sites_for database %></td>
       <td><%= link_to database.database_server.name, database.database_server %></td>
-      <% if allow? "databases", "edit" %>
-        <td><%= link_to 'Edit', edit_database_path(database) %></td>
-      <% end %>
-      <% if allow? "databases", "destroy" %>
-        <td><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-      <% end %>
+      <td><%= sites_for database %></td>
+      <td class="admin"><%= link_to 'Edit', edit_database_path(database) %></td>
+      <td class="admin"><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
     </tr>
   <% end %>
 <% end %>

@@ -1,19 +1,28 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+div#logo {
+ padding-top: 40px;
+ margin-bottom: 2em;
+}
+
+a.logo {
+  text-decoration: none;
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 64px;
+  color: green;
+}
+
 h1 {
-  font-size: xx-large;
-  margin-bottom: 0px;
+  font-size: 36px;
 }
 
-h3 {
-  font-size: x-large;
-}
-
-.bordered {
-  border: solid;
-  border-color: #CFCFCF;
-  border-width: 1px;
+h4 {
+  margin-bottom: 2em;
 }
 
 .alert {
@@ -53,23 +62,6 @@ h3 {
   color: red;
 }
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: white;
-}
-
-header {
-  margin-top: 3em;
-  margin-bottom: 2em;
-}
-
-a.logo {
-  text-decoration: none;
-  font-family: 'Fredoka One', sans-serif;
-  font-size: 5em;
-  color: green;
-}
-
 .dropdown {
   display: inline;
 }
@@ -78,33 +70,14 @@ ul.nav {
   display: inline;
 }
 
-#page {
-  margin-bottom: 1em;
-}
-
-.heading h1 {
-  float: left;
-}
-
-.heading ul {
-  float: left;
-}
-
-.heading ul li {
-  list-style: none;
-  margin-top: 2em;
-}
-
 .actions ul {
-  padding: 0px;
-  margin: 0px;
+  margin-left: 0px; 
 }
 
 .actions ul li{
+  margin-right: 1em;
   display: inline;
   list-style: none;
-  margin-right: 1em;
-
 }
 
 form label {
@@ -123,12 +96,8 @@ error {
   border-radius: 4px;
 }
 
-fieldset {
-  margin-bottom: 1em;
-}
-
-.field {
-  margin-bottom: 1em;
+.admin {
+  display: none;
 }
 
 // Set the correct sprite paths

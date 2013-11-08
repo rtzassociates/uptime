@@ -1,43 +1,35 @@
 <h1>Server List</h1>
-<br />
+<h4>All Servers</h4>
 
-<table id="servers" class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <% @networks.each do |network| %>
-        <th><%= network.name %></th>
-      <% end %>
-      <% if allow? "servers", "edit" %>
-        <th></th>
-      <% end %>
-      <% if allow? "servers", "destroy" %>
-        <th></th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @servers.each do |server| %>
+<% cache(action: 'index', action_suffix: 'all_servers') do %>
+  <table id="servers" class="table table-bordered">
+    <thead>
       <tr>
-        <td><%= link_to server.name, server %></td>
-        <td><%= server.type.titlecase %></td>
+        <th>Name</th>
+        <th>Type</th>
         <% @networks.each do |network| %>
-          <td><%= server.send("#{network.name}") || "" %></td>
+          <th><%= network.name %></th>
         <% end %>
-        <% if allow? "servers", "edit" %>
-          <td><%= link_to 'Edit', send("edit_#{server.type.titlecase.downcase.split(' ').join('_')}_path", server) %></td>
-        <% end %>
-        <% if allow? "servers", "destroy" %>
-          <td><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-        <% end %>
+          <th class="admin"></th>      
+          <th class="admin"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br />
+    </thead>
+  
+    <tbody>
+      <% @servers.each do |server| %>
+        <tr>
+          <td><%= link_to server.name, server %></td>
+          <td><%= server.type.titlecase %></td>
+          <% @networks.each do |network| %>
+            <td><%= server.send("#{network.name}") || "" %></td>
+          <% end %>
+          <td class="admin"><%= link_to 'Edit', send("edit_#{server.type.titlecase.downcase.split(' ').join('_')}_path", server) %></td>
+          <td class="admin"><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <script>
   $('#servers').dataTable({

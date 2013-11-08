@@ -1,20 +1,13 @@
 <h1>Database Server List</h1>
-<% if allow? "database_servers", "create" %>
-  <h4><%= link_to 'New database server', new_database_server_path %></h4>
-<% end %>
-<br />
+<h4 class="admin"><%= link_to 'Create a new database server', new_database_server_path %></h4>
 
 <table id="servers" class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Server Name</th>
       <th>Databases</th>
-      <% if allow? "database_servers", "edit" %>
-        <th></th>
-      <% end %>
-      <% if allow? "database_servers", "destroy" %>
-        <th></th>
-      <% end %>
+      <th class="admin"></th>
+      <th class="admin"></th>
     </tr>
   </thead>
   <tbody>
@@ -23,12 +16,8 @@
         <tr>
           <td><%= link_to database_server.name, database_server %></td>
           <td><%= databases_for database_server %></td>
-          <% if allow? "database_servers", "edit" %>
-            <td><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
-          <% end %>
-          <% if allow? "database_servers", "destroy" %>
-            <td><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-          <% end %>
+          <td class="admin"><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
+          <td class="admin"><%= link_to 'Destroy', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
         </tr>
       <% end %>
     <% end %>

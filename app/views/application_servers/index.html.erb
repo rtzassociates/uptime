@@ -1,8 +1,5 @@
 <h1>Application Server List</h1>
-<% if allow? "application_servers", "create" %>
-  <h4><%= link_to 'New application server', new_application_server_path %></h4>
-<% end %>
-<br />
+<h4 class="admin"><%= link_to 'Create a new application server', new_application_server_path %></h4>
 
 <table id="servers" class="table table-bordered table-hover">
   <thead>
@@ -12,12 +9,8 @@
       <th>URLs</th>
       <th>Databases</th>
       <th>Database Servers</th>
-      <% if allow? "application_servers", "edit" %>
-        <th></th>
-      <% end %>
-      <% if allow? "application_servers", "destroy" %>
-        <th></th>
-      <% end %>
+      <th class="admin"></th>
+      <th class="admin"></th>
     </tr>
   </thead>
   <tbody>
@@ -29,12 +22,8 @@
           <td><%= site_urls_for application_server %></td>
           <td><%= site_databases_for application_server %></td>
           <td><%= site_database_servers_for application_server %></td>
-          <% if allow? "application_servers", "edit" %>
-            <td><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-          <% end %>
-          <% if allow? "application_servers", "destroy" %>
-            <td><%= link_to 'Destroy', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
-          <% end %>
+          <td class="admin"><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+          <td class="admin"><%= link_to 'Delete', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
         </tr>
       <% end %>
     <% end %>
