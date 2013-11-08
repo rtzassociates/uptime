@@ -1,0 +1,519 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+$.fn.dataTableExt.oApi.fnPagingInfo	vendor/assets/javascripts/dataTables.bootstrap.js	/^$.fn.dataTableExt.oApi.fnPagingInfo = function ( oSettings )$/;"	f
+AddAdminToUsers	db/migrate/20130116193724_add_admin_to_users.rb	/^class AddAdminToUsers < ActiveRecord::Migration$/;"	c
+AddBackgroundColorToStatuses	db/migrate/20130109213019_add_background_color_to_statuses.rb	/^class AddBackgroundColorToStatuses < ActiveRecord::Migration$/;"	c
+AddDescriptionToResolutions	db/migrate/20130107050814_add_description_to_resolutions.rb	/^class AddDescriptionToResolutions < ActiveRecord::Migration$/;"	c
+AddDescriptionToServices	db/migrate/20130417184610_add_description_to_services.rb	/^class AddDescriptionToServices < ActiveRecord::Migration$/;"	c
+AddEventIdToProblems	db/migrate/20130107222109_add_event_id_to_problems.rb	/^class AddEventIdToProblems < ActiveRecord::Migration$/;"	c
+AddFieldsToUsers	db/migrate/20130112025138_add_fields_to_users.rb	/^class AddFieldsToUsers < ActiveRecord::Migration$/;"	c
+AddForegroundColorToStatuses	db/migrate/20130109212956_add_foreground_color_to_statuses.rb	/^class AddForegroundColorToStatuses < ActiveRecord::Migration$/;"	c
+AddIncludeInCalcToStatuses	db/migrate/20130112194325_add_include_in_calc_to_statuses.rb	/^class AddIncludeInCalcToStatuses < ActiveRecord::Migration$/;"	c
+AddReportedAtToProblems	db/migrate/20130107234724_add_reported_at_to_problems.rb	/^class AddReportedAtToProblems < ActiveRecord::Migration$/;"	c
+AddResolvedAtToResolutions	db/migrate/20130107182716_add_resolved_at_to_resolutions.rb	/^class AddResolvedAtToResolutions < ActiveRecord::Migration$/;"	c
+AddRoleToUsers	db/migrate/20130107033835_add_role_to_users.rb	/^class AddRoleToUsers < ActiveRecord::Migration$/;"	c
+AddServiceIdToUrls	db/migrate/20130417195011_add_service_id_to_urls.rb	/^class AddServiceIdToUrls < ActiveRecord::Migration$/;"	c
+AddStartTimeToEvents	db/migrate/20130107172538_add_start_time_to_events.rb	/^class AddStartTimeToEvents < ActiveRecord::Migration$/;"	c
+AddStatusIdToServices	db/migrate/20130102225125_add_status_id_to_services.rb	/^class AddStatusIdToServices < ActiveRecord::Migration$/;"	c
+AddTaskIdToTaskNotes	db/migrate/20130415175157_add_task_id_to_task_notes.rb	/^class AddTaskIdToTaskNotes < ActiveRecord::Migration$/;"	c
+AddTimeZoneToUsers	db/migrate/20130123163001_add_time_zone_to_users.rb	/^class AddTimeZoneToUsers < ActiveRecord::Migration$/;"	c
+AddTokenToUsers	db/migrate/20130116232719_add_token_to_users.rb	/^class AddTokenToUsers < ActiveRecord::Migration$/;"	c
+AddUserIdToComments	db/migrate/20130116170400_add_user_id_to_comments.rb	/^class AddUserIdToComments < ActiveRecord::Migration$/;"	c
+AddUserIdToEvents	db/migrate/20130107033804_add_user_id_to_events.rb	/^class AddUserIdToEvents < ActiveRecord::Migration$/;"	c
+AddUserIdToProblems	db/migrate/20130107221744_add_user_id_to_problems.rb	/^class AddUserIdToProblems < ActiveRecord::Migration$/;"	c
+Animation	vendor/assets/javascripts/raphael.js	/^    function Animation(anim, ms) {$/;"	c
+Animation.delay	vendor/assets/javascripts/raphael.js	/^    Animation.prototype.delay = function (delay) {$/;"	m
+Animation.repeat	vendor/assets/javascripts/raphael.js	/^    Animation.prototype.repeat = function (times) { $/;"	m
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Uptime
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Assignment	app/models/assignment.rb	/^class Assignment < ActiveRecord::Base$/;"	c
+AssignmentsController	app/controllers/assignments_controller.rb	/^class AssignmentsController < ApplicationController$/;"	c
+ChangeDescriptionTypeToTextOnProblems	db/migrate/20130123175113_change_description_type_to_text_on_problems.rb	/^class ChangeDescriptionTypeToTextOnProblems < ActiveRecord::Migration$/;"	c
+ChangeDescriptionTypeToTextOnResolutions	db/migrate/20130123175716_change_description_type_to_text_on_resolutions.rb	/^class ChangeDescriptionTypeToTextOnResolutions < ActiveRecord::Migration$/;"	c
+Comment	app/models/comment.rb	/^class Comment < ActiveRecord::Base$/;"	c
+CommentMailer	app/mailers/comment_mailer.rb	/^class CommentMailer < ActionMailer::Base$/;"	c
+CommentsController	app/controllers/comments_controller.rb	/^class CommentsController < ApplicationController$/;"	c
+Completion	app/models/completion.rb	/^class Completion < ActiveRecord::Base$/;"	c
+CompletionMailer	app/mailers/completion_mailer.rb	/^class CompletionMailer < ActionMailer::Base$/;"	c
+CompletionsController	app/controllers/completions_controller.rb	/^class CompletionsController < ApplicationController$/;"	c
+ControllerAuthentication	lib/controller_authentication.rb	/^module ControllerAuthentication$/;"	m
+CreateComments	db/migrate/20130107210104_create_comments.rb	/^class CreateComments < ActiveRecord::Migration$/;"	c
+CreateCompletions	db/migrate/20130415185835_create_completions.rb	/^class CreateCompletions < ActiveRecord::Migration$/;"	c
+CreateEmails	db/migrate/20130103172322_create_emails.rb	/^class CreateEmails < ActiveRecord::Migration$/;"	c
+CreateEventServices	db/migrate/20130104220003_create_event_services.rb	/^class CreateEventServices < ActiveRecord::Migration$/;"	c
+CreateEvents	db/migrate/20130102225906_create_events.rb	/^class CreateEvents < ActiveRecord::Migration$/;"	c
+CreatePasswordResets	db/migrate/20130313212631_create_password_resets.rb	/^class CreatePasswordResets < ActiveRecord::Migration$/;"	c
+CreateProblems	db/migrate/20130107212912_create_problems.rb	/^class CreateProblems < ActiveRecord::Migration$/;"	c
+CreateResolutions	db/migrate/20130107040300_create_resolutions.rb	/^class CreateResolutions < ActiveRecord::Migration$/;"	c
+CreateServices	db/migrate/20130102222941_create_services.rb	/^class CreateServices < ActiveRecord::Migration$/;"	c
+CreateStatuses	db/migrate/20130102224327_create_statuses.rb	/^class CreateStatuses < ActiveRecord::Migration$/;"	c
+CreateSubscriptions	db/migrate/20130103171849_create_subscriptions.rb	/^class CreateSubscriptions < ActiveRecord::Migration$/;"	c
+CreateTaskNotes	db/migrate/20130415174526_create_task_notes.rb	/^class CreateTaskNotes < ActiveRecord::Migration$/;"	c
+CreateTasks	db/migrate/20130412233356_create_tasks.rb	/^class CreateTasks < ActiveRecord::Migration$/;"	c
+CreateUrls	db/migrate/20130417184536_create_urls.rb	/^class CreateUrls < ActiveRecord::Migration$/;"	c
+CreateUserTasks	db/migrate/20130412233526_create_user_tasks.rb	/^class CreateUserTasks < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20130103171735_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+CubicBezierAtTime	vendor/assets/javascripts/raphael.js	/^    function CubicBezierAtTime(t, p1x, p1y, p2x, p2y, duration) {$/;"	f
+CubicBezierAtTime.sampleCurveX	vendor/assets/javascripts/raphael.js	/^        function sampleCurveX(t) {$/;"	f
+CubicBezierAtTime.solve	vendor/assets/javascripts/raphael.js	/^        function solve(x, epsilon) {$/;"	f
+CubicBezierAtTime.solveCurveX	vendor/assets/javascripts/raphael.js	/^        function solveCurveX(x, epsilon) {$/;"	f
+DropClosedAtFromEvents	db/migrate/20130107040615_drop_closed_at_from_events.rb	/^class DropClosedAtFromEvents < ActiveRecord::Migration$/;"	c
+Email	app/models/email.rb	/^class Email < ActiveRecord::Base$/;"	c
+Event	app/models/event.rb	/^class Event < ActiveRecord::Base$/;"	c
+EventMailer	app/mailers/event_mailer.rb	/^class EventMailer < ActionMailer::Base$/;"	c
+EventService	app/models/event_service.rb	/^class EventService < ActiveRecord::Base$/;"	c
+EventsController	app/controllers/events_controller.rb	/^class EventsController < ApplicationController$/;"	c
+EventsHelper	app/helpers/events_helper.rb	/^module EventsHelper$/;"	m
+Matrix	vendor/assets/javascripts/raphael.js	/^    function Matrix(a, b, c, d, e, f) {$/;"	f
+Morris.LABEL_SPECS.decade	vendor/assets/javascripts/morris.js	/^    "decade": {$/;"	p
+Morris.commas	vendor/assets/javascripts/morris.js	/^  Morris.commas = function(num) {$/;"	f
+Morris.labelSeries	vendor/assets/javascripts/morris.js	/^  Morris.labelSeries = function(dmin, dmax, pxwidth, specName, xLabelFormat) {$/;"	f
+Morris.pad2	vendor/assets/javascripts/morris.js	/^  Morris.pad2 = function(number) {$/;"	f
+Morris.parseDate	vendor/assets/javascripts/morris.js	/^  Morris.parseDate = function(date) {$/;"	f
+PagesController	app/controllers/pages_controller.rb	/^class PagesController < ApplicationController$/;"	c
+PasswordReset	app/models/password_reset.rb	/^class PasswordReset < ActiveRecord::Base$/;"	c
+PasswordResetsController	app/controllers/password_resets_controller.rb	/^class PasswordResetsController < ApplicationController$/;"	c
+Permission	app/models/permission.rb	/^class Permission$/;"	c
+Problem	app/models/problem.rb	/^class Problem < ActiveRecord::Base$/;"	c
+R._getContainer	vendor/assets/javascripts/raphael.js	/^    R._getContainer = function (x, y, w, h) {$/;"	f
+R._path2string	vendor/assets/javascripts/raphael.js	/^    R._path2string = function () {$/;"	f
+R._removedFactory	vendor/assets/javascripts/raphael.js	/^    R._removedFactory = function (methodname) {$/;"	f
+R.angle	vendor/assets/javascripts/raphael.js	/^    R.angle = function (x1, y1, x2, y2, x3, y3) {$/;"	f
+R.animation	vendor/assets/javascripts/raphael.js	/^    R.animation = function (params, ms, easing, callback) {$/;"	f
+R.bezierBBox	vendor/assets/javascripts/raphael.js	/^    R.bezierBBox = function (p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y) {$/;"	f
+R.color	vendor/assets/javascripts/raphael.js	/^    R.color = function (clr) {$/;"	f
+R.deg	vendor/assets/javascripts/raphael.js	/^    R.deg = function (rad) {$/;"	f
+R.findDotsAtSegment	vendor/assets/javascripts/raphael.js	/^    R.findDotsAtSegment = function (p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {$/;"	f
+R.format	vendor/assets/javascripts/raphael.js	/^    R.format = function (token, params) {$/;"	f
+R.getColor	vendor/assets/javascripts/raphael.js	/^    R.getColor = function (value) {$/;"	f
+R.getColor.reset	vendor/assets/javascripts/raphael.js	/^    R.getColor.reset = function () {$/;"	f
+R.getSubpath	vendor/assets/javascripts/raphael.js	/^    R.getSubpath = function (path, from, to) {$/;"	f
+R.hsb2rgb	vendor/assets/javascripts/raphael.js	/^    R.hsb2rgb = function (h, s, v, o) {$/;"	f
+R.hsl2rgb	vendor/assets/javascripts/raphael.js	/^    R.hsl2rgb = function (h, s, l, o) {$/;"	f
+R.is	vendor/assets/javascripts/raphael.js	/^    R.is = function (o, type) {$/;"	f
+R.isBBoxIntersect	vendor/assets/javascripts/raphael.js	/^    R.isBBoxIntersect = function (bbox1, bbox2) {$/;"	f
+R.isPointInsideBBox	vendor/assets/javascripts/raphael.js	/^    R.isPointInsideBBox = function (bbox, x, y) {$/;"	f
+R.isPointInsidePath	vendor/assets/javascripts/raphael.js	/^    R.isPointInsidePath = function (path, x, y) {$/;"	f
+R.matrix	vendor/assets/javascripts/raphael.js	/^    R.matrix = function (a, b, c, d, e, f) {$/;"	f
+R.parsePathString	vendor/assets/javascripts/raphael.js	/^    R.parsePathString = function (pathString) {$/;"	f
+R.parsePathString.paramCounts.a	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.c	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.h	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.l	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.m	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.q	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.r	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.s	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.t	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.v	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.parsePathString.paramCounts.z	vendor/assets/javascripts/raphael.js	/^        var paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, r: 4, q: 4, s: 4, t: 2, v: 1, z: 0},$/;"	p
+R.pathIntersection	vendor/assets/javascripts/raphael.js	/^    R.pathIntersection = function (path1, path2) {$/;"	f
+R.pathIntersectionNumber	vendor/assets/javascripts/raphael.js	/^    R.pathIntersectionNumber = function (path1, path2) {$/;"	f
+R.rad	vendor/assets/javascripts/raphael.js	/^    R.rad = function (deg) {$/;"	f
+R.registerFont	vendor/assets/javascripts/raphael.js	/^    R.registerFont = function (font) {$/;"	c
+R.registerFont.fontcopy.w	vendor/assets/javascripts/raphael.js	/^                w: font.w,$/;"	p
+R.rgb2hsb	vendor/assets/javascripts/raphael.js	/^    R.rgb2hsb = function (r, g, b) {$/;"	f
+R.rgb2hsl	vendor/assets/javascripts/raphael.js	/^    R.rgb2hsl = function (r, g, b) {$/;"	f
+R.setWindow	vendor/assets/javascripts/raphael.js	/^    R.setWindow = function (newwin) {$/;"	f
+R.snapTo	vendor/assets/javascripts/raphael.js	/^    R.snapTo = function (values, value, tolerance) {$/;"	f
+RemoveDescriptionColumnFromEvents	db/migrate/20130107221427_remove_description_column_from_events.rb	/^class RemoveDescriptionColumnFromEvents < ActiveRecord::Migration$/;"	c
+RemovePasswordFromUsers	db/migrate/20130116235524_remove_password_from_users.rb	/^class RemovePasswordFromUsers < ActiveRecord::Migration$/;"	c
+RemoveRoleFromUsers	db/migrate/20130116193538_remove_role_from_users.rb	/^class RemoveRoleFromUsers < ActiveRecord::Migration$/;"	c
+RemoveServiceIdFromEvents	db/migrate/20130104215823_remove_service_id_from_events.rb	/^class RemoveServiceIdFromEvents < ActiveRecord::Migration$/;"	c
+RemoveStartedAtFromProblems	db/migrate/20130107234557_remove_started_at_from_problems.rb	/^class RemoveStartedAtFromProblems < ActiveRecord::Migration$/;"	c
+RemoveStatusIdColumnFromServices	db/migrate/20130104222703_remove_status_id_column_from_services.rb	/^class RemoveStatusIdColumnFromServices < ActiveRecord::Migration$/;"	c
+RemoveUserIdAndStartTimeFromEvents	db/migrate/20130107221911_remove_user_id_and_start_time_from_events.rb	/^class RemoveUserIdAndStartTimeFromEvents < ActiveRecord::Migration$/;"	c
+RenameUserTasksTableToAssignments	db/migrate/20130430204815_rename_user_tasks_table_to_assignments.rb	/^class RenameUserTasksTableToAssignments < ActiveRecord::Migration$/;"	c
+Resolution	app/models/resolution.rb	/^class Resolution < ActiveRecord::Base$/;"	c
+ResolutionMailer	app/mailers/resolution_mailer.rb	/^class ResolutionMailer < ActionMailer::Base$/;"	c
+ResolutionsController	app/controllers/resolutions_controller.rb	/^class ResolutionsController < ApplicationController$/;"	c
+Service	app/models/service.rb	/^class Service < ActiveRecord::Base$/;"	c
+ServicesController	app/controllers/services_controller.rb	/^class ServicesController < ApplicationController$/;"	c
+ServicesHelper	app/helpers/services_helper.rb	/^module ServicesHelper$/;"	m
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+Set	vendor/assets/javascripts/raphael.js	/^    var Set = function (items) {$/;"	c
+Status	app/models/status.rb	/^class Status < ActiveRecord::Base$/;"	c
+StatusesController	app/controllers/statuses_controller.rb	/^class StatusesController < ApplicationController$/;"	c
+Subscription	app/models/subscription.rb	/^class Subscription < ActiveRecord::Base$/;"	c
+SubscriptionsController	app/controllers/subscriptions_controller.rb	/^class SubscriptionsController < ApplicationController$/;"	c
+Task	app/models/task.rb	/^class Task < ActiveRecord::Base$/;"	c
+TaskMailer	app/mailers/task_mailer.rb	/^class TaskMailer < ActionMailer::Base$/;"	c
+TaskNote	app/models/task_note.rb	/^class TaskNote < ActiveRecord::Base$/;"	c
+TaskNoteMailer	app/mailers/task_note_mailer.rb	/^class TaskNoteMailer < ActionMailer::Base$/;"	c
+TaskNotesController	app/controllers/task_notes_controller.rb	/^class TaskNotesController < ApplicationController$/;"	c
+TasksController	app/controllers/tasks_controller.rb	/^class TasksController < ApplicationController$/;"	c
+TasksHelper	app/helpers/tasks_helper.rb	/^module TasksHelper$/;"	m
+Uptime	config/application.rb	/^module Uptime$/;"	m
+Url	app/models/url.rb	/^class Url < ActiveRecord::Base$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserMailer	app/mailers/user_mailer.rb	/^class UserMailer < ActionMailer::Base$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+add	vendor/assets/javascripts/raphael.js	/^    (function (matrixproto) {$/;"	c
+addresses	app/models/email.rb	/^  def self.addresses$/;"	F	class:Email
+admin?	app/models/user.rb	/^  def admin?$/;"	f	class:User
+admin_addresses	app/models/email.rb	/^  def self.admin_addresses$/;"	F	class:Email
+admins	app/models/user.rb	/^  def self.admins$/;"	F	class:User
+allow	app/models/permission.rb	/^  def allow(controllers, actions, &block)$/;"	f	class:Permission
+allow?	app/models/permission.rb	/^  def allow?(controller, action, resource = nil)$/;"	f	class:Permission
+allow_all	app/models/permission.rb	/^  def allow_all$/;"	f	class:Permission
+assigned_to	app/models/task.rb	/^  def self.assigned_to(user)$/;"	F	class:Task
+authenticate	app/models/user.rb	/^  def self.authenticate(login, pass)$/;"	F	class:User
+authorize	app/controllers/application_controller.rb	/^  def authorize$/;"	f	class:ApplicationController
+base3	vendor/assets/javascripts/raphael.js	/^    function base3(t, p1, p2, p3, p4) {$/;"	f
+bezlen	vendor/assets/javascripts/raphael.js	/^    function bezlen(x1, y1, x2, y2, x3, y3, x4, y4, z) {$/;"	f
+cacher	vendor/assets/javascripts/raphael.js	/^    function cacher(f, scope, postprocessor) {$/;"	f
+cacher.newf	vendor/assets/javascripts/raphael.js	/^        function newf() {$/;"	f
+catmullRom2bezier	vendor/assets/javascripts/raphael.js	/^    function catmullRom2bezier(crp, z) {$/;"	f
+change	db/migrate/20130102222941_create_services.rb	/^  def change$/;"	f	class:CreateServices
+change	db/migrate/20130102224327_create_statuses.rb	/^  def change$/;"	f	class:CreateStatuses
+change	db/migrate/20130102225125_add_status_id_to_services.rb	/^  def change$/;"	f	class:AddStatusIdToServices
+change	db/migrate/20130102225906_create_events.rb	/^  def change$/;"	f	class:CreateEvents
+change	db/migrate/20130103171735_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20130103171849_create_subscriptions.rb	/^  def change$/;"	f	class:CreateSubscriptions
+change	db/migrate/20130103172322_create_emails.rb	/^  def change$/;"	f	class:CreateEmails
+change	db/migrate/20130104220003_create_event_services.rb	/^  def change$/;"	f	class:CreateEventServices
+change	db/migrate/20130107033804_add_user_id_to_events.rb	/^  def change$/;"	f	class:AddUserIdToEvents
+change	db/migrate/20130107033835_add_role_to_users.rb	/^  def change$/;"	f	class:AddRoleToUsers
+change	db/migrate/20130107040300_create_resolutions.rb	/^  def change$/;"	f	class:CreateResolutions
+change	db/migrate/20130107050814_add_description_to_resolutions.rb	/^  def change$/;"	f	class:AddDescriptionToResolutions
+change	db/migrate/20130107172538_add_start_time_to_events.rb	/^  def change$/;"	f	class:AddStartTimeToEvents
+change	db/migrate/20130107182716_add_resolved_at_to_resolutions.rb	/^  def change$/;"	f	class:AddResolvedAtToResolutions
+change	db/migrate/20130107210104_create_comments.rb	/^  def change$/;"	f	class:CreateComments
+change	db/migrate/20130107212912_create_problems.rb	/^  def change$/;"	f	class:CreateProblems
+change	db/migrate/20130107221744_add_user_id_to_problems.rb	/^  def change$/;"	f	class:AddUserIdToProblems
+change	db/migrate/20130107222109_add_event_id_to_problems.rb	/^  def change$/;"	f	class:AddEventIdToProblems
+change	db/migrate/20130107234724_add_reported_at_to_problems.rb	/^  def change$/;"	f	class:AddReportedAtToProblems
+change	db/migrate/20130109212956_add_foreground_color_to_statuses.rb	/^  def change$/;"	f	class:AddForegroundColorToStatuses
+change	db/migrate/20130109213019_add_background_color_to_statuses.rb	/^  def change$/;"	f	class:AddBackgroundColorToStatuses
+change	db/migrate/20130112025138_add_fields_to_users.rb	/^  def change$/;"	f	class:AddFieldsToUsers
+change	db/migrate/20130112194325_add_include_in_calc_to_statuses.rb	/^  def change$/;"	f	class:AddIncludeInCalcToStatuses
+change	db/migrate/20130116170400_add_user_id_to_comments.rb	/^  def change$/;"	f	class:AddUserIdToComments
+change	db/migrate/20130116193724_add_admin_to_users.rb	/^  def change$/;"	f	class:AddAdminToUsers
+change	db/migrate/20130116232719_add_token_to_users.rb	/^  def change$/;"	f	class:AddTokenToUsers
+change	db/migrate/20130123163001_add_time_zone_to_users.rb	/^  def change$/;"	f	class:AddTimeZoneToUsers
+change	db/migrate/20130313212631_create_password_resets.rb	/^  def change$/;"	f	class:CreatePasswordResets
+change	db/migrate/20130412233356_create_tasks.rb	/^  def change$/;"	f	class:CreateTasks
+change	db/migrate/20130412233526_create_user_tasks.rb	/^  def change$/;"	f	class:CreateUserTasks
+change	db/migrate/20130415174526_create_task_notes.rb	/^  def change$/;"	f	class:CreateTaskNotes
+change	db/migrate/20130415175157_add_task_id_to_task_notes.rb	/^  def change$/;"	f	class:AddTaskIdToTaskNotes
+change	db/migrate/20130415185835_create_completions.rb	/^  def change$/;"	f	class:CreateCompletions
+change	db/migrate/20130417184536_create_urls.rb	/^  def change$/;"	f	class:CreateUrls
+change	db/migrate/20130417184610_add_description_to_services.rb	/^  def change$/;"	f	class:AddDescriptionToServices
+change	db/migrate/20130417195011_add_service_id_to_urls.rb	/^  def change$/;"	f	class:AddServiceIdToUrls
+change	db/migrate/20130430204815_rename_user_tasks_table_to_assignments.rb	/^  def change$/;"	f	class:RenameUserTasksTableToAssignments
+check_logged_in	app/controllers/pages_controller.rb	/^  def check_logged_in$/;"	f	class:PagesController
+clone	vendor/assets/javascripts/raphael.js	/^    function clone(obj) {$/;"	f
+clr.hex	vendor/assets/javascripts/raphael.js	/^                clr = {hex: "none"};$/;"	p
+clrToString	vendor/assets/javascripts/raphael.js	/^    function clrToString() {$/;"	f
+colors	app/models/status.rb	/^  def self.colors$/;"	F	class:Status
+comment_notification	app/mailers/comment_mailer.rb	/^  def comment_notification(comment)$/;"	f	class:CommentMailer
+completed?	app/models/task.rb	/^  def completed?$/;"	f	class:Task
+completion_notification	app/mailers/completion_mailer.rb	/^  def completion_notification(completion)$/;"	f	class:CompletionMailer
+create	app/controllers/assignments_controller.rb	/^  def create$/;"	f	class:AssignmentsController
+create	app/controllers/comments_controller.rb	/^  def create$/;"	f	class:CommentsController
+create	app/controllers/completions_controller.rb	/^  def create$/;"	f	class:CompletionsController
+create	app/controllers/events_controller.rb	/^  def create$/;"	f	class:EventsController
+create	app/controllers/password_resets_controller.rb	/^  def create$/;"	f	class:PasswordResetsController
+create	app/controllers/resolutions_controller.rb	/^  def create$/;"	f	class:ResolutionsController
+create	app/controllers/services_controller.rb	/^  def create$/;"	f	class:ServicesController
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/statuses_controller.rb	/^  def create$/;"	f	class:StatusesController
+create	app/controllers/subscriptions_controller.rb	/^  def create$/;"	f	class:SubscriptionsController
+create	app/controllers/task_notes_controller.rb	/^  def create$/;"	f	class:TaskNotesController
+create	app/controllers/tasks_controller.rb	/^  def create$/;"	f	class:TasksController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+createUUID	vendor/assets/javascripts/raphael.js	/^    var createUUID = R.createUUID = (function (uuidRegEx, uuidReplacer) {$/;"	v
+ctor	vendor/assets/javascripts/morris.js	/^    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },$/;"	c
+current_permission	app/controllers/application_controller.rb	/^  def current_permission$/;"	f	class:ApplicationController
+current_resource	app/controllers/application_controller.rb	/^  def current_resource$/;"	f	class:ApplicationController
+current_resource	app/controllers/comments_controller.rb	/^  def current_resource$/;"	f	class:CommentsController
+current_resource	app/controllers/events_controller.rb	/^  def current_resource$/;"	f	class:EventsController
+current_resource	app/controllers/resolutions_controller.rb	/^  def current_resource$/;"	f	class:ResolutionsController
+current_resource	app/controllers/users_controller.rb	/^  def current_resource$/;"	f	class:UsersController
+current_user	lib/controller_authentication.rb	/^  def current_user$/;"	f	class:ControllerAuthentication
+destroy	app/controllers/assignments_controller.rb	/^  def destroy$/;"	f	class:AssignmentsController
+destroy	app/controllers/comments_controller.rb	/^  def destroy$/;"	f	class:CommentsController
+destroy	app/controllers/completions_controller.rb	/^  def destroy$/;"	f	class:CompletionsController
+destroy	app/controllers/events_controller.rb	/^  def destroy$/;"	f	class:EventsController
+destroy	app/controllers/resolutions_controller.rb	/^  def destroy$/;"	f	class:ResolutionsController
+destroy	app/controllers/services_controller.rb	/^  def destroy$/;"	f	class:ServicesController
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+destroy	app/controllers/statuses_controller.rb	/^  def destroy$/;"	f	class:StatusesController
+destroy	app/controllers/subscriptions_controller.rb	/^  def destroy$/;"	f	class:SubscriptionsController
+destroy	app/controllers/task_notes_controller.rb	/^  def destroy$/;"	f	class:TaskNotesController
+destroy	app/controllers/tasks_controller.rb	/^  def destroy$/;"	f	class:TasksController
+destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+destroy_action_for	app/helpers/events_helper.rb	/^  def destroy_action_for(event)$/;"	f
+destroy_resolution_for	app/helpers/events_helper.rb	/^  def destroy_resolution_for(event)$/;"	f
+diff.r	vendor/assets/javascripts/raphael.js	/^                                r: (toColour.r - from[attr].r) \/ ms,$/;"	p
+down	db/migrate/20130104215823_remove_service_id_from_events.rb	/^  def down$/;"	f	class:RemoveServiceIdFromEvents
+down	db/migrate/20130104222703_remove_status_id_column_from_services.rb	/^  def down$/;"	f	class:RemoveStatusIdColumnFromServices
+down	db/migrate/20130107040615_drop_closed_at_from_events.rb	/^  def down$/;"	f	class:DropClosedAtFromEvents
+down	db/migrate/20130107221427_remove_description_column_from_events.rb	/^  def down$/;"	f	class:RemoveDescriptionColumnFromEvents
+down	db/migrate/20130107221911_remove_user_id_and_start_time_from_events.rb	/^  def down$/;"	f	class:RemoveUserIdAndStartTimeFromEvents
+down	db/migrate/20130107234557_remove_started_at_from_problems.rb	/^  def down$/;"	f	class:RemoveStartedAtFromProblems
+down	db/migrate/20130116193538_remove_role_from_users.rb	/^  def down$/;"	f	class:RemoveRoleFromUsers
+down	db/migrate/20130116235524_remove_password_from_users.rb	/^  def down$/;"	f	class:RemovePasswordFromUsers
+down	db/migrate/20130123175113_change_description_type_to_text_on_problems.rb	/^  def down$/;"	f	class:ChangeDescriptionTypeToTextOnProblems
+down	db/migrate/20130123175716_change_description_type_to_text_on_resolutions.rb	/^  def down$/;"	f	class:ChangeDescriptionTypeToTextOnResolutions
+duration	app/models/event.rb	/^  def duration$/;"	f
+e.anim	vendor/assets/javascripts/raphael.js	/^                anim: anim,$/;"	p
+e.percent	vendor/assets/javascripts/raphael.js	/^                percent: percent,$/;"	p
+e.start	vendor/assets/javascripts/raphael.js	/^                start: timestamp + (anim.del || 0),$/;"	p
+e.timestamp	vendor/assets/javascripts/raphael.js	/^                timestamp: timestamp,$/;"	p
+easing	vendor/assets/javascripts/raphael.js	/^            var easing = params.easing,$/;"	v
+easyeasy	vendor/assets/javascripts/raphael.js	/^                    easyeasy = function (t) {$/;"	f
+edit	app/controllers/comments_controller.rb	/^  def edit$/;"	f	class:CommentsController
+edit	app/controllers/completions_controller.rb	/^  def edit$/;"	f	class:CompletionsController
+edit	app/controllers/events_controller.rb	/^  def edit$/;"	f	class:EventsController
+edit	app/controllers/password_resets_controller.rb	/^  def edit$/;"	f	class:PasswordResetsController
+edit	app/controllers/resolutions_controller.rb	/^  def edit$/;"	f	class:ResolutionsController
+edit	app/controllers/services_controller.rb	/^  def edit$/;"	f	class:ServicesController
+edit	app/controllers/statuses_controller.rb	/^  def edit$/;"	f	class:StatusesController
+edit	app/controllers/task_notes_controller.rb	/^  def edit$/;"	f	class:TaskNotesController
+edit	app/controllers/tasks_controller.rb	/^  def edit$/;"	f	class:TasksController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+edit_problem_for	app/helpers/events_helper.rb	/^  def edit_problem_for(event)$/;"	f
+edit_resolution_for	app/helpers/events_helper.rb	/^  def edit_resolution_for(event)$/;"	f
+elproto.animate	vendor/assets/javascripts/raphael.js	/^    elproto.animate = function (params, ms, easing, callback) {$/;"	f
+elproto.animateWith	vendor/assets/javascripts/raphael.js	/^    elproto.animateWith = function (el, anim, params, ms, easing, callback) {$/;"	f
+elproto.clone	vendor/assets/javascripts/raphael.js	/^    elproto.clone = function () {$/;"	c
+elproto.data	vendor/assets/javascripts/raphael.js	/^    elproto.data = function (key, value) {$/;"	f
+elproto.drag	vendor/assets/javascripts/raphael.js	/^    elproto.drag = function (onmove, onstart, onend, move_scope, start_scope, end_scope) {$/;"	c
+elproto.drag.start	vendor/assets/javascripts/raphael.js	/^        function start(e) {$/;"	c
+elproto.getBBox	vendor/assets/javascripts/raphael.js	/^    elproto.getBBox = function (isWithoutTransform) {$/;"	f
+elproto.getPointAtLength	vendor/assets/javascripts/raphael.js	/^    elproto.getPointAtLength = function (length) {$/;"	f
+elproto.getSubpath	vendor/assets/javascripts/raphael.js	/^    elproto.getSubpath = function (from, to) {$/;"	f
+elproto.getTotalLength	vendor/assets/javascripts/raphael.js	/^    elproto.getTotalLength = function () {$/;"	f
+elproto.glow	vendor/assets/javascripts/raphael.js	/^    elproto.glow = function (glow) {$/;"	f
+elproto.glow.s.width	vendor/assets/javascripts/raphael.js	/^            width: (glow.width || 10) + (+this.attr("stroke-width") || 1),$/;"	p
+elproto.hover	vendor/assets/javascripts/raphael.js	/^    elproto.hover = function (f_in, f_out, scope_in, scope_out) {$/;"	f
+elproto.isPointInside	vendor/assets/javascripts/raphael.js	/^    elproto.isPointInside = function (x, y) {$/;"	f
+elproto.onAnimation	vendor/assets/javascripts/raphael.js	/^    elproto.onAnimation = function (f) {$/;"	f
+elproto.onDragOver	vendor/assets/javascripts/raphael.js	/^    elproto.onDragOver = function (f) {$/;"	f
+elproto.pause	vendor/assets/javascripts/raphael.js	/^    elproto.pause = function (anim) {$/;"	f
+elproto.removeData	vendor/assets/javascripts/raphael.js	/^    elproto.removeData = function (key) {$/;"	f
+elproto.resume	vendor/assets/javascripts/raphael.js	/^    elproto.resume = function (anim) {$/;"	f
+elproto.setTime	vendor/assets/javascripts/raphael.js	/^    elproto.setTime = function (anim, value) {$/;"	f
+elproto.status	vendor/assets/javascripts/raphael.js	/^    elproto.status = function (anim, value) {$/;"	f
+elproto.stop	vendor/assets/javascripts/raphael.js	/^    elproto.stop = function (anim) {$/;"	f
+elproto.toString	vendor/assets/javascripts/raphael.js	/^    elproto.toString = function () {$/;"	f
+elproto.undrag	vendor/assets/javascripts/raphael.js	/^    elproto.undrag = function () {$/;"	f
+elproto.unhover	vendor/assets/javascripts/raphael.js	/^    elproto.unhover = function (f_in, f_out) {$/;"	f
+email_recipients	app/models/event.rb	/^  def email_recipients$/;"	f
+email_recipients	app/models/task.rb	/^  def email_recipients$/;"	f	class:Task
+encrypt_password	app/models/user.rb	/^  def encrypt_password(pass)$/;"	f	class:User
+error_messages_for	app/helpers/application_helper.rb	/^  def error_messages_for(*objects)$/;"	f	class:ApplicationHelper
+eve.listeners	vendor/assets/javascripts/raphael.js	/^    eve.listeners = function (name) {$/;"	f
+eve.nt	vendor/assets/javascripts/raphael.js	/^    eve.nt = function (subname) {$/;"	f
+eve.on	vendor/assets/javascripts/raphael.js	/^    eve.on = function (name, f) {$/;"	f
+eve.once	vendor/assets/javascripts/raphael.js	/^    eve.once = function (name, f) {$/;"	f
+eve.once.f2	vendor/assets/javascripts/raphael.js	/^        var f2 = function () {$/;"	f
+eve.stop	vendor/assets/javascripts/raphael.js	/^    eve.stop = function () {$/;"	f
+eve.toString	vendor/assets/javascripts/raphael.js	/^    eve.toString = function () {$/;"	f
+event	app/models/comment.rb	/^  def event$/;"	f	class:Comment
+event_feed	app/models/user.rb	/^  def event_feed$/;"	f	class:User
+event_notification	app/mailers/event_mailer.rb	/^  def event_notification(event)$/;"	f	class:EventMailer
+find_commentable	app/controllers/comments_controller.rb	/^  def find_commentable$/;"	f	class:CommentsController
+find_user_by_address	app/models/email.rb	/^  def self.find_user_by_address(address)$/;"	F	class:Email
+fontcopy.glyphs.w	vendor/assets/javascripts/raphael.js	/^                    w: path.w,$/;"	p
+full_name	app/models/user.rb	/^  def full_name$/;"	f	class:User
+generate_token	app/models/password_reset.rb	/^  def generate_token$/;"	f	class:PasswordReset
+getOffset	vendor/assets/javascripts/raphael.js	/^    var getOffset = function (elem) {$/;"	f
+getTatLen	vendor/assets/javascripts/raphael.js	/^    function getTatLen(x1, y1, x2, y2, x3, y3, x4, y4, ll) {$/;"	f
+getTotalLength	vendor/assets/javascripts/raphael.js	/^    var getTotalLength = getLengthFactory(1),$/;"	v
+has_accepted?	app/models/user.rb	/^  def has_accepted?(task)$/;"	f	class:User
+home	app/controllers/pages_controller.rb	/^  def home$/;"	f	class:PagesController
+img.onerror	vendor/assets/javascripts/raphael.js	/^        img.onerror = function () {$/;"	f
+img.onload	vendor/assets/javascripts/raphael.js	/^        img.onload = function () {$/;"	c
+included	lib/controller_authentication.rb	/^  def self.included(controller)$/;"	F	class:ControllerAuthentication
+index	app/controllers/comments_controller.rb	/^  def index$/;"	f	class:CommentsController
+index	app/controllers/events_controller.rb	/^  def index$/;"	f	class:EventsController
+index	app/controllers/services_controller.rb	/^  def index$/;"	f	class:ServicesController
+index	app/controllers/statuses_controller.rb	/^  def index$/;"	f	class:StatusesController
+index	app/controllers/task_notes_controller.rb	/^  def index$/;"	f	class:TaskNotesController
+index	app/controllers/tasks_controller.rb	/^  def index$/;"	f	class:TasksController
+index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+initialize	app/models/permission.rb	/^  def initialize(user)$/;"	f	class:Permission
+inter	vendor/assets/javascripts/raphael.js	/^    function inter(bez1, bez2) {$/;"	f
+interCount	vendor/assets/javascripts/raphael.js	/^    function interCount(bez1, bez2) {$/;"	f
+interHelper	vendor/assets/javascripts/raphael.js	/^    function interHelper(bez1, bez2, justCount) {$/;"	f
+interPathHelper	vendor/assets/javascripts/raphael.js	/^    function interPathHelper(path1, path2, justCount) {$/;"	f
+intersect	vendor/assets/javascripts/raphael.js	/^    function intersect(x1, y1, x2, y2, x3, y3, x4, y4) {$/;"	f
+is_assigned_to?	app/models/task.rb	/^  def is_assigned_to?(user)$/;"	f	class:Task
+is_subscribed_to?	app/models/user.rb	/^  def is_subscribed_to?(service)$/;"	f	class:User
+klass	app/models/comment.rb	/^  def klass$/;"	f	class:Comment
+last_resolved_event	app/models/event.rb	/^  def self.last_resolved_event$/;"	F
+lifespan_in_seconds	app/models/service.rb	/^  def lifespan_in_seconds$/;"	f	class:Service
+link_to_add_fields	app/helpers/application_helper.rb	/^  def link_to_add_fields(name, f, association)$/;"	f	class:ApplicationHelper
+logged_in?	lib/controller_authentication.rb	/^  def logged_in?$/;"	f	class:ControllerAuthentication
+login	app/helpers/sessions_helper.rb	/^  def login(user)$/;"	f	class:SessionsHelper
+login	spec/support/utilities.rb	/^def login(user)$/;"	f
+login_required	lib/controller_authentication.rb	/^  def login_required$/;"	f	class:ControllerAuthentication
+markdown	app/helpers/application_helper.rb	/^  def markdown(text)$/;"	f	class:ApplicationHelper
+matrixproto.clone	vendor/assets/javascripts/raphael.js	/^        matrixproto.clone = function () {$/;"	f
+matrixproto.get	vendor/assets/javascripts/raphael.js	/^        matrixproto.get = function (i) {$/;"	f
+matrixproto.invert	vendor/assets/javascripts/raphael.js	/^        matrixproto.invert = function () {$/;"	f
+matrixproto.offset	vendor/assets/javascripts/raphael.js	/^        matrixproto.offset = function () {$/;"	f
+matrixproto.rotate	vendor/assets/javascripts/raphael.js	/^        matrixproto.rotate = function (a, x, y) {$/;"	c
+matrixproto.scale	vendor/assets/javascripts/raphael.js	/^        matrixproto.scale = function (x, y, cx, cy) {$/;"	c
+matrixproto.split	vendor/assets/javascripts/raphael.js	/^        matrixproto.split = function () {$/;"	f
+matrixproto.toFilter	vendor/assets/javascripts/raphael.js	/^        matrixproto.toFilter = function () {$/;"	f
+matrixproto.toString	vendor/assets/javascripts/raphael.js	/^        matrixproto.toString = function () {$/;"	f
+matrixproto.toTransformString	vendor/assets/javascripts/raphael.js	/^        matrixproto.toTransformString = function (shorter) {$/;"	f
+matrixproto.translate	vendor/assets/javascripts/raphael.js	/^        matrixproto.translate = function (x, y) {$/;"	c
+matrixproto.x	vendor/assets/javascripts/raphael.js	/^        matrixproto.x = function (x, y) {$/;"	f
+matrixproto.y	vendor/assets/javascripts/raphael.js	/^        matrixproto.y = function (x, y) {$/;"	f
+minutesSpecHelper	vendor/assets/javascripts/morris.js	/^  minutesSpecHelper = function(interval) {$/;"	f
+n	vendor/assets/javascripts/raphael.js	/^        events = {n: {}},$/;"	p
+new	app/controllers/assignments_controller.rb	/^  def new$/;"	f	class:AssignmentsController
+new	app/controllers/completions_controller.rb	/^  def new$/;"	f	class:CompletionsController
+new	app/controllers/events_controller.rb	/^  def new$/;"	f	class:EventsController
+new	app/controllers/password_resets_controller.rb	/^  def new$/;"	f	class:PasswordResetsController
+new	app/controllers/resolutions_controller.rb	/^  def new$/;"	f	class:ResolutionsController
+new	app/controllers/services_controller.rb	/^  def new$/;"	f	class:ServicesController
+new	app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	app/controllers/statuses_controller.rb	/^  def new$/;"	f	class:StatusesController
+new	app/controllers/task_notes_controller.rb	/^  def new$/;"	f	class:TaskNotesController
+new	app/controllers/tasks_controller.rb	/^  def new$/;"	f	class:TasksController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+norm	vendor/assets/javascripts/raphael.js	/^        function norm(a) {$/;"	f
+normalize	vendor/assets/javascripts/raphael.js	/^        function normalize(a) {$/;"	f
+p.sleep	vendor/assets/javascripts/raphael.js	/^                sleep: 100$/;"	p
+p.x	vendor/assets/javascripts/raphael.js	/^                    p[0] = {x: +crp[iLen - 2], y: +crp[iLen - 1]};$/;"	p
+p.x	vendor/assets/javascripts/raphael.js	/^                    p[0] = {x: +crp[i], y: +crp[i + 1]};$/;"	p
+p.x	vendor/assets/javascripts/raphael.js	/^                    p[2] = {x: +crp[0], y: +crp[1]};$/;"	p
+p.x	vendor/assets/javascripts/raphael.js	/^                    p[3] = {x: +crp[0], y: +crp[1]};$/;"	p
+p.x	vendor/assets/javascripts/raphael.js	/^                    p[3] = {x: +crp[2], y: +crp[3]};$/;"	p
+paperproto.add	vendor/assets/javascripts/raphael.js	/^    paperproto.add = function (json) {$/;"	f
+paperproto.circle	vendor/assets/javascripts/raphael.js	/^    paperproto.circle = function (x, y, r) {$/;"	c
+paperproto.ellipse	vendor/assets/javascripts/raphael.js	/^    paperproto.ellipse = function (x, y, rx, ry) {$/;"	c
+paperproto.forEach	vendor/assets/javascripts/raphael.js	/^    paperproto.forEach = function (callback, thisArg) {$/;"	f
+paperproto.getById	vendor/assets/javascripts/raphael.js	/^    paperproto.getById = function (id) {$/;"	f
+paperproto.getElementByPoint	vendor/assets/javascripts/raphael.js	/^    paperproto.getElementByPoint = function (x, y) {$/;"	f
+paperproto.getElementsByPoint	vendor/assets/javascripts/raphael.js	/^    paperproto.getElementsByPoint = function (x, y) {$/;"	c
+paperproto.getFont	vendor/assets/javascripts/raphael.js	/^    paperproto.getFont = function (family, weight, style, stretch) {$/;"	f
+paperproto.image	vendor/assets/javascripts/raphael.js	/^    paperproto.image = function (src, x, y, w, h) {$/;"	c
+paperproto.path	vendor/assets/javascripts/raphael.js	/^    paperproto.path = function (pathString) {$/;"	c
+paperproto.print	vendor/assets/javascripts/raphael.js	/^    paperproto.print = function (x, y, string, font, size, origin, letter_spacing) {$/;"	f
+paperproto.rect	vendor/assets/javascripts/raphael.js	/^    paperproto.rect = function (x, y, w, h, r) {$/;"	c
+paperproto.safari	vendor/assets/javascripts/raphael.js	/^        paperproto.safari = function () {$/;"	f
+paperproto.set	vendor/assets/javascripts/raphael.js	/^    paperproto.set = function (itemsArray) {$/;"	c
+paperproto.setFinish	vendor/assets/javascripts/raphael.js	/^    paperproto.setFinish = function (set) {$/;"	f
+paperproto.setSize	vendor/assets/javascripts/raphael.js	/^    paperproto.setSize = function (width, height) {$/;"	f
+paperproto.setStart	vendor/assets/javascripts/raphael.js	/^    paperproto.setStart = function (set) {$/;"	c
+paperproto.setViewBox	vendor/assets/javascripts/raphael.js	/^    paperproto.setViewBox = function (x, y, w, h, fit) {$/;"	f
+paperproto.text	vendor/assets/javascripts/raphael.js	/^    paperproto.text = function (x, y, text) {$/;"	c
+password_reset	app/mailers/user_mailer.rb	/^  def password_reset(user)$/;"	f	class:UserMailer
+paths	vendor/assets/javascripts/raphael.js	/^    var paths = function (ps) {$/;"	f
+pluralize_service_list	app/helpers/events_helper.rb	/^  def pluralize_service_list(event)$/;"	f	class:EventsHelper
+pluralize_subscription_list	app/helpers/services_helper.rb	/^def pluralize_subscription_list(service)$/;"	f
+prepare_password	app/models/user.rb	/^  def prepare_password$/;"	f	class:User
+prepare_password_reset	app/models/password_reset.rb	/^  def prepare_password_reset$/;"	f	class:PasswordReset
+preventDefault	vendor/assets/javascripts/raphael.js	/^    var preventDefault = function () {$/;"	c
+problem_for	app/helpers/events_helper.rb	/^  def problem_for(event)$/;"	f	class:EventsHelper
+recipients	app/models/comment.rb	/^  def recipients$/;"	f	class:Comment
+redirect_to_target_or_default	lib/controller_authentication.rb	/^  def redirect_to_target_or_default(default, *args)$/;"	f	class:ControllerAuthentication
+reload_events	app/models/status.rb	/^  def reload_events$/;"	f	class:Status
+reported_at	app/models/event.rb	/^  def self.reported_at$/;"	F
+reported_at_cannot_be_after_resolved_at	app/models/problem.rb	/^  def reported_at_cannot_be_after_resolved_at$/;"	f	class:Problem
+reported_at_text	app/models/problem.rb	/^  def reported_at_text$/;"	f	class:Problem
+reported_at_text=	app/models/problem.rb	/^  def reported_at_text=(time_str)$/;"	f	class:Problem
+reported_by	app/models/event.rb	/^  def self.reported_by(user)$/;"	F
+reported_on	app/models/event.rb	/^  def self.reported_on(date)$/;"	F
+repush	vendor/assets/javascripts/raphael.js	/^    function repush(array, item) {$/;"	f
+resolution_for	app/helpers/events_helper.rb	/^  def resolution_for(resolution, size)$/;"	f	class:EventsHelper
+resolution_notification	app/mailers/resolution_mailer.rb	/^  def resolution_notification(event)$/;"	f	class:ResolutionMailer
+resolved	app/models/event.rb	/^  def self.resolved$/;"	F
+resolved?	app/models/event.rb	/^  def resolved?$/;"	f
+resolved_at_cannot_be_before_reported_at	app/models/resolution.rb	/^  def resolved_at_cannot_be_before_reported_at$/;"	f	class:Resolution
+resolved_at_text	app/models/resolution.rb	/^  def resolved_at_text$/;"	f	class:Resolution
+resolved_at_text=	app/models/resolution.rb	/^  def resolved_at_text=(time_str)$/;"	f	class:Resolution
+resolved_by	app/models/event.rb	/^  def self.resolved_by(user)$/;"	F
+rgb.b	vendor/assets/javascripts/raphael.js	/^            b: b,$/;"	p
+rgb.g	vendor/assets/javascripts/raphael.js	/^            g: g,$/;"	p
+rgb.hex	vendor/assets/javascripts/raphael.js	/^            hex: R.rgb(r, g, b),$/;"	p
+rgb.r	vendor/assets/javascripts/raphael.js	/^            r: r,$/;"	p
+runAnimation	vendor/assets/javascripts/raphael.js	/^    function runAnimation(anim, element, percent, status, totalOrigin, times) {$/;"	f
+s	vendor/assets/javascripts/raphael.js	/^            var s = 1.70158;$/;"	v
+secondsSpecHelper	vendor/assets/javascripts/morris.js	/^  secondsSpecHelper = function(interval) {$/;"	f
+services	app/models/comment.rb	/^  def services$/;"	f	class:Comment
+services_affected_by	app/helpers/events_helper.rb	/^  def services_affected_by(event)$/;"	f	class:EventsHelper
+set_expiration_date	app/models/password_reset.rb	/^  def set_expiration_date$/;"	f	class:PasswordReset
+setproto.animate	vendor/assets/javascripts/raphael.js	/^    setproto.animate = function (params, ms, easing, callback) {$/;"	f
+setproto.attr	vendor/assets/javascripts/raphael.js	/^    setproto.attr = function (name, value) {$/;"	f
+setproto.clear	vendor/assets/javascripts/raphael.js	/^    setproto.clear = function () {$/;"	f
+setproto.clone	vendor/assets/javascripts/raphael.js	/^    setproto.clone = function (s) {$/;"	f
+setproto.exclude	vendor/assets/javascripts/raphael.js	/^    setproto.exclude = function (el) {$/;"	f
+setproto.forEach	vendor/assets/javascripts/raphael.js	/^    setproto.forEach = function (callback, thisArg) {$/;"	f
+setproto.getBBox	vendor/assets/javascripts/raphael.js	/^    setproto.getBBox = function () {$/;"	f
+setproto.insertAfter	vendor/assets/javascripts/raphael.js	/^    setproto.insertAfter = function (el) {$/;"	f
+setproto.pop	vendor/assets/javascripts/raphael.js	/^    setproto.pop = function () {$/;"	c
+setproto.push	vendor/assets/javascripts/raphael.js	/^    setproto.push = function () {$/;"	f
+setproto.splice	vendor/assets/javascripts/raphael.js	/^    setproto.splice = function (index, count, insertion) {$/;"	f
+setproto.toString	vendor/assets/javascripts/raphael.js	/^    setproto.toString = function () {$/;"	f
+short_date	app/helpers/application_helper.rb	/^  def short_date(date)$/;"	f	class:ApplicationHelper
+show	app/controllers/events_controller.rb	/^  def show$/;"	f	class:EventsController
+show	app/controllers/services_controller.rb	/^  def show$/;"	f	class:ServicesController
+show	app/controllers/statuses_controller.rb	/^  def show$/;"	f	class:StatusesController
+show	app/controllers/task_notes_controller.rb	/^  def show$/;"	f	class:TaskNotesController
+show	app/controllers/tasks_controller.rb	/^  def show$/;"	f	class:TasksController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+status	app/models/service.rb	/^  def status$/;"	f	class:Service
+status_for	app/helpers/events_helper.rb	/^  def status_for(status, size)$/;"	f
+status_hash	app/models/event.rb	/^  def self.status_hash$/;"	F
+stopAnimation	vendor/assets/javascripts/raphael.js	/^    function stopAnimation(paper) {$/;"	f
+store_target_location	lib/controller_authentication.rb	/^  def store_target_location$/;"	f	class:ControllerAuthentication
+subscribers	app/models/event.rb	/^  def subscribers$/;"	f
+task_note_notification	app/mailers/task_note_mailer.rb	/^  def task_note_notification(task_note)$/;"	f	class:TaskNoteMailer
+task_notification	app/mailers/task_mailer.rb	/^  def task_notification(task)$/;"	f	class:TaskMailer
+toHex	vendor/assets/javascripts/raphael.js	/^    var toHex = function (color) {$/;"	f
+total_downtime	app/models/service.rb	/^  def total_downtime$/;"	f	class:Service
+unassigned	app/controllers/tasks_controller.rb	/^  def unassigned$/;"	f	class:TasksController
+unassigned?	app/models/task.rb	/^  def unassigned?$/;"	f	class:Task
+unassigned_users	app/models/task.rb	/^  def unassigned_users$/;"	f	class:Task
+uncompleted	app/controllers/tasks_controller.rb	/^  def uncompleted$/;"	f	class:TasksController
+unresolved	app/models/event.rb	/^  def self.unresolved$/;"	F
+unresolved?	app/models/event.rb	/^  def unresolved?$/;"	f
+up	db/migrate/20130104215823_remove_service_id_from_events.rb	/^  def up$/;"	f	class:RemoveServiceIdFromEvents
+up	db/migrate/20130104222703_remove_status_id_column_from_services.rb	/^  def up$/;"	f	class:RemoveStatusIdColumnFromServices
+up	db/migrate/20130107040615_drop_closed_at_from_events.rb	/^  def up$/;"	f	class:DropClosedAtFromEvents
+up	db/migrate/20130107221427_remove_description_column_from_events.rb	/^  def up$/;"	f	class:RemoveDescriptionColumnFromEvents
+up	db/migrate/20130107221911_remove_user_id_and_start_time_from_events.rb	/^  def up$/;"	f	class:RemoveUserIdAndStartTimeFromEvents
+up	db/migrate/20130107234557_remove_started_at_from_problems.rb	/^  def up$/;"	f	class:RemoveStartedAtFromProblems
+up	db/migrate/20130116193538_remove_role_from_users.rb	/^  def up$/;"	f	class:RemoveRoleFromUsers
+up	db/migrate/20130116235524_remove_password_from_users.rb	/^  def up$/;"	f	class:RemovePasswordFromUsers
+up	db/migrate/20130123175113_change_description_type_to_text_on_problems.rb	/^  def up$/;"	f	class:ChangeDescriptionTypeToTextOnProblems
+up	db/migrate/20130123175716_change_description_type_to_text_on_resolutions.rb	/^  def up$/;"	f	class:ChangeDescriptionTypeToTextOnResolutions
+update	app/controllers/comments_controller.rb	/^  def update$/;"	f	class:CommentsController
+update	app/controllers/completions_controller.rb	/^  def update$/;"	f	class:CompletionsController
+update	app/controllers/events_controller.rb	/^  def update$/;"	f	class:EventsController
+update	app/controllers/password_resets_controller.rb	/^  def update$/;"	f	class:PasswordResetsController
+update	app/controllers/resolutions_controller.rb	/^  def update$/;"	f	class:ResolutionsController
+update	app/controllers/services_controller.rb	/^  def update$/;"	f	class:ServicesController
+update	app/controllers/statuses_controller.rb	/^  def update$/;"	f	class:StatusesController
+update	app/controllers/task_notes_controller.rb	/^  def update$/;"	f	class:TaskNotesController
+update	app/controllers/tasks_controller.rb	/^  def update$/;"	f	class:TasksController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+uptime	app/models/service.rb	/^  def uptime$/;"	f	class:Service
+uptime_in_seconds	app/models/service.rb	/^  def uptime_in_seconds$/;"	f	class:Service
+urls_for	app/helpers/services_helper.rb	/^  def urls_for(service)$/;"	f	class:ServicesHelper
+user_time_zone	app/controllers/application_controller.rb	/^  def user_time_zone(&block)$/;"	f	class:ApplicationController
+users_assigned_to	app/helpers/tasks_helper.rb	/^  def users_assigned_to(task)$/;"	f	class:TasksHelper
+users_subscribed_to	app/helpers/services_helper.rb	/^  def users_subscribed_to(service)$/;"	f	class:ServicesHelper
+validate	app/models/problem.rb	/^  def validate$/;"	f	class:Problem
+validate	app/models/resolution.rb	/^  def validate$/;"	f	class:Resolution
+value=	app/models/status.rb	/^  def value=(string)$/;"	f	class:Status
+value_for_select	app/models/status.rb	/^  def value_for_select$/;"	f	class:Status
+var.get	vendor/assets/javascripts/raphael.js	/^                                    var get = function (i) {$/;"	f
+version	vendor/assets/javascripts/raphael.js	/^    var version = navigator.userAgent.match(\/Version\\\/(.*?)\\s\/) || navigator.userAgent.match(\/Chrome\\\/(\\d+)\/);$/;"	v
+was	vendor/assets/javascripts/raphael.js	/^            was: Object.prototype[has].call(g.win, "Raphael"),$/;"	p
+x	vendor/assets/javascripts/raphael.js	/^        var x = 0, $/;"	v
+x_y	vendor/assets/javascripts/raphael.js	/^    function x_y() {$/;"	f
+x_y_w_h	vendor/assets/javascripts/raphael.js	/^    function x_y_w_h() {$/;"	f
