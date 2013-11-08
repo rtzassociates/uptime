@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
-    @events = @site.events.page(params[:page]).per_page(25)
+    @events = @site.events.page(params[:page]).per_page(5)
     
     unless params[:start_date] == ''
       @start_date = params[:start_date] ? params[:start_date].to_date : 1.week.ago.to_date
@@ -18,7 +18,7 @@ class SitesController < ApplicationController
   end
 
   def index
-    @sites = Site.search(params[:search]).page(params[:page]).per_page(25)
+    @sites = Site.search(params[:search]).page(params[:page]).per_page(50)
   end
 
   def new
