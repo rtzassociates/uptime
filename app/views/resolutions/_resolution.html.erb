@@ -1,4 +1,4 @@
-<h4>Resolution</h4>
+<h3 class="muted">Resolution</h3>
   
 <p>Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user %> on <%= @event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') %></p>
 <p class="muted"><%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago</p>
