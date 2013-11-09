@@ -1,0 +1,20 @@
+<h1>Server Locations List</h1>
+<h4><%= link_to 'Create a new server location', new_server_location_path %></h4>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Location Name</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @server_locations.each do |server_location| %>
+  <tr>
+    <td><%= server_location.name %></td>
+    <td><%= server_location.notes %></td>
+    <td><%= link_to 'Edit', edit_server_location_path(server_location) %></td>
+    <td><%= link_to 'Delete', server_location, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+  </tr>
+<% end %>
+</table>

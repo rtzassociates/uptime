@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109011523) do
+ActiveRecord::Schema.define(:version => 20131109021410) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -89,13 +89,28 @@ ActiveRecord::Schema.define(:version => 20131109011523) do
     t.datetime "resolved_at"
   end
 
+  create_table "server_locations", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "server_types", :force => true do |t|
+    t.text     "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "servers", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "deployed_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "type"
+    t.integer  "server_type_id"
+    t.integer  "server_location_id"
   end
 
   create_table "site_application_servers", :force => true do |t|

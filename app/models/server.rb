@@ -1,8 +1,11 @@
 class Server < ActiveRecord::Base
-  attr_accessible :deployed_at_text, :description, :name, :ip_addresses_attributes
+  attr_accessible :deployed_at_text, :description, :name, :ip_addresses_attributes, :server_type_id, :server_location_id
   
   has_many :ip_addresses, :dependent => :destroy
   accepts_nested_attributes_for :ip_addresses, allow_destroy: true
+  
+  has_one :server_type
+  has_one :server_location
   
   validates :name, :presence => true, :uniqueness => true
   

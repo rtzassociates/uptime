@@ -1,0 +1,16 @@
+<%= error_messages_for @server_location %>
+
+<%= form_for @server_location, :html => { :class => "well" } do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "Location Name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :rows => 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+<% end %>
