@@ -1,0 +1,26 @@
+<h1>Windows Server List</h1>
+<h4 class="admin"><%= link_to 'Create a new windows server', new_windows_server_path %></h4>
+
+<table id="windows_servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Server Name</th>
+      <th>Clients</th>
+      <th class="admin"></th>
+      <th class="admin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @windows_servers.each do |windows_server| %>
+      <% cache windows_server do %>
+        <tr>
+          <td><%= link_to windows_server.name, windows_server %></td>
+          <td><%= windows_clients_for windows_server %></td>
+          <td class="admin"><%= link_to 'Edit', edit_windows_server_path(windows_server) %></td>
+          <td class="admin"><%= link_to 'Delete', windows_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

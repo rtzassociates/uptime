@@ -26,6 +26,9 @@
             <% if allow? "database_servers", "index" %>    
               <li><%= link_to "Database Servers", database_servers_path %></li>
             <% end %>
+            <% if allow? "windows_servers", "index" %>    
+              <li><%= link_to "Windows Servers", windows_servers_path %></li>
+            <% end %>
           </ul>
         </li>
       <% end %>

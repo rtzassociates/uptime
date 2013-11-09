@@ -1,0 +1,27 @@
+<h1><%= @windows_server.name %></h1>
+<h4 class="muted">Windows Server</h4>
+<div class="admin actions">
+  <ul>
+    <li><%= link_to 'Edit', edit_windows_server_path(@windows_server) %></li>
+    <li><%= link_to 'Delete', @windows_server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+  </ul>
+</div>
+
+<hr>
+
+<h4 class="muted">Networks</h4>
+<%= render 'ip_addresses', { :server => @windows_server } %>
+
+<hr>
+
+<h4 class="muted">Server Details</h4>
+
+<div class="field">
+  <p><strong>Deployed</strong></p>
+  <p><%= short_date @windows_server.deployed_at || "Not Deployed" %></p>
+</div>
+
+<div class="field">
+  <p><strong>Server Description</strong></p>
+  <p><%= markdown @windows_server.description %></p>
+</div>
