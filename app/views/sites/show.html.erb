@@ -1,11 +1,18 @@
 <h1><%= @site.name %></h1>
 <h4 class="muted">Website</h4>
+
 <div class="admin actions">
   <ul>
     <li><%= link_to 'Edit', edit_site_path(@site) %></li>
     <li><%= link_to 'Delete', @site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
   </ul>
 </div>
+
+<% if current_user.is_subscribed_to? @site %>
+  <h3><%= render "subscriptions/unsubscribe", :site_id => @site.id %></h3>
+<% else %>
+  <h3><%= render "subscriptions/subscribe", :site_id => @site.id %></h3>
+<% end %>
 
 <hr>
 <h4 class="muted">Site Details</h4>

@@ -9,4 +9,12 @@ class Database < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   validates :database_server_id, :presence => true
   
+  def self.search(search)
+    if search
+      joins(:database_server).where('databases.name LIKE ? OR servers.name LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      order("name ASC")
+    end
+  end
+  
 end

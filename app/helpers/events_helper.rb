@@ -19,14 +19,14 @@ module EventsHelper
   def problem_for(event)
     raw "<p>Reported by #{ link_to event.problem.user.username, event.problem.user } 
      on #{ event.problem.reported_at.strftime('%b %e, %Y at %l:%M %p') }</p>
-     <p>#{ time_ago_in_words(event.problem.reported_at).capitalize } ago</p>"
+     <p class='muted'>#{ time_ago_in_words(event.problem.reported_at).capitalize } ago</p>"
   end
   
   def resolution_for(resolution, size)
     div_for resolution, :class => "#{size}" do
       raw "<p>Resolved by #{ link_to resolution.user.username, resolution.user } 
            on #{ resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') }</p>
-           <p>#{ time_ago_in_words(resolution.resolved_at).capitalize } ago</p>"
+           <p class='muted'>#{ time_ago_in_words(resolution.resolved_at).capitalize } ago</p>"
     end
   end
   

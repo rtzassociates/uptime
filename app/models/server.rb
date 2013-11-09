@@ -6,12 +6,6 @@ class Server < ActiveRecord::Base
   
   validates :name, :presence => true, :uniqueness => true
   
-  # Network.all.each do |network|
-  #   define_method(network.name.downcase) do
-  #     self.ip_addresses.joins(:network).where("networks.name" => network.name).first.try(:value)
-  #   end
-  # end
-  
   def self.deployed
     where("deployed_at IS NOT NULL")
   end

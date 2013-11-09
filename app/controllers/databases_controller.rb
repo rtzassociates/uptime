@@ -2,7 +2,7 @@ class DatabasesController < ApplicationController
   # GET /databases
   # GET /databases.json
   def index
-    @databases = Database.order(:name).page(params[:page]).per_page(50)
+    @databases = Database.search(params[:search]).page(params[:page]).per_page(50)
 
     respond_to do |format|
       format.html # index.html.erb

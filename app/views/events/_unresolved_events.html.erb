@@ -7,10 +7,11 @@
           ( It's been <%= time_ago_in_words(@last_resolved_event.resolution.resolved_at) %> since the last reported problem )
         </h4>
       <% end %>
-      <br />
+      
       <% if logged_in? %>
         <%= link_to "Report a problem", new_event_path, :class => "btn btn-large btn-danger" %>
       <% end %>
+      
     </div>
   </div>
 <% else %>
