@@ -4,10 +4,12 @@
 <table class="table">
   <tr>
     <th>Database Name</th>
+    <th>Sites</th>
   </tr>
   <% @database_server.databases.each do |database| %>
     <tr>
-      <td><%= database.name %></td>
+      <td><%= link_to database.name, database %></td>
+      <td><%= sites_for database %></td>
     </tr>
   <% end %>
 </table>
