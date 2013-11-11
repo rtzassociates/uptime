@@ -1,32 +1,6 @@
-<h1><%= @database_server.name %></h1>
-<h4 class="muted">Database Server</h4>
-<div class="admin actions">
-  <ul>
-    <li><%= link_to 'Edit', edit_database_server_path(@database_server) %></li>
-    <li><%= link_to 'Delete', @database_server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
-  </ul>
-</div>
-
-<hr>
-
-<h4 class="muted">Networks</h4>
-<%= render 'ip_addresses', { :server => @database_server } %>
-
-<hr>
-
-<h4 class="muted">Server Details</h4>
-
-<div class="field">
-  <p><strong>Deployed</strong></p>
-  <p><%= short_date @database_server.deployed_at || "Not Deployed" %></p>
-</div>
+<%= render :partial => "server_details", :locals => { :server => @database_server } %>
 
 <div class="field">
   <p><strong>Databases Hosted</strong></p>
   <p><%= databases_for @database_server %></p>
-</div>
-
-<div class="field">
-  <p><strong>Server Description</strong></p>
-  <p><%= markdown @database_server.description %></p>
 </div>

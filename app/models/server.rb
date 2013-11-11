@@ -4,8 +4,8 @@ class Server < ActiveRecord::Base
   has_many :ip_addresses, :dependent => :destroy
   accepts_nested_attributes_for :ip_addresses, allow_destroy: true
   
-  has_one :server_type
-  has_one :server_location
+  belongs_to :server_type
+  belongs_to :server_location
   
   validates :name, :presence => true, :uniqueness => true
   

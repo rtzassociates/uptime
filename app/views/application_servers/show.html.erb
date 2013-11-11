@@ -1,27 +1,4 @@
-<h1><%= @application_server.name %></h1>
-<h4 class="muted">Application Server</h4>
-<div class="admin actions">
-  <ul>
-    <li><%= link_to 'Edit', edit_application_server_path(@application_server) %></li>
-    <li><%= link_to 'Delete', @application_server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
-  </ul>
-</div>
-
-<h4><%= @application_server.server_location.name %></h4>
-
-<hr>
-
-<h4 class="muted">Networks</h4>
-<%= render 'ip_addresses', { :server => @application_server } %>
-
-<hr>
-
-<h4 class="muted">Server Details</h4>
-
-<div class="field">
-  <p><strong>Deployed</strong></p>
-  <p><%= short_date @application_server.deployed_at || "Not Deployed" %></p>
-</div>
+<%= render :partial => "server_details", :locals => { :server => @application_server } %>
 
 <div class="field">
   <p><strong>Sites</strong></p>
@@ -31,9 +8,4 @@
 <div class="field">
   <p><strong>Urls</strong></p>
   <p><%= site_urls_for @application_server %></p>
-</div>
-
-<div class="field">
-  <p><strong>Server Description</strong></p>
-  <p><%= markdown @application_server.description %></p>
 </div>

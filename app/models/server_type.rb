@@ -1,5 +1,5 @@
 class ServerType < ActiveRecord::Base
   attr_accessible :value
   
-  belongs_to :server
+  has_many :servers
 end

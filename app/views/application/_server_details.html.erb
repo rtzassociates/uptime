@@ -1,0 +1,27 @@
+<h1><%= server.name %></h1>
+<h4 class="muted"><%= server.type.titlecase %> - Deployed <%= short_date server.deployed_at || "Not Deployed" %></h4>
+<h4 class="muted"><%= server.server_type.value.titlecase unless server.server_type.nil? %>
+<%= "- " + server.server_location.name if server.server_location %>
+</h4>
+
+<div class="admin actions">
+  <ul>
+    <li><%= link_to 'Edit', send("edit_#{server.type.titlecase.downcase.split(' ').join('_')}_path", server) %></li>
+    <li><%= link_to 'Delete', server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+  </ul>
+</div>
+
+<hr>
+
+<h4 class="muted">Networks</h4>
+
+<%= render 'ip_addresses', { :server => server } %>
+
+<hr>
+
+<h4 class="muted">Server Description</h4>
+<p>
+  <%= server.description.blank? ? "No description provided" : markdown(server.description) %>
+</p>
+
+<br />
