@@ -1,19 +1,21 @@
 Uptime::Application.routes.draw do
   
-  resources :server_locations
-
-
-  resources :server_types
+ 
 
 
   get "pages/home"
   root :to => "pages#home"
   
-  resources :networks
+  
   resources :servers
   resources :application_servers
   resources :database_servers
   resources :windows_servers
+  resources :xen_servers
+  
+  resources :server_locations
+  resources :server_types
+  resources :networks
   resources :databases
   resources :sites
   resources :statuses

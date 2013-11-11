@@ -1,6 +1,13 @@
 <%= render :partial => "server_details", :locals => { :server => @database_server } %>
 
-<div class="field">
-  <p><strong>Databases Hosted</strong></p>
-  <p><%= databases_for @database_server %></p>
-</div>
+<h4>Databases Hosted</h4>
+<table class="table">
+  <tr>
+    <th>Database Name</th>
+  </tr>
+  <% @database_server.databases.each do |database| %>
+    <tr>
+      <td><%= database.name %></td>
+    </tr>
+  <% end %>
+</table>

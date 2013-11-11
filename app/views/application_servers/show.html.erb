@@ -1,11 +1,9 @@
 <%= render :partial => "server_details", :locals => { :server => @application_server } %>
 
-<div class="field">
-  <p><strong>Sites</strong></p>
-  <p><%= sites_for @application_server %></p>
-</div>
+<h4>Sites</h4>
+<p><%= sites_for @application_server %></p>
+<br />
 
-<div class="field">
-  <p><strong>Urls</strong></p>
-  <p><%= site_urls_for @application_server %></p>
-</div>
+<h4>Urls</h4>
+<p><%= site_urls_for @application_server %></p>
+<br />

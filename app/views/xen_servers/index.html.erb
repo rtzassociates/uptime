@@ -1,0 +1,30 @@
+<h1>Xenserver List</h1>
+<h4 class="admin"><%= link_to 'Create a new Xenserver', new_xen_server_path %></h4>
+
+<table id="xen_servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Server Name</th>
+      <th>Server Location</th>
+      <th class="admin"></th>
+      <th class="admin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @xen_servers.each do |xen_server| %>
+      <% cache xen_server do %>
+        <tr>
+          <td><%= link_to xen_server.name, xen_server %></td>
+          <td>
+            <% if xen_server.server_location %>
+            <%= link_to xen_server.server_location.name, xen_server.server_location %>
+            <% end %>
+          </td>
+          <td class="admin"><%= link_to 'Edit', edit_xen_server_path(xen_server) %></td>
+          <td class="admin"><%= link_to 'Delete', xen_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

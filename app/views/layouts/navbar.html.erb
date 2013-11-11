@@ -29,6 +29,9 @@
             <% if allow? "windows_servers", "index" %>    
               <li><%= link_to "Windows Servers", windows_servers_path %></li>
             <% end %>
+            <% if allow? "xen_servers", "index" %>    
+              <li><%= link_to "Xenservers", xen_servers_path %></li>
+            <% end %>
           </ul>
         </li>
       <% end %>
