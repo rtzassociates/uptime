@@ -6,7 +6,7 @@
   <tr>
     <th>Client Name</th>
   </tr>
-  <% @windows_server.windows_clients.each do |client| %>
+  <% @windows_server.windows_clients.order(:name).each do |client| %>
     <tr>
       <td><%= client.name %></td>
     </tr>

@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @server_location.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @server_location.name %>
-</p>
+<h4>Notes</h4>
+<p><%= @server_location.notes.blank? ? "No notes provided" : markdown(@server_location.notes) %></p>
+<br/>
 
-<p>
-  <b>Notes:</b>
-  <%= @server_location.notes %>
-</p>
+<h4>Servers</h4>
 
-
-<%= link_to 'Edit', edit_server_location_path(@server_location) %> |
-<%= link_to 'Back', server_locations_path %>
+<table class="table">
+  <tr>
+    <th>Server Name</th>
+    <th>Server Type</th>
+  </tr>
+  <% @server_location.servers.order(:name).each do |server| %>
+    <tr>
+      <td><%= link_to server.name, server %></td>
+      <td><%= server.type.titlecase %></td>
+    </tr>
+  <% end %>
+</table>

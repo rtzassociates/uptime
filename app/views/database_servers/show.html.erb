@@ -6,7 +6,7 @@
     <th>Database Name</th>
     <th>Sites</th>
   </tr>
-  <% @database_server.databases.each do |database| %>
+  <% @database_server.databases.order(:name).each do |database| %>
     <tr>
       <td><%= link_to database.name, database %></td>
       <td><%= sites_for database %></td>

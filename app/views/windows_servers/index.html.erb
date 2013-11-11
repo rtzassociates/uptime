@@ -19,7 +19,7 @@
           <td><%= link_to windows_server.name, windows_server %></td>
           <td>
             <% if windows_server.server_type %>
-            <%= link_to windows_server.server_type.value, windows_server.server_type %>
+            <%= windows_server.server_type.value %>
             <% end %>
           </td>
           <td>
