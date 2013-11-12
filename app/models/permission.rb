@@ -27,6 +27,7 @@ class Permission
       allow :servers, [:index, :show]
       allow :database_servers, [:index, :show]
       allow :application_servers, [:index, :show]
+      allow :windows_servers, [:index, :show]
       allow :databases, [:index, :show]
       allow_all if user.admin?
     end
