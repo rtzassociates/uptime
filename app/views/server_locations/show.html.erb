@@ -1,4 +1,6 @@
 <h1><%= @server_location.name %></h1>
+<h3>Server Location</h3>
+<br />
 
 <h4>Notes</h4>
 <p><%= @server_location.notes.blank? ? "No notes provided" : markdown(@server_location.notes) %></p>

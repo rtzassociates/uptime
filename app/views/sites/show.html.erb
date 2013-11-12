@@ -1,5 +1,5 @@
 <h1><%= @site.name %></h1>
-<h4 class="muted">Website</h4>
+<h3>Website</h3>
 
 <div class="admin actions">
   <ul>
@@ -15,33 +15,27 @@
 <% end %>
 
 <hr>
-<h4 class="muted">Site Details</h4>
+<h3>Site Details</h3>
 
-<div class="field">
-  <p><strong>URLs</strong></p>
-  <p><%= urls_for @site %></p>
-</div>
+<h4>URLs</h4>
+<p><%= urls_for @site %></p>
+<br />
 
-<div class="field">
-  <p><strong>Application Servers</strong></p>
-  <p><%= application_servers_for @site %></p>
-</div>
+<h4>Application Servers</h4>
+<p><%= application_servers_for @site %></p>
+<br />
 
-<div class="field">
-  <p><strong>Databases</strong></p>
-  <p><%= databases_for @site %></p>
-</div>
+<h4>Databases</h4>
+<p><%= databases_for @site %></p>
+</br />
 
-<div class="field">
-  <p><strong>Subscribers</strong></p>
-  <p><%= subscribers_for @site %></p>
-</div>
-
+<h4>Subscribers</h4>
+<p><%= subscribers_for @site %></p>
 <br />
 
 <hr>
 
-<h4 class="muted">Events For This Site</h4>
+<h3>Events For This Site</h4>
 
 <div id="events">
   <% if @events.any? %>

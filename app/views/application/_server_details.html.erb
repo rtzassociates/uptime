@@ -1,8 +1,10 @@
 <h1><%= server.name %></h1>
-<h4><%= server.type.titlecase %> - Deployed <%= short_date server.deployed_at || "Not Deployed" %></h4>
+<h3><%= server.type.titlecase %> - Deployed <%= short_date server.deployed_at || "Not Deployed" %></h3>
 <h4>
   <%= server.server_type.value.titlecase unless server.server_type.nil? %>
-  <%= "- " + server.server_location.name if server.server_location %>
+  <% if server.server_location %>
+    - <%= link_to(server.server_location.name, server.server_location) %>
+  <% end %>
 </h4>
 <div class="admin actions">
   <ul>
@@ -10,7 +12,9 @@
     <li><%= link_to 'Delete', server, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
   </ul>
 </div>
-<br />
+<hr>
+
+<h3>Server Details</h3>
 
 <h4>Networks</h4>
 <%= render 'ip_addresses', { :server => server } %>
