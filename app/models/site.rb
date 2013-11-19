@@ -1,5 +1,5 @@
 class Site < ActiveRecord::Base
-  attr_accessible :name, :user_ids, :application_server_ids, :database_ids, :description, :urls_attributes
+  attr_accessible :name, :user_ids, :application_server_ids, :database_ids, :description, :urls_attributes, :site_environment_id
   
   has_many :event_sites, :dependent => :destroy
   has_many :events, :through => :event_sites, :dependent => :destroy
@@ -19,6 +19,8 @@ class Site < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   
   before_save :touch_application_servers
+  
+  belongs_to :site_environment
 
   def self.search(search)
     if search

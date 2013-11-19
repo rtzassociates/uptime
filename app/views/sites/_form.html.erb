@@ -8,6 +8,11 @@
   </div>
   
   <div class="field">
+    <%= f.label :site_environment_id, "Environment" %>
+    <%= f.collection_select :site_environment_id, SiteEnvironment.order(:name), :id, :name %>
+  </div>
+  
+  <div class="field">
     <%= f.label :description, "Site Description" %>
     <%= f.text_area :description, :rows => 5 %>
   </div>
