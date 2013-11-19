@@ -1,5 +1,10 @@
 <tr>
   <td><%= link_to site.name, site %></td>
+  <td>
+    <% unless site.site_environment.nil? %>
+      <%= site.site_environment.name %>
+    <% end %>
+  </td>
   <td><%= urls_for site %></td> 
   <td>
     <% if current_user.is_subscribed_to? site %>
