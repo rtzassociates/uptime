@@ -53,6 +53,10 @@ class Site < ActiveRecord::Base
     events.unresolved.empty? ? "OK" : events.unresolved.last.status.value
   end
   
+  def self.with_urls
+    Site.joins(:urls)
+  end
+  
   private
   
   def touch_application_servers

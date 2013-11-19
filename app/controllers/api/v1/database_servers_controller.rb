@@ -1,10 +1,10 @@
 module Api
   module V1
-    class DatbaseServersController < ApplicationController
+    class DatabaseServersController < ApplicationController
       respond_to :json
 
       def index
-        @database_servers = DatabaseServer.all
+        @database_servers = DatabaseServer.public_servers
       end
     end
   end

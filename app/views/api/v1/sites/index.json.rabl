@@ -1,0 +1,2 @@
+collection @sites
+attributes :name
