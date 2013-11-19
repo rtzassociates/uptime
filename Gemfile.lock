@@ -115,7 +115,7 @@ GEM
     multi_json (1.5.0)
     mysql (2.8.1)
     nokogiri (1.5.9)
-    pg (0.14.1)
+    oj (2.2.2)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -123,6 +123,8 @@ GEM
       slop (~> 3.4)
     quiet_assets (1.0.1)
       railties (~> 3.1)
+    rabl (0.9.1)
+      activesupport (>= 2.3.14)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -227,8 +229,9 @@ DEPENDENCIES
   less-rails
   libv8 (~> 3.11.8.3)
   mysql (~> 2.8.1)
-  pg
+  oj
   quiet_assets
+  rabl
   rails (= 3.2.9)
   redcarpet (= 1.17.2)
   rspec-rails (~> 2.0)

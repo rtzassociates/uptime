@@ -15,7 +15,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(params[:status])
     if @status.save
-      redirect_to statuses_path, :notice => 'Status was successfully created'
+      redirect_to statuses_path, :notice => 'Status was successfully created.'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class StatusesController < ApplicationController
   def update
     @status = Status.find(params[:id])
     if @status.update_attributes(params[:status])
-      redirect_to statuses_path, :notice => 'Status was successfully created'
+      redirect_to statuses_path, :notice => 'Status was successfully created.'
     else
       render 'new'
     end
@@ -37,6 +37,6 @@ class StatusesController < ApplicationController
   def destroy
     @status = Status.find(params[:id])
     @status.destroy
-    redirect_to statuses_path, :notice => "Status was successfully destroyed"
+    redirect_to statuses_path, :notice => "Status was successfully destroyed."
   end
 end

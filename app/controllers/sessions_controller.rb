@@ -10,15 +10,15 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:username], params[:password])
     if user && !user.deleted?
       login user
-      redirect_to_target_or_default root_url, :notice => "Logged in successfully"
+      redirect_to_target_or_default root_url, :notice => "Logged in successfully."
     else
-      flash.now[:error] = "Invalid login or password"
+      flash.now[:error] = "Invalid login or password."
       render :action => 'new'
     end
   end
 
   def destroy
     cookies.delete(:token)
-    redirect_to login_url, :notice => "You have been logged out"
+    redirect_to login_url, :notice => "You have been logged out."
   end
 end

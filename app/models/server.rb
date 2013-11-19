@@ -28,4 +28,8 @@ class Server < ActiveRecord::Base
     self.ip_addresses.joins(:network).where("networks.name" => method_sym.to_s).first.try(:value)
   end
   
+  def public_ip_address
+    self.ip_addresses.joins(:network).where("networks.name" => "public").first.try(:value)
+  end
+  
 end

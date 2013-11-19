@@ -8,4 +8,8 @@ class IpAddress < ActiveRecord::Base
   validates_format_of :value, :with => ValidIpAddressRegex
   validates :value, :presence => true, :uniqueness => true
   validates :network_id, :presence => true
+  
+  def network_name
+    network.name
+  end
 end

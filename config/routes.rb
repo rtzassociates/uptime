@@ -1,8 +1,5 @@
 Uptime::Application.routes.draw do
   
- 
-
-
   get "pages/home"
   root :to => "pages#home"
   
@@ -38,5 +35,11 @@ Uptime::Application.routes.draw do
  
   match "signout" => "sessions#destroy"
   match "login" => "sessions#new"
+  
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :application_servers
+    end
+  end
   
 end

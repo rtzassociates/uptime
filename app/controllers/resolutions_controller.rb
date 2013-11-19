@@ -29,7 +29,7 @@ class ResolutionsController < ApplicationController
     
     @resolution.update_attributes(params[:resolution])
     if @resolution.save
-      redirect_to @event, notice: "Resolution successfully updated"
+      redirect_to @event, notice: "Resolution successfully updated."
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class ResolutionsController < ApplicationController
     @event = Event.find(params[:event_id])
     @resolution = @event.resolution
     @resolution.destroy
-    redirect_to @event, notice: "Resolution successfully destroyed"
+    redirect_to @event, notice: "Resolution successfully destroyed."
   end
 
   def current_resource

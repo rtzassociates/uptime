@@ -8,7 +8,6 @@ gem 'rails', '3.2.9'
 gem 'sqlite3'
 gem 'libv8', '~> 3.11.8.3', :platform => :ruby
 gem 'therubyracer', '~> 0.11.3', :platform => :ruby
-gem 'pg'
 gem 'mysql', '~> 2.8.1'
 gem 'less-rails'
 gem 'will_paginate'
@@ -18,7 +17,8 @@ gem 'thin'
 gem 'quiet_assets'
 gem 'chronic'
 gem 'redcarpet', '1.17.2'
-
+gem 'rabl'
+gem 'oj'
 
 # Gems used only for assets and not required
 # in production environments by default.

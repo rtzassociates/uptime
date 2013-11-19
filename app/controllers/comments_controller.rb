@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       CommentMailer.comment_notification(@comment).deliver
-      flash[:notice] = "Thanks for your comment"
+      flash[:notice] = "Thanks for your comment."
       redirect_to @commentable.event
     else
       flash[:error] = "Comment #{@comment.errors.full_messages.first.downcase}"
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do 
         redirect_to @comment.commentable.event
-        flash[:notice] = "Comment successfully updated"
+        flash[:notice] = "Comment was successfully updated."
       end
       format.json { render :json => @comment }
     end      
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id]) 
     @comment.destroy
-    flash[:notice] = "Comment successfully deleted"
+    flash[:notice] = "Comment was successfully deleted."
     redirect_to @comment.commentable.event  
   end
 
