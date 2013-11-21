@@ -1,0 +1,8 @@
+<p>
+  <%= f.label :reported_at_text, "When did this event occur?" %> 
+  <%= f.text_field :reported_at_text, :value => ( @event.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : @event.problem.reported_at.strftime("%b %e, %Y at %l:%M %p") ) %>
+</p>
+<p>
+  <%= f.label :description, "Please provide a description of the problem." %>
+  <%= f.text_area :description, :rows => 8 %>
+</p>

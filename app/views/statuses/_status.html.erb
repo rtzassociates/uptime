@@ -1,0 +1,6 @@
+<h2 style="color:<%= status.text_color %>"><%= status.value.capitalize %></h2>
+<div class="admin actions">
+  <ul>
+    <li><%= link_to "Edit", edit_status_path(status) %></li>
+    <li><%= link_to "Delete", status, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+</div>

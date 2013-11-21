@@ -1,0 +1,38 @@
+<h1>Database Server List</h1>
+<h4 class="admin"><%= link_to 'Create a new database server', new_database_server_path %></h4>
+
+<table id="database_servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Server Name</th>
+      <th>Server Type</th>
+      <th>Server Location</th>
+      <th>Databases</th>
+      <th class="admin"></th>
+      <th class="admin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @database_servers.each do |database_server| %>
+      <% cache database_server do %>
+        <tr>
+          <td><%= link_to database_server.name, database_server %></td>
+          <td>
+            <% if database_server.server_type %>
+            <%= database_server.server_type.value %>
+            <% end %>
+          </td>
+          <td>
+            <% if database_server.server_location %>
+            <%= link_to database_server.server_location.name, database_server.server_location %>
+            <% end %>
+          </td>
+          <td><%= databases_for database_server %></td>
+          <td class="admin"><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
+          <td class="admin"><%= link_to 'Delete', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

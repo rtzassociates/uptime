@@ -1,0 +1,31 @@
+<%= error_messages_for @status %>
+
+<%= form_for @status, :html => { :class => "well" } do |f| %>
+  
+  <div class="field">
+    <%= f.label :value, "Status Name" %>
+    <%= f.text_field :value, :value => ( @status.value.blank? ? "" : "#{@status.value.capitalize}" ) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :text_color, "Text Color" %>
+    <%= f.select :text_color, Status.colors %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :include_in_calc, "Include in uptime calculations?" %>
+    <label class="radio inline">
+      <%= f.radio_button :include_in_calc, :true %> Yes
+    </label>
+    <label class="radio inline">
+      <%= f.radio_button :include_in_calc, :false %> No
+    </label>
+  </div>
+  
+  <br />
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+    
+<% end %>

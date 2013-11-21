@@ -1,0 +1,66 @@
+<%= error_messages_for @user %>
+
+<%= form_for @user, :html => { :class => "well" } do |f| %>
+  
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, :placeholder => "Username", :autocomplete => "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :time_zone %>
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, :default => "Pacific Time (US & Canada)" %>
+  </div>
+  
+  <br />
+  
+  <fieldset>
+    <%= f.label :emails, "Email Addresses" %>
+    <%= f.fields_for :emails do |builder| %>
+      <%= render 'email_fields', :f => builder %>
+    <% end %>
+    <%= link_to_add_fields "Add an email address", f, :emails %>
+  </fieldset>
+  
+  <br />
+  
+  <div class="field">
+    <%= f.label :site_ids, "Subscriptions" %>
+    <%= f.collection_select :site_ids, Site.order(:name), :id, :name, {}, { multiple: true } %>
+  </div>
+  
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= f.label :admin, "Is this user an admin?" %>
+      <label class="radio inline">
+        <% if @user.admin? %>
+          <%= f.radio_button :admin, :true, :checked => true %> Yes
+        <% else %>
+          <%= f.radio_button :admin, :true %> Yes
+        <% end %>
+      </label>
+      <label class="radio inline">
+        <% if @user.new_record? || ! @user.admin %>
+          <%= f.radio_button :admin, :false, :checked => true %> No
+        <% else %>
+          <%= f.radio_button :admin, :false %> No
+        <% end %>
+      </label>
+    </div>
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), :class => 'btn' %>
+  </div>
+  
+<% end %>

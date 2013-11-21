@@ -1,0 +1,14 @@
+<%= render :partial => "server_details", :locals => { :server => @windows_server } %>
+
+<h4>Windows Clients</h4>
+
+<table class="table">
+  <tr>
+    <th>Client Name</th>
+  </tr>
+  <% @windows_server.windows_clients.order(:name).each do |client| %>
+    <tr>
+      <td><%= client.name %></td>
+    </tr>
+  <% end %>
+</table>

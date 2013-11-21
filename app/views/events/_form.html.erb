@@ -1,0 +1,28 @@
+<%= error_messages_for @event.problem %>
+
+<%= form_for @event, :html => { :class => "well" } do |f| %>
+  
+  <div class="field">
+    <%= f.label :status_id, 'What kind of event is this?' %>
+    <%= f.collection_select :status_id, Status.all, :id, :value_for_select %>
+  </div>
+  
+  <div class="field">
+    <%= f.fields_for :problem do |builder| %>
+      <%= render :partial => 'problems/problem_fields', 
+                 :locals => { :f => builder, :event => @event } %>
+    <% end %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :site_ids, "This event affects the following sites" %>
+    <%= f.collection_select :site_ids, Site.order(:name), 
+                            :id, :name, {}, 
+                            { multiple: true } %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :class => 'btn' %>
+  </div>
+  
+<% end %>

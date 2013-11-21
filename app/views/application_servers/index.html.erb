@@ -1,0 +1,31 @@
+<h1>Application Server List</h1>
+<h4 class="admin"><%= link_to 'Create a new application server', new_application_server_path %></h4>
+
+<table id="application_servers" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sites</th>
+      <th>URLs</th>
+      <th>Databases</th>
+      <th>Database Servers</th>
+      <th class="admin"></th>
+      <th class="admin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @application_servers.each do |application_server| %>
+      <% cache application_server do %>
+        <tr>   
+          <td><%= link_to application_server.name, application_server %></td>
+          <td><%= sites_for application_server %></td>
+          <td><%= site_urls_for application_server %></td>
+          <td><%= site_databases_for application_server %></td>
+          <td><%= site_database_servers_for application_server %></td>
+          <td class="admin"><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
+          <td class="admin"><%= link_to 'Delete', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

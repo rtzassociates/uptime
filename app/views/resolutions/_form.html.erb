@@ -1,0 +1,23 @@
+<%= form_for @resolution, :url => event_resolution_path do |f| %>
+  <%= error_messages_for @resolution %>
+  
+  <div class="field">
+    <%= f.label :resolved_at_text, "When did this get resolved?" %> 
+    <%= f.text_field :resolved_at_text, 
+                     :value => ( @resolution.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : @resolution.resolved_at.strftime("%b %e, %Y at %l:%M %p") ) %>
+  </div>
+  
+  <div class="row">
+    <div class="field span6">
+      <%= f.label :description, "How was this problem resolved?" %>
+      
+      <%= f.text_area :description, 
+                      :rows => 4, 
+                      :placeholder => "Describe this resolution" %>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit ( @resolution.new_record? ? "Mark as resolved" : "Update resolution" ), :class => "btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<h1>Database List</h1>
+<h4 class="admin"><%= link_to 'Create a new database', new_database_path %></h4>
+<br />
+
+<%= form_tag databases_path, :method => 'get', :class => "form-search" do %>
+  <div class="input-append">
+    <%= text_field_tag :search, params[:search], :class => "input-medium search-query" %>
+    <%= button_tag "Search", :name => nil, :class => "btn" %>
+  </div>
+<% end %>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Database Name</th>
+    <th>Server Name</th>
+    <th>Sites</th>
+    <th class="admin"></th>
+    <th class="admin"></th>
+  </tr>
+
+<% @databases.each do |database| %>
+  <% cache database do %>
+    <tr>
+      <td><%= link_to database.name, database %></td>
+      <td><%= link_to database.database_server.name, database.database_server %></td>
+      <td><%= sites_for database %></td>
+      <td class="admin"><%= link_to 'Edit', edit_database_path(database) %></td>
+      <td class="admin"><%= link_to 'Delete', database, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<%= will_paginate @databases %>

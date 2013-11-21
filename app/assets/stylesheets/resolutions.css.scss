@@ -1,0 +1,49 @@
+// Place all the styles related to the resolutions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.resolution {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resolution.large { 
+  border-width: 3px;
+  margin-bottom: 1em;
+}
+
+.resolution.small { 
+  border-width: 3px;
+  margin-bottom: 1em;
+}
+
+#resolution h1 {
+  margin-top: 0px;
+  margin-bottom: 0.5em;
+  padding-top: 0px;
+}
+
+#resolution.form {
+  padding: 1em;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: #D2D2D2;
+}
+
+#resolution_description {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1em;
+}
+
+#problem_description h3 {
+  text-align: center;
+}
+
+form.new_resolution {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

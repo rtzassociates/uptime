@@ -1,0 +1,2 @@
+collection @urls
+attributes :name

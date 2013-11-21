@@ -1,0 +1,5 @@
+<%= @event.problem.user.username.capitalize %> reported:
+
+<%= raw @event.problem.description %>
+
+Click here to view this event: <%= event_url(@event) %>

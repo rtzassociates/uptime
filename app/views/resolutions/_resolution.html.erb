@@ -1,0 +1,47 @@
+<hr>
+
+<h3>Resolution</h3>
+  
+<p>Resolved by <%= link_to @event.resolution.user.username, @event.resolution.user %> on <%= @event.resolution.resolved_at.strftime('%b %e, %Y at %l:%M %p') %></p>
+<p class="muted"><%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago</p>
+
+<p><%= markdown @event.resolution.description %></p>
+
+<div class="actions">
+  <ul>
+    <% if allow? "resolutions", "edit", @event.resolution %>
+      <li><%= edit_resolution_for(@event) %></li>
+    <% end %>
+    <% if allow? "resolutions", "destroy", @event.resolution %>
+      <li><%= destroy_resolution_for(@event) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="span6">
+    <div id="comments">
+      <% unless @event.resolution.comments.empty? %>
+        <div class="comment-top"></div>
+        <%= render @event.resolution.comments %>
+      <% end %>
+      
+      <div id="comment" class="form">
+        <%= form_for Comment.new do |f| %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :commentable_type, :value => @event.resolution.class %>
+          <%= f.hidden_field :commentable_id, :value => @event.resolution.id %>
+          <%= f.text_area :content, :placeholder => "Comment on this resolution", :rows => 2 %>
+          <div class="actions">
+            <%= f.submit "Submit Comment", :class => 'btn'%>
+          </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+

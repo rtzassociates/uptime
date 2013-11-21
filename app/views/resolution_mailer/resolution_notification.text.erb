@@ -1,0 +1,5 @@
+<%= @event.resolution.user.username.capitalize %> reported:
+
+<%= raw @event.resolution.description %>
+
+Click here to view this event: <%= event_url(@event) %>

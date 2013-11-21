@@ -1,0 +1,30 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+#event_status {
+  background-color: white;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+#event_status div.actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#event {
+  padding: 1em;
+  background-color: white;
+  border-width: 1px;
+}
+
+#new_event div.actions {
+  margin-top: 1em;
+}

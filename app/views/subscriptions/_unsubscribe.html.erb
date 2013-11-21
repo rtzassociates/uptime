@@ -1,0 +1,6 @@
+<div id="subscription_site_<%= site_id %>" class="subscription">
+  <%= form_for current_user.subscriptions.find_by_site_id(site_id),
+      :html => { :method => :delete,  :class => 'subscription inline' }, :remote => true do |f| %>
+    <%= f.submit "Unsubscribe", :class => 'button_to', :style => "color:red" %>
+  <% end %>
+</div>

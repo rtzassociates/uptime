@@ -1,0 +1,2 @@
+module SiteEnvironmentsHelper
+end

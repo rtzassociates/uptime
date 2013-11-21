@@ -1,0 +1,18 @@
+<h1>Site Environments List</h1>
+<h4 class="admin"><%= link_to 'New Site environment', new_site_environment_path %></h4>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Environment Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @site_environments.each do |site_environment| %>
+    <tr>
+      <td><%= site_environment.name %></td>
+      <td><%= link_to 'Edit', edit_site_environment_path(site_environment) %></td>
+      <td><%= link_to 'Delete', site_environment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+    </tr>
+  <% end %>
+</table>

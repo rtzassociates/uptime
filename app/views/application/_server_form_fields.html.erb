@@ -1,0 +1,34 @@
+<div class="field">
+  <%= f.label :name, "Server Name" %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :deployed_at_text, "Deployed at" %>
+  <%= f.text_field :deployed_at_text, :value => ( server.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : server.deployed_at.strftime("%b %e, %Y at %l:%M %p") ) %> 
+</div>
+
+<div class="field">
+  <%= f.label :server_type_id, "Server Type" %>
+  <%= f.collection_select :server_type_id, ServerType.order(:value), :id, :value %>
+</div>
+
+<div class="field">
+  <%= f.label :server_location_id, "Server Location" %>
+  <%= f.collection_select :server_location_id, ServerLocation.order(:name), :id, :name, :include_blank => true %>
+</div>
+
+<div class="field">
+  <%= f.label :description %>
+  <%= f.text_area :description, :rows => 5 %>
+</div>
+
+<fieldset>
+  <%= f.label :ip_addresses, "IP Addresses" %>
+  <%= f.fields_for :ip_addresses do |builder| %>
+    <%= render 'ip_address_fields', { :f => builder } %>
+  <% end %>
+  <%= link_to_add_fields "Add a IP Address", f, :ip_addresses %>
+</fieldset>
+
+<br />

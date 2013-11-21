@@ -1,0 +1,11 @@
+<%= error_messages_for @xen_server %>
+
+<%= form_for @xen_server, :html => { :class => "well" } do |f| %>
+    
+  <%= render :partial => 'server_form_fields', :locals => { :server => @xen_server, :f => f } %>
+  
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+  
+<% end %>

@@ -1,0 +1,20 @@
+<h1><%= @database.name %></h1>
+<h3>Database</h3>
+
+<div class="admin actions">
+  <ul>
+    <li><%= link_to 'Edit', edit_database_path(@database) %></li>
+    <li><%= link_to 'Delete', @database, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+  </ul>
+</div>
+<hr>
+
+<h3>Database Details</h3>
+
+<h4>Server Name</h4>
+<p><%= link_to @database.database_server.name, @database.database_server %></p>
+<br />
+
+<h4>Sites</h4>
+<p><%= sites_for @database %></p>
+<br />

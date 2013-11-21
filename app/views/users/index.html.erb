@@ -1,0 +1,25 @@
+<h1>User List</h1>
+<h4 class="admin"><%= link_to 'Create a new user', new_user_path %></h4>
+
+<%= form_tag users_path, :method => 'get', :class => "form-search" do %>
+  <div class="input-append">
+    <%= text_field_tag :search, params[:search], :class => "input-medium search-query" %>
+    <%= button_tag "Search", :name => nil, :class => "btn" %>
+  </div>
+<% end %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email Addresses</th>
+      <th class="admin"></th>
+      <th class="admin"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

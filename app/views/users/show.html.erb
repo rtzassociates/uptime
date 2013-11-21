@@ -1,0 +1,25 @@
+<h1><%= @user.full_name %></h1>
+<h3><%= @user.admin? ? "Admin" : "User" %></h3>
+
+<div class="admin actions">
+  <ul>
+    <li><%= link_to 'Edit', edit_user_path(@user), :class => "small" %></li>
+    <li><%= link_to 'Delete', @user, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger small" %></li>
+  </ul>
+</div>
+<br />
+
+<hr>
+<h3>User Details</h3>
+
+<h4>Email Addresses</h4>
+<p><%= @user.emails.map { |email| email.address }.join(", ") %></p>
+<br />
+
+<h4>Time Zone</h4> 
+<p><%= @user.time_zone %></p>
+<br />
+
+<h4>Subscriptions</h4>
+<p><%= raw @user.sites.collect { |s| link_to(s.name, site_path(s)) }.to_sentence %></p>
+<br />
