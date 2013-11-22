@@ -6,8 +6,8 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'libv8', '~> 3.11.8.3', :platform => :ruby
-gem 'therubyracer', '~> 0.11.3', :platform => :ruby
+gem 'libv8'
+gem 'therubyracer'
 gem 'mysql', '~> 2.8.1'
 gem 'less-rails'
 gem 'will_paginate'
@@ -26,7 +26,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'chosen-rails'
-  gem 'jquery-ui-rails'
+  gem 'jquery-ui-rails' 
   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -35,7 +35,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => "bcrypt"
