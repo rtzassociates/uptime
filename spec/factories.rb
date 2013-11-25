@@ -16,8 +16,7 @@ FactoryGirl.define do
   
   factory :status do |f|
     f.value "Outage"
-    f.foreground_color "black"
-    f.background_color "white"
+    f.text_color "black"
   end
   
   factory :event do |f|

@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 7f79dbfcccc2dac1ae741a6c1d26d609e1497bc7
+  revision: 44b0448193d4856847e47fb2a245bdd51a4bb2fa
   specs:
-    jquery-datatables-rails (1.12.1)
+    jquery-datatables-rails (1.12.2)
       jquery-rails
 
 GEM
@@ -104,11 +104,11 @@ GEM
     json (1.8.1)
     launchy (2.4.0)
       addressable (~> 2.3)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
+    less (2.3.3)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
       actionpack (>= 3.1)
-      less (~> 2.4.0)
+      less (~> 2.3.1)
     libv8 (3.16.14.3)
     listen (2.2.0)
       celluloid (>= 0.15.2)
@@ -128,7 +128,7 @@ GEM
       mini_portile (~> 0.5.0)
     oj (2.2.3)
     polyglot (0.3.3)
-    pry (0.9.12.3)
+    pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
@@ -206,7 +206,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.1.9)
+    twitter-bootstrap-rails (2.2.0)
       actionpack (>= 3.1)
       execjs
       railties (>= 3.1)
@@ -234,7 +234,7 @@ DEPENDENCIES
   jquery-rails (~> 2.3.0)
   jquery-ui-rails
   launchy
-  less-rails
+  less-rails (= 2.3.3)
   libv8
   mysql (~> 2.8.1)
   oj
@@ -247,6 +247,6 @@ DEPENDENCIES
   sqlite3
   therubyracer
   thin
-  twitter-bootstrap-rails (~> 2.1.4)
+  twitter-bootstrap-rails (= 2.2.0)
   uglifier (>= 1.0.3)
   will_paginate
