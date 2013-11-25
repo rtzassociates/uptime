@@ -13,24 +13,10 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :status_id
   
-  class << self
-    Status.all.each do |status|
-      define_method(status.value.downcase) do
-        send("where", :status_id => Status.find_by_value(status.value))
-      end
-    end
-  end
-  
   def reported_by
     problem.user
   end
   
-  def self.status_hash
-    Status.select(:value).each_with_object({}) do |s, h|
-      h[s.value] = Event.send("#{s.value.downcase}")
-    end
-  end
-
   def self.reported_at
     joins(:problem).order("problems.reported_at DESC")
   end
@@ -60,11 +46,21 @@ class Event < ActiveRecord::Base
   end
   
   def email_recipients
-    (sites.scoped.joins(:users => :emails).where("users.deleted_at" => nil).pluck(:address) + 
-     Email.admin_addresses + 
-     ( self.reported_by.emails.pluck(:address) unless self.reported_by.deleted? ).to_a ).uniq
+    (user_email_recipients + admin_email_recipients + reporter_recipient).to_a.uniq
   end
   
+  def user_email_recipients
+    sites.scoped.joins(:users).where("users.deleted_at" => nil).pluck(:email_address)
+  end
+
+  def admin_email_recipients
+    User.where(:admin => true).pluck(:email_address)
+  end
+
+  def reporter_recipient
+    self.reported_by.emails.pluck(:address) unless self.reported_by.deleted?
+  end
+
   def duration
     if self.unresolved?
       Time.zone.now - problem.reported_at

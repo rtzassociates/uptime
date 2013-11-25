@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131119220436) do
+ActiveRecord::Schema.define(:version => 20131125163309) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20131119220436) do
     t.string   "password_hash"
     t.string   "time_zone"
     t.datetime "deleted_at"
+    t.string   "email_address"
   end
 
   create_table "windows_clients", :force => true do |t|
