@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :password_confirmation, 
-                  :emails_attributes, :site_ids,
-                  :first, :last, :phone, :admin, :time_zone,
+  attr_accessible :username, :password, :password_confirmation, :email_address,
+                  :site_ids, :first, :last, :phone, :admin, :time_zone,
                   :token
                   
   attr_accessor :password
@@ -19,8 +18,10 @@ class User < ActiveRecord::Base
   has_many :subscriptions, :dependent => :destroy
   has_many :sites, through: :subscriptions
   
-  has_many :emails, :dependent => :destroy
-  accepts_nested_attributes_for :emails, allow_destroy: true
+  validates_format_of :email_address, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+
+  has_many :subscriptions, :dependent => :destroy
+  has_many :sites, through: :subscriptions
   
   has_many :problems, :dependent => :destroy
   has_many :resolutions, :dependent => :destroy

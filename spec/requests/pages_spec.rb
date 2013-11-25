@@ -43,11 +43,4 @@ describe "pages#home" do
     page.should have_content status.value
   end
   
-  it "should display a link to mark the problem as resolved" do
-    event  = FactoryGirl.create(:event)
-    login user
-    visit root_path
-    page.should have_link ('Mark As Resolved')
-  end
-  
 end

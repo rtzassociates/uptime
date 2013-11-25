@@ -6,12 +6,12 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'libv8', '~> 3.11.8.3', :platform => :ruby
-gem 'therubyracer', '~> 0.11.3', :platform => :ruby
+gem 'libv8'
+gem 'therubyracer'
 gem 'mysql', '~> 2.8.1'
-gem 'less-rails'
+gem 'less-rails', '2.3.3'
 gem 'will_paginate'
-gem 'twitter-bootstrap-rails', '~> 2.1.4'
+gem 'twitter-bootstrap-rails', '2.2.0'
 gem 'bootstrap-will_paginate'
 gem 'thin'
 gem 'quiet_assets'
@@ -35,7 +35,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => "bcrypt"
