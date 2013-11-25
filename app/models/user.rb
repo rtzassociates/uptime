@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :subscriptions, :dependent => :destroy
   has_many :sites, through: :subscriptions
   
+  has_many :emails
+
   validates_format_of :email_address, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
 
   has_many :subscriptions, :dependent => :destroy
