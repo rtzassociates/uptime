@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :password_confirmation, 
-                  :emails_attributes, :site_ids,
-                  :first, :last, :phone, :admin, :time_zone,
+  attr_accessible :username, :password, :password_confirmation, :email_address,
+                  :site_ids, :first, :last, :phone, :admin, :time_zone,
                   :token
                   
   attr_accessor :password
@@ -16,11 +15,10 @@ class User < ActiveRecord::Base
   validates_length_of :password, :minimum => 4, :allow_blank => true
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
   
+  validates_format_of :email_address, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+
   has_many :subscriptions, :dependent => :destroy
   has_many :sites, through: :subscriptions
-  
-  has_many :emails, :dependent => :destroy
-  accepts_nested_attributes_for :emails, allow_destroy: true
   
   has_many :problems, :dependent => :destroy
   has_many :resolutions, :dependent => :destroy

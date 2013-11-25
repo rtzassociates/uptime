@@ -46,7 +46,7 @@ class Event < ActiveRecord::Base
   end
   
   def email_recipients
-    (user_email_recipients + admin_email_recipients + reporter_recipient).to_a.uniq
+    ((user_email_recipients + admin_email_recipients) << reporter_recipient ).uniq
   end
   
   def user_email_recipients
@@ -58,7 +58,7 @@ class Event < ActiveRecord::Base
   end
 
   def reporter_recipient
-    self.reported_by.emails.pluck(:address) unless self.reported_by.deleted?
+    self.reported_by.email_address unless self.reported_by.deleted?
   end
 
   def duration
