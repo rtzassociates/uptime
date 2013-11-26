@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125201122) do
+ActiveRecord::Schema.define(:version => 20131126155312) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -89,6 +89,12 @@ ActiveRecord::Schema.define(:version => 20131125201122) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "server_roles", :force => true do |t|
+    t.string   "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "server_types", :force => true do |t|
     t.text     "value"
     t.datetime "created_at", :null => false
@@ -104,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20131125201122) do
     t.string   "type"
     t.integer  "server_type_id"
     t.integer  "server_location_id"
+    t.integer  "server_role_id"
   end
 
   create_table "site_application_servers", :force => true do |t|

@@ -1,0 +1,16 @@
+<%= error_messages_for @generic_server %>
+
+<%= form_for @generic_server, :html => { :class => "well" } do |f| %>
+
+  <%= render :partial => 'server_form_fields', :locals => { :server => @generic_server, :f => f } %>
+
+  <div class="field">
+    <%= f.label :server_role_id, "Server Role" %>
+    <%= f.collection_select :server_role_id, ServerRole.order(:role), :id, :role %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+  
+<% end %>

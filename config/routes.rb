@@ -8,6 +8,7 @@ Uptime::Application.routes.draw do
   resources :database_servers
   resources :windows_servers
   resources :xen_servers
+  resources :generic_servers
   
   resources :site_environments
   resources :server_locations

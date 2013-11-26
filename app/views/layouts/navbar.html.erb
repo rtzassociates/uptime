@@ -32,6 +32,9 @@
             <% if allow? "xen_servers", "index" %>    
               <li><%= link_to "Xenservers", xen_servers_path %></li>
             <% end %>
+            <% if allow? "generic_servers", "index" %>    
+              <li><%= link_to "Generic Servers", generic_servers_path %></li>
+            <% end %>
           </ul>
         </li>
       <% end %>
