@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126155312) do
+ActiveRecord::Schema.define(:version => 20131126230902) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20131126155312) do
     t.integer  "server_type_id"
     t.integer  "server_location_id"
     t.integer  "server_role_id"
+    t.string   "public_ip_address"
   end
 
   create_table "site_application_servers", :force => true do |t|

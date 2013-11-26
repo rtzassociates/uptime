@@ -12,7 +12,7 @@ class ResolutionsController < ApplicationController
     @resolution.user_id = current_user
     if @resolution.save
       ResolutionMailer.resolution_notification(@resolution.event).deliver
-      redirect_to @resolution.event
+      redirect_to @resolution.event, notice: "Resolution successfully created."
     else
       render 'new'
     end

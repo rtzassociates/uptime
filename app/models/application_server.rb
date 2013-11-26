@@ -16,8 +16,4 @@ class ApplicationServer < Server
     DatabaseServer.where(:name => self.site_databases.joins(:database_server).pluck("servers.name").uniq)
   end
   
-  def self.public_servers
-    ApplicationServer.joins(:ip_addresses => :network).where("networks.name" => "public")
-  end
-  
 end

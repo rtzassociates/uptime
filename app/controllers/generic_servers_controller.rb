@@ -43,7 +43,7 @@ class GenericServersController < ApplicationController
     @generic_server = GenericServer.find(params[:id])
     @generic_server.destroy
     expire_servers_cache
-    redirect_to generic_servers_url
+    redirect_to generic_servers_url, notice: 'Generic server was successfully deleted.'
   end
   
 end
