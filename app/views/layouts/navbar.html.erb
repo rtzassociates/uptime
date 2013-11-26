@@ -29,9 +29,6 @@
             <% if allow? "windows_servers", "index" %>    
               <li><%= link_to "Windows Servers", windows_servers_path %></li>
             <% end %>
-            <% if allow? "xen_servers", "index" %>    
-              <li><%= link_to "Xenservers", xen_servers_path %></li>
-            <% end %>
             <% if allow? "generic_servers", "index" %>    
               <li><%= link_to "Generic Servers", generic_servers_path %></li>
             <% end %>
@@ -57,6 +54,7 @@
             <li><%= link_to "Networks", networks_path %></li>
             <li><%= link_to "Status Types", statuses_path %></li>
             <li><%= link_to "Server Types", server_types_path %></li>
+            <li><%= link_to "Server Roles", server_roles_path %></li>
             <li><%= link_to "Locations", server_locations_path %></li>
             <li><%= link_to "Site Environments", site_environments_path %></li>
           </ul>

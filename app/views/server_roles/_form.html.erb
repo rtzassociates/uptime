@@ -1,0 +1,10 @@
+<%= error_messages_for @server_role %>
+<%= form_for(@server_role, :html => { :class => "well" }) do |f| %>
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => "btn" %>
+  </div>
+<% end %>

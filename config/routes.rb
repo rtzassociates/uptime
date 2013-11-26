@@ -13,6 +13,7 @@ Uptime::Application.routes.draw do
   resources :site_environments
   resources :server_locations
   resources :server_types
+  resources :server_roles
   resources :networks
   resources :databases
   resources :sites

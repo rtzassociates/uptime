@@ -1,0 +1,18 @@
+<h1>Listing Server Roles</h1>
+<h4 class="admin"><%= link_to 'New Server Role', new_server_role_path %></h4>
+
+<table class="table table-striped">
+  <tr>
+    <th>Server Role</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @server_roles.each do |server_role| %>
+  <tr>
+    <td><%= server_role.role %>
+    <td><%= link_to 'Edit', edit_server_role_path(server_role) %></td>
+    <td><%= link_to 'Delete', server_role, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+  </tr>
+<% end %>
+</table>
