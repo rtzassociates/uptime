@@ -6,9 +6,10 @@
 
   <div class="field">
     <%= f.label :server_role_id, "Server Role" %>
-    <%= f.collection_select :server_role_id, ServerRole.order(:role), :id, :role %>
+    <%= f.collection_select :server_role_id, ServerRole.order(:role), :id, :role, :prompt => "Select a role" %>
+    or create one:
+    <%= f.text_field :new_server_role_name %>
   </div>
-
   <div class="actions">
     <%= f.submit :class => "btn" %>
   </div>
