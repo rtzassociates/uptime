@@ -46,9 +46,11 @@ describe Server do
   end
 
   describe "Server#public_ip_address" do
+
+    let(:server) { FactoryGirl.build(:generic_server) }
+
     describe "with valid ip address" do
       it "should be valid" do
-        server = FactoryGirl.build(:generic_server)
         server.public_ip_address = "127.0.0.1"
         expect(server).to be_valid
       end
@@ -56,9 +58,15 @@ describe Server do
 
     describe "with an invalid ip address" do
       it "should not be valid" do
-        server = FactoryGirl.build(:generic_server)
         server.public_ip_address = "192.168.1.256"
         expect(server).to_not be_valid
+      end
+    end
+
+    describe "with a nil public ip address" do
+      it "should be valid" do
+        server.public_ip_address = nil
+        expect(server).to be_valid
       end
     end
   end
