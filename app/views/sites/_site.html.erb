@@ -6,6 +6,7 @@
     <% end %>
   </td>
   <td><%= urls_for site %></td> 
+  <td><%= site.uptime %>%</td>
   <td>
     <% if current_user.is_subscribed_to? site %>
       <%= render "subscriptions/unsubscribe", :site_id => site.id %>

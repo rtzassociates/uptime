@@ -5,6 +5,10 @@
         <th>Network</th>
         <th>IP Address</th>
       </tr>
+      <tr>
+	<td>Public</td>
+	<td><%= server.public_ip_address %>
+      </tr>
       <% server.ip_addresses.each do |address| %>
         <tr>
           <td><%= address.network.name %></td>

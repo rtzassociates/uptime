@@ -38,7 +38,7 @@ class Server < ActiveRecord::Base
   end
   
   def self.public_servers
-    self.class.name.constantize
+    where("servers.public_ip_address IS NOT NULL")
   end
   
 end

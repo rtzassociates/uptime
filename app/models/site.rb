@@ -31,12 +31,17 @@ class Site < ActiveRecord::Base
   end
 
   def total_downtime
-    totals = Status.all.each_with_object([]) do |status, array|
-      if status.include_in_calc
-        array << events.send("#{status.value.downcase}").map { |e| e.duration }.sum
-      end
+    totals = Status.where(:include_in_calc => true).each_with_object([]) do |status, arr|
+      arr << events.where(:status_id => status.id).map { |e| e.duration }.sum
     end
     totals.sum
+
+    #totals = Status.all.each_with_object([]) do |status, array|
+    #  if status.include_in_calc
+    #    array << events.send("#{status.value.downcase}").map { |e| e.duration }.sum
+    #  end
+    #end
+    #totals.sum
   end
   
   def lifespan_in_seconds
