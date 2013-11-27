@@ -55,6 +55,7 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 group :development, :test do
   gem 'launchy'
   gem "rspec-rails", "~> 2.0"
+  gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
