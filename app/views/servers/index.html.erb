@@ -7,6 +7,7 @@
       <tr>
         <th>Name</th>
         <th>Type</th>
+        <th>Public</th>
         <% @networks.each do |network| %>
           <th><%= network.name %></th>
         <% end %>
@@ -20,6 +21,11 @@
         <tr>
           <td><%= link_to server.name, server %></td>
           <td><%= server.role_name %></td>
+          <td>
+            <% if server.public_ip_address %>
+              <%= server.public_ip_address %>
+            <% end %>
+          </td>
           <% @networks.each do |network| %>
             <td><%= server.send("#{network.name}") || "" %></td>
           <% end %>
@@ -37,6 +43,7 @@
     "aoColumns": [
                     null,
                     null,
+                    { "sType": "ip-address" },
                     <% @networks.each do |network| %>
                       { "sType": "ip-address" },
                     <% end %>

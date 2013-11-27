@@ -37,12 +37,8 @@ class Server < ActiveRecord::Base
     self.ip_addresses.joins(:network).where("networks.name" => method_sym.to_s).first.try(:value)
   end
   
-  def public_ip_address_old
-    self.ip_addresses.joins(:network).where("networks.name" => "public").first.try(:value)
-  end
-
   def self.public_servers
-    Server.joins(:ip_addresses => :network).where("networks.name" => "public")
+    self.class.name.constantize
   end
   
 end
