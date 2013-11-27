@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :server_role do
-    role "MyString"
+    role "Custom Server"
   end
 end

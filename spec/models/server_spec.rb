@@ -18,7 +18,7 @@ describe Server do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
 
-  it { should validate_presence_of(:deployed_at_date) }
+  it { should validate_presence_of(:deployed_at) }
 
   describe "Server#edit_route_path" do
     it "should provide an edit route" do
@@ -40,6 +40,24 @@ describe Server do
       it "should not be valid" do
         server = FactoryGirl.build(:generic_server)
         server.deployed_at_text = "Some invalid date"
+        expect(server).to_not be_valid
+      end
+    end
+  end
+
+  describe "Server#public_ip_address" do
+    describe "with valid ip address" do
+      it "should be valid" do
+        server = FactoryGirl.build(:generic_server)
+        server.public_ip_address = "127.0.0.1"
+        expect(server).to be_valid
+      end
+    end
+
+    describe "with an invalid ip address" do
+      it "should not be valid" do
+        server = FactoryGirl.build(:generic_server)
+        server.public_ip_address = "192.168.1.256"
         expect(server).to_not be_valid
       end
     end
