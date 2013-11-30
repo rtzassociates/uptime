@@ -24,10 +24,19 @@ describe "/" do
 
   describe "with one event reported (but not resolved)" do
 
-    it "should display the unresolved event" do
-      unresolved_event = FactoryGirl.create(:event)
+    before(:each) do
+      @unresolved_event = FactoryGirl.create(:event)
       visit "/"
-      expect(page).to have_content unresolved_event.problem.description
+    end
+
+    it "should display the unresolved event" do
+      expect(page).to have_content @unresolved_event.status.value
+      expect(page).to have_content @unresolved_event.problem.description
+      expect(page).to have_link "View this event"
+    end
+
+    it "should have a link to report another problem" do
+      expect(page).to have_link "Report another problem"
     end
   end
 end

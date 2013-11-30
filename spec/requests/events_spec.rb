@@ -1,39 +1,47 @@
 require "spec_helper"
 
-describe "events#index" do
+describe "events#_event" do
   
   let(:user) { FactoryGirl.create(:user) }
-  let(:status) { FactoryGirl.build(:status).value }
   
-  before do
-    login user
-    @event = FactoryGirl.create(:event)
+  context "with an unresolved event" do
+
+    before(:each) do
+      login user
+      @event = FactoryGirl.create(:event)
+      visit events_path
+    end
+
+    it "displays the status" do
+      expect(page).to have_content @event.status.value
+    end
+
+    it "has a link to view the event" do
+      expect(page).to have_link("View this event")
+    end
+
+    context "with no comments" do
+
+      it "has a comment count of 0" do
+        expect(page).to have_content("0 comments")
+      end
+
+    end
+
+    context "with 1 comment" do
+
+      before(:each) do
+        @event.problem.comments.create(:user_id => user.id, :content => "Test content")
+        @event.save
+        visit events_path
+      end
+
+      it "has a comment count of 1" do
+        expect(page).to have_content("1 comment")
+      end
+
+    end
   end
-  
-  it "should list events" do
-    visit events_path
-    page.should have_content( status )
-  end
-  
-  it "should have a link to view the event" do
-    visit events_path
-    page.should have_link("View this event")
-  end
-  
-  it "should display a count of the comments" do
-    visit events_path
-    page.should have_content("0 comments")
-  end
-  
-  it "should update the comment count when a new comment is added" do
-    comment = FactoryGirl.create(:comment)
-    comment.commentable_id = @event.id
-    comment.commentable_type = @event.class
-    @event.problem.comments << comment
-    visit events_path
-    page.should have_content("1 comment")
-  end
-  
 end
 
 describe "events#new" do
