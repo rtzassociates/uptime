@@ -9,6 +9,14 @@ class Server < ActiveRecord::Base
   belongs_to :server_location
   
   validates :name, :presence => true, :uniqueness => true
+  validates :deployed_at, :presence => true
+  
+  ValidIpAddressRegex = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
+  validates_format_of :public_ip_address, :with => ValidIpAddressRegex, :allow_blank => true
+
+  def edit_route_path
+    "edit_#{self.type.titleize.split(/\s+/).join("_").downcase}_path"
+  end
 
   def role_name
     server_role ? server_role.role.titlecase : type.titlecase
@@ -27,7 +35,7 @@ class Server < ActiveRecord::Base
   end
   
   def deployed_at_text=(time_str)
-    self.deployed_at = Chronic.parse(time_str).utc
+    self.deployed_at = Chronic.parse(time_str)
     if self.deployed_at.nil?
       @deployed_at_invalid = true
     end
