@@ -1,6 +1,8 @@
 FactoryGirl.define do 
-  factory :event do |f|
-    problem_attributes { attributes_for(:problem) } 
-    status
+
+  factory :event do
+    problem_attributes { attributes_for(:problem) }
+    status { FactoryGirl.create(:status) }
   end
+
 end
