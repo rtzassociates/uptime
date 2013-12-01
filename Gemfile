@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -59,4 +59,5 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+  gem "database_cleaner"
 end
