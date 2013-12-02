@@ -71,6 +71,19 @@ describe "events" do
 
       end
 
+      context "with a resolved event" do
+
+        before(:each) do
+          @event.create_resolution! FactoryGirl.attributes_for(:resolution)
+          visit events_path
+        end
+        
+        it "says so" do
+          expect(page).to have_content "Resolved by #{@event.resolved_by.username}"
+        end
+
+      end
+
     end
 
   end

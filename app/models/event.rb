@@ -16,6 +16,10 @@ class Event < ActiveRecord::Base
   def reported_by
     problem.user
   end
+
+  def resolved_by
+    resolution.user
+  end
   
   def self.reported_at
     joins(:problem).order("problems.reported_at DESC")
@@ -38,11 +42,11 @@ class Event < ActiveRecord::Base
   end
   
   def resolved?
-    return true if resolution
+    resolution ? true : false
   end
   
   def unresolved?
-    return true if resolution.nil?
+    resolution.nil? ? true : false
   end
   
   def email_recipients
@@ -63,9 +67,9 @@ class Event < ActiveRecord::Base
 
   def duration
     if self.unresolved?
-      Time.zone.now - problem.reported_at
+      (Time.zone.now - problem.reported_at).to_i
     else
-      resolution.resolved_at - problem.reported_at
+      (resolution.resolved_at - problem.reported_at).to_i
     end
   end
   
