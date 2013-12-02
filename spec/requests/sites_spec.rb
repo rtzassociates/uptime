@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'sites', :focus => true do
+describe 'sites' do
 
   let(:user) { FactoryGirl.create(:user) }
 
@@ -217,6 +217,153 @@ describe 'sites', :focus => true do
         select @subscriber.username, from: "site_user_ids"
         click_button "Create Site"
         expect(page).to have_content "Site successfully created"
+        expect(Site.count).to be 1
+      end
+
+    end
+
+  end
+
+  describe "show" do
+
+    before(:each) do
+      @site = FactoryGirl.create(:site)
+    end
+
+    context "as a user" do
+
+      let(:user) { FactoryGirl.create(:user) }
+
+      before(:each) do
+        login user
+        visit site_path(@site)
+      end
+
+      it "displays the site name" do
+        expect(page).to have_content @site.name
+      end
+
+        it "does not display an edit link" do
+          within(".site") do
+            expect(page).to_not have_link "Edit"
+          end
+        end
+
+        it "does not display a destroy link" do
+          within(".site") do
+            expect(page).to_not have_link "Delete"
+          end
+        end
+
+      context "with 1 url" do
+      
+        before(:each) do
+          @url = FactoryGirl.create(:url)
+          @site.urls << @url
+          @site.save
+          visit site_path(@site)
+        end
+
+        it "displays the url" do
+          expect(page).to have_content @url.name
+        end
+
+      end
+
+      context "with 1 application server" do
+        
+        before(:each) do
+          @application_server = FactoryGirl.create(:application_server)
+          @site.application_servers << @application_server
+          @site.save
+          visit site_path(@site)
+        end
+
+        it "displays the application server" do
+          expect(page).to have_content @application_server.name
+        end
+
+      end
+
+      context "with 1 database" do
+
+        before(:each) do
+          @database = FactoryGirl.create(:database)
+          @site.databases << @database
+          @site.save
+          visit site_path(@site)
+        end
+
+        it "displays the database" do
+          expect(page).to have_content @database.name
+        end
+
+      end
+
+      context "with 1 subscriber" do
+
+        before(:each) do
+          @subscriber = FactoryGirl.create(:user)
+          @site.users << @subscriber
+          @site.save
+          visit site_path(@site)
+        end
+
+        it "displays the subscriber" do
+          expect(page).to have_content @subscriber.username
+        end
+
+      end
+
+      context "with associated events" do
+
+        before(:each) do
+
+          @event_1 = FactoryGirl.create(:event, 
+            :problem_attributes => FactoryGirl.attributes_for(:problem, 
+            :description => "Test Event 1"))
+
+          @event_2 = FactoryGirl.create(:event, 
+            :problem_attributes => FactoryGirl.attributes_for(:problem, 
+            :description => "Test Event 2"))
+
+          @event_3 = FactoryGirl.create(:event, 
+            :problem_attributes => FactoryGirl.attributes_for(:problem, 
+            :description => "Test Event 3"))
+
+          @site.events << @event_1
+          @site.events << @event_2
+          @site.events << @event_3
+          @site.save 
+          visit site_path(@site)
+        end
+
+        it "lists the associates events" do
+          expect(page).to have_content @event_1.problem.description
+          expect(page).to have_content @event_2.problem.description
+          expect(page).to have_content @event_3.problem.description
+        end
+
+      end
+
+    end
+
+    context "as an admin" do
+
+      let(:admin) { FactoryGirl.create(:admin) }
+
+      before(:each) do
+        @event = FactoryGirl.create(:event)
+        login admin
+        visit event_path(@event)
+      end
+
+      it "displays an edit link" do
+        expect(page).to have_link "Edit"
+      end
+
+      it "displays a destroy link" do
+        expect(page).to have_link "Delete"
       end
 
     end

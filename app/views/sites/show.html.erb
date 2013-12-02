@@ -1,37 +1,41 @@
-<h1><%= @site.name %></h1>
-<h3>Website</h3>
+<div class="site">
+  <h1><%= @site.name %></h1>
+  <h3>Website</h3>
 
-<div class="admin actions">
-  <ul>
-    <li><%= link_to 'Edit', edit_site_path(@site) %></li>
-    <li><%= link_to 'Delete', @site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
-  </ul>
+  <% if current_user.admin? %>
+    <div class="actions">
+      <ul>
+        <li><%= link_to 'Edit', edit_site_path(@site) %></li>
+        <li><%= link_to 'Delete', @site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user.is_subscribed_to? @site %>
+    <h3><%= render "subscriptions/unsubscribe", :site_id => @site.id %></h3>
+  <% else %>
+    <h3><%= render "subscriptions/subscribe", :site_id => @site.id %></h3>
+  <% end %>
+
+  <hr>
+  <h3>Site Details</h3>
+
+  <h4>URLs</h4>
+  <p><%= urls_for @site %></p>
+  <br />
+
+  <h4>Application Servers</h4>
+  <p><%= application_servers_for @site %></p>
+  <br />
+
+  <h4>Databases</h4>
+  <p><%= databases_for @site %></p>
+  </br />
+
+  <h4>Subscribers</h4>
+  <p><%= subscribers_for @site %></p>
+  <br />
 </div>
-
-<% if current_user.is_subscribed_to? @site %>
-  <h3><%= render "subscriptions/unsubscribe", :site_id => @site.id %></h3>
-<% else %>
-  <h3><%= render "subscriptions/subscribe", :site_id => @site.id %></h3>
-<% end %>
-
-<hr>
-<h3>Site Details</h3>
-
-<h4>URLs</h4>
-<p><%= urls_for @site %></p>
-<br />
-
-<h4>Application Servers</h4>
-<p><%= application_servers_for @site %></p>
-<br />
-
-<h4>Databases</h4>
-<p><%= databases_for @site %></p>
-</br />
-
-<h4>Subscribers</h4>
-<p><%= subscribers_for @site %></p>
-<br />
 
 <hr>
 
