@@ -1,6 +1,11 @@
 <div class="description">
-  <p><%= problem_for @event %></p>
-  <p><%= markdown @event.problem.description %></p>
+  <div class="problem">
+    <h3><%= sites_affected_by event %></h3>
+    <p class="muted">Duration: <%= distance_of_time_in_words(event.duration) %></p>
+    <p class="muted">Reported by <%= link_to(event.problem.user.username, event.problem.user) %> on <%= long_date event.problem.reported_at %></p>
+    <p class="muted"><%= time_ago_in_words(event.problem.reported_at).capitalize %> ago</p>
+    <p><%= markdown @event.problem.description %></p>
+  </div>
 </div>
 
 <div class="actions">

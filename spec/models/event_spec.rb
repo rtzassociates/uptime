@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Event, :focus => true do
+describe Event do
   let(:event) { FactoryGirl.build(:event) }
 
   it { should respond_to :site_ids }

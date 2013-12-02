@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def markdown(text)
     options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
     Redcarpet.new(text, *options).to_html.html_safe
@@ -25,6 +26,10 @@ module ApplicationHelper
   
   def short_date(date)
     date.strftime("%b %e, %Y")
+  end
+
+  def long_date(date)
+    date.strftime('%b %e, %Y at %l:%M %p')
   end
     
 end

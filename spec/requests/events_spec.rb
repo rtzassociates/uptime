@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events" do
+describe "events", :focus => true do
 
   let(:user)  { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:admin) }
@@ -38,22 +38,24 @@ describe "events" do
 
         before(:each) do
           @event = FactoryGirl.create(:event)
+          visit events_path
         end
 
         it "displays the status" do
-          visit events_path
           expect(page).to have_content @event.status.value
         end
 
+        it "displays the reported at time" do
+          expect(page).to have_content(time_ago_in_words @event.problem.reported_at)
+        end
+
         it "has a link to view the event" do
-          visit events_path
           expect(page).to have_link("View this event")
         end
 
         context "with no comments" do
 
           it "has a comment count of 0" do
-            visit events_path
             expect(page).to have_content("0 comments")
           end
 
@@ -69,6 +71,21 @@ describe "events" do
 
         end
 
+        context "with 1 site affected" do
+
+          before(:each) do
+            @site = FactoryGirl.create(:site)
+            @event.sites << @site
+            @event.save
+            visit events_path
+          end
+
+          it "displays the site affected" do
+            expect(page).to have_content("#{@site.name} is affected by this event")
+          end
+
+        end
+
       end
 
       context "with a resolved event" do
@@ -80,6 +97,10 @@ describe "events" do
         
         it "says so" do
           expect(page).to have_content "Resolved by #{@event.resolved_by.username}"
+        end
+
+        it "displays the duration" do
+          expect(page).to have_content "Duration: #{distance_of_time_in_words(@event.duration)}"
         end
 
       end
