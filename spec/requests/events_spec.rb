@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events", :focus => true do
+describe "events" do
 
   let(:user)  { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:admin) }
@@ -80,7 +80,7 @@ describe "events", :focus => true do
             visit events_path
           end
 
-          it "displays the site affected" do
+          it "displays the site affected (in present tense)" do
             expect(page).to have_content("#{@site.name} is affected by this event")
           end
 
@@ -101,6 +101,21 @@ describe "events", :focus => true do
 
         it "displays the duration" do
           expect(page).to have_content "Duration: #{distance_of_time_in_words(@event.duration)}"
+        end
+
+        context "with 1 site affected" do
+
+          before(:each) do
+            @site = FactoryGirl.create(:site)
+            @event.sites << @site
+            @event.save
+            visit events_path
+          end
+
+          it "displays the site affected (in past tense)" do
+            expect(page).to have_content("#{@site.name} was affected by this event")
+          end
+
         end
 
       end
@@ -153,46 +168,85 @@ describe "events", :focus => true do
 
     context "as a user" do
 
-      before(:each) do
-        login user
-      end
-
-      it "displays the event status" do
-        expect(page).to have_content @event.status.value
-      end
-
-      it "displays a resolution link" do
-        expect(page).to have_link "Mark As Resolved"
-      end
-
-      it "displays the problem description" do
-        expect(page).to have_content @event.problem.description
-      end
-
-      it "does not display an edit link" do
-        expect(page).to_not have_link "Edit Event"
-      end
-
-      it "does not display a destroy link" do
-        expect(page).to_not have_link "Delete Event"
-      end
-
-      context "with a comment" do
+      context "when the event is owned by another user" do
 
         before(:each) do
-          @event.problem.comments.create!(:user_id => user.id, :content => "Test content")
-          visit event_path(@event) 
+          login user
         end
 
-        it "links to the name of the commenter" do
-          expect(page).to have_link user.username
+        it "displays the event status" do
+          expect(page).to have_content @event.status.value
         end
 
-        it "displays the comment content" do
-          expect(page).to have_content @event.problem.comments.first.content
+        it "displays a resolution link" do
+          expect(page).to have_link "Mark As Resolved"
+        end
+
+        it "displays the problem description" do
+          expect(page).to have_content @event.problem.description
+        end
+
+        it "does not display an edit link" do
+          expect(page).to_not have_link "Edit Event"
+        end
+
+        it "does not display a destroy link" do
+          expect(page).to_not have_link "Delete Event"
+        end
+
+        context "with a comment" do
+
+          before(:each) do
+            @event.problem.comments.create!(:user_id => user.id, :content => "Test content")
+            visit event_path(@event) 
+          end
+
+          it "links to the name of the commenter" do
+            expect(page).to have_link user.username
+          end
+
+          it "displays the comment content" do
+            expect(page).to have_content @event.problem.comments.first.content
+          end
+
+        end
+
+        it "does not allow the user to edit other users events" do
+          visit edit_event_path(@event)
+          expect(page).to have_content "Not authorized"
         end
 
       end
+
+      describe "editing an event" do
+
+        let(:current_user) { FactoryGirl.create(:user) }
+
+        context "when the event is owned by the current user" do
+
+          before(:each) do
+            login current_user
+            @event = FactoryGirl.create(:event, 
+              :problem_attributes => FactoryGirl.attributes_for(:problem,
+              :user_id => current_user.id))
+            visit event_path(@event)
+          end
+
+          it "displays an edit link" do
+            expect(page).to have_link "Edit Event"
+          end
+
+          it "allows the owner to edit the event" do
+            click_link "Edit Event"
+            expect(page).to have_content "Edit Event"
+            fill_in "event_problem_attributes_description", :with => "Updated test content" 
+            click_button "Update Event"
+            expect(page).to have_content "Event was successfully updated"
+            expect(page).to have_content "Updated test content"
+          end
+
+        end
+      end 
 
     end
 
@@ -208,6 +262,15 @@ describe "events", :focus => true do
 
       it "displays a destroy link" do
         expect(page).to have_link "Delete Event"
+      end
+
+      it "allows admins to edit other users events" do
+        click_link "Edit Event"
+        expect(page).to have_content "Edit Event"
+        fill_in "event_problem_attributes_description", :with => "Updated test content" 
+        click_button "Update Event"
+        expect(page).to have_content "Event was successfully updated"
+        expect(page).to have_content "Updated test content"
       end
 
     end
