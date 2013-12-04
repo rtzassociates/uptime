@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Server Type</th>
       <th>Sites</th>
       <th>URLs</th>
       <th>Databases</th>
@@ -18,6 +19,7 @@
       <% cache application_server do %>
         <tr>   
           <td><%= link_to application_server.name, application_server %></td>
+          <td><%= application_server.server_type.value %></td>
           <td><%= sites_for application_server %></td>
           <td><%= site_urls_for application_server %></td>
           <td><%= site_databases_for application_server %></td>

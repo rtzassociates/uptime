@@ -42,6 +42,6 @@ class NetworksController < ApplicationController
     @network = Network.find(params[:id])
     @network.destroy
     expire_servers_cache
-    format.html { redirect_to networks_url }
+    redirect_to networks_url, notice: 'Network was successfully destroyed'
   end
 end
