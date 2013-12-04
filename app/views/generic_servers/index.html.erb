@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Server Name</th>
+      <th>Server Type</th>
       <th>Server Role</th>
       <th>Server Location</th>
       <th class="admin"></th>
@@ -16,6 +17,7 @@
       <% cache generic_server do %>
         <tr>
           <td><%= link_to generic_server.name, generic_server %></td>
+          <td><%= generic_server.server_type.value %></td>
           <td><%= generic_server.role_name %></td>
           <td>
             <% if generic_server.server_location %>
