@@ -3,7 +3,4 @@ class DatabaseServer < Server
   
   has_many :databases
   
-  def self.public_servers
-    DatabaseServer.joins(:ip_addresses => :network).where("networks.name" => "public")
-  end
 end
