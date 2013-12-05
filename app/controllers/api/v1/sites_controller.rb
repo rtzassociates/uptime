@@ -1,6 +1,6 @@
 module Api
   module V1
-    class SitesController < ApplicationController
+    class SitesController < ApiController
       respond_to :json
 
       def index

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class WindowsServersController < ApplicationController
+    class WindowsServersController < ApiController
       respond_to :json
 
       def index

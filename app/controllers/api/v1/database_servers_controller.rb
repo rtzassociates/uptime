@@ -1,6 +1,6 @@
 module Api
   module V1
-    class DatabaseServersController < ApplicationController
+    class DatabaseServersController < ApiController
       respond_to :json
 
       def index
