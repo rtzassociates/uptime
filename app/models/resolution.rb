@@ -16,7 +16,7 @@ class Resolution < ActiveRecord::Base
   def resolved_at_text=(time_str)
     self.resolved_at = Chronic.parse(time_str)
     if self.resolved_at.nil?
-      @resolved_at_invalid = true
+      errors.add(:resolved_at, "is invalid.")
     end
   end
   
@@ -25,7 +25,9 @@ class Resolution < ActiveRecord::Base
   end
   
   def resolved_at_cannot_be_before_reported_at
-    errors.add(:resolved_at, "time cannot be earlier than reported at time") if
-    resolved_at < event.problem.reported_at
+    unless resolved_at.nil?
+      errors.add(:resolved_at, "time cannot be earlier than reported at time") if
+      resolved_at < event.problem.reported_at
+    end
   end
 end
