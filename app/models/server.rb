@@ -46,7 +46,7 @@ class Server < ActiveRecord::Base
   end
   
   def self.public_servers
-    where("servers.public_ip_address IS NOT NULL")
+    where("servers.public_ip_address IS NOT NULL AND servers.public_ip_address <> ''")
   end
   
 end
