@@ -14,7 +14,7 @@ class Resolution < ActiveRecord::Base
   end
   
   def resolved_at_text=(time_str)
-    self.resolved_at = Chronic.parse(time_str).utc
+    self.resolved_at = Chronic.parse(time_str)
     if self.resolved_at.nil?
       @resolved_at_invalid = true
     end
