@@ -5,12 +5,6 @@ GIT
     jquery-datatables-rails (1.12.2)
       jquery-rails
 
-GIT
-  remote: https://github.com/ohler55/oj.git
-  revision: d1ddd9bb27fc9c58b2eb9ed40abbb5e5c9cddbbf
-  specs:
-    oj (2.4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,6 +126,7 @@ GEM
     mysql (2.8.1)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    oj (2.2.3)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -245,7 +240,7 @@ DEPENDENCIES
   less-rails (= 2.3.3)
   libv8
   mysql (~> 2.8.1)
-  oj!
+  oj
   quiet_assets
   rabl
   rails (= 3.2.13)
