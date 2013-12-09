@@ -1,46 +1,30 @@
-<div class="description">
-  <div class="problem">
-    <h3><%= sites_affected_by event %></h3>
-    <p class="muted">Duration: <%= distance_of_time_in_words(event.duration) %></p>
-    <p class="muted">Reported by <%= link_to(event.problem.user.username, event.problem.user) %> on <%= long_date event.problem.reported_at %></p>
-    <p class="muted"><%= time_ago_in_words(event.problem.reported_at).capitalize %> ago</p>
-    <p><%= markdown @event.problem.description %></p>
-  </div>
-</div>
+<% unless @event.resolved? %>
+  <p>
+    <%= link_to 'Mark As Resolved', new_event_resolution_path(event), 
+    :class => "btn btn-large btn-success" %>
+  </p>
+  <br />
+<% end %>
+
+<%= render partial: "problems/problem_description", locals: { problem: @event.problem } %>
 
 <div class="actions">
   <ul>
+
     <% if allow? "events", "edit", @event %>
-      <li><%= edit_problem_for(@event) %></li>
+      <li>
+        <%= link_to 'Edit Event', edit_event_path(@event) %>
+      </li>
     <% end %>
+
     <% if allow? "events", "destroy", @event %>
-      <li><%= destroy_action_for(@event) %></li>
+      <li>
+        <%= link_to 'Delete Event', event_path(@event), method: :delete, 
+        data: { confirm: "Are you sure?" }, class: "danger" %>
+      </li>
     <% end %>
+
   </ul>
 </div>
 
-<br />
-
-<div class="row">
-  <div class="span6">
-    <div id="comments">
-      <% unless @event.problem.comments.empty? %>
-        <div class="comment-top"></div>
-        <%= render @event.problem.comments %>
-      <% end %>
-      
-      <div id="comment" class="form">
-        <%= form_for Comment.new do |f| %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.hidden_field :commentable_type, :value => @event.problem.class %>
-          <%= f.hidden_field :commentable_id, :value => @event.problem.id %>
-          <%= f.text_area :content, :placeholder => "Comment on this problem", :rows => 2 %>
-          <div class="actions">
-            <%= f.submit "Submit Comment", :class => 'btn'%>
-          </div>
-        <% end %>
-      </div>
-      
-    </div>
-  </div>
-</div>
+<%= render partial: "comments/comments", locals: { commentable: @event.problem } %>

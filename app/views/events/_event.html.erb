@@ -1,28 +1,11 @@
 <%= div_for event do %>
   <div class="row">
     <div class="span12">
-      <h2 style="color:<%= event.status.text_color %>"><%= event.status.value %></h2>
-      <% if event.resolved? %>
-        <div class="resolution">
-          <p>Resolved by <%= link_to(event.resolution.user.username, event.resolution.user) %> on <%= long_date event.resolution.resolved_at %></p>
-          <p class="muted"><%= time_ago_in_words(event.resolution.resolved_at).capitalize %> ago</p>
-        </div>
-      <% end %>
+      <%= render partial: "events/event_description", locals: { event: event } %>
+      <%= render partial: "problems/problem_description", locals: { problem: event.problem } %>
+      <h4><%= pluralize event.problem.comments.count, "comment" %></h4>
+      <h4><%= link_to 'View this event', event %></h4>
     </div>
   </div>
-  <div class="row">
-    <div class="span12">
-      <%= div_for event.problem do %>
-        <h3><%= sites_affected_by event %></h3>
-        <p class="muted">Duration: <%= distance_of_time_in_words(event.duration) %></p>
-        <p class="muted">Reported by <%= link_to(event.problem.user.username, event.problem.user) %> on <%= long_date event.problem.reported_at %></p>
-        <p class="muted"><%= time_ago_in_words(event.problem.reported_at).capitalize %> ago</p>
-        <p><%= markdown event.problem.description %></p>
-        <p class="muted"><%= pluralize event.problem.comments.count, "comment" %></p>
-        <h4><%= link_to 'View this event', event %></h4>
-      <% end %>
-    </div>
-  </div>
+  <hr>
 <% end %>
-
-<hr>

@@ -1,2 +1,1 @@
-$("#subscription_site_<%= @subscription.site_id %>").html("<%= j render 'subscriptions/unsubscribe', :site_id => @subscription.site_id %>")
-$("label#alert_me").html("Please don't alert me about this site")
+$("#subscription_site_<%= @subscription.site_id %>").html("<%= j render partial: 'subscriptions/unsubscribe', locals: { site_id: @subscription.site_id, css: "button_to" } %>")

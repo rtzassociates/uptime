@@ -1,23 +1,11 @@
 <%= div_for @event do %>
   <div class="row">
     <div class="span12">
-      <h2 style="color:<%= @event.status.text_color %>"><%= @event.status.value %></h2>
+      <%= render partial: "events/event_description", locals: { event: @event } %>
       <hr>
-      <%  if @event.resolved? %>
-        <div class="resolution">
-          <p>Resolved by <%= link_to(@event.resolution.user.username, @event.resolution.user) %> on <%= long_date @event.resolution.resolved_at %></p>
-          <p class="muted"><%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago</p>
-        </div>
-      <% else %>
-        <%= render :partial => "events/resolve_link", :locals => { :event => @event }%>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span12">
-      <%= div_for @event.problem do %>
-        <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
-        <%= render :partial => "resolutions/resolution", :locals => { :event => @event } if @event.resolved? %>
+      <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
+      <% if @event.resolved? %>
+        <%= render :partial => "resolutions/resolution", :locals => { :event => @event } %>
       <% end %>
     </div>
   </div>

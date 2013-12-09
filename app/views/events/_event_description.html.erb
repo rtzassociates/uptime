@@ -1,0 +1,6 @@
+<h2 style="color:<%= event.status_color %>">
+  <%= event.status_name %>
+</h2>
+<% if event.resolved? %>
+  <%= render partial: "resolutions/resolved_by", locals: { event: event } %>
+<% end %>

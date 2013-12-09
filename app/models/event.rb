@@ -84,5 +84,16 @@ class Event < ActiveRecord::Base
   def self.last_resolved_event
     Event.joins(:resolution).where("resolutions.resolved_at IS NOT NULL").last
   end
+
+  def resolved_at
+    resolution.resolved_at
+  end
+
+  def status_color
+    status.text_color
+  end
   
+  def status_name
+    status.value
+  end
 end

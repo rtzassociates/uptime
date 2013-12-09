@@ -9,9 +9,11 @@
   <td><%= site.uptime %>%</td>
   <td>
     <% if current_user.is_subscribed_to? site %>
-      <%= render "subscriptions/unsubscribe", :site_id => site.id %>
+      <%= render partial: "subscriptions/unsubscribe", 
+      locals: { site_id: site.id, css: 'button_to' } %>
     <% else %>
-      <%= render "subscriptions/subscribe", :site_id => site.id %>
+      <%= render partial: "subscriptions/subscribe", 
+      locals: { site_id: site.id, css: 'button_to' } %>
     <% end %>
   </td>
   <td class="admin"><%= link_to 'Edit', edit_site_path(site), :class => "small" %></td>

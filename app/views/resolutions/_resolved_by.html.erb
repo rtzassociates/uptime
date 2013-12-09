@@ -1,0 +1,7 @@
+<h4>
+  Resolved by <%= link_to(event.resolved_by.username, event.resolved_by) %> 
+  on <%= long_date event.resolution.resolved_at %>
+</h4>
+<h4 class="muted">
+  <%= time_ago_in_words(event.resolved_at).capitalize %> ago
+</h4>

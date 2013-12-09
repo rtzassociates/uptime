@@ -12,9 +12,15 @@
   <% end %>
 
   <% if current_user.is_subscribed_to? @site %>
-    <h3><%= render "subscriptions/unsubscribe", :site_id => @site.id %></h3>
+    <h3>
+      <%= render partial: "subscriptions/unsubscribe",
+      locals: { site_id: @site.id, css: "btn" } %>
+    </h3>
   <% else %>
-    <h3><%= render "subscriptions/subscribe", :site_id => @site.id %></h3>
+    <h3>
+      <%= render partial: "subscriptions/subscribe", 
+      locals: { site_id: @site.id, css: "btn" } %>
+    </h3>
   <% end %>
 
   <hr>

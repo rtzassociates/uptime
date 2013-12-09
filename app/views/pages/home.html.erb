@@ -1,1 +1,23 @@
-<%= render partial: "events/unresolved_events", :locals => { unresolved_events: @unresolved_events } %>
+<% if @unresolved_events.empty? %>
+
+  <h1>Currently, there are no problems reported</h1>
+
+  <% if @last_resolved_event %>
+    <h4>
+      It's been <%= time_ago_in_words(@last_resolved_event.resolved_at) %> 
+      since the last reported problem
+    </h4>
+  <% end %>
+
+  <%= link_to "Report a problem", new_event_path, :class => "btn btn-large btn-danger" %>
+
+<% else %>
+
+  <h1>Unresolved Problems</h1>
+  <h4><%= link_to "Report another problem", new_event_path %></h4>
+  
+  <div id="events">
+    <%= render @unresolved_events %>
+  </div>
+
+<% end %>
