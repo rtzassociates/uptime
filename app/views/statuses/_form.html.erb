@@ -1,10 +1,10 @@
 <%= error_messages_for @status %>
 
-<%= form_for @status, :html => { :class => "well" } do |f| %>
+<%= form_for @status, html: { class: "well" } do |f| %>
   
   <div class="field">
     <%= f.label :value, "Status Name" %>
-    <%= f.text_field :value, :value => ( @status.value.blank? ? "" : "#{@status.value.capitalize}" ) %>
+    <%= f.text_field :value %>
   </div>
   
   <div class="field">

@@ -1,7 +1,7 @@
 <div class="comment">
 
-  <p><%= link_to comment.user.username, comment.user %></p>
-  <p><%= time_ago_in_words(comment.created_at).capitalize %> ago</p>
+  <h4><%= link_to comment.user.username, comment.user %></h4>
+  <p class="muted"><%= time_ago_in_words(comment.created_at).capitalize %> ago</p>
   <p><%= markdown comment.content %></p>
 
   <div class="actions pull-right">
@@ -11,15 +11,16 @@
           <%= link_to 'Edit', edit_comment_path(comment) %>
         </li>
       <% end %>
-      <% if allow? "resolutions", "delete", comment %>
+      <% if allow? "comments", "delete", comment %>
         <li>
-          <%= link_to 'Delete', comment, :method => :delete, 
-            :data => { :confirm => "Are you sure?" }, 
-            :class => "danger" %>
+          <%= link_to 'Delete', comment, method: :delete, 
+              data: { confirm: "Are you sure?" }, 
+              class: "danger" %>
         </li>
       <% end %>
     </ul>
   </div>
 
   <div class="clearfix"></div>
+
 </div>

@@ -18,7 +18,7 @@ module ApplicationHelper
     options = objects.extract_options!
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
     unless messages.empty?
-      content_tag :error do
+      content_tag :div, class: "alert alert-error" do
         list_items = messages.map { |msg| msg }.to_sentence
       end
     end

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span6">
+  <div class="span8">
     <div id="comments">
       <% unless commentable.comments.empty? %>
         <div class="comment-top"></div>
@@ -7,12 +7,12 @@
       <% end %>
       <div id="comment" class="form">
         <%= form_for Comment.new do |f| %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.hidden_field :commentable_type, :value => commentable.class %>
-          <%= f.hidden_field :commentable_id, :value => commentable.id %>
-          <%= f.text_area :content, :placeholder => "Comment on this #{commentable.class.to_s.downcase}", :rows => 2 %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :commentable_type, value: commentable.class %>
+          <%= f.hidden_field :commentable_id, value: commentable.id %>
+          <%= f.text_area :content, placeholder: "Comment on this #{commentable.class.to_s.downcase}", rows: 2 %>
           <div class="actions">
-            <%= f.submit "Submit Comment", :class => 'btn'%>
+            <%= f.submit "Submit Comment", class: 'btn' %>
           </div>
         <% end %>
       </div>

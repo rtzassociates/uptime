@@ -1,6 +1,15 @@
 <h2 style="color:<%= event.status_color %>">
   <%= event.status_name %>
 </h2>
+
 <% if event.resolved? %>
-  <%= render partial: "resolutions/resolved_by", locals: { event: event } %>
+  <% unless params[:controller] == "events" && params[:action] == "show" %>
+    <%= render partial: "resolutions/resolved_by", locals: { event: event } %>
+  <% end %>
+<% else %>
+  <p class="muted">This event is currently in progress</p>
+  <p>
+    <%= link_to 'Mark As Resolved', new_event_resolution_path(event), 
+    class: "resolution btn btn-success" %>
+  </p>
 <% end %>

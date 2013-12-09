@@ -1,58 +1,61 @@
-<div class="site">
+<div id="site">
   <h1><%= @site.name %></h1>
   <h3>Website</h3>
-
+  
   <% if current_user.admin? %>
     <div class="actions">
       <ul>
         <li><%= link_to 'Edit', edit_site_path(@site) %></li>
-        <li><%= link_to 'Delete', @site, :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "danger" %></li>
+        <li>
+          <%= link_to 'Delete', @site, method: :delete, 
+          data: { confirm: "Are you sure?" }, class: "danger" %>
+        </li>
       </ul>
     </div>
   <% end %>
-
+  
   <% if current_user.is_subscribed_to? @site %>
     <h3>
       <%= render partial: "subscriptions/unsubscribe",
-      locals: { site_id: @site.id, css: "btn" } %>
+      locals: { site_id: @site.id } %>
     </h3>
   <% else %>
     <h3>
       <%= render partial: "subscriptions/subscribe", 
-      locals: { site_id: @site.id, css: "btn" } %>
+      locals: { site_id: @site.id } %>
     </h3>
   <% end %>
-
+  
   <hr>
   <h3>Site Details</h3>
-
+  
   <h4>URLs</h4>
   <p><%= urls_for @site %></p>
   <br />
-
+  
   <h4>Application Servers</h4>
-  <p><%= application_servers_for @site %></p>
+  <p><%= list_for @site.application_servers %></p>
   <br />
-
+  
   <h4>Databases</h4>
-  <p><%= databases_for @site %></p>
+  <p><%= list_for @site.databases %></p>
   </br />
-
+  
   <h4>Subscribers</h4>
   <p><%= subscribers_for @site %></p>
   <br />
+  
+  <hr>
+  
+  <h3>Events For This Site</h4>
+  
+  <div id="events">
+    <% if @events.any? %>
+      <%= render @events %>
+    <% else %>
+      <p>Nothing to show</p>
+    <% end %>
+  </div>
+  
+  <%= will_paginate @events %>
 </div>
-
-<hr>
-
-<h3>Events For This Site</h4>
-
-<div id="events">
-  <% if @events.any? %>
-    <%= render @events %>
-  <% else %>
-    <p>Nothing to show</p>
-  <% end %>
-</div>
-
-<%= will_paginate @events %>

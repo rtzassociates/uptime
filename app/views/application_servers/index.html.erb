@@ -20,12 +20,12 @@
         <tr>   
           <td><%= link_to application_server.name, application_server %></td>
           <td><%= application_server.server_type.value %></td>
-          <td><%= sites_for application_server %></td>
+          <td><%= list_for application_server.sites %></td>
           <td><%= site_urls_for application_server %></td>
           <td><%= site_databases_for application_server %></td>
           <td><%= site_database_servers_for application_server %></td>
           <td class="admin"><%= link_to 'Edit', edit_application_server_path(application_server) %></td>
-          <td class="admin"><%= link_to 'Delete', application_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+          <td class="admin"><%= link_to 'Delete', application_server, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></td>
         </tr>
       <% end %>
     <% end %>

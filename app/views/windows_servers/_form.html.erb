@@ -1,8 +1,8 @@
 <%= error_messages_for @windows_server %>
 
-<%= form_for @windows_server, :html => { :class => "well" } do |f| %>
+<%= form_for @windows_server, html: { class: "well" } do |f| %>
     
-  <%= render :partial => 'server_form_fields', :locals => { :server => @windows_server, :f => f } %>
+  <%= render partial: 'server_form_fields', locals: { server: @windows_server, f: f } %>
   
   <fieldset>
     <%= f.label :windows_clients, "Windows Clients" %>

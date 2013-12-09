@@ -5,7 +5,8 @@
 
 <div class="field">
   <%= f.label :deployed_at_text, "Deployed at" %>
-  <%= f.text_field :deployed_at_text, :value => ( server.new_record? ? Time.zone.now.strftime("%b %e, %Y at %l:%M %p") : server.deployed_at.strftime("%b %e, %Y at %l:%M %p") ) %> 
+  <%= f.text_field :deployed_at_text, value: 
+      long_date(server.new_record? ? Time.zone.now : server.deployed_at) %> 
 </div>
 
 <div class="field">
@@ -33,7 +34,5 @@
   <%= f.fields_for :ip_addresses do |builder| %>
     <%= render 'ip_address_fields', { :f => builder } %>
   <% end %>
-  <%= link_to_add_fields "Add a IP Address", f, :ip_addresses %>
+  <%= link_to_add_fields "Add an IP Address", f, :ip_addresses %>
 </fieldset>
-
-<br />

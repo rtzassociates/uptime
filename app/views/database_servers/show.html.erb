@@ -1,4 +1,4 @@
-<%= render :partial => "server_details", :locals => { :server => @database_server } %>
+<%= render partial: "server_details", locals: { server: @database_server } %>
 
 <h4>Databases Hosted</h4>
 <table class="table">
@@ -9,7 +9,7 @@
   <% @database_server.databases.order(:name).each do |database| %>
     <tr>
       <td><%= link_to database.name, database %></td>
-      <td><%= sites_for database %></td>
+      <td><%= list_for database.sites %></td>
     </tr>
   <% end %>
 </table>

@@ -27,12 +27,11 @@
             <%= link_to database_server.server_location.name, database_server.server_location %>
             <% end %>
           </td>
-          <td><%= databases_for database_server %></td>
+          <td><%= list_for database_server.databases %></td>
           <td class="admin"><%= link_to 'Edit', edit_database_server_path(database_server) %></td>
-          <td class="admin"><%= link_to 'Delete', database_server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
+          <td class="admin"><%= link_to 'Delete', database_server, method: :delete, data: { confirm: 'Are you sure?' }, class: "danger" %></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
-

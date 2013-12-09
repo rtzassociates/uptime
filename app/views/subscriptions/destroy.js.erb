@@ -1,1 +1,1 @@
-$("#subscription_site_<%= @subscription.site_id %>").html("<%= j render partial: 'subscriptions/subscribe', locals: { site_id: @subscription.site_id, css: "button_to" } %>")
+$("#subscription_site_<%= @subscription.site_id %>").html("<%= j render partial: 'subscriptions/subscribe', locals: { site_id: @subscription.site_id } %>")

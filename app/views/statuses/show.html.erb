@@ -1,6 +1,5 @@
-<div id="status">
-  <%= @status.value.capitalize %>
-</div>
+<h1><%= @status.value.capitalize %></h1>
 
-<%= render @events %>   
+<%= render @events %>
+
 <%= will_paginate @events %>

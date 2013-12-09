@@ -1,30 +1,30 @@
 <%= error_messages_for @user %>
 
-<%= form_for @user, :html => { :class => "well" } do |f| %>
+<%= form_for @user, html: { class: "well" } do |f| %>
   
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username, :placeholder => "Username", :autocomplete => "off" %>
+    <%= f.text_field :username, placeholder: "Username", autocomplete: "off" %>
   </div>
   
   <div class="field">
     <%= f.label :email_address %>
-    <%= f.text_field :email_address, :placeholder => "Email", :autocomplete => "off" %>
+    <%= f.text_field :email_address, placeholder: "Email", autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
   </div>
   
   <div class="field">
     <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
   </div>
   
   <div class="field">
     <%= f.label :time_zone %>
-    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, :default => "Pacific Time (US & Canada)" %>
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: "Pacific Time (US & Canada)" %>
   </div>
   
   <div class="field">
@@ -35,25 +35,28 @@
   <% if current_user.admin? %>
     <div class="field">
       <%= f.label :admin, "Is this user an admin?" %>
+      
       <label class="radio inline">
         <% if @user.admin? %>
-          <%= f.radio_button :admin, :true, :checked => true %> Yes
+          <%= f.radio_button :admin, :true, checked: true %> Yes
         <% else %>
           <%= f.radio_button :admin, :true %> Yes
         <% end %>
       </label>
+
       <label class="radio inline">
         <% if @user.new_record? || ! @user.admin %>
-          <%= f.radio_button :admin, :false, :checked => true %> No
+          <%= f.radio_button :admin, :false, checked: true %> No
         <% else %>
           <%= f.radio_button :admin, :false %> No
         <% end %>
       </label>
+
     </div>
   <% end %>
   
   <div class="actions">
-    <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), :class => 'btn' %>
+    <%= f.submit (@user.new_record? ? "Create Account" : "Update Account"), class: 'btn' %>
   </div>
   
 <% end %>

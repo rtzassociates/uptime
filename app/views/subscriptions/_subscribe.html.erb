@@ -2,6 +2,6 @@
   <%= form_for Subscription.new, html: { class: 'subscription inline' }, remote: true do |f| %>
     <%= f.hidden_field :site_id, value: site_id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "Subscribe", class: css %>
+    <%= f.submit "Subscribe", class: 'button_to' %>
   <% end %>
 </div>

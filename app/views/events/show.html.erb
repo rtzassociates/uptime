@@ -2,7 +2,6 @@
   <div class="row">
     <div class="span12">
       <%= render partial: "events/event_description", locals: { event: @event } %>
-      <hr>
       <%= render :partial => "problems/problem", :locals => { :event => @event } %>  
       <% if @event.resolved? %>
         <%= render :partial => "resolutions/resolution", :locals => { :event => @event } %>

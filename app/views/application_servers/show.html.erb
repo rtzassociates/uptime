@@ -1,7 +1,7 @@
-<%= render :partial => "server_details", :locals => { :server => @application_server } %>
+<%= render partial: "server_details", locals: { server: @application_server } %>
 
 <h4>Sites</h4>
-<p><%= sites_for @application_server %></p>
+<p><%= list_for @application_server.sites %></p>
 <br />
 
 <h4>Urls</h4>

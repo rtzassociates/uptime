@@ -244,13 +244,13 @@ describe 'sites' do
       end
 
         it "does not display an edit link" do
-          within(".site") do
+          within("#site") do
             expect(page).to_not have_link "Edit"
           end
         end
 
         it "does not display a destroy link" do
-          within(".site") do
+          within("#site") do
             expect(page).to_not have_link "Delete"
           end
         end

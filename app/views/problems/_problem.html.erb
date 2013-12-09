@@ -1,11 +1,3 @@
-<% unless @event.resolved? %>
-  <p>
-    <%= link_to 'Mark As Resolved', new_event_resolution_path(event), 
-    :class => "btn btn-large btn-success" %>
-  </p>
-  <br />
-<% end %>
-
 <%= render partial: "problems/problem_description", locals: { problem: @event.problem } %>
 
 <div class="actions">

@@ -1,11 +1,8 @@
-<h3>Resolution</h3>
-  
-<p>
-  Resolved by <%= link_to @event.resolved_by.username, @event.resolved_by %> 
-  on <%= long_date @event.resolution.resolved_at %>
-</p>
+<hr>
 
-<p><%= time_ago_in_words(@event.resolution.resolved_at).capitalize %> ago</p>
+<h2>Resolution</h2>
+  
+<%= render partial: "resolutions/resolved_by", locals: { event: @event } %>
 
 <p><%= markdown @event.resolution.description %></p>
 
@@ -13,12 +10,12 @@
   <ul>
 
     <% if allow? "resolutions", "edit", @event.resolution %>
-      <li><%= link_to edit_event_resolution_path(@event, @event.resolution) %></li>
+      <li><%= link_to 'Edit Resolution', edit_event_resolution_path(@event, @event.resolution) %></li>
     <% end %>
 
     <% if allow? "resolutions", "destroy", @event.resolution %>
       <li>
-        <%= link_to @event.resolution, method: :delete, 
+        <%= link_to 'Delete Resolution', event_resolution_path(@event, @event.resolution), method: :delete, 
         data: { confirm: "Are you sure?" }, class: "danger" %>
       </li>
     <% end %>
