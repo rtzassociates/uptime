@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :check_string
   
   belongs_to :site, touch: true
   
