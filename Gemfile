@@ -18,7 +18,7 @@ gem 'quiet_assets'
 gem 'chronic'
 gem 'redcarpet', '1.17.2'
 gem 'rabl'
-gem 'oj', :git => 'https://github.com/ohler55/oj.git'
+gem 'oj'
 
 # Gems used only for assets and not required
 # in production environments by default.
