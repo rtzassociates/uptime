@@ -29,7 +29,7 @@
           <% @networks.each do |network| %>
             <td><%= server.send("#{network.name}") || "" %></td>
           <% end %>
-          <td class="admin"><%= link_to 'Edit', send("edit_#{server.route}_path", server) %></td>
+          <td class="admin"><%= link_to 'Edit', send(server.edit_route_path, server) %></td>
           <td class="admin"><%= link_to 'Delete', server, method: :delete, data: { confirm: 'Are you sure?' }, :class => "danger" %></td>
         </tr>
       <% end %>

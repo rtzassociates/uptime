@@ -8,7 +8,7 @@
 </h4>
 <div class="admin actions">
   <ul>
-    <li><%= link_to 'Edit', server.edit_route_path %></li>
+    <li><%= link_to 'Edit', send(server.edit_route_path, server) %></li>
     <li>
       <%= link_to 'Delete', server, method: :delete, data: { confirm: "Are you sure?" }, 
       class: "danger" %>
