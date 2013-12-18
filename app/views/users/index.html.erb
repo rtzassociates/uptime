@@ -1,7 +1,9 @@
 <h1>User List</h1>
+<% if current_user.admin? %>
 <h4 class="admin">
   <%= link_to 'Create a new user', new_user_path %>
 </h4>
+<% end %>
 
 <%= render partial: "simple_search", locals: { path: users_path } %>
 

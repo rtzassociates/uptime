@@ -1,7 +1,7 @@
 FactoryGirl.define do 
 
   factory :database do
-    name "test database"
+    sequence(:name) { |n| "database#{n}" }
     database_server { FactoryGirl.create(:database_server) }
   end
 

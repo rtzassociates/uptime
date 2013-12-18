@@ -1,11 +1,15 @@
 <tr>
   <td><%= link_to user.username, user %></td>
   <td><%= user.email_address %></td>
+  <% if allow? "users", "edit" %>
   <td class="admin">
   	<%= link_to "Edit", edit_user_path(user) %>
   </td>
+  <% end %>
+  <% if allow? "users", "destroy" %>
   <td class="admin">
   	<%= link_to "Delete", user, method: :delete, 
     data: { confirm: "Are you sure?" }, class: "danger" %>
   </td>
+  <% end %>
 </tr>
